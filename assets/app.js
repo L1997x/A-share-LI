@@ -644,6 +644,59 @@ function normalizeQuantity(value) {
   return quantity >= 100 ? quantity : 0;
 }
 
+function minimumBuyLotCost(price) {
+  if (!isFiniteNumber(price) || Number(price) <= 0) return null;
+  const grossAmount = Number(price) * 100;
+  return grossAmount + calculateTradeFees("buy", grossAmount).total;
+}
+
+function buyOrderAffordability(order, options = {}) {
+  const settings = autoSettings();
+  const price = firstFinite(order.plannedEntryPrice, order.maxBuyPrice);
+  if (!price) {
+    return { affordable: false, reason: "缺少计划价，无法校验一手资金" };
+  }
+  const positionPct = isFiniteNumber(options.positionPct) ? Number(options.positionPct) : settings.maxPositionPct;
+  const snapshot = portfolioSnapshot();
+  const minimumCost = minimumBuyLotCost(price);
+  const positionLimit = snapshot.totalAssets * positionPct;
+  const quantity = autoBuyQuantity(price, { positionPct });
+  if (quantity >= 100) {
+    return { affordable: true, minimumCost, positionLimit, cash: state.simulation.cash };
+  }
+  const bottleneck = minimumCost > state.simulation.cash ? `当前现金${formatCurrency(state.simulation.cash)}元` : `单票上限${formatCurrency(positionLimit)}元`;
+  return {
+    affordable: false,
+    minimumCost,
+    positionLimit,
+    cash: state.simulation.cash,
+    reason: `一手约需${formatCurrency(minimumCost)}元，超过${bottleneck}`,
+  };
+}
+
+function filterAffordableBuyOrders(orders, events, contextLabel, options = {}) {
+  const affordableOrders = [];
+  const blockedOrders = [];
+  orders.forEach((order) => {
+    const check = buyOrderAffordability(order, options);
+    order.minimumLotCost = check.minimumCost;
+    if (check.affordable) {
+      affordableOrders.push(order);
+    } else {
+      order.affordabilityBlockReason = check.reason;
+      blockedOrders.push(order);
+    }
+  });
+  if (blockedOrders.length) {
+    const sample = blockedOrders
+      .slice(0, 3)
+      .map((order) => `${order.name}${order.minimumLotCost ? `一手约${formatCurrency(order.minimumLotCost, 0)}元` : ""}`)
+      .join("、");
+    events?.push({ type: "buy_skip", summary: `${contextLabel}资金约束过滤${blockedOrders.length}只：${sample}` });
+  }
+  return affordableOrders;
+}
+
 function portfolioSnapshot() {
   const positions = Object.values(state.simulation.positions || {}).map((position) => {
     const price = latestPriceFor(position.code) ?? averageCost(position);
@@ -1033,17 +1086,17 @@ function createEveningBuyPlans(runKey, events) {
     return;
   }
 
-  const orders = [...stocks()]
+  const candidateOrders = [...stocks()]
     .filter((stock) => !state.simulation.positions[stock.code])
     .filter((stock) => Number(stock.score || 0) >= settings.minScore)
     .filter((stock) => !stock.entry_safety_block_buy && stock.buy_signal_key !== "risk_wait" && stock.buy_signal_key !== "avoid" && stock.status_key !== "avoid")
     .sort((a, b) => Number(isActionableBuySignal(b)) - Number(isActionableBuySignal(a)) || Number(b.score || 0) - Number(a.score || 0))
-    .slice(0, limit)
     .map((stock) => buildPendingBuyOrder(stock, runKey));
+  const orders = filterAffordableBuyOrders(candidateOrders, events, "20点计划").slice(0, limit);
 
   const refreshedCodes = new Set(orders.map((order) => String(order.code)));
   const stillValidPending = (state.simulation.pendingBuyOrders || []).filter(
-    (order) => order.status === "pending" && !refreshedCodes.has(String(order.code)) && !isBuyOrderExpired(order)
+    (order) => order.status === "pending" && !refreshedCodes.has(String(order.code)) && !isBuyOrderExpired(order) && buyOrderAffordability(order).affordable
   );
   state.simulation.pendingBuyOrders = [
     ...orders,
@@ -1176,6 +1229,28 @@ function executePendingBuyOrders(runKey, events, options = {}) {
         name: order.name,
         summary: `${order.name}待买计划过期`,
         reason: order.cancelReason,
+        plannedEntryPrice: order.plannedEntryPrice,
+        maxBuyPrice: order.maxBuyPrice,
+        noChasePrice: order.noChasePrice,
+        validUntilDate: order.validUntilDate,
+        score: order.score,
+      });
+      return;
+    }
+
+    const affordability = buyOrderAffordability(order, {
+      positionPct: isAfternoonFinalMode(options) ? settings.afternoonMaxPositionPct : settings.maxPositionPct,
+    });
+    if (!affordability.affordable) {
+      markOrderCancelled(order, affordability.reason);
+      events.push({ type: "buy_cancel", code: order.code, summary: `${order.name}取消买入：${affordability.reason}` });
+      pushDecisionRecord({
+        type: "buy_cancelled",
+        status: "cancelled",
+        code: order.code,
+        name: order.name,
+        summary: `${order.name}取消买入`,
+        reason: affordability.reason,
         plannedEntryPrice: order.plannedEntryPrice,
         maxBuyPrice: order.maxBuyPrice,
         noChasePrice: order.noChasePrice,
@@ -1354,14 +1429,13 @@ function createMorningFallbackBuyOrders(runKey, events, options = {}) {
   const slots = Math.max(0, settings.maxStocks - Object.keys(state.simulation.positions || {}).length);
   const limit = Math.min(isAfternoonFinalMode(options) ? settings.afternoonMaxBuysPerRun : settings.maxBuysPerRun, slots);
   if (!limit) return [];
-  const orders = [...stocks()]
+  const candidateOrders = [...stocks()]
     .filter((stock) => !state.simulation.positions[stock.code])
     .filter((stock) => Number(stock.score || 0) >= settings.minScore)
     .filter((stock) => isActionableBuySignal(stock))
     .filter((stock) => !stock.entry_safety_block_buy && stock.buy_signal_key !== "risk_wait" && stock.buy_signal_key !== "avoid" && stock.status_key !== "avoid")
     .filter((stock) => !isAfternoonFinalMode(options) || !afternoonBuyBlockReason(stock))
     .sort((a, b) => Number(b.score || 0) - Number(a.score || 0))
-    .slice(0, limit)
     .map((stock) =>
       buildPendingBuyOrder(stock, `${runKey}|morning-fallback`, {
         actionable: true,
@@ -1369,6 +1443,9 @@ function createMorningFallbackBuyOrders(runKey, events, options = {}) {
         reasonPrefix: isAfternoonFinalMode(options) ? buyCheckLabel : `${buyCheckLabel}即时计划`,
       })
     );
+  const orders = filterAffordableBuyOrders(candidateOrders, events, `${buyCheckLabel}即时计划`, {
+    positionPct: isAfternoonFinalMode(options) ? settings.afternoonMaxPositionPct : settings.maxPositionPct,
+  }).slice(0, limit);
   if (!orders.length) return [];
 
   state.simulation.pendingBuyOrders = [
