@@ -63,6 +63,13 @@ h1 {
   line-height: 1.2;
 }
 
+.topbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 main {
   width: min(960px, 100%);
   margin: 0 auto;
@@ -88,6 +95,13 @@ main {
 .danger-button {
   border-color: var(--red);
   color: var(--red);
+}
+
+.ghost-button:disabled,
+.primary-button:disabled,
+.danger-button:disabled {
+  cursor: progress;
+  opacity: 0.65;
 }
 
 .summary-band {
@@ -599,7 +613,12 @@ dd {
 
 @media (max-width: 700px) {
   .topbar {
+    align-items: flex-start;
     padding: 14px 14px 12px;
+  }
+
+  .topbar-actions {
+    max-width: 116px;
   }
 
   h1 {

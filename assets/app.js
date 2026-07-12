@@ -902,6 +902,13 @@ function setSimulationMessage(message, type = "info") {
   element.className = `simulation-message ${type}`;
 }
 
+function setManualRefreshButton(isLoading = false, label = "") {
+  const button = byId("manualRefreshButton");
+  if (!button) return;
+  button.disabled = Boolean(isLoading);
+  button.textContent = label || (isLoading ? "更新中..." : "手动更新");
+}
+
 function currentAutoRunKey() {
   return autoRunKeyForData(state.data);
 }
@@ -1717,7 +1724,12 @@ function pushAutoLog(runKey, phase, events) {
 
 async function loadPool(options = {}) {
   const { silent = false, reason = "manual" } = options;
-  if (state.refreshInFlight) return { ok: false, skipped: true };
+  const isManualRefresh = reason === "manual";
+  if (state.refreshInFlight) {
+    if (isManualRefresh && !silent) setSimulationMessage("正在更新，请稍候。", "info");
+    return { ok: false, skipped: true };
+  }
+  if (isManualRefresh) setManualRefreshButton(true, "更新中...");
   state.refreshInFlight = true;
   const previousRunKey = currentAutoRunKey();
   try {
@@ -1745,6 +1757,14 @@ async function loadPool(options = {}) {
     if (silent && changed) {
       setSimulationMessage(`自动刷新发现新数据：${state.data.universe_scan?.update_phase_label || state.data.generated_at || state.data.as_of_date || "-"}`, "success");
     }
+    if (!silent) {
+      setSimulationMessage(
+        changed
+          ? `已更新到最新快照：${state.data.universe_scan?.update_phase_label || state.data.generated_at || state.data.as_of_date || "-"}`
+          : state.lastRefreshStatus,
+        changed ? "success" : "info"
+      );
+    }
     return { ok: true, changed, runKey: nextRunKey };
   } catch (error) {
     state.lastRefreshCheckAt = new Date().toISOString();
@@ -1759,6 +1779,7 @@ async function loadPool(options = {}) {
     return { ok: false, error };
   } finally {
     state.refreshInFlight = false;
+    if (isManualRefresh) setManualRefreshButton(false);
   }
 }
 
@@ -2412,6 +2433,10 @@ function createReviewRow(record) {
 }
 
 function bindSimulationEvents() {
+  byId("manualRefreshButton").addEventListener("click", () => {
+    loadPool({ silent: false, reason: "manual" });
+  });
+
   byId("simulationStockSelect").addEventListener("change", (event) => {
     state.simulation.selectedCode = event.target.value;
     const stock = findStock(event.target.value);
