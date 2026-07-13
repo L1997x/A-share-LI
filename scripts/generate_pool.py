@@ -51,6 +51,20 @@ SCHEDULE_PHASE_MAP = {
     "0 12 * * 1-5": ("evening_watch", "20点次日关注"),
     "8 12 * * 1-5": ("evening_watch", "20点次日关注"),
 }
+SCHEDULE_PHASE_MAP.update(
+    {
+        "53 1 * * 1-5": SCHEDULE_PHASE_MAP["0 2 * * 1-5"],
+        "11 2 * * 1-5": SCHEDULE_PHASE_MAP["0 2 * * 1-5"],
+        "13 3 * * 1-5": SCHEDULE_PHASE_MAP["20 3 * * 1-5"],
+        "31 3 * * 1-5": SCHEDULE_PHASE_MAP["20 3 * * 1-5"],
+        "23 5 * * 1-5": SCHEDULE_PHASE_MAP["30 5 * * 1-5"],
+        "41 5 * * 1-5": SCHEDULE_PHASE_MAP["30 5 * * 1-5"],
+        "23 6 * * 1-5": SCHEDULE_PHASE_MAP["30 6 * * 1-5"],
+        "41 6 * * 1-5": SCHEDULE_PHASE_MAP["30 6 * * 1-5"],
+        "53 11 * * 1-5": SCHEDULE_PHASE_MAP["0 12 * * 1-5"],
+        "11 12 * * 1-5": SCHEDULE_PHASE_MAP["0 12 * * 1-5"],
+    }
+)
 EASTMONEY_FUND_FLOW_URL = "https://push2.eastmoney.com/api/qt/clist/get"
 EASTMONEY_FUND_FLOW_FS = "m:0+t:6+f:!2,m:0+t:13+f:!2,m:0+t:80+f:!2,m:1+t:2+f:!2,m:1+t:23+f:!2,m:0+t:7+f:!2,m:1+t:3+f:!2"
 FUND_FLOW_KEYS = [

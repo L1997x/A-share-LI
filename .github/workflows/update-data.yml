@@ -5,7 +5,8 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "scripts/generate_pool.py"
+      - "scripts/**"
+      - "tests/**"
       - "assets/**"
       - "index.html"
       - "sw.js"
@@ -14,35 +15,37 @@ on:
       - "requirements.txt"
       - ".github/workflows/update-data.yml"
   schedule:
-    # GitHub cron uses UTC. Primary slots map to Beijing time 10:00, 11:20, 13:30, 14:30, and 20:00.
-    - cron: "0 2 * * 1-5"
-    - cron: "20 3 * * 1-5"
-    - cron: "30 5 * * 1-5"
-    - cron: "30 6 * * 1-5"
-    - cron: "0 12 * * 1-5"
-    # Backup slots reduce the chance of a missed/delayed scheduled refresh.
-    - cron: "8 2 * * 1-5"
-    - cron: "28 3 * * 1-5"
-    - cron: "38 5 * * 1-5"
-    - cron: "38 6 * * 1-5"
-    - cron: "8 12 * * 1-5"
+    # GitHub cron uses UTC. Primary jobs start about seven minutes before the
+    # requested Beijing-time snapshot; backups use uncommon minutes to avoid
+    # top-of-hour congestion.
+    - cron: "53 1 * * 1-5"  # 09:53 -> 10:00 target
+    - cron: "11 2 * * 1-5"  # 10:11 backup
+    - cron: "13 3 * * 1-5"  # 11:13 -> 11:20 target
+    - cron: "31 3 * * 1-5"  # 11:31 backup
+    - cron: "23 5 * * 1-5"  # 13:23 -> 13:30 target
+    - cron: "41 5 * * 1-5"  # 13:41 backup
+    - cron: "23 6 * * 1-5"  # 14:23 -> 14:30 target
+    - cron: "41 6 * * 1-5"  # 14:41 backup
+    - cron: "53 11 * * 1-5" # 19:53 -> 20:00 target
+    - cron: "11 12 * * 1-5" # 20:11 backup
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
+# Queue refreshes instead of canceling a data build when delayed cron events
+# arrive close together. The guard below removes obsolete duplicates cheaply.
 concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  group: "a-share-refresh"
+  cancel-in-progress: false
 
 jobs:
   update:
-    timeout-minutes: 45
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 45
+    outputs:
+      deploy_required: ${{ steps.refresh_mode.outputs.deploy_required }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,25 +55,44 @@ jobs:
       - name: Sync latest main
         run: git pull --rebase origin main
 
-      - name: Decide whether to regenerate data
+      - name: Validate refresh guard
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Decide refresh mode
         id: refresh_mode
         shell: bash
         run: |
-          if [[ "${{ github.event_name }}" != "push" ]]; then
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            python3 scripts/refresh_guard.py \
+              --event schedule \
+              --schedule "${{ github.event.schedule }}" \
+              --latest data/latest.json \
+              --github-output "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             echo "run_generator=true" >> "$GITHUB_OUTPUT"
-            echo "Scheduled/manual run: regenerate data."
+            echo "deploy_required=true" >> "$GITHUB_OUTPUT"
+            echo "effective_schedule=" >> "$GITHUB_OUTPUT"
+            echo "decision=Manual run requested." >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           changed_files="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" || true)"
           echo "$changed_files"
-          if echo "$changed_files" | grep -Eq '^(scripts/|requirements\.txt$)'; then
+          if echo "$changed_files" | grep -Eq '^(scripts/generate_pool\.py|requirements\.txt)$'; then
             echo "run_generator=true" >> "$GITHUB_OUTPUT"
-            echo "Generator-affecting files changed: regenerate data."
+            echo "decision=Generator-affecting files changed." >> "$GITHUB_OUTPUT"
           else
             echo "run_generator=false" >> "$GITHUB_OUTPUT"
-            echo "Static/app-only push: skip data generation and deploy current files."
+            echo "decision=Static or workflow-only push." >> "$GITHUB_OUTPUT"
           fi
+          echo "deploy_required=true" >> "$GITHUB_OUTPUT"
+          echo "effective_schedule=" >> "$GITHUB_OUTPUT"
+
+      - name: Show refresh decision
+        run: echo "${{ steps.refresh_mode.outputs.decision }}"
 
       - name: Set up Python
         if: steps.refresh_mode.outputs.run_generator == 'true'
@@ -88,7 +110,7 @@ jobs:
         if: steps.refresh_mode.outputs.run_generator == 'true'
         env:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
+          GITHUB_EVENT_SCHEDULE: ${{ steps.refresh_mode.outputs.effective_schedule }}
         run: python scripts/generate_pool.py
 
       - name: Commit updated data
@@ -105,8 +127,20 @@ jobs:
             echo "No data changes."
           fi
 
-      # GITHUB_TOKEN data commits do not trigger the separate Pages workflow,
-      # so this job deploys the static app after each scheduled data refresh.
+  deploy:
+    needs: update
+    if: needs.update.outputs.deploy_required == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

@@ -530,10 +530,53 @@ function isWeekendDate(dateText) {
   return day === 0 || day === 6;
 }
 
+function expectedIntradaySnapshot(data, now = new Date()) {
+  const asOfDate = data?.as_of_date;
+  const generatedAt = String(data?.generated_at || "");
+  const chinaParts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Shanghai",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    })
+      .formatToParts(now)
+      .filter((part) => part.type !== "literal")
+      .map((part) => [part.type, part.value])
+  );
+  const today = `${chinaParts.year}-${chinaParts.month}-${chinaParts.day}`;
+  if (!asOfDate || asOfDate !== today || isWeekendDate(today)) return null;
+
+  const currentMinutes = Number(chinaParts.hour) * 60 + Number(chinaParts.minute);
+  const checkpoints = [
+    { target: 10 * 60, grace: 25, label: "10:00" },
+    { target: 11 * 60 + 20, grace: 25, label: "11:20" },
+    { target: 13 * 60 + 30, grace: 25, label: "13:30" },
+    { target: 14 * 60 + 30, grace: 25, label: "14:30" },
+    { target: 20 * 60, grace: 25, label: "20:00" },
+  ];
+  const dueCheckpoints = checkpoints.filter((item) => currentMinutes >= item.target + item.grace);
+  const expected = dueCheckpoints[dueCheckpoints.length - 1];
+  if (!expected) return null;
+
+  const generatedMatch = generatedAt.match(/^(\d{4}-\d{2}-\d{2})T(\d{2}):(\d{2})/);
+  const generatedDate = generatedMatch?.[1] || "";
+  const generatedMinutes = generatedMatch ? Number(generatedMatch[2]) * 60 + Number(generatedMatch[3]) : -1;
+  if (generatedDate === today && generatedMinutes >= expected.target - 12) return null;
+  return expected;
+}
+
 function marketFreshnessNote(data) {
   const asOfDate = data?.as_of_date;
   if (!asOfDate) return "";
   const today = currentCalendarDateText();
+  const delayedSnapshot = expectedIntradaySnapshot(data);
+  if (delayedSnapshot) {
+    return `；${delayedSnapshot.label} 计划快照尚未发布，系统正在等待 GitHub 备用任务恢复`;
+  }
   if (compareDateText(asOfDate, today) >= 0) return "";
   if (isWeekendDate(today)) {
     return `；今天${weekdayLabel(today)}休市，显示最近交易日 ${asOfDate} 的数据属于正常情况`;
