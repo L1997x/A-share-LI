@@ -129,6 +129,7 @@ jobs:
 
       - name: Generate latest pool
         if: steps.refresh_mode.outputs.run_generator == 'true'
+        timeout-minutes: 20
         env:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           GITHUB_EVENT_SCHEDULE: ${{ steps.refresh_mode.outputs.effective_schedule }}
