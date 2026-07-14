@@ -1599,13 +1599,15 @@ def update_phase_from_timestamp(value: Any = None) -> tuple[str, str]:
         dt = dt.replace(tzinfo=CN_TZ)
     local = dt.astimezone(CN_TZ)
     minutes = local.hour * 60 + local.minute
-    if minutes < 11 * 60:
+    # Ad-hoc and recovery runs inherit the latest completed checkpoint instead
+    # of being labeled as a future checkpoint.
+    if minutes < 11 * 60 + 20:
         return "morning_entry", "10点早盘接入"
-    if minutes < 12 * 60:
+    if minutes < 13 * 60 + 30:
         return "morning_entry", "11:20午前买入复检"
-    if 13 * 60 <= minutes < 14 * 60 + 20:
+    if minutes < 14 * 60 + 30:
         return "morning_entry", "13:30午后买入复检"
-    if minutes < 17 * 60:
+    if minutes < 20 * 60:
         return "afternoon_risk", "14:30尾盘风控"
     return "evening_watch", "20点次日关注"
 
