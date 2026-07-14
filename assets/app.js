@@ -209,6 +209,7 @@ const formatEntrySafety = (stock) => {
 function createDefaultSimulation() {
   return {
     schemaVersion: 4,
+    cloudManaged: false,
     initialCash: INITIAL_SIM_CASH,
     cash: INITIAL_SIM_CASH,
     positions: {},
@@ -221,6 +222,7 @@ function createDefaultSimulation() {
     pendingBuyOrders: [],
     sellPlans: {},
     decisionJournal: [],
+    diagnostics: {},
   };
 }
 
@@ -288,6 +290,7 @@ function sanitizeSimulation(raw) {
   const decisionJournal = normalizeDecisionJournal(raw.decisionJournal);
   return {
     schemaVersion: 4,
+    cloudManaged: Boolean(raw.cloudManaged),
     initialCash,
     cash,
     positions,
@@ -300,6 +303,7 @@ function sanitizeSimulation(raw) {
     pendingBuyOrders,
     sellPlans,
     decisionJournal,
+    diagnostics: raw.diagnostics && typeof raw.diagnostics === "object" ? raw.diagnostics : {},
   };
 }
 
@@ -355,6 +359,8 @@ function normalizePendingBuyOrders(raw = []) {
         buySignalKey: order.buySignalKey || "",
         statusKey: order.statusKey || "",
         entrySafetyBlockBuy: Boolean(order.entrySafetyBlockBuy),
+        planType: order.planType || "watch",
+        targetPositionPct: isFiniteNumber(order.targetPositionPct) ? Number(order.targetPositionPct) : null,
         reason: order.reason || "",
         cancelReason: order.cancelReason || "",
         executedAt: order.executedAt || "",
@@ -439,6 +445,7 @@ function clampPercent(value, fallback, min, max) {
 }
 
 function saveSimulation() {
+  if (state.simulation.cloudManaged) return;
   localStorage.setItem(SIM_STORAGE_KEY, JSON.stringify(state.simulation));
 }
 
@@ -998,6 +1005,7 @@ function buyCheckLabelForOptions(options = {}) {
 
 function runAutoStrategy({ force = false, quiet = false } = {}) {
   if (!state.data) return { ran: false, events: [] };
+  if (state.simulation.cloudManaged) return { ran: false, events: [] };
   const settings = autoSettings();
   if (!settings.enabled) {
     if (!quiet) setSimulationMessage("自动模拟交易未启用。", "info");
@@ -1787,6 +1795,9 @@ async function loadPool(options = {}) {
     const nextRunKey = autoRunKeyForData(nextData);
     const changed = Boolean(nextRunKey && nextRunKey !== previousRunKey);
     state.data = nextData;
+    if (state.data.cloud_simulation && typeof state.data.cloud_simulation === "object") {
+      state.simulation = sanitizeSimulation(state.data.cloud_simulation);
+    }
     state.review = state.data.review || null;
     try {
       const reviewResponse = await fetch(`data/review.json?t=${Date.now()}`, { cache: "no-store" });
@@ -1848,7 +1859,7 @@ function render() {
 
   renderModelStatus(data);
   renderStockList();
-  runAutoStrategy({ quiet: true });
+  if (!state.simulation.cloudManaged) runAutoStrategy({ quiet: true });
   renderSimulationPanel();
   if (state.autoRunMessage) setSimulationMessage(state.autoRunMessage, "info");
   renderReviewCenter();
@@ -2042,7 +2053,9 @@ function renderSimulationPanel() {
   syncSimulationSelect();
   const snapshot = portfolioSnapshot();
 
-  byId("simulationBadge").textContent = `初始 ${formatCurrency(state.simulation.initialCash, 0)} 元`;
+  byId("simulationBadge").textContent = state.simulation.cloudManaged
+    ? `云端自动 · 初始 ${formatCurrency(state.simulation.initialCash, 0)} 元`
+    : `初始 ${formatCurrency(state.simulation.initialCash, 0)} 元`;
   byId("simTotalAssets").textContent = formatCurrency(snapshot.totalAssets);
   byId("simCash").textContent = formatCurrency(state.simulation.cash);
   byId("simMarketValue").textContent = formatCurrency(snapshot.marketValue);
@@ -2052,7 +2065,11 @@ function renderSimulationPanel() {
   byId("simLiquidationReturn").className = returnClass(snapshot.liquidationReturn);
   byId("simPositionCount").textContent = String(snapshot.positions.length);
   byId("simTotalFees").textContent = formatCurrency(totalTradeFees());
-  byId("simAutoStatus").textContent = autoSettings().enabled ? `已启用 · ${phaseLabel()}` : "已关闭";
+  byId("simAutoStatus").textContent = state.simulation.cloudManaged
+    ? `云端运行 · ${phaseLabel()}`
+    : autoSettings().enabled
+      ? `已启用 · ${phaseLabel()}`
+      : "已关闭";
 
   renderAutoStrategyControls();
   renderSimulationPositions(snapshot.positions);
@@ -2094,6 +2111,16 @@ function renderAutoStrategyControls() {
   byId("feeMinCommission").value = formatNumber(fees.minCommission, 1);
   byId("feeStampDutyRate").value = formatNumber(fees.stampDutyRate * 100, 3);
   byId("feeTransferRate").value = formatNumber(fees.transferFeeRate * 100, 4);
+  if (state.simulation.cloudManaged) {
+    const diagnostics = state.simulation.diagnostics || {};
+    const waitReasons = Object.entries(diagnostics.waitReasonCounts || {})
+      .sort((a, b) => Number(b[1]) - Number(a[1]))
+      .slice(0, 3)
+      .map(([reason, count]) => `${reason}${count}次`)
+      .join("；");
+    byId("autoStrategyNote").textContent = `云端策略最近执行：${diagnostics.lastRunAt || "等待首次运行"}。手机和电脑关闭后仍会随数据快照运行。累计处理${diagnostics.snapshotsProcessed || 0}个快照，生成计划${diagnostics.plansCreated || 0}条，买入${diagnostics.buysExecuted || 0}次，卖出${diagnostics.sellsExecuted || 0}次。${waitReasons ? `主要等待原因：${waitReasons}。` : ""}观察计划不会直接成交；只有明确可买信号，或偏暖市场高分标的进入1.5个ATR缓冲区且位于MA20的-3%至+5%区间，才会升级为10%仓位的小仓试买。`;
+    return;
+  }
   const refreshText = `页面自动刷新：开启，每${AUTO_REFRESH_INTERVAL_LABEL}检查一次；最近检查 ${formatRefreshTime(
     state.lastRefreshCheckAt
   )}，${state.lastRefreshStatus || "等待检查"}。页面关闭或被手机系统挂起后不会后台运行。`;
@@ -2105,7 +2132,7 @@ function renderAutoStrategyControls() {
 function renderSimulationPositions(positions) {
   const container = byId("simulationPositions");
   if (!positions.length) {
-    container.innerHTML = '<p class="empty-text">暂无模拟持仓。可以从股票卡片点击“用此价模拟买入”，或在上方手动选择股票。</p>';
+    container.innerHTML = `<p class="empty-text">暂无模拟持仓。${state.simulation.cloudManaged ? "云端策略会在价格和风控条件同时满足后自动建仓。" : "等待自动策略触发。"}</p>`;
     return;
   }
 
@@ -2141,7 +2168,7 @@ function renderSimulationTrades() {
   const container = byId("simulationTrades");
   const trades = state.simulation.trades || [];
   if (!trades.length) {
-    container.innerHTML = '<p class="empty-text">暂无成交记录。模拟成交只保存在当前浏览器，不会同步到真实账户。</p>';
+    container.innerHTML = `<p class="empty-text">暂无成交记录。${state.simulation.cloudManaged ? "云端模拟账户尚未出现满足条件的成交。" : "模拟成交只保存在当前浏览器。"}</p>`;
     return;
   }
 
@@ -2151,7 +2178,7 @@ function renderSimulationTrades() {
       const isBuy = trade.type === "buy";
       const pnlText = isBuy || !isFiniteNumber(trade.realizedPnl) ? "" : ` · 已实现 ${formatCurrency(trade.realizedPnl)}`;
       const feeText = trade.fees?.total ? ` · 费用 ${formatCurrency(trade.fees.total)}` : "";
-      const sourceText = trade.source === "auto" ? "自动" : "手动";
+      const sourceText = trade.source === "cloud_auto" ? "云端自动" : trade.source === "auto" ? "自动" : "手动";
       return `
         <article class="simulation-row compact">
           <div>
@@ -2186,10 +2213,11 @@ function renderSimulationPlans() {
   const buyRows = pendingOrders.map(
     (order) => {
       ensureBuyOrderValidUntil(order);
+      const planLabel = order.planType === "executable" ? "可执行" : order.planType === "trial" ? "小仓试买观察" : "观察";
       return `
         <article class="simulation-row compact">
           <div>
-            <strong>待买 ${escapeHtml(order.name)}</strong>
+            <strong>${escapeHtml(planLabel)} ${escapeHtml(order.name)}</strong>
             <em>${escapeHtml(order.code)} · ${escapeHtml(order.reason || "20点计划")}</em>
           </div>
           <div>
@@ -2198,7 +2226,7 @@ function renderSimulationPlans() {
           </div>
           <div>
             <span>执行窗口</span>
-            <strong>10:00/11:20/13:30复检，14:30严格复检 · 有效至${escapeHtml(order.validUntilDate || "-")}</strong>
+            <strong>所有交易快照云端复检 · 有效至${escapeHtml(order.validUntilDate || "-")}</strong>
           </div>
         </article>
       `;

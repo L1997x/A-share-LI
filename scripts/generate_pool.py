@@ -14,6 +14,11 @@ import numpy as np
 import pandas as pd
 import requests
 
+try:
+    from .cloud_simulation import default_simulation, replay_cloud_simulation, run_cloud_simulation, sanitize_simulation
+except ImportError:
+    from cloud_simulation import default_simulation, replay_cloud_simulation, run_cloud_simulation, sanitize_simulation
+
 os.environ.setdefault("NO_PROXY", "*")
 os.environ.setdefault("no_proxy", "*")
 
@@ -23,6 +28,7 @@ LATEST_PATH = DATA_DIR / "latest.json"
 REVIEW_PATH = DATA_DIR / "review.json"
 UNIVERSE_PATH = DATA_DIR / "universe_scan.json"
 MODEL_FEEDBACK_PATH = DATA_DIR / "model_feedback.json"
+CLOUD_SIMULATION_PATH = DATA_DIR / "simulation.json"
 HISTORY_DIR = DATA_DIR / "history"
 HISTORY_SNAPSHOT_DIR = HISTORY_DIR / "snapshots"
 HISTORY_SNAPSHOT_RETENTION = 120
@@ -3646,6 +3652,21 @@ def history_snapshot_filename(payload: dict[str, Any]) -> str:
     return f"{dt.strftime('%Y-%m-%dT%H%M%S%z')}.json"
 
 
+def load_cloud_simulation_state() -> dict[str, Any]:
+    try:
+        return sanitize_simulation(json.loads(CLOUD_SIMULATION_PATH.read_text(encoding="utf-8")))
+    except (FileNotFoundError, json.JSONDecodeError, UnicodeDecodeError):
+        pass
+
+    snapshots: list[dict[str, Any]] = []
+    for path in sorted(HISTORY_SNAPSHOT_DIR.glob("*.json")):
+        try:
+            snapshots.append(json.loads(path.read_text(encoding="utf-8")))
+        except (json.JSONDecodeError, UnicodeDecodeError, OSError):
+            continue
+    return replay_cloud_simulation(snapshots, default_simulation()) if snapshots else default_simulation()
+
+
 def prune_history_snapshots() -> None:
     if not HISTORY_SNAPSHOT_DIR.exists():
         return
@@ -3676,6 +3697,9 @@ def write_payload(payload: dict[str, Any]) -> None:
     feedback_payload = payload.get("model_feedback")
     if isinstance(feedback_payload, dict):
         MODEL_FEEDBACK_PATH.write_text(json.dumps(feedback_payload, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+    cloud_simulation = payload.get("cloud_simulation")
+    if isinstance(cloud_simulation, dict):
+        CLOUD_SIMULATION_PATH.write_text(json.dumps(cloud_simulation, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     history_path = HISTORY_DIR / f"{payload['as_of_date']}.json"
     history_path.write_text(text + "\n", encoding="utf-8")
     snapshot_path = HISTORY_SNAPSHOT_DIR / history_snapshot_filename(payload)
@@ -3684,10 +3708,14 @@ def write_payload(payload: dict[str, Any]) -> None:
 
 
 def main() -> None:
+    cloud_simulation = load_cloud_simulation_state()
     try:
         payload = build_payload()
     except Exception as exc:
         payload = fallback_latest(exc)
+    if not (payload.get("source_status") or {}).get("fallback"):
+        cloud_simulation = run_cloud_simulation(payload, cloud_simulation)
+    payload["cloud_simulation"] = cloud_simulation
     write_payload(payload)
     print(f"wrote {LATEST_PATH}")
     print(f"as_of_date={payload.get('as_of_date')} fallback={payload.get('source_status', {}).get('fallback')}")
