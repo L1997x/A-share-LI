@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 import worker, { dispatchWorkflow } from "../src/index.js";
@@ -11,6 +12,14 @@ const env = {
   GITHUB_WORKFLOW: "update-data.yml",
   GITHUB_REF: "main",
 };
+
+const PRIMARY_CRONS = [
+  "53 1 * * 1-5",
+  "13 3 * * 1-5",
+  "23 5 * * 1-5",
+  "23 6 * * 1-5",
+  "53 11 * * 1-5",
+];
 
 
 test("dispatches the workflow with the Cloudflare cron", async () => {
@@ -53,4 +62,12 @@ test("scheduled handler registers the dispatch promise", async () => {
   } finally {
     globalThis.fetch = originalFetch;
   }
+});
+
+
+test("free plan deploys only the five primary cron triggers", async () => {
+  const configUrl = new URL("../wrangler.jsonc", import.meta.url);
+  const config = JSON.parse(await readFile(configUrl, "utf8"));
+  assert.deepEqual(config.triggers.crons, PRIMARY_CRONS);
+  assert.ok(config.triggers.crons.length <= 5);
 });
