@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "a-share-li-refresh-trigger",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-14",
+  "workers_dev": false,
+  "vars": {
+    "GITHUB_OWNER": "L1997x",
+    "GITHUB_REPO": "A-share-LI",
+    "GITHUB_WORKFLOW": "update-data.yml",
+    "GITHUB_REF": "main"
+  },
+  "triggers": {
+    "crons": [
+      "53 1 * * 1-5",
+      "11 2 * * 1-5",
+      "13 3 * * 1-5",
+      "31 3 * * 1-5",
+      "23 5 * * 1-5",
+      "41 5 * * 1-5",
+      "23 6 * * 1-5",
+      "41 6 * * 1-5",
+      "53 11 * * 1-5",
+      "11 12 * * 1-5"
+    ]
+  }
+}

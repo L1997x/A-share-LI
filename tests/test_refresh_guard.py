@@ -4,7 +4,7 @@ import unittest
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-from scripts.refresh_guard import decide_refresh
+from scripts.refresh_guard import WATCHDOG_SCHEDULE, decide_refresh
 
 
 CN_TZ = ZoneInfo("Asia/Shanghai")
@@ -58,6 +58,36 @@ class RefreshGuardTests(unittest.TestCase):
             datetime(2026, 7, 13, 11, 13, tzinfo=CN_TZ),
         )
         self.assertTrue(decision.run_generator)
+
+    def test_watchdog_recovers_a_missed_target(self) -> None:
+        decision = decide_refresh(
+            "schedule",
+            WATCHDOG_SCHEDULE,
+            {"generated_at": "2026-07-13T22:32:00+08:00", "update_phase": "evening_watch"},
+            datetime(2026, 7, 14, 10, 22, tzinfo=CN_TZ),
+        )
+        self.assertTrue(decision.run_generator)
+        self.assertEqual(decision.effective_schedule, "53 1 * * 1-5")
+
+    def test_watchdog_skips_a_covered_target(self) -> None:
+        decision = decide_refresh(
+            "schedule",
+            WATCHDOG_SCHEDULE,
+            {"generated_at": "2026-07-14T09:59:00+08:00", "update_phase": "morning_entry"},
+            datetime(2026, 7, 14, 10, 22, tzinfo=CN_TZ),
+        )
+        self.assertFalse(decision.run_generator)
+        self.assertFalse(decision.deploy_required)
+
+    def test_watchdog_targets_the_latest_due_checkpoint(self) -> None:
+        decision = decide_refresh(
+            "schedule",
+            WATCHDOG_SCHEDULE,
+            {"generated_at": "2026-07-14T10:00:00+08:00", "update_phase": "morning_entry"},
+            datetime(2026, 7, 14, 11, 52, tzinfo=CN_TZ),
+        )
+        self.assertTrue(decision.run_generator)
+        self.assertEqual(decision.effective_schedule, "13 3 * * 1-5")
 
 
 if __name__ == "__main__":

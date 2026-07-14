@@ -3606,6 +3606,7 @@ def build_payload() -> dict[str, Any]:
         "schema_version": "1.0",
         "generated_at": generated_at,
         "as_of_date": as_of_date,
+        "refresh_trigger": os.getenv("GITHUB_TRIGGER_SOURCE") or os.getenv("GITHUB_EVENT_NAME") or "local",
         "update_phase": current_feedback_context["update_phase"],
         "update_phase_label": current_feedback_context["update_phase_label"],
         "market": "A股主板",

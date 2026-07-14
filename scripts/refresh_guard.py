@@ -34,6 +34,14 @@ SCHEDULE_SLOTS = {
     "53 11 * * 1-5": ScheduleSlot(time(20, 0), "evening_watch", 180),
     "11 12 * * 1-5": ScheduleSlot(time(20, 0), "evening_watch", 180),
 }
+WATCHDOG_SCHEDULE = "7,22,37,52 1-12 * * 1-5"
+PRIMARY_SLOTS = (
+    ("53 1 * * 1-5", SCHEDULE_SLOTS["53 1 * * 1-5"]),
+    ("13 3 * * 1-5", SCHEDULE_SLOTS["13 3 * * 1-5"]),
+    ("23 5 * * 1-5", SCHEDULE_SLOTS["23 5 * * 1-5"]),
+    ("23 6 * * 1-5", SCHEDULE_SLOTS["23 6 * * 1-5"]),
+    ("53 11 * * 1-5", SCHEDULE_SLOTS["53 11 * * 1-5"]),
+)
 
 
 @dataclass(frozen=True)
@@ -56,6 +64,42 @@ def parse_datetime(value: Any) -> datetime | None:
     return parsed.astimezone(CN_TZ)
 
 
+def decide_watchdog(latest: dict[str, Any] | None, now: datetime | None = None) -> RefreshDecision:
+    local_now = (now or datetime.now(CN_TZ)).astimezone(CN_TZ)
+    due_slots: list[tuple[str, ScheduleSlot, datetime]] = []
+    for schedule, slot in PRIMARY_SLOTS:
+        target = datetime.combine(local_now.date(), slot.target, tzinfo=CN_TZ)
+        if local_now >= target + timedelta(minutes=20):
+            due_slots.append((schedule, slot, target))
+
+    if not due_slots:
+        return RefreshDecision(False, False, "", "No target snapshot is due yet.")
+
+    schedule, slot, target = due_slots[-1]
+    latest = latest or {}
+    latest_generated = parse_datetime(latest.get("generated_at"))
+    latest_phase = str(latest.get("update_phase") or "")
+    if (
+        latest_generated
+        and latest_generated.date() == target.date()
+        and latest_generated >= target - timedelta(minutes=12)
+        and latest_phase == slot.phase
+    ):
+        return RefreshDecision(
+            False,
+            False,
+            schedule,
+            f"Watchdog found target covered by snapshot {latest_generated.isoformat()}.",
+        )
+
+    return RefreshDecision(
+        True,
+        True,
+        schedule,
+        f"Watchdog is recovering the missed {slot.target.strftime('%H:%M')} target.",
+    )
+
+
 def decide_refresh(
     event_name: str,
     schedule: str,
@@ -66,6 +110,9 @@ def decide_refresh(
         return RefreshDecision(True, True, "", "Manual run requested.")
     if event_name != "schedule":
         return RefreshDecision(False, True, "", "Push run deploys repository changes.")
+
+    if schedule == WATCHDOG_SCHEDULE:
+        return decide_watchdog(latest, now)
 
     slot = SCHEDULE_SLOTS.get(schedule)
     if slot is None:
