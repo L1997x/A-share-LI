@@ -111,6 +111,11 @@ function refreshReasonLabel(reason) {
   return labels[reason] || "手动检查";
 }
 
+function formatDataMinute(value, fallback = "-") {
+  const match = String(value || "").match(/^(\d{4}-\d{2}-\d{2})T(\d{2}):(\d{2})/);
+  return match ? `${match[1]} ${match[2]}:${match[3]}` : fallback;
+}
+
 const formatFundMoney = (value) => {
   if (!isFiniteNumber(value)) return "-";
   return `${(Number(value) / 100000000).toFixed(2)}亿`;
@@ -1830,7 +1835,7 @@ function render() {
   const { data } = state;
   if (!data) return;
 
-  byId("asOfDate").textContent = data.as_of_date || "-";
+  byId("asOfDate").textContent = formatDataMinute(data.generated_at, data.as_of_date || "-");
   byId("poolCount").textContent = String(data.stocks?.length || 0);
   byId("universeScope").textContent = data.universe_scan?.mainboard_count
     ? `${data.universe_scan.mainboard_count}只→${data.universe_scan.deep_analysis_count || 0}只`
