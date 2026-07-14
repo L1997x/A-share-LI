@@ -102,7 +102,7 @@ jobs:
 
           changed_files="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" || true)"
           echo "$changed_files"
-          if echo "$changed_files" | grep -Eq '^(scripts/generate_pool\.py|requirements\.txt)$'; then
+          if echo "$changed_files" | grep -Eq '^(scripts/(generate_pool|cloud_simulation)\.py|requirements\.txt)$'; then
             echo "run_generator=true" >> "$GITHUB_OUTPUT"
             echo "decision=Generator-affecting files changed." >> "$GITHUB_OUTPUT"
           else

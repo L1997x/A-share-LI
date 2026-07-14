@@ -6,6 +6,7 @@ from typing import Any, Iterable
 
 
 INITIAL_CASH = 100_000.0
+STATE_SCHEMA_VERSION = 5
 MAX_POSITION_PCT = 0.20
 TRIAL_POSITION_PCT = 0.10
 MAX_POSITIONS = 5
@@ -106,7 +107,7 @@ def _run_key(payload: dict[str, Any]) -> str:
 
 def default_simulation() -> dict[str, Any]:
     return {
-        "schemaVersion": 5,
+        "schemaVersion": STATE_SCHEMA_VERSION,
         "cloudManaged": True,
         "initialCash": INITIAL_CASH,
         "cash": INITIAL_CASH,
@@ -151,7 +152,7 @@ def sanitize_simulation(raw: dict[str, Any] | None) -> dict[str, Any]:
     ):
         if key in raw:
             state[key] = deepcopy(raw[key])
-    state["schemaVersion"] = 5
+    state["schemaVersion"] = STATE_SCHEMA_VERSION
     state["cloudManaged"] = True
     state["initialCash"] = INITIAL_CASH
     state["autoSettings"] = deepcopy(AUTO_SETTINGS)
