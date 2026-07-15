@@ -86,8 +86,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-15T16:43:01+08:00|2026-07-15|14:30尾盘风控",
+  "lastAutoRunKey": "2026-07-15T19:56:38+08:00|2026-07-15|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-07-15T19:56:38+08:00|2026-07-15|20点次日关注",
+      "at": "2026-07-15T19:56:38+08:00",
+      "tradeDate": "2026-07-15",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：恒瑞医药(watch)、五粮液(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-15T16:43:01+08:00|2026-07-15|14:30尾盘风控",
       "at": "2026-07-15T16:43:01+08:00",
@@ -872,64 +885,23 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-07T16:55:14+08:00|2026-07-07|13:30午后买入复检",
-      "at": "2026-07-07T16:55:14+08:00",
-      "tradeDate": "2026-07-07",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划1只：工业富联(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000858-2026-07-15T16:43:01+08:00|2026-07-15|14:30尾盘风控",
-      "code": "000858",
-      "name": "五粮液",
-      "status": "pending",
-      "signalDate": "2026-07-15",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-15T16:43:01+08:00|2026-07-15|14:30尾盘风控",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-07-18",
-      "plannedEntryPrice": 72.08,
-      "maxBuyPrice": 74.77,
-      "noChasePrice": 85.14,
-      "score": 8.7,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "planType": "watch",
-      "targetPositionPct": 0.1,
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
-      "id": "600276-2026-07-15T16:43:01+08:00|2026-07-15|14:30尾盘风控",
+      "id": "600276-2026-07-15T19:56:38+08:00|2026-07-15|20点次日关注",
       "code": "600276",
       "name": "恒瑞医药",
       "status": "pending",
       "signalDate": "2026-07-15",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-15T16:43:01+08:00|2026-07-15|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-15T19:56:38+08:00|2026-07-15|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-18",
-      "plannedEntryPrice": 52.69,
-      "maxBuyPrice": 53.23,
+      "plannedEntryPrice": 52.36,
+      "maxBuyPrice": 52.9,
       "noChasePrice": 61.27,
-      "score": 8.7,
+      "score": 7.9,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -941,26 +913,26 @@
       "executionPrice": null
     },
     {
-      "id": "600887-2026-07-15T14:26:30+08:00|2026-07-15|14:30尾盘风控",
-      "code": "600887",
-      "name": "伊利股份",
-      "status": "cancelled",
+      "id": "000858-2026-07-15T19:56:38+08:00|2026-07-15|20点次日关注",
+      "code": "000858",
+      "name": "五粮液",
+      "status": "pending",
       "signalDate": "2026-07-15",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-15T14:26:30+08:00|2026-07-15|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-15T19:56:38+08:00|2026-07-15|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-18",
-      "plannedEntryPrice": 23.39,
-      "maxBuyPrice": 24.16,
-      "noChasePrice": 27.38,
-      "score": 7.7,
+      "plannedEntryPrice": 70.19,
+      "maxBuyPrice": 72.81,
+      "noChasePrice": 84.31,
+      "score": 7.8,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
       "planType": "watch",
       "targetPositionPct": 0.1,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "模型或接入安全层硬拦截",
+      "cancelReason": "",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1085,6 +1057,30 @@
       "executionPrice": null
     },
     {
+      "id": "600887-2026-07-15T14:26:30+08:00|2026-07-15|14:30尾盘风控",
+      "code": "600887",
+      "name": "伊利股份",
+      "status": "cancelled",
+      "signalDate": "2026-07-15",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-07-15T14:26:30+08:00|2026-07-15|14:30尾盘风控",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-07-18",
+      "plannedEntryPrice": 23.39,
+      "maxBuyPrice": 24.16,
+      "noChasePrice": 27.38,
+      "score": 7.7,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "模型或接入安全层硬拦截",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
       "id": "601899-2026-07-14T14:01:32+08:00|2026-07-14|13:30午后买入复检",
       "code": "601899",
       "name": "紫金矿业",
@@ -1115,7 +1111,7 @@
       "name": "紫金矿业",
       "status": "pending",
       "createdRunKey": "2026-07-15T10:03:57+08:00|2026-07-15|10点早盘接入",
-      "updatedRunKey": "2026-07-15T16:43:01+08:00|2026-07-15|14:30尾盘风控",
+      "updatedRunKey": "2026-07-15T19:56:38+08:00|2026-07-15|20点次日关注",
       "plannedCheckPhase": "afternoon_risk",
       "hardStopPrice": 27.22,
       "takeProfitPrice": 30.89,
@@ -1127,6 +1123,42 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000858-2026-07-15T19:56:38+08:00",
+      "at": "2026-07-15T19:56:38+08:00",
+      "tradeDate": "2026-07-15",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000858",
+      "name": "五粮液",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 70.19,
+      "maxBuyPrice": 72.81,
+      "noChasePrice": 84.31,
+      "validUntilDate": "2026-07-18",
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-600276-2026-07-15T19:56:38+08:00",
+      "at": "2026-07-15T19:56:38+08:00",
+      "tradeDate": "2026-07-15",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600276",
+      "name": "恒瑞医药",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 52.36,
+      "maxBuyPrice": 52.9,
+      "noChasePrice": 61.27,
+      "validUntilDate": "2026-07-18",
+      "score": 7.9
+    },
     {
       "id": "buy_deferred-002594-2026-07-15T16:43:01+08:00",
       "at": "2026-07-15T16:43:01+08:00",
@@ -2787,46 +2819,11 @@
       "plannedEntryPrice": 40.51,
       "maxBuyPrice": 40.79,
       "score": 8.1
-    },
-    {
-      "id": "buy_deferred-002594-2026-07-10T21:07:59+08:00",
-      "at": "2026-07-10T21:07:59+08:00",
-      "tradeDate": "2026-07-10",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "002594",
-      "name": "比亚迪",
-      "summary": "价格未触发",
-      "reason": "含滑点价格高于最高买入价",
-      "plannedEntryPrice": 80.96,
-      "maxBuyPrice": 89.05,
-      "snapshotPrice": 90.0,
-      "score": 9.0
-    },
-    {
-      "id": "buy_plan_created-002472-2026-07-10T21:07:59+08:00",
-      "at": "2026-07-10T21:07:59+08:00",
-      "tradeDate": "2026-07-10",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "002472",
-      "name": "双环传动",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 40.51,
-      "maxBuyPrice": 40.79,
-      "noChasePrice": 52.41,
-      "validUntilDate": "2026-07-13",
-      "score": 8.1
     }
   ],
   "diagnostics": {
-    "snapshotsProcessed": 64,
-    "plansCreated": 99,
+    "snapshotsProcessed": 65,
+    "plansCreated": 101,
     "buyChecks": 221,
     "buysExecuted": 1,
     "sellsExecuted": 0,
@@ -2840,7 +2837,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 1
     },
-    "lastRunAt": "2026-07-15T16:43:01+08:00",
-    "lastRunSummary": "更新云端计划2只：五粮液(watch)、恒瑞医药(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-07-15T19:56:38+08:00",
+    "lastRunSummary": "更新云端计划2只：恒瑞医药(watch)、五粮液(watch)"
   }
 }
