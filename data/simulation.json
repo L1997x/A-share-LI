@@ -48,14 +48,14 @@
           "at": "2026-07-16T12:49:23+08:00",
           "stopLossPrice": 48.67,
           "takeProfitPrice": 57.99,
-          "highestPrice": 51.77,
+          "highestPrice": 52.03,
           "entryReason": "明确可买信号验证通过",
           "source": "cloud_auto"
         }
       ],
       "stopLossPrice": 48.67,
       "takeProfitPrice": 57.99,
-      "highestPrice": 51.77,
+      "highestPrice": 52.03,
       "entryReason": "明确可买信号验证通过",
       "themeGroup": "消费医药",
       "updatedAt": "2026-07-16T12:49:23+08:00"
@@ -137,8 +137,25 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
+  "lastAutoRunKey": "2026-07-16T13:27:45+08:00|2026-07-16|13:30午后买入复检",
   "autoLog": [
+    {
+      "runKey": "2026-07-16T13:27:45+08:00|2026-07-16|13:30午后买入复检",
+      "at": "2026-07-16T13:27:45+08:00",
+      "tradeDate": "2026-07-16",
+      "phase": "13:30午后买入复检",
+      "phaseKey": "morning_entry",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：比亚迪(watch)、埃斯顿(watch)"
+        },
+        {
+          "type": "buy_wait",
+          "summary": "本次买入复检未成交，原因已写入决策复盘"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
       "at": "2026-07-16T12:49:23+08:00",
@@ -923,69 +940,56 @@
           "summary": "更新云端计划1只：工业富联(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-07T22:03:55+08:00|2026-07-07|20点次日关注",
-      "at": "2026-07-07T22:03:55+08:00",
-      "tradeDate": "2026-07-07",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划1只：工业富联(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "002594-2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
+      "id": "002594-2026-07-16T13:27:45+08:00|2026-07-16|13:30午后买入复检",
       "code": "002594",
       "name": "比亚迪",
       "status": "pending",
       "signalDate": "2026-07-16",
       "signalPhase": "morning_entry",
-      "createdRunKey": "2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
+      "createdRunKey": "2026-07-16T13:27:45+08:00|2026-07-16|13:30午后买入复检",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-19",
-      "plannedEntryPrice": 95.15,
-      "maxBuyPrice": 95.15,
+      "plannedEntryPrice": 83.77,
+      "maxBuyPrice": 86.45,
       "noChasePrice": 96.33,
       "score": 8.9,
-      "buySignalKey": "breakout_buy",
+      "buySignalKey": "breakout_wait",
       "statusKey": "breakout",
       "entrySafetyBlockBuy": false,
-      "planType": "executable",
-      "targetPositionPct": 0.2,
-      "reason": "明确可买信号：可突破试探",
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
       "executionPrice": null
     },
     {
-      "id": "000538-2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
-      "code": "000538",
-      "name": "云南白药",
-      "status": "executed",
+      "id": "002747-2026-07-16T13:27:45+08:00|2026-07-16|13:30午后买入复检",
+      "code": "002747",
+      "name": "埃斯顿",
+      "status": "pending",
       "signalDate": "2026-07-16",
       "signalPhase": "morning_entry",
-      "createdRunKey": "2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
+      "createdRunKey": "2026-07-16T13:27:45+08:00|2026-07-16|13:30午后买入复检",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-19",
-      "plannedEntryPrice": 52.43,
-      "maxBuyPrice": 52.43,
-      "noChasePrice": 53.51,
-      "score": 8.2,
-      "buySignalKey": "breakout_buy",
-      "statusKey": "breakout",
+      "plannedEntryPrice": 38.23,
+      "maxBuyPrice": 39.93,
+      "noChasePrice": 51.96,
+      "score": 7.8,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
       "entrySafetyBlockBuy": false,
-      "planType": "executable",
-      "targetPositionPct": 0.2,
-      "reason": "明确可买信号：可突破试探",
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
-      "executedAt": "2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
-      "executionPrice": 51.77
+      "executedAt": "",
+      "executionPrice": null
     },
     {
       "id": "601138-2026-07-16T11:18:02+08:00|2026-07-16|11:20午前买入复检",
@@ -1132,6 +1136,30 @@
       "executionPrice": null
     },
     {
+      "id": "000538-2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
+      "code": "000538",
+      "name": "云南白药",
+      "status": "executed",
+      "signalDate": "2026-07-16",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-07-19",
+      "plannedEntryPrice": 52.43,
+      "maxBuyPrice": 52.43,
+      "noChasePrice": 53.51,
+      "score": 8.2,
+      "buySignalKey": "breakout_buy",
+      "statusKey": "breakout",
+      "entrySafetyBlockBuy": false,
+      "planType": "executable",
+      "targetPositionPct": 0.2,
+      "reason": "明确可买信号：可突破试探",
+      "cancelReason": "",
+      "executedAt": "2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
+      "executionPrice": 51.77
+    },
+    {
       "id": "000538-2026-07-14T12:58:11+08:00|2026-07-14|14:30尾盘风控",
       "code": "000538",
       "name": "云南白药",
@@ -1258,7 +1286,7 @@
       "name": "紫金矿业",
       "status": "pending",
       "createdRunKey": "2026-07-15T10:03:57+08:00|2026-07-15|10点早盘接入",
-      "updatedRunKey": "2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
+      "updatedRunKey": "2026-07-16T13:27:45+08:00|2026-07-16|13:30午后买入复检",
       "plannedCheckPhase": "afternoon_risk",
       "hardStopPrice": 27.22,
       "takeProfitPrice": 30.89,
@@ -1270,6 +1298,90 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_deferred-601138-2026-07-16T13:27:45+08:00",
+      "at": "2026-07-16T13:27:45+08:00",
+      "tradeDate": "2026-07-16",
+      "phase": "13:30午后买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "601138",
+      "name": "工业富联",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 57.36,
+      "maxBuyPrice": 59.5,
+      "score": 8.7
+    },
+    {
+      "id": "buy_deferred-002747-2026-07-16T13:27:45+08:00",
+      "at": "2026-07-16T13:27:45+08:00",
+      "tradeDate": "2026-07-16",
+      "phase": "13:30午后买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "002747",
+      "name": "埃斯顿",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 38.23,
+      "maxBuyPrice": 39.93,
+      "score": 7.8
+    },
+    {
+      "id": "buy_deferred-002594-2026-07-16T13:27:45+08:00",
+      "at": "2026-07-16T13:27:45+08:00",
+      "tradeDate": "2026-07-16",
+      "phase": "13:30午后买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "002594",
+      "name": "比亚迪",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 83.77,
+      "maxBuyPrice": 86.45,
+      "score": 8.9
+    },
+    {
+      "id": "buy_plan_created-002747-2026-07-16T13:27:45+08:00",
+      "at": "2026-07-16T13:27:45+08:00",
+      "tradeDate": "2026-07-16",
+      "phase": "13:30午后买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "002747",
+      "name": "埃斯顿",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 38.23,
+      "maxBuyPrice": 39.93,
+      "noChasePrice": 51.96,
+      "validUntilDate": "2026-07-19",
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-002594-2026-07-16T13:27:45+08:00",
+      "at": "2026-07-16T13:27:45+08:00",
+      "tradeDate": "2026-07-16",
+      "phase": "13:30午后买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "002594",
+      "name": "比亚迪",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 83.77,
+      "maxBuyPrice": 86.45,
+      "noChasePrice": 96.33,
+      "validUntilDate": "2026-07-19",
+      "score": 8.9
+    },
     {
       "id": "buy_deferred-601138-2026-07-16T12:49:23+08:00",
       "at": "2026-07-16T12:49:23+08:00",
@@ -2884,99 +2996,17 @@
       "noChasePrice": 54.38,
       "validUntilDate": "2026-07-16",
       "score": 8.2
-    },
-    {
-      "id": "buy_deferred-000651-2026-07-13T14:42:29+08:00",
-      "at": "2026-07-13T14:42:29+08:00",
-      "tradeDate": "2026-07-13",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "000651",
-      "name": "格力电器",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 35.37,
-      "maxBuyPrice": 36.7,
-      "score": 7.8
-    },
-    {
-      "id": "buy_deferred-002156-2026-07-13T14:42:29+08:00",
-      "at": "2026-07-13T14:42:29+08:00",
-      "tradeDate": "2026-07-13",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "002156",
-      "name": "通富微电",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 63.04,
-      "maxBuyPrice": 66.87,
-      "score": 8.0
-    },
-    {
-      "id": "buy_deferred-600887-2026-07-13T14:42:29+08:00",
-      "at": "2026-07-13T14:42:29+08:00",
-      "tradeDate": "2026-07-13",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600887",
-      "name": "伊利股份",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 23.2,
-      "maxBuyPrice": 24.06,
-      "score": 8.1
-    },
-    {
-      "id": "buy_deferred-000538-2026-07-13T14:42:29+08:00",
-      "at": "2026-07-13T14:42:29+08:00",
-      "tradeDate": "2026-07-13",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "000538",
-      "name": "云南白药",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 46.09,
-      "maxBuyPrice": 47.45,
-      "score": 8.1
-    },
-    {
-      "id": "buy_plan_created-600887-2026-07-13T14:42:29+08:00",
-      "at": "2026-07-13T14:42:29+08:00",
-      "tradeDate": "2026-07-13",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600887",
-      "name": "伊利股份",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 23.2,
-      "maxBuyPrice": 24.06,
-      "noChasePrice": 27.53,
-      "validUntilDate": "2026-07-16",
-      "score": 8.1
     }
   ],
   "diagnostics": {
-    "snapshotsProcessed": 68,
-    "plansCreated": 107,
-    "buyChecks": 245,
+    "snapshotsProcessed": 69,
+    "plansCreated": 109,
+    "buyChecks": 253,
     "buysExecuted": 2,
     "sellsExecuted": 0,
     "waitReasonCounts": {
-      "观察计划尚未升级为可执行信号": 101,
-      "股票不在最新池，云端继续观察但不执行": 126,
+      "观察计划尚未升级为可执行信号": 104,
+      "股票不在最新池，云端继续观察但不执行": 131,
       "价格高于MA20超过5%，避免追涨后回撤": 7,
       "含滑点价格高于最高买入价": 3,
       "价格低于MA20超过3%，等待止跌确认": 2
@@ -2984,7 +3014,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 4
     },
-    "lastRunAt": "2026-07-16T12:49:23+08:00",
-    "lastRunSummary": "更新云端计划2只：比亚迪(executable)、云南白药(executable)；云端买入云南白药300股，成交51.77"
+    "lastRunAt": "2026-07-16T13:27:45+08:00",
+    "lastRunSummary": "更新云端计划2只：比亚迪(watch)、埃斯顿(watch)；本次买入复检未成交，原因已写入决策复盘"
   }
 }
