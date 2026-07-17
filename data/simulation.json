@@ -131,8 +131,25 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-16T19:58:01+08:00|2026-07-16|20点次日关注",
+  "lastAutoRunKey": "2026-07-17T11:17:00+08:00|2026-07-17|11:20午前买入复检",
   "autoLog": [
+    {
+      "runKey": "2026-07-17T11:17:00+08:00|2026-07-17|11:20午前买入复检",
+      "at": "2026-07-17T11:17:00+08:00",
+      "tradeDate": "2026-07-17",
+      "phase": "11:20午前买入复检",
+      "phaseKey": "morning_entry",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：平高电气(watch)、国电南瑞(watch)"
+        },
+        {
+          "type": "buy_wait",
+          "summary": "本次买入复检未成交，原因已写入决策复盘"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-16T19:58:01+08:00|2026-07-16|20点次日关注",
       "at": "2026-07-16T19:58:01+08:00",
@@ -925,22 +942,57 @@
           "summary": "更新云端计划2只：工业富联(watch)、格力电器(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-08T21:59:42+08:00|2026-07-08|20点次日关注",
-      "at": "2026-07-08T21:59:42+08:00",
-      "tradeDate": "2026-07-08",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：工业富联(watch)、格力电器(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
+    {
+      "id": "600312-2026-07-17T11:17:00+08:00|2026-07-17|11:20午前买入复检",
+      "code": "600312",
+      "name": "平高电气",
+      "status": "pending",
+      "signalDate": "2026-07-17",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-07-17T11:17:00+08:00|2026-07-17|11:20午前买入复检",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-07-20",
+      "plannedEntryPrice": 16.91,
+      "maxBuyPrice": 17.54,
+      "noChasePrice": 20.31,
+      "score": 7.7,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "600406-2026-07-17T11:17:00+08:00|2026-07-17|11:20午前买入复检",
+      "code": "600406",
+      "name": "国电南瑞",
+      "status": "pending",
+      "signalDate": "2026-07-17",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-07-17T11:17:00+08:00|2026-07-17|11:20午前买入复检",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-07-20",
+      "plannedEntryPrice": 21.41,
+      "maxBuyPrice": 22.2,
+      "noChasePrice": 24.9,
+      "score": 7.5,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
     {
       "id": "601899-2026-07-16T19:58:01+08:00|2026-07-16|20点次日关注",
       "code": "601899",
@@ -1134,30 +1186,6 @@
       "executionPrice": null
     },
     {
-      "id": "002156-2026-07-13T13:50:50+08:00|2026-07-13|10点早盘接入",
-      "code": "002156",
-      "name": "通富微电",
-      "status": "pending",
-      "signalDate": "2026-07-13",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-07-13T13:50:50+08:00|2026-07-13|10点早盘接入",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-07-16",
-      "plannedEntryPrice": 63.04,
-      "maxBuyPrice": 66.87,
-      "noChasePrice": 84.18,
-      "score": 8.0,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "planType": "watch",
-      "targetPositionPct": 0.1,
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
       "id": "000538-2026-07-16T12:49:23+08:00|2026-07-16|11:20午前买入复检",
       "code": "000538",
       "name": "云南白药",
@@ -1302,8 +1330,92 @@
       "executionPrice": 28.96
     }
   ],
-  "sellPlans": {},
+  "sellPlans": {
+    "000538": {
+      "code": "000538",
+      "name": "云南白药",
+      "status": "pending",
+      "createdRunKey": "2026-07-17T11:17:00+08:00|2026-07-17|11:20午前买入复检",
+      "updatedRunKey": "2026-07-17T11:17:00+08:00|2026-07-17|11:20午前买入复检",
+      "plannedCheckPhase": "afternoon_risk",
+      "hardStopPrice": 48.67,
+      "takeProfitPrice": 57.99,
+      "trailingStopPct": 0.06,
+      "maxHoldDays": 10,
+      "sellPriority": "normal",
+      "warning": "",
+      "lastDecision": "继续持有"
+    }
+  },
   "decisionJournal": [
+    {
+      "id": "buy_deferred-600406-2026-07-17T11:17:00+08:00",
+      "at": "2026-07-17T11:17:00+08:00",
+      "tradeDate": "2026-07-17",
+      "phase": "11:20午前买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600406",
+      "name": "国电南瑞",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 21.41,
+      "maxBuyPrice": 22.2,
+      "score": 7.5
+    },
+    {
+      "id": "buy_deferred-600312-2026-07-17T11:17:00+08:00",
+      "at": "2026-07-17T11:17:00+08:00",
+      "tradeDate": "2026-07-17",
+      "phase": "11:20午前买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600312",
+      "name": "平高电气",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 16.91,
+      "maxBuyPrice": 17.54,
+      "score": 7.7
+    },
+    {
+      "id": "buy_plan_created-600406-2026-07-17T11:17:00+08:00",
+      "at": "2026-07-17T11:17:00+08:00",
+      "tradeDate": "2026-07-17",
+      "phase": "11:20午前买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600406",
+      "name": "国电南瑞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 21.41,
+      "maxBuyPrice": 22.2,
+      "noChasePrice": 24.9,
+      "validUntilDate": "2026-07-20",
+      "score": 7.5
+    },
+    {
+      "id": "buy_plan_created-600312-2026-07-17T11:17:00+08:00",
+      "at": "2026-07-17T11:17:00+08:00",
+      "tradeDate": "2026-07-17",
+      "phase": "11:20午前买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600312",
+      "name": "平高电气",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 16.91,
+      "maxBuyPrice": 17.54,
+      "noChasePrice": 20.31,
+      "validUntilDate": "2026-07-20",
+      "score": 7.7
+    },
     {
       "id": "buy_plan_created-002594-2026-07-16T19:58:01+08:00",
       "at": "2026-07-16T19:58:01+08:00",
@@ -2932,83 +3044,17 @@
       "plannedEntryPrice": 46.34,
       "maxBuyPrice": 47.78,
       "score": 8.4
-    },
-    {
-      "id": "buy_deferred-600887-2026-07-14T13:05:33+08:00",
-      "at": "2026-07-14T13:05:33+08:00",
-      "tradeDate": "2026-07-14",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600887",
-      "name": "伊利股份",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 23.35,
-      "maxBuyPrice": 24.23,
-      "score": 8.4
-    },
-    {
-      "id": "buy_deferred-002594-2026-07-14T13:05:33+08:00",
-      "at": "2026-07-14T13:05:33+08:00",
-      "tradeDate": "2026-07-14",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "002594",
-      "name": "比亚迪",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 82.84,
-      "maxBuyPrice": 85.93,
-      "score": 8.7
-    },
-    {
-      "id": "buy_deferred-601138-2026-07-14T13:05:33+08:00",
-      "at": "2026-07-14T13:05:33+08:00",
-      "tradeDate": "2026-07-14",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "601138",
-      "name": "工业富联",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 59.18,
-      "maxBuyPrice": 61.38,
-      "score": 9.5
-    },
-    {
-      "id": "buy_plan_created-002594-2026-07-14T13:05:33+08:00",
-      "at": "2026-07-14T13:05:33+08:00",
-      "tradeDate": "2026-07-14",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "002594",
-      "name": "比亚迪",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 82.84,
-      "maxBuyPrice": 85.93,
-      "noChasePrice": 97.46,
-      "validUntilDate": "2026-07-17",
-      "score": 8.7
     }
   ],
   "diagnostics": {
-    "snapshotsProcessed": 74,
-    "plansCreated": 117,
-    "buyChecks": 288,
+    "snapshotsProcessed": 75,
+    "plansCreated": 119,
+    "buyChecks": 298,
     "buysExecuted": 2,
     "sellsExecuted": 1,
     "waitReasonCounts": {
-      "观察计划尚未升级为可执行信号": 120,
-      "股票不在最新池，云端继续观察但不执行": 150,
+      "观察计划尚未升级为可执行信号": 122,
+      "股票不在最新池，云端继续观察但不执行": 158,
       "价格高于MA20超过5%，避免追涨后回撤": 7,
       "含滑点价格高于最高买入价": 3,
       "价格低于MA20超过3%，等待止跌确认": 2
@@ -3016,7 +3062,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 4
     },
-    "lastRunAt": "2026-07-16T19:58:01+08:00",
-    "lastRunSummary": "更新云端计划2只：紫金矿业(watch)、比亚迪(watch)"
+    "lastRunAt": "2026-07-17T11:17:00+08:00",
+    "lastRunSummary": "更新云端计划2只：平高电气(watch)、国电南瑞(watch)；本次买入复检未成交，原因已写入决策复盘"
   }
 }
