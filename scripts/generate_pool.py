@@ -3715,6 +3715,14 @@ def main() -> None:
         payload = fallback_latest(exc)
     if not (payload.get("source_status") or {}).get("fallback"):
         cloud_simulation = run_cloud_simulation(payload, cloud_simulation)
+    exit_feedback = cloud_simulation.get("exitFeedback") or {}
+    if isinstance(payload.get("model_feedback"), dict):
+        payload["model_feedback"]["exit_effectiveness"] = exit_feedback
+    if isinstance(payload.get("model"), dict):
+        payload["model"]["exit_feedback_factor"] = (
+            "卖出后回访层按每笔模拟卖出的成交价追踪3/5/20/30个交易日表现；"
+            "同类成熟样本至少3笔后，才小幅调整评分退出、止损、止盈、移动止盈或最长持有期。"
+        )
     payload["cloud_simulation"] = cloud_simulation
     write_payload(payload)
     print(f"wrote {LATEST_PATH}")

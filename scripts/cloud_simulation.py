@@ -4,9 +4,13 @@ from copy import deepcopy
 from datetime import date, datetime, timedelta
 from typing import Any, Iterable
 
+try:
+    from .exit_feedback import BASE_EXIT_SETTINGS, refresh_exit_feedback
+except ImportError:
+    from exit_feedback import BASE_EXIT_SETTINGS, refresh_exit_feedback
 
 INITIAL_CASH = 100_000.0
-STATE_SCHEMA_VERSION = 5
+STATE_SCHEMA_VERSION = 6
 MAX_POSITION_PCT = 0.20
 TRIAL_POSITION_PCT = 0.10
 MAX_POSITIONS = 5
@@ -121,6 +125,9 @@ def default_simulation() -> dict[str, Any]:
         "pendingBuyOrders": [],
         "sellPlans": {},
         "decisionJournal": [],
+        "exitReviews": [],
+        "exitFeedback": {},
+        "effectiveExitSettings": deepcopy(BASE_EXIT_SETTINGS),
         "diagnostics": {
             "snapshotsProcessed": 0,
             "plansCreated": 0,
@@ -148,6 +155,9 @@ def sanitize_simulation(raw: dict[str, Any] | None) -> dict[str, Any]:
         "pendingBuyOrders",
         "sellPlans",
         "decisionJournal",
+        "exitReviews",
+        "exitFeedback",
+        "effectiveExitSettings",
         "diagnostics",
     ):
         if key in raw:
@@ -161,7 +171,7 @@ def sanitize_simulation(raw: dict[str, Any] | None) -> dict[str, Any]:
     for key, fallback in (("positions", {}), ("sellPlans", {}), ("diagnostics", {})):
         if not isinstance(state.get(key), dict):
             state[key] = deepcopy(fallback)
-    for key in ("trades", "autoLog", "pendingBuyOrders", "decisionJournal"):
+    for key in ("trades", "autoLog", "pendingBuyOrders", "decisionJournal", "exitReviews"):
         if not isinstance(state.get(key), list):
             state[key] = []
     diagnostics = default_simulation()["diagnostics"]
@@ -169,6 +179,7 @@ def sanitize_simulation(raw: dict[str, Any] | None) -> dict[str, Any]:
     diagnostics["waitReasonCounts"] = dict(diagnostics.get("waitReasonCounts") or {})
     diagnostics["cancelReasonCounts"] = dict(diagnostics.get("cancelReasonCounts") or {})
     state["diagnostics"] = diagnostics
+    refresh_exit_feedback(state)
     return state
 
 
@@ -405,11 +416,14 @@ def _create_plans(state: dict[str, Any], payload: dict[str, Any], events: list[d
     events.append({"type": "buy_plan", "summary": f"更新云端计划{len(selected)}只：{names}" if selected else "当前没有符合资金和风控约束的新计划"})
 
 
-def _stop_take_prices(stock: dict[str, Any], entry: float) -> tuple[float, float]:
-    fallback_stop = entry * (1 - STOP_LOSS_PCT)
+def _stop_take_prices(stock: dict[str, Any], entry: float, state: dict[str, Any]) -> tuple[float, float]:
+    policy = state.get("effectiveExitSettings") or BASE_EXIT_SETTINGS
+    stop_loss_pct = _num(policy.get("stopLossPct")) or STOP_LOSS_PCT
+    take_profit_pct = _num(policy.get("takeProfitPct")) or TAKE_PROFIT_PCT
+    fallback_stop = entry * (1 - stop_loss_pct)
     invalid = _first_price(stock.get("invalid_price"))
     stop = max(fallback_stop, invalid) if invalid and invalid < entry else fallback_stop
-    fallback_take = entry * (1 + TAKE_PROFIT_PCT)
+    fallback_take = entry * (1 + take_profit_pct)
     resistance = _first_price(stock.get("resistance_price"))
     take = min(fallback_take, resistance) if resistance and resistance > entry else fallback_take
     return round(stop, 2), round(take, 2)
@@ -419,7 +433,7 @@ def _buy(state: dict[str, Any], payload: dict[str, Any], stock: dict[str, Any], 
     gross = price * quantity
     fees = _fees("buy", gross)
     total = gross + fees["total"]
-    stop, take = _stop_take_prices(stock, price)
+    stop, take = _stop_take_prices(stock, price, state)
     code = str(stock.get("code"))
     lot = {
         "quantity": quantity,
@@ -643,6 +657,10 @@ def _execute_sells(state: dict[str, Any], payload: dict[str, Any], events: list[
     stocks, reviews = _stock_maps(payload)
     today = str(payload.get("as_of_date") or "")
     phase = _phase(payload)
+    policy = state.get("effectiveExitSettings") or BASE_EXIT_SETTINGS
+    trailing_stop_pct = _num(policy.get("trailingStopPct")) or TRAILING_STOP_PCT
+    exit_score_threshold = _num(policy.get("exitScoreThreshold")) or BASE_EXIT_SETTINGS["exitScoreThreshold"]
+    max_hold_days = int(_num(policy.get("maxHoldDays")) or MAX_HOLD_DAYS)
     for code, position in list(state["positions"].items()):
         stock = stocks.get(code) or reviews.get(code)
         price = _stock_price(stock)
@@ -658,7 +676,7 @@ def _execute_sells(state: dict[str, Any], payload: dict[str, Any], events: list[
         take = _first_price(position.get("takeProfitPrice"))
         highest = _num(position.get("highestPrice")) or price
         avg_cost = (_num(position.get("costBasis")) or 0.0) / max(1, int(_num(position.get("quantity")) or 0))
-        trailing = highest * (1 - TRAILING_STOP_PCT)
+        trailing = highest * (1 - trailing_stop_pct)
         reason = ""
         if stop and price <= stop:
             reason = f"触发硬止损{stop:.2f}"
@@ -666,17 +684,17 @@ def _execute_sells(state: dict[str, Any], payload: dict[str, Any], events: list[
             reason = f"触发止盈{take:.2f}"
         elif highest > avg_cost * 1.04 and price <= trailing:
             reason = f"触发移动止盈{trailing:.2f}"
-        elif phase in {"afternoon_risk", "evening_watch"} and (_num(stock.get("score")) or 0.0) < 6.2:
+        elif phase in {"afternoon_risk", "evening_watch"} and (_num(stock.get("score")) or 0.0) < exit_score_threshold:
             reason = "评分跌破退出阈值"
         elif phase in {"afternoon_risk", "evening_watch"} and stock.get("status_key") == "avoid":
             reason = "模型状态转为不追高/退出"
-        elif phase in {"afternoon_risk", "evening_watch"} and _hold_days(position, today) >= MAX_HOLD_DAYS:
-            reason = f"持仓达到{MAX_HOLD_DAYS}天上限"
+        elif phase in {"afternoon_risk", "evening_watch"} and _hold_days(position, today) >= max_hold_days:
+            reason = f"持仓达到{max_hold_days}天上限"
         if not reason:
             state["sellPlans"][code] = {
                 "code": code, "name": position.get("name") or code, "status": "pending", "createdRunKey": state["sellPlans"].get(code, {}).get("createdRunKey") or _run_key(payload),
                 "updatedRunKey": _run_key(payload), "plannedCheckPhase": "afternoon_risk", "hardStopPrice": stop, "takeProfitPrice": take,
-                "trailingStopPct": TRAILING_STOP_PCT, "maxHoldDays": MAX_HOLD_DAYS, "sellPriority": "normal", "warning": "", "lastDecision": "继续持有",
+                "trailingStopPct": trailing_stop_pct, "maxHoldDays": max_hold_days, "sellPriority": "normal", "warning": "", "lastDecision": "继续持有",
             }
             continue
         execution = price * (1 - SELL_SLIPPAGE_PCT)
@@ -690,7 +708,9 @@ def run_cloud_simulation(payload: dict[str, Any], raw_state: dict[str, Any] | No
     if not run_key or state.get("lastAutoRunKey") == run_key:
         return state
     events: list[dict[str, Any]] = []
+    refresh_exit_feedback(state, payload)
     _execute_sells(state, payload, events)
+    refresh_exit_feedback(state)
     if _phase(payload) == "evening_watch":
         _create_plans(state, payload, events)
     else:

@@ -208,7 +208,7 @@ const formatEntrySafety = (stock) => {
 
 function createDefaultSimulation() {
   return {
-    schemaVersion: 4,
+    schemaVersion: 6,
     cloudManaged: false,
     initialCash: INITIAL_SIM_CASH,
     cash: INITIAL_SIM_CASH,
@@ -223,6 +223,9 @@ function createDefaultSimulation() {
     sellPlans: {},
     decisionJournal: [],
     diagnostics: {},
+    exitReviews: [],
+    exitFeedback: {},
+    effectiveExitSettings: {},
   };
 }
 
@@ -289,7 +292,7 @@ function sanitizeSimulation(raw) {
   const sellPlans = normalizeSellPlans(raw.sellPlans);
   const decisionJournal = normalizeDecisionJournal(raw.decisionJournal);
   return {
-    schemaVersion: 4,
+    schemaVersion: Number(raw.schemaVersion) || 4,
     cloudManaged: Boolean(raw.cloudManaged),
     initialCash,
     cash,
@@ -304,6 +307,10 @@ function sanitizeSimulation(raw) {
     sellPlans,
     decisionJournal,
     diagnostics: raw.diagnostics && typeof raw.diagnostics === "object" ? raw.diagnostics : {},
+    exitReviews: Array.isArray(raw.exitReviews) ? raw.exitReviews.slice(0, 100) : [],
+    exitFeedback: raw.exitFeedback && typeof raw.exitFeedback === "object" ? raw.exitFeedback : {},
+    effectiveExitSettings:
+      raw.effectiveExitSettings && typeof raw.effectiveExitSettings === "object" ? raw.effectiveExitSettings : {},
   };
 }
 
@@ -2075,6 +2082,7 @@ function renderSimulationPanel() {
   renderSimulationPositions(snapshot.positions);
   renderSimulationTrades();
   renderSimulationPlans();
+  renderSimulationExitFeedback();
   renderDecisionJournal();
   renderAutoLog();
 }
@@ -2197,6 +2205,74 @@ function renderSimulationTrades() {
       `;
     })
     .join("");
+}
+
+function renderSimulationExitFeedback() {
+  const container = byId("simulationExitFeedback");
+  if (!container) return;
+  const reviews = Array.isArray(state.simulation.exitReviews) ? state.simulation.exitReviews : [];
+  const feedback = state.simulation.exitFeedback || {};
+  const settings = feedback.effectiveSettings || state.simulation.effectiveExitSettings || {};
+  const adjustment = feedback.parameterAdjustments || {};
+  const settingText = [
+    `评分退出 ${formatNumber(settings.exitScoreThreshold, 1)}`,
+    `硬止损 ${isFiniteNumber(settings.stopLossPct) ? `${formatNumber(Number(settings.stopLossPct) * 100, 1)}%` : "-"}`,
+    `目标止盈 ${isFiniteNumber(settings.takeProfitPct) ? `${formatNumber(Number(settings.takeProfitPct) * 100, 1)}%` : "-"}`,
+    `移动止盈 ${isFiniteNumber(settings.trailingStopPct) ? `${formatNumber(Number(settings.trailingStopPct) * 100, 1)}%` : "-"}`,
+    `最长 ${Number(settings.maxHoldDays) || 10} 日`,
+  ].join(" · ");
+
+  const summary = `
+    <article class="simulation-row exit-feedback-summary">
+      <div>
+        <strong>退出反馈：${Number(feedback.maturedExitCount) || 0}/${Number(feedback.exitCount) || reviews.length} 笔已成熟</strong>
+        <em>同类退出至少 ${Number(feedback.minSamplesForAdjustment) || 3} 笔成熟样本才调参 · 置信度 ${escapeHtml(feedback.confidence || "低")}</em>
+      </div>
+      <div>
+        <span>当前生效参数</span>
+        <strong>${settingText}</strong>
+      </div>
+      <div>
+        <span>模型动作</span>
+        <strong>${escapeHtml(feedback.modelAction || "等待卖出后交易日样本。")}</strong>
+        <em>${adjustment.applied ? "已用于后续新仓和卖出判断" : "尚未触发参数调整"}</em>
+      </div>
+    </article>`;
+
+  if (!reviews.length) {
+    container.innerHTML = `${summary}<p class="empty-text">暂无已卖出交易，产生卖出成交后会自动开始回访。</p>`;
+    return;
+  }
+
+  const reviewRows = reviews.slice(0, 20).map((review) => {
+    const milestones = review.milestones || {};
+    const milestoneText = [3, 5, 20, 30]
+      .map((horizon) => {
+        const item = milestones[String(horizon)];
+        if (item && isFiniteNumber(item.returnPct)) {
+          return `<span><b>${horizon}日</b><strong class="${returnClass(-Number(item.returnPct))}">${formatPercent(item.returnPct)}</strong><em>${escapeHtml(item.date || "-")}</em></span>`;
+        }
+        const progress = Math.min(Number(review.observedTradingDays) || 0, horizon);
+        return `<span><b>${horizon}日</b><strong class="return-flat">${progress}/${horizon}</strong><em>等待收盘样本</em></span>`;
+      })
+      .join("");
+    const currentClass = isFiniteNumber(review.currentReturnPct) ? returnClass(-Number(review.currentReturnPct)) : "return-flat";
+    return `
+      <article class="simulation-row exit-feedback-row">
+        <div>
+          <strong>${escapeHtml(review.name || review.code || "-")}</strong>
+          <em>${escapeHtml(review.code || "-")} · ${escapeHtml(review.exitDate || "-")} 以 ${formatNumber(review.exitPrice)} 卖出</em>
+          <em>${escapeHtml(review.reasonLabel || review.reason || "退出")}${isFiniteNumber(review.realizedPnl) ? ` · 已实现 ${formatCurrency(review.realizedPnl)}` : ""}</em>
+        </div>
+        <div>
+          <span>卖出后最新表现</span>
+          <strong class="${currentClass}">${isFiniteNumber(review.currentReturnPct) ? formatPercent(review.currentReturnPct) : "等待数据"}</strong>
+          <em>${Number(review.observedTradingDays) || 0} 个交易日 · ${escapeHtml(review.qualityLabel || "等待样本")}</em>
+        </div>
+        <div class="exit-milestones">${milestoneText}</div>
+      </article>`;
+  });
+  container.innerHTML = [summary, ...reviewRows].join("");
 }
 
 function renderSimulationPlans() {
