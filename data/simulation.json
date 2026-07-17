@@ -124,8 +124,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-17T20:23:07+08:00|2026-07-17|14:30尾盘风控",
+  "lastAutoRunKey": "2026-07-17T20:57:29+08:00|2026-07-17|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-07-17T20:57:29+08:00|2026-07-17|20点次日关注",
+      "at": "2026-07-17T20:57:29+08:00",
+      "tradeDate": "2026-07-17",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：平高电气(watch)、伊利股份(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-17T20:23:07+08:00|2026-07-17|14:30尾盘风控",
       "at": "2026-07-17T20:23:07+08:00",
@@ -926,36 +939,23 @@
           "summary": "更新云端计划2只：工业富联(watch)、通富微电(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-09T22:27:03+08:00|2026-07-09|20点次日关注",
-      "at": "2026-07-09T22:27:03+08:00",
-      "tradeDate": "2026-07-09",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：工业富联(watch)、通富微电(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "600312-2026-07-17T20:23:07+08:00|2026-07-17|14:30尾盘风控",
+      "id": "600312-2026-07-17T20:57:29+08:00|2026-07-17|20点次日关注",
       "code": "600312",
       "name": "平高电气",
       "status": "pending",
       "signalDate": "2026-07-17",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-17T20:23:07+08:00|2026-07-17|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-17T20:57:29+08:00|2026-07-17|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-20",
-      "plannedEntryPrice": 16.57,
-      "maxBuyPrice": 17.19,
+      "plannedEntryPrice": 16.85,
+      "maxBuyPrice": 17.47,
       "noChasePrice": 20.26,
-      "score": 7.9,
+      "score": 8.0,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -967,17 +967,17 @@
       "executionPrice": null
     },
     {
-      "id": "600887-2026-07-17T20:23:07+08:00|2026-07-17|14:30尾盘风控",
+      "id": "600887-2026-07-17T20:57:29+08:00|2026-07-17|20点次日关注",
       "code": "600887",
       "name": "伊利股份",
       "status": "pending",
       "signalDate": "2026-07-17",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-17T20:23:07+08:00|2026-07-17|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-17T20:57:29+08:00|2026-07-17|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-20",
-      "plannedEntryPrice": 24.04,
-      "maxBuyPrice": 24.95,
+      "plannedEntryPrice": 24.11,
+      "maxBuyPrice": 25.02,
       "noChasePrice": 27.84,
       "score": 7.9,
       "buySignalKey": "wait",
@@ -1377,6 +1377,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600887-2026-07-17T20:57:29+08:00",
+      "at": "2026-07-17T20:57:29+08:00",
+      "tradeDate": "2026-07-17",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600887",
+      "name": "伊利股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 24.11,
+      "maxBuyPrice": 25.02,
+      "noChasePrice": 27.84,
+      "validUntilDate": "2026-07-20",
+      "score": 7.9
+    },
+    {
+      "id": "buy_plan_created-600312-2026-07-17T20:57:29+08:00",
+      "at": "2026-07-17T20:57:29+08:00",
+      "tradeDate": "2026-07-17",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600312",
+      "name": "平高电气",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 16.85,
+      "maxBuyPrice": 17.47,
+      "noChasePrice": 20.26,
+      "validUntilDate": "2026-07-20",
+      "score": 8.0
+    },
     {
       "id": "buy_deferred-600406-2026-07-17T20:23:07+08:00",
       "at": "2026-07-17T20:23:07+08:00",
@@ -3032,38 +3068,6 @@
       "noChasePrice": 85.14,
       "validUntilDate": "2026-07-18",
       "score": 8.7
-    },
-    {
-      "id": "buy_deferred-002594-2026-07-15T14:36:08+08:00",
-      "at": "2026-07-15T14:36:08+08:00",
-      "tradeDate": "2026-07-15",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "002594",
-      "name": "比亚迪",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 83.23,
-      "maxBuyPrice": 86.35,
-      "score": 8.5
-    },
-    {
-      "id": "buy_deferred-600887-2026-07-15T14:36:08+08:00",
-      "at": "2026-07-15T14:36:08+08:00",
-      "tradeDate": "2026-07-15",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600887",
-      "name": "伊利股份",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 23.39,
-      "maxBuyPrice": 24.16,
-      "score": 7.7
     }
   ],
   "exitReviews": [
@@ -3122,11 +3126,11 @@
       "dailyPrices": {
         "2026-07-17": {
           "date": "2026-07-17",
-          "at": "2026-07-17T20:23:07+08:00",
+          "at": "2026-07-17T20:57:29+08:00",
           "price": 28.6,
           "returnPct": -2.356,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3261,8 +3265,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 84,
-    "plansCreated": 134,
+    "snapshotsProcessed": 85,
+    "plansCreated": 136,
     "buyChecks": 376,
     "buysExecuted": 2,
     "sellsExecuted": 2,
@@ -3276,7 +3280,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 5
     },
-    "lastRunAt": "2026-07-17T20:23:07+08:00",
-    "lastRunSummary": "更新云端计划2只：平高电气(watch)、伊利股份(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-07-17T20:57:29+08:00",
+    "lastRunSummary": "更新云端计划2只：平高电气(watch)、伊利股份(watch)"
   }
 }
