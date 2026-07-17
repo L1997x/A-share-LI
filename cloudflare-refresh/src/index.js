@@ -1,5 +1,9 @@
 const API_VERSION = "2026-03-10";
 
+export function githubSchedule(cron) {
+  return String(cron || "").replace(/MON-FRI/gi, "1-5");
+}
+
 export async function dispatchWorkflow(env, cron, fetchImpl = fetch) {
   if (!env.GITHUB_ACTIONS_TOKEN) throw new Error("GITHUB_ACTIONS_TOKEN is not configured");
 
@@ -21,7 +25,7 @@ export async function dispatchWorkflow(env, cron, fetchImpl = fetch) {
       ref,
       inputs: {
         trigger_source: "cloudflare",
-        target_schedule: cron,
+        target_schedule: githubSchedule(cron),
       },
     }),
   });
@@ -36,6 +40,13 @@ export async function dispatchWorkflow(env, cron, fetchImpl = fetch) {
 
 export default {
   scheduled(controller, env, context) {
-    context.waitUntil(dispatchWorkflow(env, controller.cron));
+    context.waitUntil(
+      dispatchWorkflow(env, controller.cron)
+        .then((result) => console.log(JSON.stringify({ event: "github_dispatch", outcome: "ok", ...result })))
+        .catch((error) => {
+          console.error(JSON.stringify({ event: "github_dispatch", outcome: "error", cron: controller.cron, message: error.message }));
+          throw error;
+        })
+    );
   },
 };

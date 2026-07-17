@@ -12,11 +12,14 @@
   },
   "triggers": {
     "crons": [
-      "53 1 * * 1-5",
-      "13 3 * * 1-5",
-      "23 5 * * 1-5",
-      "23 6 * * 1-5",
-      "53 11 * * 1-5"
+      "53 1 * * MON-FRI",
+      "13 3 * * MON-FRI",
+      "23 5 * * MON-FRI",
+      "23 6 * * MON-FRI",
+      "53 11 * * MON-FRI"
     ]
+  },
+  "observability": {
+    "enabled": true
   }
 }

@@ -19,4 +19,5 @@ npm run deploy
 Cloudflare cron expressions use UTC. Its five primary triggers map to Beijing
 times 10:00, 11:20, 13:30, 14:30, and 20:00. GitHub Actions retains the backup
 triggers and watchdog so the free Cloudflare account stays within its five-cron
-limit.
+limit. Weekdays use `MON-FRI` explicitly because Cloudflare numeric weekdays
+start at Sunday; `1-5` would incorrectly run Sunday through Thursday.

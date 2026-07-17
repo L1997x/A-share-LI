@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-import worker, { dispatchWorkflow } from "../src/index.js";
+import worker, { dispatchWorkflow, githubSchedule } from "../src/index.js";
 
 
 const env = {
@@ -14,17 +14,21 @@ const env = {
 };
 
 const PRIMARY_CRONS = [
-  "53 1 * * 1-5",
-  "13 3 * * 1-5",
-  "23 5 * * 1-5",
-  "23 6 * * 1-5",
-  "53 11 * * 1-5",
+  "53 1 * * MON-FRI",
+  "13 3 * * MON-FRI",
+  "23 5 * * MON-FRI",
+  "23 6 * * MON-FRI",
+  "53 11 * * MON-FRI",
 ];
 
+test("normalizes Cloudflare weekdays for the GitHub workflow", () => {
+  assert.equal(githubSchedule("53 1 * * MON-FRI"), "53 1 * * 1-5");
+  assert.equal(githubSchedule("53 1 * * 1-5"), "53 1 * * 1-5");
+});
 
 test("dispatches the workflow with the Cloudflare cron", async () => {
   let request;
-  const result = await dispatchWorkflow(env, "53 1 * * 1-5", async (url, options) => {
+  const result = await dispatchWorkflow(env, "53 1 * * MON-FRI", async (url, options) => {
     request = { url, options };
     return new Response(null, { status: 204 });
   });
@@ -53,7 +57,7 @@ test("scheduled handler registers the dispatch promise", async () => {
   globalThis.fetch = async () => new Response(null, { status: 204 });
   try {
     worker.scheduled(
-      { cron: "13 3 * * 1-5" },
+      { cron: "13 3 * * MON-FRI" },
       env,
       { waitUntil: (promise) => { scheduledPromise = promise; } }
     );
