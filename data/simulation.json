@@ -124,8 +124,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-17T17:41:11+08:00|2026-07-17|14:30尾盘风控",
+  "lastAutoRunKey": "2026-07-17T20:01:05+08:00|2026-07-17|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-07-17T20:01:05+08:00|2026-07-17|20点次日关注",
+      "at": "2026-07-17T20:01:05+08:00",
+      "tradeDate": "2026-07-17",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：平高电气(watch)、格力电器(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-17T17:41:11+08:00|2026-07-17|14:30尾盘风控",
       "at": "2026-07-17T17:41:11+08:00",
@@ -926,40 +939,47 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-09T18:06:09+08:00|2026-07-09|14:30尾盘风控",
-      "at": "2026-07-09T18:06:09+08:00",
-      "tradeDate": "2026-07-09",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：工业富联(watch)、通富微电(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "600312-2026-07-17T17:41:11+08:00|2026-07-17|14:30尾盘风控",
+      "id": "600312-2026-07-17T20:01:05+08:00|2026-07-17|20点次日关注",
       "code": "600312",
       "name": "平高电气",
       "status": "pending",
       "signalDate": "2026-07-17",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-17T17:41:11+08:00|2026-07-17|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-17T20:01:05+08:00|2026-07-17|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-20",
-      "plannedEntryPrice": 16.88,
-      "maxBuyPrice": 17.51,
+      "plannedEntryPrice": 16.86,
+      "maxBuyPrice": 17.48,
       "noChasePrice": 20.26,
       "score": 7.9,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "000651-2026-07-17T20:01:05+08:00|2026-07-17|20点次日关注",
+      "code": "000651",
+      "name": "格力电器",
+      "status": "pending",
+      "signalDate": "2026-07-17",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-17T20:01:05+08:00|2026-07-17|20点次日关注",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-07-20",
+      "plannedEntryPrice": 37.05,
+      "maxBuyPrice": 38.43,
+      "noChasePrice": 42.49,
+      "score": 7.8,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1333,6 +1353,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000651-2026-07-17T20:01:05+08:00",
+      "at": "2026-07-17T20:01:05+08:00",
+      "tradeDate": "2026-07-17",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000651",
+      "name": "格力电器",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 37.05,
+      "maxBuyPrice": 38.43,
+      "noChasePrice": 42.49,
+      "validUntilDate": "2026-07-20",
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-600312-2026-07-17T20:01:05+08:00",
+      "at": "2026-07-17T20:01:05+08:00",
+      "tradeDate": "2026-07-17",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600312",
+      "name": "平高电气",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 16.86,
+      "maxBuyPrice": 17.48,
+      "noChasePrice": 20.26,
+      "validUntilDate": "2026-07-20",
+      "score": 7.9
+    },
     {
       "id": "buy_deferred-600406-2026-07-17T17:41:11+08:00",
       "at": "2026-07-17T17:41:11+08:00",
@@ -2984,38 +3040,6 @@
       "plannedEntryPrice": 83.23,
       "maxBuyPrice": 86.35,
       "score": 8.5
-    },
-    {
-      "id": "buy_deferred-600887-2026-07-15T14:26:30+08:00",
-      "at": "2026-07-15T14:26:30+08:00",
-      "tradeDate": "2026-07-15",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600887",
-      "name": "伊利股份",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 23.39,
-      "maxBuyPrice": 24.16,
-      "score": 7.7
-    },
-    {
-      "id": "buy_deferred-600276-2026-07-15T14:26:30+08:00",
-      "at": "2026-07-15T14:26:30+08:00",
-      "tradeDate": "2026-07-15",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600276",
-      "name": "恒瑞医药",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 50.85,
-      "maxBuyPrice": 51.08,
-      "score": 7.7
     }
   ],
   "exitReviews": [
@@ -3074,11 +3098,11 @@
       "dailyPrices": {
         "2026-07-17": {
           "date": "2026-07-17",
-          "at": "2026-07-17T17:41:11+08:00",
+          "at": "2026-07-17T20:01:05+08:00",
           "price": 28.6,
           "returnPct": -2.356,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3213,8 +3237,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 82,
-    "plansCreated": 130,
+    "snapshotsProcessed": 83,
+    "plansCreated": 132,
     "buyChecks": 365,
     "buysExecuted": 2,
     "sellsExecuted": 2,
@@ -3228,7 +3252,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 5
     },
-    "lastRunAt": "2026-07-17T17:41:11+08:00",
-    "lastRunSummary": "更新云端计划2只：平高电气(watch)、国电南瑞(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-07-17T20:01:05+08:00",
+    "lastRunSummary": "更新云端计划2只：平高电气(watch)、格力电器(watch)"
   }
 }
