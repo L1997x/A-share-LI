@@ -176,8 +176,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-20T17:42:06+08:00|2026-07-20|14:30尾盘风控",
+  "lastAutoRunKey": "2026-07-20T19:58:32+08:00|2026-07-20|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-07-20T19:58:32+08:00|2026-07-20|20点次日关注",
+      "at": "2026-07-20T19:58:32+08:00",
+      "tradeDate": "2026-07-20",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：紫金矿业(watch)、恒瑞医药(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-20T17:42:06+08:00|2026-07-20|14:30尾盘风控",
       "at": "2026-07-20T17:42:06+08:00",
@@ -982,33 +995,20 @@
           "summary": "更新云端计划2只：比亚迪(trial)、双环传动(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-10T21:53:37+08:00|2026-07-10|20点次日关注",
-      "at": "2026-07-10T21:53:37+08:00",
-      "tradeDate": "2026-07-10",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：比亚迪(trial)、双环传动(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "601899-2026-07-20T17:42:06+08:00|2026-07-20|14:30尾盘风控",
+      "id": "601899-2026-07-20T19:58:32+08:00|2026-07-20|20点次日关注",
       "code": "601899",
       "name": "紫金矿业",
       "status": "pending",
       "signalDate": "2026-07-20",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-20T17:42:06+08:00|2026-07-20|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-20T19:58:32+08:00|2026-07-20|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-23",
-      "plannedEntryPrice": 26.35,
+      "plannedEntryPrice": 26.34,
       "maxBuyPrice": 27.32,
       "noChasePrice": 31.87,
       "score": 8.2,
@@ -1023,16 +1023,16 @@
       "executionPrice": null
     },
     {
-      "id": "600276-2026-07-20T17:42:06+08:00|2026-07-20|14:30尾盘风控",
+      "id": "600276-2026-07-20T19:58:32+08:00|2026-07-20|20点次日关注",
       "code": "600276",
       "name": "恒瑞医药",
       "status": "pending",
       "signalDate": "2026-07-20",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-20T17:42:06+08:00|2026-07-20|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-20T19:58:32+08:00|2026-07-20|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-23",
-      "plannedEntryPrice": 52.39,
+      "plannedEntryPrice": 52.38,
       "maxBuyPrice": 53.51,
       "noChasePrice": 61.51,
       "score": 7.7,
@@ -1361,6 +1361,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600276-2026-07-20T19:58:32+08:00",
+      "at": "2026-07-20T19:58:32+08:00",
+      "tradeDate": "2026-07-20",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600276",
+      "name": "恒瑞医药",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 52.38,
+      "maxBuyPrice": 53.51,
+      "noChasePrice": 61.51,
+      "validUntilDate": "2026-07-23",
+      "score": 7.7
+    },
+    {
+      "id": "buy_plan_created-601899-2026-07-20T19:58:32+08:00",
+      "at": "2026-07-20T19:58:32+08:00",
+      "tradeDate": "2026-07-20",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "601899",
+      "name": "紫金矿业",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 26.34,
+      "maxBuyPrice": 27.32,
+      "noChasePrice": 31.87,
+      "validUntilDate": "2026-07-23",
+      "score": 8.2
+    },
     {
       "id": "buy_deferred-000651-2026-07-20T17:42:06+08:00",
       "at": "2026-07-20T17:42:06+08:00",
@@ -3024,40 +3060,6 @@
       "noChasePrice": 53.51,
       "validUntilDate": "2026-07-19",
       "score": 8.2
-    },
-    {
-      "id": "buy_plan_created-002594-2026-07-16T12:49:23+08:00",
-      "at": "2026-07-16T12:49:23+08:00",
-      "tradeDate": "2026-07-16",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "002594",
-      "name": "比亚迪",
-      "summary": "生成可执行计划",
-      "reason": "明确可买信号：可突破试探",
-      "plannedEntryPrice": 95.15,
-      "maxBuyPrice": 95.15,
-      "noChasePrice": 96.33,
-      "validUntilDate": "2026-07-19",
-      "score": 8.9
-    },
-    {
-      "id": "buy_deferred-002050-2026-07-16T11:18:02+08:00",
-      "at": "2026-07-16T11:18:02+08:00",
-      "tradeDate": "2026-07-16",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "002050",
-      "name": "三花智控",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 38.14,
-      "maxBuyPrice": 39.57,
-      "score": 8.0
     }
   ],
   "exitReviews": [
@@ -3081,11 +3083,11 @@
       "dailyPrices": {
         "2026-07-20": {
           "date": "2026-07-20",
-          "at": "2026-07-20T17:42:06+08:00",
+          "at": "2026-07-20T19:58:32+08:00",
           "price": 51.61,
           "returnPct": 0.175,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3133,11 +3135,11 @@
         },
         "2026-07-20": {
           "date": "2026-07-20",
-          "at": "2026-07-20T17:42:06+08:00",
+          "at": "2026-07-20T19:58:32+08:00",
           "price": 29.35,
           "returnPct": 0.205,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3272,8 +3274,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 90,
-    "plansCreated": 146,
+    "snapshotsProcessed": 91,
+    "plansCreated": 148,
     "buyChecks": 403,
     "buysExecuted": 3,
     "sellsExecuted": 2,
@@ -3287,7 +3289,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 6
     },
-    "lastRunAt": "2026-07-20T17:42:06+08:00",
-    "lastRunSummary": "更新云端计划2只：紫金矿业(watch)、恒瑞医药(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-07-20T19:58:32+08:00",
+    "lastRunSummary": "更新云端计划2只：紫金矿业(watch)、恒瑞医药(watch)"
   }
 }
