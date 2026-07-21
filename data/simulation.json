@@ -169,8 +169,25 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-21T11:18:00+08:00|2026-07-21|11:20午前买入复检",
+  "lastAutoRunKey": "2026-07-21T12:57:19+08:00|2026-07-21|11:20午前买入复检",
   "autoLog": [
+    {
+      "runKey": "2026-07-21T12:57:19+08:00|2026-07-21|11:20午前买入复检",
+      "at": "2026-07-21T12:57:19+08:00",
+      "tradeDate": "2026-07-21",
+      "phase": "11:20午前买入复检",
+      "phaseKey": "morning_entry",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：工业富联(watch)、紫金矿业(watch)"
+        },
+        {
+          "type": "buy_wait",
+          "summary": "本次买入复检未成交，原因已写入决策复盘"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-21T11:18:00+08:00|2026-07-21|11:20午前买入复检",
       "at": "2026-07-21T11:18:00+08:00",
@@ -983,40 +1000,47 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-13T13:50:50+08:00|2026-07-13|10点早盘接入",
-      "at": "2026-07-13T13:50:50+08:00",
-      "tradeDate": "2026-07-13",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：通富微电(watch)、格力电器(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "601138-2026-07-21T11:18:00+08:00|2026-07-21|11:20午前买入复检",
+      "id": "601138-2026-07-21T12:57:19+08:00|2026-07-21|11:20午前买入复检",
       "code": "601138",
       "name": "工业富联",
       "status": "pending",
       "signalDate": "2026-07-21",
       "signalPhase": "morning_entry",
-      "createdRunKey": "2026-07-21T11:18:00+08:00|2026-07-21|11:20午前买入复检",
+      "createdRunKey": "2026-07-21T12:57:19+08:00|2026-07-21|11:20午前买入复检",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-24",
-      "plannedEntryPrice": 52.79,
-      "maxBuyPrice": 54.77,
+      "plannedEntryPrice": 53.18,
+      "maxBuyPrice": 55.17,
       "noChasePrice": 84.21,
-      "score": 9.0,
+      "score": 8.9,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "601899-2026-07-21T12:57:19+08:00|2026-07-21|11:20午前买入复检",
+      "code": "601899",
+      "name": "紫金矿业",
+      "status": "pending",
+      "signalDate": "2026-07-21",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-07-21T12:57:19+08:00|2026-07-21|11:20午前买入复检",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-07-24",
+      "plannedEntryPrice": 25.81,
+      "maxBuyPrice": 26.76,
+      "noChasePrice": 31.87,
+      "score": 8.0,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1065,30 +1089,6 @@
       "maxBuyPrice": 85.07,
       "noChasePrice": 101.75,
       "score": 7.6,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "planType": "watch",
-      "targetPositionPct": 0.1,
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
-      "id": "601899-2026-07-20T19:58:32+08:00|2026-07-20|20点次日关注",
-      "code": "601899",
-      "name": "紫金矿业",
-      "status": "pending",
-      "signalDate": "2026-07-20",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-07-20T19:58:32+08:00|2026-07-20|20点次日关注",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-07-23",
-      "plannedEntryPrice": 26.34,
-      "maxBuyPrice": 27.32,
-      "noChasePrice": 31.87,
-      "score": 8.2,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1390,6 +1390,74 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_deferred-601899-2026-07-21T12:57:19+08:00",
+      "at": "2026-07-21T12:57:19+08:00",
+      "tradeDate": "2026-07-21",
+      "phase": "11:20午前买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "601899",
+      "name": "紫金矿业",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 25.81,
+      "maxBuyPrice": 26.76,
+      "score": 8.0
+    },
+    {
+      "id": "buy_deferred-601138-2026-07-21T12:57:19+08:00",
+      "at": "2026-07-21T12:57:19+08:00",
+      "tradeDate": "2026-07-21",
+      "phase": "11:20午前买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "601138",
+      "name": "工业富联",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 53.18,
+      "maxBuyPrice": 55.17,
+      "score": 8.9
+    },
+    {
+      "id": "buy_plan_created-601899-2026-07-21T12:57:19+08:00",
+      "at": "2026-07-21T12:57:19+08:00",
+      "tradeDate": "2026-07-21",
+      "phase": "11:20午前买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "601899",
+      "name": "紫金矿业",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 25.81,
+      "maxBuyPrice": 26.76,
+      "noChasePrice": 31.87,
+      "validUntilDate": "2026-07-24",
+      "score": 8.0
+    },
+    {
+      "id": "buy_plan_created-601138-2026-07-21T12:57:19+08:00",
+      "at": "2026-07-21T12:57:19+08:00",
+      "tradeDate": "2026-07-21",
+      "phase": "11:20午前买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "601138",
+      "name": "工业富联",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 53.18,
+      "maxBuyPrice": 55.17,
+      "noChasePrice": 84.21,
+      "validUntilDate": "2026-07-24",
+      "score": 8.9
+    },
     {
       "id": "buy_deferred-601899-2026-07-21T11:18:00+08:00",
       "at": "2026-07-21T11:18:00+08:00",
@@ -3017,74 +3085,6 @@
       "plannedEntryPrice": 26.15,
       "maxBuyPrice": 27.13,
       "score": 8.0
-    },
-    {
-      "id": "buy_deferred-002594-2026-07-16T14:43:08+08:00",
-      "at": "2026-07-16T14:43:08+08:00",
-      "tradeDate": "2026-07-16",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "002594",
-      "name": "比亚迪",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 83.23,
-      "maxBuyPrice": 86.12,
-      "score": 8.5
-    },
-    {
-      "id": "buy_plan_created-601899-2026-07-16T14:43:08+08:00",
-      "at": "2026-07-16T14:43:08+08:00",
-      "tradeDate": "2026-07-16",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "601899",
-      "name": "紫金矿业",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 26.15,
-      "maxBuyPrice": 27.13,
-      "noChasePrice": 32.49,
-      "validUntilDate": "2026-07-19",
-      "score": 8.0
-    },
-    {
-      "id": "buy_plan_created-002594-2026-07-16T14:43:08+08:00",
-      "at": "2026-07-16T14:43:08+08:00",
-      "tradeDate": "2026-07-16",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "002594",
-      "name": "比亚迪",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 83.23,
-      "maxBuyPrice": 86.12,
-      "noChasePrice": 96.33,
-      "validUntilDate": "2026-07-19",
-      "score": 8.5
-    },
-    {
-      "id": "buy_deferred-002050-2026-07-16T14:31:35+08:00",
-      "at": "2026-07-16T14:31:35+08:00",
-      "tradeDate": "2026-07-16",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "002050",
-      "name": "三花智控",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 38.14,
-      "maxBuyPrice": 39.57,
-      "score": 8.0
     }
   ],
   "exitReviews": [
@@ -3151,9 +3151,9 @@
         },
         "2026-07-21": {
           "date": "2026-07-21",
-          "at": "2026-07-21T11:18:00+08:00",
-          "price": 51.35,
-          "returnPct": -0.33,
+          "at": "2026-07-21T12:57:19+08:00",
+          "price": 51.17,
+          "returnPct": -0.679,
           "phase": "morning_entry",
           "finalized": false
         }
@@ -3166,10 +3166,10 @@
       },
       "observedTradingDays": 2,
       "currentDate": "2026-07-21",
-      "currentPrice": 51.35,
-      "currentReturnPct": -0.33,
+      "currentPrice": 51.17,
+      "currentReturnPct": -0.679,
       "maxPostExitReturnPct": 0.175,
-      "minPostExitReturnPct": -0.33,
+      "minPostExitReturnPct": -0.679,
       "latestMatureHorizon": null,
       "qualityLabel": "等待3个交易日样本",
       "modelAction": "样本尚未成熟，不调整卖出参数。",
@@ -3211,9 +3211,9 @@
         },
         "2026-07-21": {
           "date": "2026-07-21",
-          "at": "2026-07-21T11:18:00+08:00",
-          "price": 29.37,
-          "returnPct": 0.273,
+          "at": "2026-07-21T12:57:19+08:00",
+          "price": 29.43,
+          "returnPct": 0.478,
           "phase": "morning_entry",
           "finalized": false
         }
@@ -3226,9 +3226,9 @@
       },
       "observedTradingDays": 3,
       "currentDate": "2026-07-21",
-      "currentPrice": 29.37,
-      "currentReturnPct": 0.273,
-      "maxPostExitReturnPct": 0.273,
+      "currentPrice": 29.43,
+      "currentReturnPct": 0.478,
+      "maxPostExitReturnPct": 0.478,
       "minPostExitReturnPct": -2.356,
       "latestMatureHorizon": null,
       "qualityLabel": "等待3个交易日样本",
@@ -3389,14 +3389,14 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 93,
-    "plansCreated": 152,
-    "buyChecks": 416,
+    "snapshotsProcessed": 94,
+    "plansCreated": 154,
+    "buyChecks": 423,
     "buysExecuted": 3,
     "sellsExecuted": 3,
     "waitReasonCounts": {
-      "观察计划尚未升级为可执行信号": 160,
-      "股票不在最新池，云端继续观察但不执行": 234,
+      "观察计划尚未升级为可执行信号": 162,
+      "股票不在最新池，云端继续观察但不执行": 239,
       "价格高于MA20超过5%，避免追涨后回撤": 8,
       "含滑点价格高于最高买入价": 3,
       "价格低于MA20超过3%，等待止跌确认": 2
@@ -3404,7 +3404,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 6
     },
-    "lastRunAt": "2026-07-21T11:18:00+08:00",
-    "lastRunSummary": "更新云端计划2只：工业富联(watch)、中国稀土(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-07-21T12:57:19+08:00",
+    "lastRunSummary": "更新云端计划2只：工业富联(watch)、紫金矿业(watch)；本次买入复检未成交，原因已写入决策复盘"
   }
 }
