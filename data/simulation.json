@@ -169,8 +169,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-22T17:12:32+08:00|2026-07-22|14:30尾盘风控",
+  "lastAutoRunKey": "2026-07-22T19:58:06+08:00|2026-07-22|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-07-22T19:58:06+08:00|2026-07-22|20点次日关注",
+      "at": "2026-07-22T19:58:06+08:00",
+      "tradeDate": "2026-07-22",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：铜陵有色(watch)、国电南瑞(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-22T17:12:32+08:00|2026-07-22|14:30尾盘风控",
       "at": "2026-07-22T17:12:32+08:00",
@@ -987,39 +1000,22 @@
           "summary": "更新云端计划2只：工业富联(trial)、比亚迪(trial)"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-14T16:24:13+08:00|2026-07-14|14:30尾盘风控",
-      "at": "2026-07-14T16:24:13+08:00",
-      "tradeDate": "2026-07-14",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划1只：工业富联(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000630-2026-07-22T15:48:12+08:00|2026-07-22|14:30尾盘风控",
+      "id": "000630-2026-07-22T19:58:06+08:00|2026-07-22|20点次日关注",
       "code": "000630",
       "name": "铜陵有色",
       "status": "pending",
       "signalDate": "2026-07-22",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-22T15:48:12+08:00|2026-07-22|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-22T19:58:06+08:00|2026-07-22|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-25",
-      "plannedEntryPrice": 5.61,
+      "plannedEntryPrice": 5.62,
       "maxBuyPrice": 5.82,
-      "noChasePrice": 8.34,
+      "noChasePrice": 7.41,
       "score": 8.8,
       "buySignalKey": "wait",
       "statusKey": "wait",
@@ -1032,18 +1028,18 @@
       "executionPrice": null
     },
     {
-      "id": "600406-2026-07-22T15:48:12+08:00|2026-07-22|14:30尾盘风控",
+      "id": "600406-2026-07-22T19:58:06+08:00|2026-07-22|20点次日关注",
       "code": "600406",
       "name": "国电南瑞",
       "status": "pending",
       "signalDate": "2026-07-22",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-22T15:48:12+08:00|2026-07-22|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-22T19:58:06+08:00|2026-07-22|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-25",
-      "plannedEntryPrice": 21.88,
-      "maxBuyPrice": 22.14,
-      "noChasePrice": 25.0,
+      "plannedEntryPrice": 21.85,
+      "maxBuyPrice": 22.2,
+      "noChasePrice": 25.38,
       "score": 8.4,
       "buySignalKey": "wait",
       "statusKey": "wait",
@@ -1514,6 +1510,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600406-2026-07-22T19:58:06+08:00",
+      "at": "2026-07-22T19:58:06+08:00",
+      "tradeDate": "2026-07-22",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600406",
+      "name": "国电南瑞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 21.85,
+      "maxBuyPrice": 22.2,
+      "noChasePrice": 25.38,
+      "validUntilDate": "2026-07-25",
+      "score": 8.4
+    },
+    {
+      "id": "buy_plan_created-000630-2026-07-22T19:58:06+08:00",
+      "at": "2026-07-22T19:58:06+08:00",
+      "tradeDate": "2026-07-22",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000630",
+      "name": "铜陵有色",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 5.62,
+      "maxBuyPrice": 5.82,
+      "noChasePrice": 7.41,
+      "validUntilDate": "2026-07-25",
+      "score": 8.8
+    },
     {
       "id": "buy_deferred-000988-2026-07-22T17:12:32+08:00",
       "at": "2026-07-22T17:12:32+08:00",
@@ -3170,42 +3202,6 @@
       "noChasePrice": 20.26,
       "validUntilDate": "2026-07-20",
       "score": 7.9
-    },
-    {
-      "id": "buy_plan_created-000651-2026-07-17T20:01:05+08:00",
-      "at": "2026-07-17T20:01:05+08:00",
-      "tradeDate": "2026-07-17",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "000651",
-      "name": "格力电器",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 37.05,
-      "maxBuyPrice": 38.43,
-      "noChasePrice": 42.49,
-      "validUntilDate": "2026-07-20",
-      "score": 7.8
-    },
-    {
-      "id": "buy_plan_created-600312-2026-07-17T20:01:05+08:00",
-      "at": "2026-07-17T20:01:05+08:00",
-      "tradeDate": "2026-07-17",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600312",
-      "name": "平高电气",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 16.86,
-      "maxBuyPrice": 17.48,
-      "noChasePrice": 20.26,
-      "validUntilDate": "2026-07-20",
-      "score": 7.9
     }
   ],
   "exitReviews": [
@@ -3229,11 +3225,11 @@
       "dailyPrices": {
         "2026-07-22": {
           "date": "2026-07-22",
-          "at": "2026-07-22T17:12:32+08:00",
+          "at": "2026-07-22T19:58:06+08:00",
           "price": 23.75,
           "returnPct": 0.849,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3289,15 +3285,21 @@
         },
         "2026-07-22": {
           "date": "2026-07-22",
-          "at": "2026-07-22T17:12:32+08:00",
+          "at": "2026-07-22T19:58:06+08:00",
           "price": 51.54,
           "returnPct": 0.039,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
-        "3": null,
+        "3": {
+          "horizon": 3,
+          "date": "2026-07-22",
+          "at": "2026-07-22T19:58:06+08:00",
+          "price": 51.54,
+          "returnPct": 0.039
+        },
         "5": null,
         "20": null,
         "30": null
@@ -3308,10 +3310,10 @@
       "currentReturnPct": 0.039,
       "maxPostExitReturnPct": 0.175,
       "minPostExitReturnPct": -0.621,
-      "latestMatureHorizon": null,
-      "qualityLabel": "等待3个交易日样本",
-      "modelAction": "样本尚未成熟，不调整卖出参数。",
-      "feedbackEligible": false
+      "latestMatureHorizon": 3,
+      "qualityLabel": "卖出合理",
+      "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
+      "feedbackEligible": true
     },
     {
       "id": "sell-601899-2026-07-16T14:31:35+08:00",
@@ -3357,11 +3359,11 @@
         },
         "2026-07-22": {
           "date": "2026-07-22",
-          "at": "2026-07-22T17:12:32+08:00",
+          "at": "2026-07-22T19:58:06+08:00",
           "price": 32.2,
           "returnPct": 9.935,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3398,16 +3400,16 @@
       30
     ],
     "exitCount": 3,
-    "maturedExitCount": 1,
+    "maturedExitCount": 2,
     "minSamplesForAdjustment": 3,
     "confidence": "低",
     "horizonStats": [
       {
         "horizon": 3,
-        "sampleCount": 1,
-        "avgPostExitReturnPct": 3.141,
-        "medianPostExitReturnPct": 3.141,
-        "prematureExitRatePct": 100.0,
+        "sampleCount": 2,
+        "avgPostExitReturnPct": 1.59,
+        "medianPostExitReturnPct": 1.59,
+        "prematureExitRatePct": 50.0,
         "avoidedLossRatePct": 0.0
       },
       {
@@ -3482,10 +3484,10 @@
         "horizons": [
           {
             "horizon": 3,
-            "sampleCount": 1,
-            "avgPostExitReturnPct": 3.141,
-            "medianPostExitReturnPct": 3.141,
-            "prematureExitRatePct": 100.0,
+            "sampleCount": 2,
+            "avgPostExitReturnPct": 1.59,
+            "medianPostExitReturnPct": 1.59,
+            "prematureExitRatePct": 50.0,
             "avoidedLossRatePct": 0.0
           },
           {
@@ -3541,8 +3543,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 104,
-    "plansCreated": 172,
+    "snapshotsProcessed": 105,
+    "plansCreated": 174,
     "buyChecks": 502,
     "buysExecuted": 3,
     "sellsExecuted": 3,
@@ -3556,7 +3558,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 9
     },
-    "lastRunAt": "2026-07-22T17:12:32+08:00",
-    "lastRunSummary": "当前没有符合资金和风控约束的新计划；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-07-22T19:58:06+08:00",
+    "lastRunSummary": "更新云端计划2只：铜陵有色(watch)、国电南瑞(watch)"
   }
 }
