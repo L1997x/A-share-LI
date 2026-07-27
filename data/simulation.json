@@ -304,8 +304,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-27T18:17:29+08:00|2026-07-27|14:30尾盘风控",
+  "lastAutoRunKey": "2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
+      "at": "2026-07-27T20:02:43+08:00",
+      "tradeDate": "2026-07-27",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：工业富联(trial)、锡业股份(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-27T18:17:29+08:00|2026-07-27|14:30尾盘风控",
       "at": "2026-07-27T18:17:29+08:00",
@@ -1126,44 +1139,23 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-17T14:26:17+08:00|2026-07-17|14:30尾盘风控",
-      "at": "2026-07-17T14:26:17+08:00",
-      "tradeDate": "2026-07-17",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "sell",
-          "summary": "云端卖出云南白药300股，原因：评分跌破退出阈值"
-        },
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划1只：国电南瑞(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "601138-2026-07-27T18:17:29+08:00|2026-07-27|14:30尾盘风控",
+      "id": "601138-2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
       "code": "601138",
       "name": "工业富联",
       "status": "pending",
       "signalDate": "2026-07-27",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-27T18:17:29+08:00|2026-07-27|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-30",
-      "plannedEntryPrice": 55.42,
-      "maxBuyPrice": 63.34,
+      "plannedEntryPrice": 55.35,
+      "maxBuyPrice": 63.27,
       "noChasePrice": 78.35,
-      "score": 9.0,
+      "score": 8.9,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1175,19 +1167,19 @@
       "executionPrice": null
     },
     {
-      "id": "000960-2026-07-27T18:17:29+08:00|2026-07-27|14:30尾盘风控",
+      "id": "000960-2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
       "code": "000960",
       "name": "锡业股份",
       "status": "pending",
       "signalDate": "2026-07-27",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-27T18:17:29+08:00|2026-07-27|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-30",
-      "plannedEntryPrice": 29.39,
-      "maxBuyPrice": 30.5,
+      "plannedEntryPrice": 29.41,
+      "maxBuyPrice": 30.52,
       "noChasePrice": 49.45,
-      "score": 8.3,
+      "score": 8.4,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1219,30 +1211,6 @@
       "targetPositionPct": 0.1,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
-      "id": "603228-2026-07-27T11:19:48+08:00|2026-07-27|11:20午前买入复检",
-      "code": "603228",
-      "name": "景旺电子",
-      "status": "cancelled",
-      "signalDate": "2026-07-27",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-07-27T11:19:48+08:00|2026-07-27|11:20午前买入复检",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-07-30",
-      "plannedEntryPrice": 65.86,
-      "maxBuyPrice": 68.32,
-      "noChasePrice": 84.76,
-      "score": 8.4,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "planType": "watch",
-      "targetPositionPct": 0.1,
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "模型或接入安全层硬拦截",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1315,6 +1283,30 @@
       "targetPositionPct": 0.1,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "603228-2026-07-27T11:19:48+08:00|2026-07-27|11:20午前买入复检",
+      "code": "603228",
+      "name": "景旺电子",
+      "status": "cancelled",
+      "signalDate": "2026-07-27",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-07-27T11:19:48+08:00|2026-07-27|11:20午前买入复检",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-07-30",
+      "plannedEntryPrice": 65.86,
+      "maxBuyPrice": 68.32,
+      "noChasePrice": 84.76,
+      "score": 8.4,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "模型或接入安全层硬拦截",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1705,6 +1697,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000960-2026-07-27T20:02:43+08:00",
+      "at": "2026-07-27T20:02:43+08:00",
+      "tradeDate": "2026-07-27",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000960",
+      "name": "锡业股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 29.41,
+      "maxBuyPrice": 30.52,
+      "noChasePrice": 49.45,
+      "validUntilDate": "2026-07-30",
+      "score": 8.4
+    },
+    {
+      "id": "buy_plan_created-601138-2026-07-27T20:02:43+08:00",
+      "at": "2026-07-27T20:02:43+08:00",
+      "tradeDate": "2026-07-27",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "601138",
+      "name": "工业富联",
+      "summary": "生成小仓试买观察",
+      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
+      "plannedEntryPrice": 55.35,
+      "maxBuyPrice": 63.27,
+      "noChasePrice": 78.35,
+      "validUntilDate": "2026-07-30",
+      "score": 8.9
+    },
     {
       "id": "buy_deferred-000960-2026-07-27T18:17:29+08:00",
       "at": "2026-07-27T18:17:29+08:00",
@@ -3364,42 +3392,6 @@
       "quantity": 100,
       "feeTotal": 5.0641,
       "score": 9.9
-    },
-    {
-      "id": "buy_plan_created-600089-2026-07-23T09:56:08+08:00",
-      "at": "2026-07-23T09:56:08+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600089",
-      "name": "特变电工",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 18.78,
-      "maxBuyPrice": 19.48,
-      "noChasePrice": 24.85,
-      "validUntilDate": "2026-07-26",
-      "score": 8.3
-    },
-    {
-      "id": "buy_plan_created-601138-2026-07-23T09:56:08+08:00",
-      "at": "2026-07-23T09:56:08+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "601138",
-      "name": "工业富联",
-      "summary": "生成小仓试买观察",
-      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
-      "plannedEntryPrice": 57.43,
-      "maxBuyPrice": 65.62,
-      "noChasePrice": 82.4,
-      "validUntilDate": "2026-07-26",
-      "score": 9.9
     }
   ],
   "exitReviews": [
@@ -3423,11 +3415,11 @@
       "dailyPrices": {
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T18:17:29+08:00",
-          "price": 6.15,
-          "returnPct": 2.159,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "at": "2026-07-27T20:02:43+08:00",
+          "price": 6.16,
+          "returnPct": 2.326,
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3438,10 +3430,10 @@
       },
       "observedTradingDays": 1,
       "currentDate": "2026-07-27",
-      "currentPrice": 6.15,
-      "currentReturnPct": 2.159,
-      "maxPostExitReturnPct": 2.159,
-      "minPostExitReturnPct": 2.159,
+      "currentPrice": 6.16,
+      "currentReturnPct": 2.326,
+      "maxPostExitReturnPct": 2.326,
+      "minPostExitReturnPct": 2.326,
       "latestMatureHorizon": null,
       "qualityLabel": "等待3个交易日样本",
       "modelAction": "样本尚未成熟，不调整卖出参数。",
@@ -3467,11 +3459,11 @@
       "dailyPrices": {
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T18:17:29+08:00",
+          "at": "2026-07-27T20:02:43+08:00",
           "price": 14.07,
           "returnPct": 1.442,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3511,11 +3503,11 @@
       "dailyPrices": {
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T18:17:29+08:00",
+          "at": "2026-07-27T20:02:43+08:00",
           "price": 61.55,
           "returnPct": 1.501,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3579,11 +3571,11 @@
         },
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T18:17:29+08:00",
+          "at": "2026-07-27T20:02:43+08:00",
           "price": 23.9,
           "returnPct": 1.486,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3669,11 +3661,11 @@
         },
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T18:17:29+08:00",
+          "at": "2026-07-27T20:02:43+08:00",
           "price": 51.12,
           "returnPct": -0.776,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3773,11 +3765,11 @@
         },
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T18:17:29+08:00",
+          "at": "2026-07-27T20:02:43+08:00",
           "price": 31.77,
           "returnPct": 8.467,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3963,8 +3955,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 127,
-    "plansCreated": 210,
+    "snapshotsProcessed": 128,
+    "plansCreated": 212,
     "buyChecks": 695,
     "buysExecuted": 6,
     "sellsExecuted": 6,
@@ -3978,7 +3970,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 11
     },
-    "lastRunAt": "2026-07-27T18:17:29+08:00",
-    "lastRunSummary": "更新云端计划2只：工业富联(trial)、锡业股份(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-07-27T20:02:43+08:00",
+    "lastRunSummary": "更新云端计划2只：工业富联(trial)、锡业股份(watch)"
   }
 }
