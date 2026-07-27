@@ -304,8 +304,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
+  "lastAutoRunKey": "2026-07-27T23:12:12+08:00|2026-07-27|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-07-27T23:12:12+08:00|2026-07-27|20点次日关注",
+      "at": "2026-07-27T23:12:12+08:00",
+      "tradeDate": "2026-07-27",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：工业富联(trial)、锡业股份(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
       "at": "2026-07-27T20:02:43+08:00",
@@ -1122,38 +1135,21 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-17T14:37:41+08:00|2026-07-17|13:30午后买入复检",
-      "at": "2026-07-17T14:37:41+08:00",
-      "tradeDate": "2026-07-17",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：平高电气(watch)、国电南瑞(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "601138-2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
+      "id": "601138-2026-07-27T23:12:12+08:00|2026-07-27|20点次日关注",
       "code": "601138",
       "name": "工业富联",
       "status": "pending",
       "signalDate": "2026-07-27",
       "signalPhase": "evening_watch",
-      "createdRunKey": "2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
+      "createdRunKey": "2026-07-27T23:12:12+08:00|2026-07-27|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-30",
-      "plannedEntryPrice": 55.35,
-      "maxBuyPrice": 63.27,
+      "plannedEntryPrice": 55.39,
+      "maxBuyPrice": 63.32,
       "noChasePrice": 78.35,
       "score": 8.9,
       "buySignalKey": "wait",
@@ -1167,19 +1163,19 @@
       "executionPrice": null
     },
     {
-      "id": "000960-2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
+      "id": "000960-2026-07-27T23:12:12+08:00|2026-07-27|20点次日关注",
       "code": "000960",
       "name": "锡业股份",
       "status": "pending",
       "signalDate": "2026-07-27",
       "signalPhase": "evening_watch",
-      "createdRunKey": "2026-07-27T20:02:43+08:00|2026-07-27|20点次日关注",
+      "createdRunKey": "2026-07-27T23:12:12+08:00|2026-07-27|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-30",
-      "plannedEntryPrice": 29.41,
-      "maxBuyPrice": 30.52,
+      "plannedEntryPrice": 29.38,
+      "maxBuyPrice": 30.49,
       "noChasePrice": 49.45,
-      "score": 8.4,
+      "score": 8.3,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1697,6 +1693,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000960-2026-07-27T23:12:12+08:00",
+      "at": "2026-07-27T23:12:12+08:00",
+      "tradeDate": "2026-07-27",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000960",
+      "name": "锡业股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 29.38,
+      "maxBuyPrice": 30.49,
+      "noChasePrice": 49.45,
+      "validUntilDate": "2026-07-30",
+      "score": 8.3
+    },
+    {
+      "id": "buy_plan_created-601138-2026-07-27T23:12:12+08:00",
+      "at": "2026-07-27T23:12:12+08:00",
+      "tradeDate": "2026-07-27",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "601138",
+      "name": "工业富联",
+      "summary": "生成小仓试买观察",
+      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
+      "plannedEntryPrice": 55.39,
+      "maxBuyPrice": 63.32,
+      "noChasePrice": 78.35,
+      "validUntilDate": "2026-07-30",
+      "score": 8.9
+    },
     {
       "id": "buy_plan_created-000960-2026-07-27T20:02:43+08:00",
       "at": "2026-07-27T20:02:43+08:00",
@@ -3354,44 +3386,6 @@
       "plannedEntryPrice": 5.62,
       "maxBuyPrice": 5.82,
       "score": 8.8
-    },
-    {
-      "id": "buy_deferred-600089-2026-07-23T09:56:08+08:00",
-      "at": "2026-07-23T09:56:08+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600089",
-      "name": "特变电工",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 18.78,
-      "maxBuyPrice": 19.48,
-      "score": 8.3
-    },
-    {
-      "id": "buy_executed-601138-2026-07-23T09:56:08+08:00",
-      "at": "2026-07-23T09:56:08+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_executed",
-      "status": "executed",
-      "code": "601138",
-      "name": "工业富联",
-      "summary": "云端自动买入100股",
-      "reason": "偏暖市场高分标的进入1.5个ATR缓冲区并通过止跌过滤，小仓试买",
-      "plannedEntryPrice": 57.43,
-      "maxBuyPrice": 65.62,
-      "snapshotPrice": 64.01,
-      "executionPrice": 64.14,
-      "stopLossPrice": 60.29,
-      "takeProfitPrice": 71.83,
-      "quantity": 100,
-      "feeTotal": 5.0641,
-      "score": 9.9
     }
   ],
   "exitReviews": [
@@ -3415,7 +3409,7 @@
       "dailyPrices": {
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T20:02:43+08:00",
+          "at": "2026-07-27T23:12:12+08:00",
           "price": 6.16,
           "returnPct": 2.326,
           "phase": "evening_watch",
@@ -3459,7 +3453,7 @@
       "dailyPrices": {
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T20:02:43+08:00",
+          "at": "2026-07-27T23:12:12+08:00",
           "price": 14.07,
           "returnPct": 1.442,
           "phase": "evening_watch",
@@ -3503,7 +3497,7 @@
       "dailyPrices": {
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T20:02:43+08:00",
+          "at": "2026-07-27T23:12:12+08:00",
           "price": 61.55,
           "returnPct": 1.501,
           "phase": "evening_watch",
@@ -3571,7 +3565,7 @@
         },
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T20:02:43+08:00",
+          "at": "2026-07-27T23:12:12+08:00",
           "price": 23.9,
           "returnPct": 1.486,
           "phase": "evening_watch",
@@ -3661,7 +3655,7 @@
         },
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T20:02:43+08:00",
+          "at": "2026-07-27T23:12:12+08:00",
           "price": 51.12,
           "returnPct": -0.776,
           "phase": "evening_watch",
@@ -3765,7 +3759,7 @@
         },
         "2026-07-27": {
           "date": "2026-07-27",
-          "at": "2026-07-27T20:02:43+08:00",
+          "at": "2026-07-27T23:12:12+08:00",
           "price": 31.77,
           "returnPct": 8.467,
           "phase": "evening_watch",
@@ -3955,8 +3949,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 128,
-    "plansCreated": 212,
+    "snapshotsProcessed": 129,
+    "plansCreated": 214,
     "buyChecks": 695,
     "buysExecuted": 6,
     "sellsExecuted": 6,
@@ -3970,7 +3964,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 11
     },
-    "lastRunAt": "2026-07-27T20:02:43+08:00",
+    "lastRunAt": "2026-07-27T23:12:12+08:00",
     "lastRunSummary": "更新云端计划2只：工业富联(trial)、锡业股份(watch)"
   }
 }
