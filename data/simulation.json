@@ -304,8 +304,25 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-28T16:00:50+08:00|2026-07-28|14:30尾盘风控",
+  "lastAutoRunKey": "2026-07-28T17:14:50+08:00|2026-07-28|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-07-28T17:14:50+08:00|2026-07-28|14:30尾盘风控",
+      "at": "2026-07-28T17:14:50+08:00",
+      "tradeDate": "2026-07-28",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：比亚迪(watch)、中国平安(watch)"
+        },
+        {
+          "type": "buy_wait",
+          "summary": "本次买入复检未成交，原因已写入决策复盘"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-28T16:00:50+08:00|2026-07-28|14:30尾盘风控",
       "at": "2026-07-28T16:00:50+08:00",
@@ -1126,40 +1143,47 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-20T11:08:22+08:00|2026-07-20|10点早盘接入",
-      "at": "2026-07-20T11:08:22+08:00",
-      "tradeDate": "2026-07-20",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：紫金矿业(trial)、国电南瑞(trial)"
-        },
-        {
-          "type": "buy",
-          "summary": "云端买入国电南瑞400股，成交23.23"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "002594-2026-07-28T16:00:50+08:00|2026-07-28|14:30尾盘风控",
+      "id": "002594-2026-07-28T17:14:50+08:00|2026-07-28|14:30尾盘风控",
       "code": "002594",
       "name": "比亚迪",
       "status": "pending",
       "signalDate": "2026-07-28",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-28T16:00:50+08:00|2026-07-28|14:30尾盘风控",
+      "createdRunKey": "2026-07-28T17:14:50+08:00|2026-07-28|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-31",
-      "plannedEntryPrice": 84.03,
-      "maxBuyPrice": 87.17,
+      "plannedEntryPrice": 84.68,
+      "maxBuyPrice": 87.85,
       "noChasePrice": 102.66,
       "score": 8.4,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "601318-2026-07-28T17:14:50+08:00|2026-07-28|14:30尾盘风控",
+      "code": "601318",
+      "name": "中国平安",
+      "status": "pending",
+      "signalDate": "2026-07-28",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-07-28T17:14:50+08:00|2026-07-28|14:30尾盘风控",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-07-31",
+      "plannedEntryPrice": 48.16,
+      "maxBuyPrice": 49.96,
+      "noChasePrice": 57.96,
+      "score": 8.0,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1749,6 +1773,106 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_deferred-600887-2026-07-28T17:14:50+08:00",
+      "at": "2026-07-28T17:14:50+08:00",
+      "tradeDate": "2026-07-28",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600887",
+      "name": "伊利股份",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 24.13,
+      "maxBuyPrice": 25.03,
+      "score": 8.1
+    },
+    {
+      "id": "buy_deferred-000858-2026-07-28T17:14:50+08:00",
+      "at": "2026-07-28T17:14:50+08:00",
+      "tradeDate": "2026-07-28",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "000858",
+      "name": "五粮液",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 68.6,
+      "maxBuyPrice": 70.47,
+      "score": 7.9
+    },
+    {
+      "id": "buy_deferred-601318-2026-07-28T17:14:50+08:00",
+      "at": "2026-07-28T17:14:50+08:00",
+      "tradeDate": "2026-07-28",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "601318",
+      "name": "中国平安",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 48.16,
+      "maxBuyPrice": 49.96,
+      "score": 8.0
+    },
+    {
+      "id": "buy_deferred-002594-2026-07-28T17:14:50+08:00",
+      "at": "2026-07-28T17:14:50+08:00",
+      "tradeDate": "2026-07-28",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "002594",
+      "name": "比亚迪",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 84.68,
+      "maxBuyPrice": 87.85,
+      "score": 8.4
+    },
+    {
+      "id": "buy_plan_created-601318-2026-07-28T17:14:50+08:00",
+      "at": "2026-07-28T17:14:50+08:00",
+      "tradeDate": "2026-07-28",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "601318",
+      "name": "中国平安",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 48.16,
+      "maxBuyPrice": 49.96,
+      "noChasePrice": 57.96,
+      "validUntilDate": "2026-07-31",
+      "score": 8.0
+    },
+    {
+      "id": "buy_plan_created-002594-2026-07-28T17:14:50+08:00",
+      "at": "2026-07-28T17:14:50+08:00",
+      "tradeDate": "2026-07-28",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "002594",
+      "name": "比亚迪",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 84.68,
+      "maxBuyPrice": 87.85,
+      "noChasePrice": 102.66,
+      "validUntilDate": "2026-07-31",
+      "score": 8.4
+    },
     {
       "id": "buy_deferred-600887-2026-07-28T16:00:50+08:00",
       "at": "2026-07-28T16:00:50+08:00",
@@ -3328,108 +3452,6 @@
       "noChasePrice": 24.65,
       "validUntilDate": "2026-07-26",
       "score": 8.7
-    },
-    {
-      "id": "buy_plan_created-601899-2026-07-23T17:09:29+08:00",
-      "at": "2026-07-23T17:09:29+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "601899",
-      "name": "紫金矿业",
-      "summary": "生成小仓试买观察",
-      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
-      "plannedEntryPrice": 27.5,
-      "maxBuyPrice": 29.68,
-      "noChasePrice": 34.77,
-      "validUntilDate": "2026-07-26",
-      "score": 9.0
-    },
-    {
-      "id": "buy_deferred-002594-2026-07-23T15:51:14+08:00",
-      "at": "2026-07-23T15:51:14+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "002594",
-      "name": "比亚迪",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 85.07,
-      "maxBuyPrice": 85.07,
-      "score": 7.6
-    },
-    {
-      "id": "buy_deferred-603606-2026-07-23T15:51:14+08:00",
-      "at": "2026-07-23T15:51:14+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "603606",
-      "name": "东方电缆",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 36.83,
-      "maxBuyPrice": 38.2,
-      "score": 8.2
-    },
-    {
-      "id": "buy_deferred-600150-2026-07-23T15:51:14+08:00",
-      "at": "2026-07-23T15:51:14+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600150",
-      "name": "中国船舶",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 30.87,
-      "maxBuyPrice": 32.01,
-      "score": 8.5
-    },
-    {
-      "id": "buy_plan_created-603606-2026-07-23T15:51:14+08:00",
-      "at": "2026-07-23T15:51:14+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "603606",
-      "name": "东方电缆",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 36.83,
-      "maxBuyPrice": 38.2,
-      "noChasePrice": 46.93,
-      "validUntilDate": "2026-07-26",
-      "score": 8.2
-    },
-    {
-      "id": "buy_plan_created-600150-2026-07-23T15:51:14+08:00",
-      "at": "2026-07-23T15:51:14+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600150",
-      "name": "中国船舶",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 30.87,
-      "maxBuyPrice": 32.01,
-      "noChasePrice": 40.12,
-      "validUntilDate": "2026-07-26",
-      "score": 8.5
     }
   ],
   "exitReviews": [
@@ -3461,7 +3483,7 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T16:00:50+08:00",
+          "at": "2026-07-28T17:14:50+08:00",
           "price": 6.08,
           "returnPct": 0.997,
           "phase": "afternoon_risk",
@@ -3513,7 +3535,7 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T16:00:50+08:00",
+          "at": "2026-07-28T17:14:50+08:00",
           "price": 13.44,
           "returnPct": -3.1,
           "phase": "afternoon_risk",
@@ -3565,7 +3587,7 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T16:00:50+08:00",
+          "at": "2026-07-28T17:14:50+08:00",
           "price": 60.22,
           "returnPct": -0.693,
           "phase": "afternoon_risk",
@@ -3641,7 +3663,7 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T16:00:50+08:00",
+          "at": "2026-07-28T17:14:50+08:00",
           "price": 23.53,
           "returnPct": -0.085,
           "phase": "afternoon_risk",
@@ -3739,7 +3761,7 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T16:00:50+08:00",
+          "at": "2026-07-28T17:14:50+08:00",
           "price": 51.33,
           "returnPct": -0.369,
           "phase": "afternoon_risk",
@@ -3851,7 +3873,7 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T16:00:50+08:00",
+          "at": "2026-07-28T17:14:50+08:00",
           "price": 31.69,
           "returnPct": 8.194,
           "phase": "afternoon_risk",
@@ -4041,14 +4063,14 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 135,
-    "plansCreated": 224,
-    "buyChecks": 736,
+    "snapshotsProcessed": 136,
+    "plansCreated": 226,
+    "buyChecks": 745,
     "buysExecuted": 6,
     "sellsExecuted": 6,
     "waitReasonCounts": {
-      "观察计划尚未升级为可执行信号": 268,
-      "股票不在最新池，云端继续观察但不执行": 430,
+      "观察计划尚未升级为可执行信号": 272,
+      "股票不在最新池，云端继续观察但不执行": 435,
       "价格高于MA20超过5%，避免追涨后回撤": 10,
       "含滑点价格高于最高买入价": 4,
       "价格低于MA20超过3%，等待止跌确认": 7
@@ -4056,7 +4078,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 11
     },
-    "lastRunAt": "2026-07-28T16:00:50+08:00",
-    "lastRunSummary": "更新云端计划2只：比亚迪(watch)、五粮液(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-07-28T17:14:50+08:00",
+    "lastRunSummary": "更新云端计划2只：比亚迪(watch)、中国平安(watch)；本次买入复检未成交，原因已写入决策复盘"
   }
 }
