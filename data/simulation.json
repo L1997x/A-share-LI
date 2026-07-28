@@ -304,8 +304,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-28T17:14:50+08:00|2026-07-28|14:30尾盘风控",
+  "lastAutoRunKey": "2026-07-28T19:57:59+08:00|2026-07-28|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-07-28T19:57:59+08:00|2026-07-28|20点次日关注",
+      "at": "2026-07-28T19:57:59+08:00",
+      "tradeDate": "2026-07-28",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：比亚迪(watch)、伊利股份(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-28T17:14:50+08:00|2026-07-28|14:30尾盘风控",
       "at": "2026-07-28T17:14:50+08:00",
@@ -1126,40 +1139,47 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-20T13:26:25+08:00|2026-07-20|11:20午前买入复检",
-      "at": "2026-07-20T13:26:25+08:00",
-      "tradeDate": "2026-07-20",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：紫金矿业(watch)、中金黄金(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "002594-2026-07-28T17:14:50+08:00|2026-07-28|14:30尾盘风控",
+      "id": "002594-2026-07-28T19:57:59+08:00|2026-07-28|20点次日关注",
       "code": "002594",
       "name": "比亚迪",
       "status": "pending",
       "signalDate": "2026-07-28",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-28T17:14:50+08:00|2026-07-28|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-28T19:57:59+08:00|2026-07-28|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-07-31",
-      "plannedEntryPrice": 84.68,
-      "maxBuyPrice": 87.85,
+      "plannedEntryPrice": 85.38,
+      "maxBuyPrice": 88.57,
       "noChasePrice": 102.66,
       "score": 8.4,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "600887-2026-07-28T19:57:59+08:00|2026-07-28|20点次日关注",
+      "code": "600887",
+      "name": "伊利股份",
+      "status": "pending",
+      "signalDate": "2026-07-28",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-28T19:57:59+08:00|2026-07-28|20点次日关注",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-07-31",
+      "plannedEntryPrice": 25.19,
+      "maxBuyPrice": 25.24,
+      "noChasePrice": 29.35,
+      "score": 8.0,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1208,30 +1228,6 @@
       "maxBuyPrice": 70.47,
       "noChasePrice": 81.4,
       "score": 7.9,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "planType": "watch",
-      "targetPositionPct": 0.1,
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
-      "id": "600887-2026-07-28T13:27:27+08:00|2026-07-28|13:30午后买入复检",
-      "code": "600887",
-      "name": "伊利股份",
-      "status": "pending",
-      "signalDate": "2026-07-28",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-07-28T13:27:27+08:00|2026-07-28|13:30午后买入复检",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-07-31",
-      "plannedEntryPrice": 24.13,
-      "maxBuyPrice": 25.03,
-      "noChasePrice": 29.35,
-      "score": 8.1,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1773,6 +1769,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600887-2026-07-28T19:57:59+08:00",
+      "at": "2026-07-28T19:57:59+08:00",
+      "tradeDate": "2026-07-28",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600887",
+      "name": "伊利股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 25.19,
+      "maxBuyPrice": 25.24,
+      "noChasePrice": 29.35,
+      "validUntilDate": "2026-07-31",
+      "score": 8.0
+    },
+    {
+      "id": "buy_plan_created-002594-2026-07-28T19:57:59+08:00",
+      "at": "2026-07-28T19:57:59+08:00",
+      "tradeDate": "2026-07-28",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "002594",
+      "name": "比亚迪",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 85.38,
+      "maxBuyPrice": 88.57,
+      "noChasePrice": 102.66,
+      "validUntilDate": "2026-07-31",
+      "score": 8.4
+    },
     {
       "id": "buy_deferred-600887-2026-07-28T17:14:50+08:00",
       "at": "2026-07-28T17:14:50+08:00",
@@ -3418,40 +3450,6 @@
       "plannedEntryPrice": 30.87,
       "maxBuyPrice": 32.01,
       "score": 8.5
-    },
-    {
-      "id": "buy_deferred-600089-2026-07-23T17:09:29+08:00",
-      "at": "2026-07-23T17:09:29+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600089",
-      "name": "特变电工",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 19.37,
-      "maxBuyPrice": 20.09,
-      "score": 8.7
-    },
-    {
-      "id": "buy_plan_created-600089-2026-07-23T17:09:29+08:00",
-      "at": "2026-07-23T17:09:29+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600089",
-      "name": "特变电工",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 19.37,
-      "maxBuyPrice": 20.09,
-      "noChasePrice": 24.65,
-      "validUntilDate": "2026-07-26",
-      "score": 8.7
     }
   ],
   "exitReviews": [
@@ -3483,11 +3481,11 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T17:14:50+08:00",
+          "at": "2026-07-28T19:57:59+08:00",
           "price": 6.08,
           "returnPct": 0.997,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3535,11 +3533,11 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T17:14:50+08:00",
+          "at": "2026-07-28T19:57:59+08:00",
           "price": 13.44,
           "returnPct": -3.1,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3587,11 +3585,11 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T17:14:50+08:00",
+          "at": "2026-07-28T19:57:59+08:00",
           "price": 60.22,
           "returnPct": -0.693,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3663,11 +3661,11 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T17:14:50+08:00",
+          "at": "2026-07-28T19:57:59+08:00",
           "price": 23.53,
           "returnPct": -0.085,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3678,7 +3676,13 @@
           "price": 23.58,
           "returnPct": 0.127
         },
-        "5": null,
+        "5": {
+          "horizon": 5,
+          "date": "2026-07-28",
+          "at": "2026-07-28T19:57:59+08:00",
+          "price": 23.53,
+          "returnPct": -0.085
+        },
         "20": null,
         "30": null
       },
@@ -3688,7 +3692,7 @@
       "currentReturnPct": -0.085,
       "maxPostExitReturnPct": 3.482,
       "minPostExitReturnPct": -0.085,
-      "latestMatureHorizon": 3,
+      "latestMatureHorizon": 5,
       "qualityLabel": "卖出合理",
       "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
       "feedbackEligible": true
@@ -3761,11 +3765,11 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T17:14:50+08:00",
+          "at": "2026-07-28T19:57:59+08:00",
           "price": 51.33,
           "returnPct": -0.369,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3873,11 +3877,11 @@
         },
         "2026-07-28": {
           "date": "2026-07-28",
-          "at": "2026-07-28T17:14:50+08:00",
+          "at": "2026-07-28T19:57:59+08:00",
           "price": 31.69,
           "returnPct": 8.194,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3934,10 +3938,10 @@
       },
       {
         "horizon": 5,
-        "sampleCount": 2,
-        "avgPostExitReturnPct": 5.931,
-        "medianPostExitReturnPct": 5.931,
-        "prematureExitRatePct": 50.0,
+        "sampleCount": 3,
+        "avgPostExitReturnPct": 3.926,
+        "medianPostExitReturnPct": -0.085,
+        "prematureExitRatePct": 33.3,
         "avoidedLossRatePct": 0.0
       },
       {
@@ -3973,11 +3977,11 @@
           },
           {
             "horizon": 5,
-            "sampleCount": 0,
-            "avgPostExitReturnPct": null,
-            "medianPostExitReturnPct": null,
-            "prematureExitRatePct": null,
-            "avoidedLossRatePct": null
+            "sampleCount": 1,
+            "avgPostExitReturnPct": -0.085,
+            "medianPostExitReturnPct": -0.085,
+            "prematureExitRatePct": 0.0,
+            "avoidedLossRatePct": 0.0
           },
           {
             "horizon": 20,
@@ -4063,8 +4067,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 136,
-    "plansCreated": 226,
+    "snapshotsProcessed": 137,
+    "plansCreated": 228,
     "buyChecks": 745,
     "buysExecuted": 6,
     "sellsExecuted": 6,
@@ -4078,7 +4082,7 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 11
     },
-    "lastRunAt": "2026-07-28T17:14:50+08:00",
-    "lastRunSummary": "更新云端计划2只：比亚迪(watch)、中国平安(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-07-28T19:57:59+08:00",
+    "lastRunSummary": "更新云端计划2只：比亚迪(watch)、伊利股份(watch)"
   }
 }
