@@ -68,7 +68,7 @@ jobs:
         run: git pull --rebase origin main
 
       - name: Validate refresh guard
-        run: python3 -m unittest discover -s tests -v
+        run: python3 -m unittest tests.test_refresh_guard -v
 
       - name: Decide refresh mode
         id: refresh_mode
@@ -102,7 +102,7 @@ jobs:
 
           changed_files="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" || true)"
           echo "$changed_files"
-          if echo "$changed_files" | grep -Eq '^(scripts/(generate_pool|cloud_simulation|exit_feedback)\.py|requirements\.txt)$'; then
+          if echo "$changed_files" | grep -Eq '^(\.github/workflows/update-data\.yml|scripts/(generate_pool|cloud_simulation|exit_feedback)\.py|requirements\.txt)$'; then
             echo "run_generator=true" >> "$GITHUB_OUTPUT"
             echo "decision=Generator-affecting files changed." >> "$GITHUB_OUTPUT"
           else
@@ -126,6 +126,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Validate model tests
+        if: steps.refresh_mode.outputs.run_generator == 'true'
+        run: python -m unittest discover -s tests -v
 
       - name: Generate latest pool
         if: steps.refresh_mode.outputs.run_generator == 'true'
