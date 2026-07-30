@@ -155,6 +155,8 @@ const chipClass = (score) => {
   return "chip-neutral";
 };
 
+const trendClass = (stock) => (stock?.trend_trade_eligible ? "fund-positive" : stock?.trend_key === "downtrend" ? "fund-negative" : "fund-neutral");
+
 const feedbackClass = (value) => {
   if (!isFiniteNumber(value)) return "feedback-neutral";
   if (Number(value) > 0.05) return "feedback-positive";
@@ -366,6 +368,8 @@ function normalizePendingBuyOrders(raw = []) {
         buySignalKey: order.buySignalKey || "",
         statusKey: order.statusKey || "",
         entrySafetyBlockBuy: Boolean(order.entrySafetyBlockBuy),
+        trendTradeEligible: order.trendTradeEligible !== false,
+        trendLabel: order.trendLabel || "",
         planType: order.planType || "watch",
         targetPositionPct: isFiniteNumber(order.targetPositionPct) ? Number(order.targetPositionPct) : null,
         reason: order.reason || "",
@@ -651,6 +655,8 @@ function buyOrderStockSnapshot(order) {
       buy_signal_key: order.buySignalKey || review.first_buy_signal_key || "",
       status_key: order.statusKey || review.first_status_key || "",
       entry_safety_block_buy: Boolean(order.entrySafetyBlockBuy || review.first_entry_safety_block_buy),
+      trend_trade_eligible: order.trendTradeEligible !== false,
+      trend_label: order.trendLabel || "",
       fromReviewOnly: true,
     },
     inLatestPool: false,
@@ -1159,6 +1165,7 @@ function createEveningBuyPlans(runKey, events) {
   const candidateOrders = [...stocks()]
     .filter((stock) => !state.simulation.positions[stock.code])
     .filter((stock) => Number(stock.score || 0) >= settings.minScore)
+    .filter((stock) => isTrendTradeEligible(stock))
     .filter((stock) => !stock.entry_safety_block_buy && stock.buy_signal_key !== "risk_wait" && stock.buy_signal_key !== "avoid" && stock.status_key !== "avoid")
     .sort((a, b) => Number(isActionableBuySignal(b)) - Number(isActionableBuySignal(a)) || Number(b.score || 0) - Number(a.score || 0))
     .map((stock) => buildPendingBuyOrder(stock, runKey));
@@ -1166,7 +1173,7 @@ function createEveningBuyPlans(runKey, events) {
 
   const refreshedCodes = new Set(orders.map((order) => String(order.code)));
   const stillValidPending = (state.simulation.pendingBuyOrders || []).filter(
-    (order) => order.status === "pending" && !refreshedCodes.has(String(order.code)) && !isBuyOrderExpired(order) && buyOrderAffordability(order).affordable
+    (order) => order.status === "pending" && order.trendTradeEligible !== false && !refreshedCodes.has(String(order.code)) && !isBuyOrderExpired(order) && buyOrderAffordability(order).affordable
   );
   state.simulation.pendingBuyOrders = [
     ...orders,
@@ -1201,6 +1208,17 @@ function isActionableBuySignal(stock) {
   return Boolean(stock?.is_buyable_now || stock?.buy_signal_key === "pullback_buy" || stock?.buy_signal_key === "breakout_buy");
 }
 
+function isTrendTradeEligible(stock) {
+  if (typeof stock?.trend_trade_eligible === "boolean") return stock.trend_trade_eligible;
+  const price = Number(stock?.live_quote_price ?? stock?.close);
+  const ma20 = Number(stock?.ma20);
+  const ma60 = Number(stock?.ma60);
+  const slope20 = Number(stock?.ma20_slope_5d_pct);
+  const slope60 = Number(stock?.ma60_slope_10d_pct);
+  if (![price, ma20, ma60].every(Number.isFinite)) return false;
+  return price > ma20 && ma20 > ma60 && (!Number.isFinite(slope20) || slope20 > 0) && (!Number.isFinite(slope60) || slope60 >= -1.0);
+}
+
 function isAfternoonFinalMode(options = {}) {
   return options.mode === "afternoon_final";
 }
@@ -1214,6 +1232,7 @@ function afternoonBuyBlockReason(stock) {
   const fundFlowScore = Number(stock?.fund_flow_score);
 
   if (!isActionableBuySignal(stock)) return "尾盘只接受明确可买信号";
+  if (!isTrendTradeEligible(stock)) return "未满足上涨趋势门槛";
   if (score < minScore) return `尾盘评分需达到${formatNumber(minScore, 1)}以上`;
   if (stock.market_context_block_buy || stock.entry_safety_block_buy) return "尾盘市场/接入风控拦截";
   if (stock.buy_signal_key === "risk_wait" || stock.buy_signal_key === "avoid" || stock.status_key === "avoid") return "尾盘风险状态不买入";
@@ -1266,6 +1285,8 @@ function buildPendingBuyOrder(stock, runKey, options = {}) {
     buySignalKey: stock.buy_signal_key || "",
     statusKey: stock.status_key || "",
     entrySafetyBlockBuy: Boolean(stock.entry_safety_block_buy),
+    trendTradeEligible: isTrendTradeEligible(stock),
+    trendLabel: stock.trend_label || "",
     reason: `${options.reasonPrefix || "20点计划"}：${stock.buy_signal_label || stock.intervention_status || "模型候选"}`,
   };
 }
@@ -1503,6 +1524,7 @@ function createMorningFallbackBuyOrders(runKey, events, options = {}) {
     .filter((stock) => !state.simulation.positions[stock.code])
     .filter((stock) => Number(stock.score || 0) >= settings.minScore)
     .filter((stock) => isActionableBuySignal(stock))
+    .filter((stock) => isTrendTradeEligible(stock))
     .filter((stock) => !stock.entry_safety_block_buy && stock.buy_signal_key !== "risk_wait" && stock.buy_signal_key !== "avoid" && stock.status_key !== "avoid")
     .filter((stock) => !isAfternoonFinalMode(options) || !afternoonBuyBlockReason(stock))
     .sort((a, b) => Number(b.score || 0) - Number(a.score || 0))
@@ -1544,6 +1566,9 @@ function createMorningFallbackBuyOrders(runKey, events, options = {}) {
 function autoBuyDecisionFromPlan(stock, order, snapshotPrice, options = {}) {
   const settings = autoSettings();
   const buyCheckLabel = buyCheckLabelForOptions(options);
+  if (!isTrendTradeEligible(stock)) {
+    return { shouldBuy: false, action: "cancel", reason: `${buyCheckLabel}未满足上涨趋势门槛` };
+  }
   if (isAfternoonFinalMode(options)) {
     const blockReason = afternoonBuyBlockReason(stock);
     if (blockReason) return { shouldBuy: false, action: "wait", reason: blockReason };
@@ -1914,8 +1939,8 @@ function renderModelStatus(data) {
     } 条；未触达等待 ${entryFeedback.untouched_wait_observation_count ?? 0} 条；接入风险标记 ${
       data.summary?.entry_risk_flagged ?? 0
     } 只；可买拦截 ${data.summary?.buy_signal_blocked ?? data.summary?.risk_gated ?? 0} 只；市场降级 ${
-      data.summary?.market_context_blocked ?? 0
-    } 只；安全因子 ${entryFeedback.summary?.factor_count ?? 0} 个。${entryFeedback.summary?.note || ""}`;
+    data.summary?.market_context_blocked ?? 0
+    } 只；上涨趋势合格 ${data.summary?.trend_eligible ?? 0} 只；趋势拦截 ${data.summary?.trend_buy_signal_blocked ?? 0} 只；安全因子 ${entryFeedback.summary?.factor_count ?? 0} 个。${entryFeedback.summary?.note || ""}`;
     const marketSegments = segmentation.market_regime_counts
       ? Object.entries(segmentation.market_regime_counts)
           .map(([key, value]) => `${key}:${value}`)
@@ -1963,6 +1988,8 @@ function createStockCard(stock) {
   node.querySelector(".close-price").textContent = formatNumber(stock.close);
   node.querySelector(".buy-signal").textContent = stock.buy_signal_label || "等待触发";
   node.querySelector(".buy-signal").classList.add(buySignalClass(stock.buy_signal_key));
+  node.querySelector(".trend-status").textContent = `${stock.trend_label || "趋势暂缺"} / ${formatNumber(stock.trend_score, 0)}`;
+  node.querySelector(".trend-status").classList.add(trendClass(stock));
   node.querySelector(".buy-price").textContent = formatBuyPrice(stock);
   node.querySelector(".fund-flow").textContent = stock.fund_flow_label || "资金流暂缺";
   node.querySelector(".fund-flow").classList.add(fundFlowClass(stock.fund_flow_score));
@@ -1977,6 +2004,7 @@ function createStockCard(stock) {
   node.querySelector(".tracking-return").textContent = formatPercent(trackingReturn);
   node.querySelector(".tracking-return").classList.add(returnClass(trackingReturn));
   node.querySelector(".score").textContent = formatNumber(stock.score, 1);
+  node.querySelector(".decision-grade").textContent = stock.decision_grade_label || stock.decision_grade || "-";
   node.querySelector(".logic").textContent = stock.logic || "";
   node.querySelector(".theme").textContent = `${stock.theme || "-"}；主题强度 ${
     stock.theme_strength_label || "-"
@@ -1989,6 +2017,12 @@ function createStockCard(stock) {
         stock.layer_one_pct_chg
       )}，来源：${stock.candidate_source || "-"}`
     : `未进入全主板快照初筛，来源：${stock.candidate_source || "-"}`;
+  node.querySelector(".trend-detail").textContent = `${stock.trend_label || "趋势暂缺"}：现价 ${formatNumber(stock.close)}，MA20 ${formatNumber(
+    stock.ma20
+  )}，MA60 ${formatNumber(stock.ma60)}，MA20近5日斜率 ${formatPercent(stock.ma20_slope_5d_pct, 3)}，MA60近10日斜率 ${formatPercent(
+    stock.ma60_slope_10d_pct,
+    3
+  )}。${stock.trend_action || stock.trend_note || "趋势数据积累中。"}`;
   node.querySelector(".buy-detail").textContent = stock.is_buyable_now
     ? `${stock.buy_signal_label || "可买入观察"}：路径 ${stock.buy_price_path || "-"}，可买价 ${formatNumber(
         stock.buyable_price

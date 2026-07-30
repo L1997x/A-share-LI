@@ -44,6 +44,7 @@ ENTRY_FEEDBACK_PRICE_CAP_DOWN = -2.4
 ENTRY_FEEDBACK_PRICE_CAP_UP = 0.6
 ENTRY_CRASH_RETURN_THRESHOLD = -5.0
 ENTRY_ADVERSE_DRAW_THRESHOLD = -7.0
+MAX_MA60_TEN_DAY_DECLINE_PCT = -1.0
 MAINBOARD_PREFIXES = ("000", "001", "002", "003", "600", "601", "603", "605")
 SCHEDULE_PHASE_MAP = {
     "0 2 * * 1-5": ("morning_entry", "10点早盘接入"),
@@ -106,6 +107,7 @@ FEEDBACK_DIMENSION_LABELS = {
     "layer_rank": "全主板排名",
     "entry_gap": "接入价偏离",
     "price_source": "价格源",
+    "trend": "趋势结构",
 }
 FEEDBACK_DIMENSION_WEIGHTS = {
     "theme_group": 0.8,
@@ -116,6 +118,7 @@ FEEDBACK_DIMENSION_WEIGHTS = {
     "layer_rank": 0.65,
     "entry_gap": 0.7,
     "price_source": 0.35,
+    "trend": 1.1,
 }
 FEEDBACK_DIMENSION_LABELS["market_regime"] = "市场阶段"
 FEEDBACK_DIMENSION_LABELS["update_phase"] = "更新时段"
@@ -131,6 +134,7 @@ ENTRY_EFFECTIVENESS_DIMENSION_WEIGHTS = {
     "theme_group": 0.65,
     "layer_rank": 0.45,
     "entry_sample_type": 1.1,
+    "trend": 1.3,
 }
 ENTRY_EFFECTIVENESS_DIMENSION_WEIGHTS["market_regime"] = 0.85
 ENTRY_EFFECTIVENESS_DIMENSION_WEIGHTS["update_phase"] = 0.65
@@ -1681,6 +1685,8 @@ def stock_feedback_factors(stock: dict[str, Any]) -> list[dict[str, str]]:
         ("market_regime", stock.get("feedback_market_regime") or stock.get("market_regime") or "unknown"),
         ("update_phase", stock.get("update_phase_label") or stock.get("update_phase") or "unknown"),
     ]
+    if stock.get("trend_label"):
+        raw_factors.append(("trend", stock.get("trend_label")))
     factors: list[dict[str, str]] = []
     for dimension, value in raw_factors:
         factor = build_feedback_factor(dimension, value)
@@ -2533,6 +2539,30 @@ def apply_feedback_price_adjustment(
     return row
 
 
+def apply_trend_context(row: dict[str, Any]) -> dict[str, Any]:
+    eligible = bool(row.get("trend_trade_eligible"))
+    was_buyable = bool(row.get("is_buyable_now"))
+    row["trend_block_buy"] = not eligible
+    row["trend_buy_signal_blocked"] = bool(was_buyable and not eligible)
+    if eligible:
+        row["trend_action"] = "允许进入价格、资金流和市场环境复检。"
+        return row
+
+    if was_buyable:
+        row["risk_adjusted_buyable_price"] = row.get("buyable_price")
+        row.setdefault("base_buy_signal_key", row.get("buy_signal_key"))
+        row.setdefault("base_buy_signal_label", row.get("buy_signal_label"))
+    row["is_buyable_now"] = False
+    row["buy_signal_key"] = "trend_wait"
+    row["buy_signal_label"] = "上涨趋势等待"
+    row["buyable_price"] = None
+    row["buy_price_path"] = "等待多头排列"
+    row["next_buy_trigger_price"] = row.get("breakout_confirm_price") or row.get("next_buy_trigger_price")
+    row["trend_action"] = "现价、MA20、MA60及均线斜率未同时满足上涨趋势门槛，不生成或执行买入计划。"
+    row["buy_price_note"] = f"{row.get('buy_price_note') or ''} {row['trend_action']}".strip()
+    return row
+
+
 def apply_market_theme_context(row: dict[str, Any], market_environment: dict[str, Any]) -> dict[str, Any]:
     market_score = safe_float(market_environment.get("temperature_score")) or 0.0
     market_bonus = safe_float(market_environment.get("score_bonus")) or 0.0
@@ -2621,9 +2651,9 @@ def apply_market_theme_context(row: dict[str, Any], market_environment: dict[str
     elif row.get("is_buyable_now"):
         grade = "B"
         grade_label = "B级：低仓验证"
-    elif row.get("market_context_block_buy") or row.get("entry_safety_risk_flag"):
+    elif row.get("trend_block_buy") or row.get("market_context_block_buy") or row.get("entry_safety_risk_flag"):
         grade = "C"
-        grade_label = "C级：有逻辑但价格/环境不安全"
+        grade_label = "C级：有逻辑但趋势/价格/环境不安全"
     elif row.get("status_key") in {"watch", "breakout"} or (theme_score is not None and theme_score >= 58):
         grade = "B"
         grade_label = "B级：观察等待触发"
@@ -3256,6 +3286,78 @@ def build_review_center(
     }
 
 
+def calculate_trend_metrics(close: pd.Series, latest_close: float) -> dict[str, Any]:
+    values = close.astype(float).reset_index(drop=True)
+
+    def moving_average(window: int, offset: int = 0) -> float | None:
+        end = len(values) - offset
+        start = end - window
+        if start < 0 or end <= start:
+            return None
+        return float(values.iloc[start:end].mean())
+
+    ma20 = moving_average(20)
+    ma60 = moving_average(60) or ma20
+    ma20_prev5 = moving_average(20, 5)
+    ma60_prev10 = moving_average(60, 10)
+    ma20_slope = (ma20 / ma20_prev5 - 1) * 100 if ma20 and ma20_prev5 else None
+    ma60_slope = (ma60 / ma60_prev10 - 1) * 100 if ma60 and ma60_prev10 else None
+
+    price_above_ma20 = bool(ma20 and latest_close > ma20)
+    ma_alignment_up = bool(ma20 and ma60 and ma20 > ma60)
+    ma20_rising = bool(ma20_slope is not None and ma20_slope > 0)
+    ma60_stable = bool(ma60_slope is not None and ma60_slope >= MAX_MA60_TEN_DAY_DECLINE_PCT)
+    trade_eligible = price_above_ma20 and ma_alignment_up and ma20_rising and ma60_stable
+
+    if trade_eligible:
+        trend_key = "uptrend"
+        trend_label = "上涨趋势"
+        trend_priority = 3
+        score_bonus = 0.8
+    elif price_above_ma20 and ma20_rising:
+        trend_key = "recovering"
+        trend_label = "反弹修复"
+        trend_priority = 2
+        score_bonus = 0.0
+    elif not price_above_ma20 and not ma20_rising:
+        trend_key = "downtrend"
+        trend_label = "下降趋势"
+        trend_priority = 0
+        score_bonus = -1.0
+    else:
+        trend_key = "sideways"
+        trend_label = "震荡走弱"
+        trend_priority = 1
+        score_bonus = -0.5
+
+    trend_score = (
+        (25 if price_above_ma20 else 0)
+        + (30 if ma_alignment_up else 0)
+        + (25 if ma20_rising else 0)
+        + (15 if ma60_slope is not None and ma60_slope >= 0 else 5 if ma60_stable else 0)
+        + (5 if ma20 and latest_close > ma20 * 1.02 else 0)
+    )
+    conditions = [
+        f"现价{'高于' if price_above_ma20 else '不高于'}MA20",
+        f"MA20{'高于' if ma_alignment_up else '不高于'}MA60",
+        f"MA20近5日斜率{ma20_slope:+.2f}%" if ma20_slope is not None else "MA20斜率暂缺",
+        f"MA60近10日斜率{ma60_slope:+.2f}%" if ma60_slope is not None else "MA60斜率暂缺",
+    ]
+    return {
+        "ma20": ma20,
+        "ma60": ma60,
+        "ma20_slope_5d_pct": round_or_none(ma20_slope, 3),
+        "ma60_slope_10d_pct": round_or_none(ma60_slope, 3),
+        "trend_key": trend_key,
+        "trend_label": trend_label,
+        "trend_score": trend_score,
+        "trend_score_bonus": score_bonus,
+        "trend_priority": trend_priority,
+        "trend_trade_eligible": trade_eligible,
+        "trend_note": "；".join(conditions) + ("；满足上涨趋势交易门槛。" if trade_eligible else "；不满足上涨趋势交易门槛，仅保留研究观察。"),
+    }
+
+
 def load_daily(code: str) -> pd.DataFrame:
     import akshare as ak
 
@@ -3290,8 +3392,9 @@ def analyze_candidate(candidate: Candidate, live_quote: dict[str, Any] | None = 
             latest_close = live_close
             as_of_date = str(live_quote_date)
             price_source = "spot_snapshot"
-    ma20 = float(close.tail(20).mean())
-    ma60 = float(close.tail(60).mean()) if len(close) >= 60 else ma20
+    trend_meta = calculate_trend_metrics(close, latest_close)
+    ma20 = float(trend_meta.pop("ma20"))
+    ma60 = float(trend_meta.pop("ma60"))
     high20 = float(high.tail(20).max())
     low20 = float(low.tail(20).min())
     previous_high_window = high.iloc[-21:-1] if len(high) > 1 else high.tail(1)
@@ -3327,6 +3430,10 @@ def analyze_candidate(candidate: Candidate, live_quote: dict[str, Any] | None = 
 
     overheat_penalty = 0.0
     risk_notes = list(candidate.risks)
+    if trend_meta["trend_key"] == "downtrend" and "下降趋势" not in risk_notes:
+        risk_notes.insert(0, "下降趋势")
+    elif not trend_meta["trend_trade_eligible"] and "均线尚未多头排列" not in risk_notes:
+        risk_notes.insert(0, "均线尚未多头排列")
     if pct60 is not None and pct60 > 60:
         overheat_penalty += 0.5
         if "60日涨幅偏高" not in risk_notes:
@@ -3458,6 +3565,7 @@ def analyze_candidate(candidate: Candidate, live_quote: dict[str, Any] | None = 
         "atr14": round_or_none(atr14),
         "pct60": round_or_none(pct60),
         "volatility20": round_or_none(volatility20),
+        **trend_meta,
         "aggressive_price": round_or_none(aggressive),
         "stable_price": round_or_none(stable),
         "recommended_entry_price": round_or_none(recommended_entry),
@@ -3555,11 +3663,20 @@ def build_payload() -> dict[str, Any]:
         row.update(entry_safety_meta)
         apply_feedback_price_adjustment(row, feedback_meta, entry_safety_meta)
         feedback_bonus = safe_float(feedback_meta.get("feedback_bonus")) or 0.0
-        row["score"] = round(row["score"] + feedback_bonus, 1)
+        trend_bonus = safe_float(row.get("trend_score_bonus")) or 0.0
+        row["score"] = round(row["score"] + feedback_bonus + trend_bonus, 1)
+        apply_trend_context(row)
         apply_market_theme_context(row, market_environment)
 
     concentration_payload = apply_portfolio_concentration_control(rows)
-    rows.sort(key=lambda row: row["score"], reverse=True)
+    rows.sort(
+        key=lambda row: (
+            int(bool(row.get("trend_trade_eligible"))),
+            int(safe_float(row.get("trend_priority")) or 0),
+            safe_float(row.get("score")) or 0.0,
+        ),
+        reverse=True,
+    )
     rows = rows[:FINAL_POOL_SIZE]
     for index, row in enumerate(rows, start=1):
         row["rank"] = index
@@ -3584,6 +3701,10 @@ def build_payload() -> dict[str, Any]:
         "entry_risk_flagged": sum(1 for row in rows if row.get("entry_safety_risk_flag")),
         "buy_signal_blocked": sum(1 for row in rows if row.get("entry_safety_block_buy")),
         "market_context_blocked": sum(1 for row in rows if row.get("market_context_block_buy")),
+        "trend_eligible": sum(1 for row in rows if row.get("trend_trade_eligible")),
+        "trend_ineligible": sum(1 for row in rows if not row.get("trend_trade_eligible")),
+        "trend_buy_signal_blocked": sum(1 for row in rows if row.get("trend_buy_signal_blocked")),
+        "trend_downtrend": sum(1 for row in rows if row.get("trend_key") == "downtrend"),
         "decision_grade_a": sum(1 for row in rows if row.get("decision_grade") == "A"),
         "decision_grade_b": sum(1 for row in rows if row.get("decision_grade") == "B"),
         "decision_grade_c": sum(1 for row in rows if row.get("decision_grade") == "C"),
@@ -3592,7 +3713,9 @@ def build_payload() -> dict[str, Any]:
     }
     theme_exposure = summarize_theme_exposure(rows)
     counts["risk_gated"] = counts["buy_signal_blocked"]
-    if counts["market_context_blocked"]:
+    if counts["trend_buy_signal_blocked"]:
+        overall_signal = f"{counts['trend_buy_signal_blocked']}只原可买信号因未满足上涨趋势被拦截"
+    elif counts["market_context_blocked"]:
         overall_signal = f"{counts['market_context_blocked']}只可买信号被市场环境层降级"
     elif counts["buy_signal_blocked"]:
         overall_signal = f"{counts['buy_signal_blocked']}只可买信号被回访接入风控拦截"
@@ -3635,6 +3758,7 @@ def build_payload() -> dict[str, Any]:
             "price_feedback_factor": "推荐接入价和可买价会跟随回访反馈做小幅纪律校正；正反馈略放宽，负反馈收紧，不改变不追高线。",
             "entry_safety_factor": "接入有效性层会复盘历史可买/触达/未触达接入价样本的后续收益、最大不利回撤和暴跌率；风险偏高时先标记接入风险并下压接入价，只有原本可买的信号才会被取消为 risk_wait。",
             "market_context_factor": "市场环境层会根据全主板涨跌扩散、强弱股数量、涨停跌停差和收盘位置计算市场温度；主题强度层会按战略主题组的排名、资金流和扩散度修正排序、仓位等级和可买信号。",
+            "trend_factor": "趋势层要求现价高于MA20、MA20高于MA60、MA20近5日向上且MA60近10日不明显下行；满足后才允许生成和执行买入计划，下降或反弹修复阶段仅保留研究观察。",
             "feedback_enhancement_factor": "反馈增强层会过滤乱码/异常因子，将筹码缺失视为数据质量而非负面信号，并按市场阶段、更新时间段、回访归因和主题拥挤度进行小幅参数校准。",
             "candidates": [asdict(candidate) for candidate in candidate_library],
         },

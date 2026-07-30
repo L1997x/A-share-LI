@@ -16,6 +16,8 @@ def payload(
     entry_upper: float = 50.0,
     atr: float = 4.0,
     ma20: float = 49.0,
+    ma60: float | None = None,
+    trend_eligible: bool = True,
 ) -> dict:
     labels = {
         "morning_entry": "10点早盘接入",
@@ -36,6 +38,12 @@ def payload(
         "no_chase_price": 60.0,
         "invalid_price": 44.0,
         "ma20": ma20,
+        "ma60": ma60 if ma60 is not None else ma20 - 3.0,
+        "ma20_slope_5d_pct": 1.2 if trend_eligible else -1.2,
+        "ma60_slope_10d_pct": 0.4 if trend_eligible else -0.5,
+        "trend_trade_eligible": trend_eligible,
+        "trend_block_buy": not trend_eligible,
+        "trend_label": "上涨趋势" if trend_eligible else "下降趋势",
         "resistance_price": 58.0,
         "buy_signal_key": signal,
         "buy_signal_label": "等待触发" if signal == "wait" else "回撤可买",
@@ -132,6 +140,25 @@ class CloudSimulationTests(unittest.TestCase):
 
         self.assertEqual(state["positions"], {})
         self.assertEqual(state["diagnostics"]["waitReasonCounts"]["价格高于MA20超过5%，避免追涨后回撤"], 1)
+
+    def test_downtrend_stock_does_not_generate_a_buy_plan(self) -> None:
+        evening = payload("2026-07-13T20:00:00+08:00", "evening_watch", 49.0, trend_eligible=False)
+        state = run_cloud_simulation(evening, default_simulation())
+
+        self.assertEqual(state["pendingBuyOrders"], [])
+        self.assertEqual(state["positions"], {})
+
+    def test_existing_plan_is_cancelled_when_trend_turns_down(self) -> None:
+        evening = payload("2026-07-13T20:00:00+08:00", "evening_watch", 49.0, signal="pullback_buy")
+        state = run_cloud_simulation(evening, default_simulation())
+        self.assertEqual(state["pendingBuyOrders"][0]["status"], "pending")
+
+        morning = payload("2026-07-14T10:00:00+08:00", "morning_entry", 48.5, signal="pullback_buy", trend_eligible=False)
+        state = run_cloud_simulation(morning, state)
+
+        self.assertEqual(state["positions"], {})
+        self.assertEqual(state["pendingBuyOrders"][0]["status"], "cancelled")
+        self.assertEqual(state["pendingBuyOrders"][0]["cancelReason"], "未满足上涨趋势门槛，取消旧买入计划")
 
 
 if __name__ == "__main__":

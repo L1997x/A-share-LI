@@ -20,6 +20,7 @@ MIN_SCORE = 7.5
 TRIAL_MIN_SCORE = 8.8
 TRIAL_ATR_BUFFER = 1.5
 TRIAL_MAX_MA20_PREMIUM = 0.05
+MAX_MA60_TEN_DAY_DECLINE_PCT = -1.0
 PLAN_VALID_DAYS = 3
 STOP_LOSS_PCT = 0.06
 TAKE_PROFIT_PCT = 0.12
@@ -216,10 +217,29 @@ def _actionable(stock: dict[str, Any]) -> bool:
     return bool(stock.get("is_buyable_now") or stock.get("buy_signal_key") in {"pullback_buy", "breakout_buy"})
 
 
+def _trend_trade_eligible(stock: dict[str, Any]) -> bool:
+    explicit = stock.get("trend_trade_eligible")
+    if isinstance(explicit, bool):
+        return explicit
+    price = _stock_price(stock)
+    ma20 = _first_price(stock.get("ma20"))
+    ma60 = _first_price(stock.get("ma60"))
+    if not price or not ma20 or not ma60:
+        return False
+    ma20_slope = _num(stock.get("ma20_slope_5d_pct"))
+    ma60_slope = _num(stock.get("ma60_slope_10d_pct"))
+    slopes_ok = (ma20_slope is None or ma20_slope > 0) and (
+        ma60_slope is None or ma60_slope >= MAX_MA60_TEN_DAY_DECLINE_PCT
+    )
+    return bool(price > ma20 > ma60 and slopes_ok)
+
+
 def _hard_blocked(stock: dict[str, Any]) -> bool:
     return bool(
         stock.get("entry_safety_block_buy")
         or stock.get("market_context_block_buy")
+        or stock.get("trend_block_buy")
+        or not _trend_trade_eligible(stock)
         or stock.get("buy_signal_key") in {"risk_wait", "market_wait", "avoid"}
         or stock.get("status_key") == "avoid"
     )
@@ -302,6 +322,8 @@ def _plan_for_stock(stock: dict[str, Any], payload: dict[str, Any], run_key: str
         "buySignalKey": stock.get("buy_signal_key") or "",
         "statusKey": stock.get("status_key") or "",
         "entrySafetyBlockBuy": bool(stock.get("entry_safety_block_buy")),
+        "trendTradeEligible": _trend_trade_eligible(stock),
+        "trendLabel": stock.get("trend_label") or "",
         "planType": plan_type,
         "targetPositionPct": target_pct,
         "reason": reason,
@@ -533,6 +555,13 @@ def _execute_buys(state: dict[str, Any], payload: dict[str, Any], events: list[d
         if not stock:
             reason = "股票不在最新池，云端继续观察但不执行"
             _count_reason(state, "wait", reason)
+            continue
+        if not _trend_trade_eligible(stock):
+            reason = "未满足上涨趋势门槛，取消旧买入计划"
+            order["status"] = "cancelled"
+            order["cancelReason"] = reason
+            _count_reason(state, "cancel", reason)
+            _record(state, payload, {"type": "buy_cancelled", "status": "cancelled", "code": order["code"], "name": order["name"], "summary": "趋势转弱取消买入", "reason": reason, "plannedEntryPrice": order.get("plannedEntryPrice"), "maxBuyPrice": order.get("maxBuyPrice"), "score": order.get("score")})
             continue
         if _hard_blocked(stock):
             reason = "模型或接入安全层硬拦截"
