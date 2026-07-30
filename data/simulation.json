@@ -349,8 +349,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-30T16:36:31+08:00|2026-07-30|14:30尾盘风控",
+  "lastAutoRunKey": "2026-07-30T19:58:19+08:00|2026-07-30|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-07-30T19:58:19+08:00|2026-07-30|20点次日关注",
+      "at": "2026-07-30T19:58:19+08:00",
+      "tradeDate": "2026-07-30",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：云南白药(watch)、同仁堂(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-30T16:36:31+08:00|2026-07-30|14:30尾盘风控",
       "at": "2026-07-30T16:36:31+08:00",
@@ -1171,38 +1184,21 @@
           "summary": "云端买入铜陵有色1500股，成交6.30"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-23T11:16:47+08:00|2026-07-23|11:20午前买入复检",
-      "at": "2026-07-23T11:16:47+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：中国西电(trial)、锡业股份(trial)"
-        },
-        {
-          "type": "buy",
-          "summary": "云端买入中国西电700股，成交13.68"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000538-2026-07-30T16:36:31+08:00|2026-07-30|14:30尾盘风控",
+      "id": "000538-2026-07-30T19:58:19+08:00|2026-07-30|20点次日关注",
       "code": "000538",
       "name": "云南白药",
       "status": "pending",
       "signalDate": "2026-07-30",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-30T16:36:31+08:00|2026-07-30|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-30T19:58:19+08:00|2026-07-30|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-02",
-      "plannedEntryPrice": 50.26,
-      "maxBuyPrice": 50.5,
+      "plannedEntryPrice": 50.35,
+      "maxBuyPrice": 50.71,
       "noChasePrice": 56.02,
       "score": 8.6,
       "buySignalKey": "wait",
@@ -1218,13 +1214,13 @@
       "executionPrice": null
     },
     {
-      "id": "600085-2026-07-30T16:36:31+08:00|2026-07-30|14:30尾盘风控",
+      "id": "600085-2026-07-30T19:58:19+08:00|2026-07-30|20点次日关注",
       "code": "600085",
       "name": "同仁堂",
       "status": "pending",
       "signalDate": "2026-07-30",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-30T16:36:31+08:00|2026-07-30|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-30T19:58:19+08:00|2026-07-30|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-02",
       "plannedEntryPrice": 24.95,
@@ -1240,30 +1236,6 @@
       "targetPositionPct": 0.1,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
-      "id": "601899-2026-07-30T15:48:09+08:00|2026-07-30|14:30尾盘风控",
-      "code": "601899",
-      "name": "紫金矿业",
-      "status": "cancelled",
-      "signalDate": "2026-07-30",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-30T15:48:09+08:00|2026-07-30|14:30尾盘风控",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-08-02",
-      "plannedEntryPrice": 28.43,
-      "maxBuyPrice": 29.5,
-      "noChasePrice": 35.72,
-      "score": 8.3,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "planType": "watch",
-      "targetPositionPct": 0.1,
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "未满足上涨趋势门槛，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1288,54 +1260,6 @@
       "targetPositionPct": 0.1,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
-      "id": "600406-2026-07-30T14:51:54+08:00|2026-07-30|13:30午后买入复检",
-      "code": "600406",
-      "name": "国电南瑞",
-      "status": "cancelled",
-      "signalDate": "2026-07-30",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-07-30T14:51:54+08:00|2026-07-30|13:30午后买入复检",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-08-02",
-      "plannedEntryPrice": 21.87,
-      "maxBuyPrice": 22.28,
-      "noChasePrice": 25.98,
-      "score": 7.9,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "planType": "watch",
-      "targetPositionPct": 0.1,
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "未满足上涨趋势门槛，取消旧买入计划",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
-      "id": "002920-2026-07-30T14:51:54+08:00|2026-07-30|13:30午后买入复检",
-      "code": "002920",
-      "name": "德赛西威",
-      "status": "cancelled",
-      "signalDate": "2026-07-30",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-07-30T14:51:54+08:00|2026-07-30|13:30午后买入复检",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-08-02",
-      "plannedEntryPrice": 79.04,
-      "maxBuyPrice": 82.0,
-      "noChasePrice": 96.88,
-      "score": 7.8,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "planType": "watch",
-      "targetPositionPct": 0.1,
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "未满足上涨趋势门槛，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1552,6 +1476,78 @@
       "targetPositionPct": 0.1,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "601899-2026-07-30T15:48:09+08:00|2026-07-30|14:30尾盘风控",
+      "code": "601899",
+      "name": "紫金矿业",
+      "status": "cancelled",
+      "signalDate": "2026-07-30",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-07-30T15:48:09+08:00|2026-07-30|14:30尾盘风控",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-08-02",
+      "plannedEntryPrice": 28.43,
+      "maxBuyPrice": 29.5,
+      "noChasePrice": 35.72,
+      "score": 8.3,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "未满足上涨趋势门槛，取消旧买入计划",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "600406-2026-07-30T14:51:54+08:00|2026-07-30|13:30午后买入复检",
+      "code": "600406",
+      "name": "国电南瑞",
+      "status": "cancelled",
+      "signalDate": "2026-07-30",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-07-30T14:51:54+08:00|2026-07-30|13:30午后买入复检",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-08-02",
+      "plannedEntryPrice": 21.87,
+      "maxBuyPrice": 22.28,
+      "noChasePrice": 25.98,
+      "score": 7.9,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "未满足上涨趋势门槛，取消旧买入计划",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "002920-2026-07-30T14:51:54+08:00|2026-07-30|13:30午后买入复检",
+      "code": "002920",
+      "name": "德赛西威",
+      "status": "cancelled",
+      "signalDate": "2026-07-30",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-07-30T14:51:54+08:00|2026-07-30|13:30午后买入复检",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-08-02",
+      "plannedEntryPrice": 79.04,
+      "maxBuyPrice": 82.0,
+      "noChasePrice": 96.88,
+      "score": 7.8,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "未满足上涨趋势门槛，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -2014,6 +2010,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600085-2026-07-30T19:58:19+08:00",
+      "at": "2026-07-30T19:58:19+08:00",
+      "tradeDate": "2026-07-30",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600085",
+      "name": "同仁堂",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 24.95,
+      "maxBuyPrice": 25.11,
+      "noChasePrice": 28.76,
+      "validUntilDate": "2026-08-02",
+      "score": 8.5
+    },
+    {
+      "id": "buy_plan_created-000538-2026-07-30T19:58:19+08:00",
+      "at": "2026-07-30T19:58:19+08:00",
+      "tradeDate": "2026-07-30",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000538",
+      "name": "云南白药",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 50.35,
+      "maxBuyPrice": 50.71,
+      "noChasePrice": 56.02,
+      "validUntilDate": "2026-08-02",
+      "score": 8.6
+    },
     {
       "id": "buy_deferred-600887-2026-07-30T16:36:31+08:00",
       "at": "2026-07-30T16:36:31+08:00",
@@ -3638,44 +3670,6 @@
       "plannedEntryPrice": 5.57,
       "maxBuyPrice": 5.78,
       "score": 7.7
-    },
-    {
-      "id": "buy_deferred-601179-2026-07-29T11:16:15+08:00",
-      "at": "2026-07-29T11:16:15+08:00",
-      "tradeDate": "2026-07-29",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "601179",
-      "name": "中国西电",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 12.5,
-      "maxBuyPrice": 12.96,
-      "score": 7.9
-    },
-    {
-      "id": "buy_executed-600150-2026-07-29T11:16:15+08:00",
-      "at": "2026-07-29T11:16:15+08:00",
-      "tradeDate": "2026-07-29",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_executed",
-      "status": "executed",
-      "code": "600150",
-      "name": "中国船舶",
-      "summary": "云端自动买入200股",
-      "reason": "偏暖市场高分标的进入1.5个ATR缓冲区并通过止跌过滤，小仓试买",
-      "plannedEntryPrice": 32.47,
-      "maxBuyPrice": 35.75,
-      "snapshotPrice": 34.81,
-      "executionPrice": 34.88,
-      "stopLossPrice": 32.79,
-      "takeProfitPrice": 37.83,
-      "quantity": 200,
-      "feeTotal": 5.0698,
-      "score": 9.5
     }
   ],
   "exitReviews": [
@@ -3758,11 +3752,11 @@
         },
         "2026-07-30": {
           "date": "2026-07-30",
-          "at": "2026-07-30T16:36:31+08:00",
+          "at": "2026-07-30T19:58:19+08:00",
           "price": 6.09,
           "returnPct": 1.163,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3832,11 +3826,11 @@
         },
         "2026-07-30": {
           "date": "2026-07-30",
-          "at": "2026-07-30T16:36:31+08:00",
+          "at": "2026-07-30T19:58:19+08:00",
           "price": 13.12,
           "returnPct": -5.407,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3906,11 +3900,11 @@
         },
         "2026-07-30": {
           "date": "2026-07-30",
-          "at": "2026-07-30T16:36:31+08:00",
+          "at": "2026-07-30T19:58:19+08:00",
           "price": 53.8,
           "returnPct": -11.28,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4004,11 +3998,11 @@
         },
         "2026-07-30": {
           "date": "2026-07-30",
-          "at": "2026-07-30T16:36:31+08:00",
+          "at": "2026-07-30T19:58:19+08:00",
           "price": 24.32,
           "returnPct": 3.27,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4124,11 +4118,11 @@
         },
         "2026-07-30": {
           "date": "2026-07-30",
-          "at": "2026-07-30T16:36:31+08:00",
+          "at": "2026-07-30T19:58:19+08:00",
           "price": 52.75,
           "returnPct": 2.387,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4252,11 +4246,11 @@
         },
         "2026-07-30": {
           "date": "2026-07-30",
-          "at": "2026-07-30T16:36:31+08:00",
+          "at": "2026-07-30T19:58:19+08:00",
           "price": 32.7,
           "returnPct": 11.642,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4442,8 +4436,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 156,
-    "plansCreated": 263,
+    "snapshotsProcessed": 157,
+    "plansCreated": 265,
     "buyChecks": 961,
     "buysExecuted": 7,
     "sellsExecuted": 7,
@@ -4458,7 +4452,7 @@
       "模型或接入安全层硬拦截": 12,
       "未满足上涨趋势门槛，取消旧买入计划": 3
     },
-    "lastRunAt": "2026-07-30T16:36:31+08:00",
-    "lastRunSummary": "更新云端计划2只：云南白药(watch)、同仁堂(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-07-30T19:58:19+08:00",
+    "lastRunSummary": "更新云端计划2只：云南白药(watch)、同仁堂(watch)"
   }
 }
