@@ -349,8 +349,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-07-31T17:25:36+08:00|2026-07-31|14:30尾盘风控",
+  "lastAutoRunKey": "2026-07-31T19:59:30+08:00|2026-07-31|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-07-31T19:59:30+08:00|2026-07-31|20点次日关注",
+      "at": "2026-07-31T19:59:30+08:00",
+      "tradeDate": "2026-07-31",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划1只：美的集团(trial)"
+        }
+      ]
+    },
     {
       "runKey": "2026-07-31T17:25:36+08:00|2026-07-31|14:30尾盘风控",
       "at": "2026-07-31T17:25:36+08:00",
@@ -1171,30 +1184,17 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-23T19:57:18+08:00|2026-07-23|20点次日关注",
-      "at": "2026-07-23T19:57:18+08:00",
-      "tradeDate": "2026-07-23",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：紫金矿业(trial)、特变电工(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000333-2026-07-31T17:25:36+08:00|2026-07-31|14:30尾盘风控",
+      "id": "000333-2026-07-31T19:59:30+08:00|2026-07-31|20点次日关注",
       "code": "000333",
       "name": "美的集团",
       "status": "pending",
       "signalDate": "2026-07-31",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-07-31T17:25:36+08:00|2026-07-31|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-07-31T19:59:30+08:00|2026-07-31|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-03",
       "plannedEntryPrice": 80.89,
@@ -1988,6 +1988,24 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000333-2026-07-31T19:59:30+08:00",
+      "at": "2026-07-31T19:59:30+08:00",
+      "tradeDate": "2026-07-31",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000333",
+      "name": "美的集团",
+      "summary": "生成小仓试买观察",
+      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
+      "plannedEntryPrice": 80.89,
+      "maxBuyPrice": 85.46,
+      "noChasePrice": 94.91,
+      "validUntilDate": "2026-08-03",
+      "score": 9.1
+    },
     {
       "id": "buy_plan_created-000333-2026-07-31T17:25:36+08:00",
       "at": "2026-07-31T17:25:36+08:00",
@@ -3632,22 +3650,6 @@
       "noChasePrice": 21.28,
       "validUntilDate": "2026-08-01",
       "score": 9.1
-    },
-    {
-      "id": "buy_deferred-000630-2026-07-29T13:26:24+08:00",
-      "at": "2026-07-29T13:26:24+08:00",
-      "tradeDate": "2026-07-29",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "000630",
-      "name": "铜陵有色",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 5.57,
-      "maxBuyPrice": 5.78,
-      "score": 7.7
     }
   ],
   "exitReviews": [
@@ -3671,11 +3673,11 @@
       "dailyPrices": {
         "2026-07-31": {
           "date": "2026-07-31",
-          "at": "2026-07-31T17:25:36+08:00",
+          "at": "2026-07-31T19:59:30+08:00",
           "price": 35.18,
           "returnPct": 2.001,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3747,11 +3749,11 @@
         },
         "2026-07-31": {
           "date": "2026-07-31",
-          "at": "2026-07-31T17:25:36+08:00",
+          "at": "2026-07-31T19:59:30+08:00",
           "price": 6.23,
           "returnPct": 3.488,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3762,7 +3764,13 @@
           "price": 6.15,
           "returnPct": 2.159
         },
-        "5": null,
+        "5": {
+          "horizon": 5,
+          "date": "2026-07-31",
+          "at": "2026-07-31T19:59:30+08:00",
+          "price": 6.23,
+          "returnPct": 3.488
+        },
         "20": null,
         "30": null
       },
@@ -3772,9 +3780,9 @@
       "currentReturnPct": 3.488,
       "maxPostExitReturnPct": 3.488,
       "minPostExitReturnPct": 0.997,
-      "latestMatureHorizon": 3,
-      "qualityLabel": "轻微卖早",
-      "modelAction": "存在小幅机会成本，继续积累样本，暂不调参。",
+      "latestMatureHorizon": 5,
+      "qualityLabel": "偏早卖出",
+      "modelAction": "同类退出可能偏敏感，成熟样本足够后降低卖出敏感度。",
       "feedbackEligible": true
     },
     {
@@ -3829,11 +3837,11 @@
         },
         "2026-07-31": {
           "date": "2026-07-31",
-          "at": "2026-07-31T17:25:36+08:00",
+          "at": "2026-07-31T19:59:30+08:00",
           "price": 13.4,
           "returnPct": -3.389,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3844,7 +3852,13 @@
           "price": 13.8,
           "returnPct": -0.505
         },
-        "5": null,
+        "5": {
+          "horizon": 5,
+          "date": "2026-07-31",
+          "at": "2026-07-31T19:59:30+08:00",
+          "price": 13.4,
+          "returnPct": -3.389
+        },
         "20": null,
         "30": null
       },
@@ -3854,7 +3868,7 @@
       "currentReturnPct": -3.389,
       "maxPostExitReturnPct": 1.442,
       "minPostExitReturnPct": -5.407,
-      "latestMatureHorizon": 3,
+      "latestMatureHorizon": 5,
       "qualityLabel": "卖出合理",
       "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
       "feedbackEligible": true
@@ -3911,11 +3925,11 @@
         },
         "2026-07-31": {
           "date": "2026-07-31",
-          "at": "2026-07-31T17:25:36+08:00",
+          "at": "2026-07-31T19:59:30+08:00",
           "price": 56.7,
           "returnPct": -6.497,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3926,7 +3940,13 @@
           "price": 57.75,
           "returnPct": -4.766
         },
-        "5": null,
+        "5": {
+          "horizon": 5,
+          "date": "2026-07-31",
+          "at": "2026-07-31T19:59:30+08:00",
+          "price": 56.7,
+          "returnPct": -6.497
+        },
         "20": null,
         "30": null
       },
@@ -3936,9 +3956,9 @@
       "currentReturnPct": -6.497,
       "maxPostExitReturnPct": 1.501,
       "minPostExitReturnPct": -11.28,
-      "latestMatureHorizon": 3,
-      "qualityLabel": "卖出合理",
-      "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
+      "latestMatureHorizon": 5,
+      "qualityLabel": "及时避险",
+      "modelAction": "卖出后继续明显下跌，同类退出规则获得正反馈。",
       "feedbackEligible": true
     },
     {
@@ -4017,11 +4037,11 @@
         },
         "2026-07-31": {
           "date": "2026-07-31",
-          "at": "2026-07-31T17:25:36+08:00",
+          "at": "2026-07-31T19:59:30+08:00",
           "price": 24.35,
           "returnPct": 3.397,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4145,11 +4165,11 @@
         },
         "2026-07-31": {
           "date": "2026-07-31",
-          "at": "2026-07-31T17:25:36+08:00",
+          "at": "2026-07-31T19:59:30+08:00",
           "price": 52.86,
           "returnPct": 2.601,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4281,11 +4301,11 @@
         },
         "2026-07-31": {
           "date": "2026-07-31",
-          "at": "2026-07-31T17:25:36+08:00",
+          "at": "2026-07-31T19:59:30+08:00",
           "price": 32.95,
           "returnPct": 12.496,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4342,11 +4362,11 @@
       },
       {
         "horizon": 5,
-        "sampleCount": 3,
-        "avgPostExitReturnPct": 3.926,
-        "medianPostExitReturnPct": -0.085,
+        "sampleCount": 6,
+        "avgPostExitReturnPct": 0.897,
+        "medianPostExitReturnPct": -0.547,
         "prematureExitRatePct": 33.3,
-        "avoidedLossRatePct": 0.0
+        "avoidedLossRatePct": 33.3
       },
       {
         "horizon": 20,
@@ -4420,11 +4440,11 @@
           },
           {
             "horizon": 5,
-            "sampleCount": 2,
-            "avgPostExitReturnPct": 5.931,
-            "medianPostExitReturnPct": 5.931,
-            "prematureExitRatePct": 50.0,
-            "avoidedLossRatePct": 0.0
+            "sampleCount": 5,
+            "avgPostExitReturnPct": 1.093,
+            "medianPostExitReturnPct": -1.009,
+            "prematureExitRatePct": 40.0,
+            "avoidedLossRatePct": 40.0
           },
           {
             "horizon": 20,
@@ -4471,8 +4491,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 163,
-    "plansCreated": 269,
+    "snapshotsProcessed": 164,
+    "plansCreated": 270,
     "buyChecks": 1014,
     "buysExecuted": 7,
     "sellsExecuted": 7,
@@ -4487,7 +4507,7 @@
       "模型或接入安全层硬拦截": 12,
       "未满足上涨趋势门槛，取消旧买入计划": 7
     },
-    "lastRunAt": "2026-07-31T17:25:36+08:00",
-    "lastRunSummary": "更新云端计划1只：美的集团(trial)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-07-31T19:59:30+08:00",
+    "lastRunSummary": "更新云端计划1只：美的集团(trial)"
   }
 }
