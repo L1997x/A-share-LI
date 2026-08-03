@@ -349,8 +349,25 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-03T11:17:39+08:00|2026-08-03|11:20午前买入复检",
+  "lastAutoRunKey": "2026-08-03T13:28:09+08:00|2026-08-03|13:30午后买入复检",
   "autoLog": [
+    {
+      "runKey": "2026-08-03T13:28:09+08:00|2026-08-03|13:30午后买入复检",
+      "at": "2026-08-03T13:28:09+08:00",
+      "tradeDate": "2026-08-03",
+      "phase": "13:30午后买入复检",
+      "phaseKey": "morning_entry",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：招商银行(watch)、伊利股份(watch)"
+        },
+        {
+          "type": "buy_wait",
+          "summary": "本次买入复检未成交，原因已写入决策复盘"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-03T11:17:39+08:00|2026-08-03|11:20午前买入复检",
       "at": "2026-08-03T11:17:39+08:00",
@@ -1167,26 +1184,61 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-07-24T13:28:38+08:00|2026-07-24|13:30午后买入复检",
-      "at": "2026-07-24T13:28:38+08:00",
-      "tradeDate": "2026-07-24",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "当前没有符合资金和风控约束的新计划"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
+    {
+      "id": "600036-2026-08-03T13:28:09+08:00|2026-08-03|13:30午后买入复检",
+      "code": "600036",
+      "name": "招商银行",
+      "status": "pending",
+      "signalDate": "2026-08-03",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-08-03T13:28:09+08:00|2026-08-03|13:30午后买入复检",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-08-06",
+      "plannedEntryPrice": 37.8,
+      "maxBuyPrice": 38.43,
+      "noChasePrice": 43.0,
+      "score": 8.1,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "600887-2026-08-03T13:28:09+08:00|2026-08-03|13:30午后买入复检",
+      "code": "600887",
+      "name": "伊利股份",
+      "status": "pending",
+      "signalDate": "2026-08-03",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-08-03T13:28:09+08:00|2026-08-03|13:30午后买入复检",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-08-06",
+      "plannedEntryPrice": 26.07,
+      "maxBuyPrice": 26.36,
+      "noChasePrice": 29.38,
+      "score": 7.5,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
     {
       "id": "000333-2026-08-03T11:17:39+08:00|2026-08-03|11:20午前买入复检",
       "code": "000333",
@@ -1201,32 +1253,6 @@
       "maxBuyPrice": 84.16,
       "noChasePrice": 94.91,
       "score": 7.8,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "trendTradeEligible": true,
-      "trendLabel": "上涨趋势",
-      "planType": "watch",
-      "targetPositionPct": 0.1,
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
-      "id": "600036-2026-08-03T11:17:39+08:00|2026-08-03|11:20午前买入复检",
-      "code": "600036",
-      "name": "招商银行",
-      "status": "pending",
-      "signalDate": "2026-08-03",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-08-03T11:17:39+08:00|2026-08-03|11:20午前买入复检",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-08-06",
-      "plannedEntryPrice": 37.78,
-      "maxBuyPrice": 38.41,
-      "noChasePrice": 43.0,
-      "score": 7.6,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1866,6 +1892,74 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_deferred-600887-2026-08-03T13:28:09+08:00",
+      "at": "2026-08-03T13:28:09+08:00",
+      "tradeDate": "2026-08-03",
+      "phase": "13:30午后买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600887",
+      "name": "伊利股份",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 26.07,
+      "maxBuyPrice": 26.36,
+      "score": 7.5
+    },
+    {
+      "id": "buy_deferred-600036-2026-08-03T13:28:09+08:00",
+      "at": "2026-08-03T13:28:09+08:00",
+      "tradeDate": "2026-08-03",
+      "phase": "13:30午后买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600036",
+      "name": "招商银行",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 37.8,
+      "maxBuyPrice": 38.43,
+      "score": 8.1
+    },
+    {
+      "id": "buy_plan_created-600887-2026-08-03T13:28:09+08:00",
+      "at": "2026-08-03T13:28:09+08:00",
+      "tradeDate": "2026-08-03",
+      "phase": "13:30午后买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600887",
+      "name": "伊利股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 26.07,
+      "maxBuyPrice": 26.36,
+      "noChasePrice": 29.38,
+      "validUntilDate": "2026-08-06",
+      "score": 7.5
+    },
+    {
+      "id": "buy_plan_created-600036-2026-08-03T13:28:09+08:00",
+      "at": "2026-08-03T13:28:09+08:00",
+      "tradeDate": "2026-08-03",
+      "phase": "13:30午后买入复检",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600036",
+      "name": "招商银行",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 37.8,
+      "maxBuyPrice": 38.43,
+      "noChasePrice": 43.0,
+      "validUntilDate": "2026-08-06",
+      "score": 8.1
+    },
     {
       "id": "buy_deferred-600036-2026-08-03T11:17:39+08:00",
       "at": "2026-08-03T11:17:39+08:00",
@@ -3464,72 +3558,6 @@
       "plannedEntryPrice": 5.57,
       "maxBuyPrice": 5.78,
       "score": 7.7
-    },
-    {
-      "id": "buy_deferred-000960-2026-07-29T14:26:16+08:00",
-      "at": "2026-07-29T14:26:16+08:00",
-      "tradeDate": "2026-07-29",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "000960",
-      "name": "锡业股份",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 29.38,
-      "maxBuyPrice": 30.49,
-      "score": 8.3
-    },
-    {
-      "id": "buy_deferred-600406-2026-07-29T14:26:16+08:00",
-      "at": "2026-07-29T14:26:16+08:00",
-      "tradeDate": "2026-07-29",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600406",
-      "name": "国电南瑞",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 21.9,
-      "maxBuyPrice": 23.65,
-      "score": 9.6
-    },
-    {
-      "id": "buy_deferred-002594-2026-07-29T14:26:16+08:00",
-      "at": "2026-07-29T14:26:16+08:00",
-      "tradeDate": "2026-07-29",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "002594",
-      "name": "比亚迪",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 85.26,
-      "maxBuyPrice": 88.45,
-      "score": 8.6
-    },
-    {
-      "id": "buy_plan_created-002594-2026-07-29T14:26:16+08:00",
-      "at": "2026-07-29T14:26:16+08:00",
-      "tradeDate": "2026-07-29",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "002594",
-      "name": "比亚迪",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 85.26,
-      "maxBuyPrice": 88.45,
-      "noChasePrice": 102.66,
-      "validUntilDate": "2026-08-01",
-      "score": 8.6
     }
   ],
   "exitReviews": [
@@ -3561,9 +3589,9 @@
         },
         "2026-08-03": {
           "date": "2026-08-03",
-          "at": "2026-08-03T11:17:39+08:00",
-          "price": 34.76,
-          "returnPct": 0.783,
+          "at": "2026-08-03T13:28:09+08:00",
+          "price": 34.82,
+          "returnPct": 0.957,
           "phase": "morning_entry",
           "finalized": false
         }
@@ -3576,10 +3604,10 @@
       },
       "observedTradingDays": 2,
       "currentDate": "2026-08-03",
-      "currentPrice": 34.76,
-      "currentReturnPct": 0.783,
+      "currentPrice": 34.82,
+      "currentReturnPct": 0.957,
       "maxPostExitReturnPct": 2.001,
-      "minPostExitReturnPct": 0.783,
+      "minPostExitReturnPct": 0.957,
       "latestMatureHorizon": null,
       "qualityLabel": "等待3个交易日样本",
       "modelAction": "样本尚未成熟，不调整卖出参数。",
@@ -3645,9 +3673,9 @@
         },
         "2026-08-03": {
           "date": "2026-08-03",
-          "at": "2026-08-03T11:17:39+08:00",
-          "price": 6.21,
-          "returnPct": 3.156,
+          "at": "2026-08-03T13:28:09+08:00",
+          "price": 6.17,
+          "returnPct": 2.492,
           "phase": "morning_entry",
           "finalized": false
         }
@@ -3672,8 +3700,8 @@
       },
       "observedTradingDays": 6,
       "currentDate": "2026-08-03",
-      "currentPrice": 6.21,
-      "currentReturnPct": 3.156,
+      "currentPrice": 6.17,
+      "currentReturnPct": 2.492,
       "maxPostExitReturnPct": 3.488,
       "minPostExitReturnPct": 0.997,
       "latestMatureHorizon": 5,
@@ -3741,9 +3769,9 @@
         },
         "2026-08-03": {
           "date": "2026-08-03",
-          "at": "2026-08-03T11:17:39+08:00",
-          "price": 13.91,
-          "returnPct": 0.288,
+          "at": "2026-08-03T13:28:09+08:00",
+          "price": 13.86,
+          "returnPct": -0.072,
           "phase": "morning_entry",
           "finalized": false
         }
@@ -3768,8 +3796,8 @@
       },
       "observedTradingDays": 6,
       "currentDate": "2026-08-03",
-      "currentPrice": 13.91,
-      "currentReturnPct": 0.288,
+      "currentPrice": 13.86,
+      "currentReturnPct": -0.072,
       "maxPostExitReturnPct": 1.442,
       "minPostExitReturnPct": -5.407,
       "latestMatureHorizon": 5,
@@ -3837,9 +3865,9 @@
         },
         "2026-08-03": {
           "date": "2026-08-03",
-          "at": "2026-08-03T11:17:39+08:00",
-          "price": 55.89,
-          "returnPct": -7.833,
+          "at": "2026-08-03T13:28:09+08:00",
+          "price": 56.3,
+          "returnPct": -7.157,
           "phase": "morning_entry",
           "finalized": false
         }
@@ -3864,8 +3892,8 @@
       },
       "observedTradingDays": 6,
       "currentDate": "2026-08-03",
-      "currentPrice": 55.89,
-      "currentReturnPct": -7.833,
+      "currentPrice": 56.3,
+      "currentReturnPct": -7.157,
       "maxPostExitReturnPct": 1.501,
       "minPostExitReturnPct": -11.28,
       "latestMatureHorizon": 5,
@@ -3957,9 +3985,9 @@
         },
         "2026-08-03": {
           "date": "2026-08-03",
-          "at": "2026-08-03T11:17:39+08:00",
-          "price": 24.9,
-          "returnPct": 5.732,
+          "at": "2026-08-03T13:28:09+08:00",
+          "price": 24.99,
+          "returnPct": 6.115,
           "phase": "morning_entry",
           "finalized": false
         }
@@ -3984,9 +4012,9 @@
       },
       "observedTradingDays": 9,
       "currentDate": "2026-08-03",
-      "currentPrice": 24.9,
-      "currentReturnPct": 5.732,
-      "maxPostExitReturnPct": 5.732,
+      "currentPrice": 24.99,
+      "currentReturnPct": 6.115,
+      "maxPostExitReturnPct": 6.115,
       "minPostExitReturnPct": -0.085,
       "latestMatureHorizon": 5,
       "qualityLabel": "卖出合理",
@@ -4093,9 +4121,9 @@
         },
         "2026-08-03": {
           "date": "2026-08-03",
-          "at": "2026-08-03T11:17:39+08:00",
-          "price": 52.71,
-          "returnPct": 2.31,
+          "at": "2026-08-03T13:28:09+08:00",
+          "price": 52.44,
+          "returnPct": 1.786,
           "phase": "morning_entry",
           "finalized": false
         }
@@ -4120,8 +4148,8 @@
       },
       "observedTradingDays": 11,
       "currentDate": "2026-08-03",
-      "currentPrice": 52.71,
-      "currentReturnPct": 2.31,
+      "currentPrice": 52.44,
+      "currentReturnPct": 1.786,
       "maxPostExitReturnPct": 2.601,
       "minPostExitReturnPct": -1.009,
       "latestMatureHorizon": 5,
@@ -4237,9 +4265,9 @@
         },
         "2026-08-03": {
           "date": "2026-08-03",
-          "at": "2026-08-03T11:17:39+08:00",
-          "price": 32.29,
-          "returnPct": 10.242,
+          "at": "2026-08-03T13:28:09+08:00",
+          "price": 31.98,
+          "returnPct": 9.184,
           "phase": "morning_entry",
           "finalized": false
         }
@@ -4264,8 +4292,8 @@
       },
       "observedTradingDays": 12,
       "currentDate": "2026-08-03",
-      "currentPrice": 32.29,
-      "currentReturnPct": 10.242,
+      "currentPrice": 31.98,
+      "currentReturnPct": 9.184,
       "maxPostExitReturnPct": 12.871,
       "minPostExitReturnPct": -2.356,
       "latestMatureHorizon": 5,
@@ -4427,14 +4455,14 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 166,
-    "plansCreated": 274,
-    "buyChecks": 1018,
+    "snapshotsProcessed": 167,
+    "plansCreated": 276,
+    "buyChecks": 1021,
     "buysExecuted": 7,
     "sellsExecuted": 7,
     "waitReasonCounts": {
-      "观察计划尚未升级为可执行信号": 352,
-      "股票不在最新池，云端继续观察但不执行": 603,
+      "观察计划尚未升级为可执行信号": 354,
+      "股票不在最新池，云端继续观察但不执行": 604,
       "价格高于MA20超过5%，避免追涨后回撤": 25,
       "含滑点价格高于最高买入价": 5,
       "价格低于MA20超过3%，等待止跌确认": 7
@@ -4443,7 +4471,7 @@
       "模型或接入安全层硬拦截": 12,
       "未满足上涨趋势门槛，取消旧买入计划": 7
     },
-    "lastRunAt": "2026-08-03T11:17:39+08:00",
-    "lastRunSummary": "更新云端计划2只：美的集团(watch)、招商银行(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-08-03T13:28:09+08:00",
+    "lastRunSummary": "更新云端计划2只：招商银行(watch)、伊利股份(watch)；本次买入复检未成交，原因已写入决策复盘"
   }
 }
