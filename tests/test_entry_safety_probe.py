@@ -44,7 +44,7 @@ def candidate_row() -> dict:
 
 
 class EntrySafetyProbeTests(unittest.TestCase):
-    def test_broad_risk_factor_without_severe_touch_evidence_downgrades_to_probe(self) -> None:
+    def test_broad_risk_factor_cannot_hard_block_even_with_severe_history(self) -> None:
         row = candidate_row()
         factor = entry_effectiveness_factors(row)[0]
         feedback = {
@@ -57,9 +57,9 @@ class EntrySafetyProbeTests(unittest.TestCase):
                         "confidence": 1.0,
                         "price_adjustment_pct": -2.0,
                         "risk_level": "高",
-                        "avg_touch_return_pct": -0.2,
-                        "avg_adverse_drawdown_pct": -9.0,
-                        "crash_rate_pct": 46.0,
+                        "avg_touch_return_pct": -6.0,
+                        "avg_adverse_drawdown_pct": -13.0,
+                        "crash_rate_pct": 65.0,
                         "actual_buyable_count": 10,
                         "touched_entry_count": 2,
                         "untouched_wait_count": 88,
@@ -80,7 +80,7 @@ class EntrySafetyProbeTests(unittest.TestCase):
 
     def test_severe_touch_evidence_keeps_hard_block(self) -> None:
         row = candidate_row()
-        factor = entry_effectiveness_factors(row)[0]
+        factor = next(item for item in entry_effectiveness_factors(row) if item["dimension"] == "status")
         feedback = {
             "entry_effectiveness": {
                 "observation_count": 50,

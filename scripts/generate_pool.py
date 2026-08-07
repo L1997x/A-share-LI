@@ -44,6 +44,7 @@ ENTRY_FEEDBACK_PRICE_CAP_DOWN = -2.4
 ENTRY_FEEDBACK_PRICE_CAP_UP = 0.6
 ENTRY_HARD_BLOCK_MIN_TOUCHED = 8
 ENTRY_HARD_BLOCK_MIN_TOUCH_RATIO_PCT = 8.0
+ENTRY_HARD_BLOCK_DIMENSIONS = {"buy_signal", "status", "entry_gap"}
 RISK_PROBE_MIN_SCORE = 8.8
 RISK_PROBE_MIN_FUND_FLOW_SCORE = 5.0
 ENTRY_CRASH_RETURN_THRESHOLD = -5.0
@@ -2603,6 +2604,7 @@ def entry_safety_effect_for_row(row: dict[str, Any], feedback_payload: dict[str,
         )
         hard_block_evidence = bool(
             risk_level == "高"
+            and factor["dimension"] in ENTRY_HARD_BLOCK_DIMENSIONS
             and touched_evidence_count >= ENTRY_HARD_BLOCK_MIN_TOUCHED
             and touched_evidence_ratio_pct >= ENTRY_HARD_BLOCK_MIN_TOUCH_RATIO_PCT
             and severe_touch_outcome
