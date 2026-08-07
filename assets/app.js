@@ -2355,7 +2355,7 @@ function renderSimulationPlans() {
   const buyRows = pendingOrders.map(
     (order) => {
       ensureBuyOrderValidUntil(order);
-      const planLabel = order.planType === "executable" ? "可执行" : order.planType === "trial" ? "小仓试买观察" : "观察";
+      const planLabel = order.planType === "executable" ? "可执行" : order.planType === "probe" ? "5%风险试探" : order.planType === "trial" ? "小仓试买观察" : "观察";
       return `
         <article class="simulation-row compact">
           <div>

@@ -42,6 +42,10 @@ FEEDBACK_MIN_STRONG_SAMPLES = 8
 ENTRY_FEEDBACK_MIN_SAMPLES = 6
 ENTRY_FEEDBACK_PRICE_CAP_DOWN = -2.4
 ENTRY_FEEDBACK_PRICE_CAP_UP = 0.6
+ENTRY_HARD_BLOCK_MIN_TOUCHED = 8
+ENTRY_HARD_BLOCK_MIN_TOUCH_RATIO_PCT = 8.0
+RISK_PROBE_MIN_SCORE = 8.8
+RISK_PROBE_MIN_FUND_FLOW_SCORE = 5.0
 ENTRY_CRASH_RETURN_THRESHOLD = -5.0
 ENTRY_ADVERSE_DRAW_THRESHOLD = -7.0
 MAX_MA60_TEN_DAY_DECLINE_PCT = -1.0
@@ -2570,6 +2574,7 @@ def entry_safety_effect_for_row(row: dict[str, Any], feedback_payload: dict[str,
     total = 0.0
     high_risk_weight = 0.0
     max_crash_rate = 0.0
+    hard_block_evidence_count = 0
 
     for factor in entry_effectiveness_factors(row):
         stat = stats_by_id.get(factor["id"])
@@ -2584,6 +2589,26 @@ def entry_safety_effect_for_row(row: dict[str, Any], feedback_payload: dict[str,
         risk_level = stat.get("risk_level") or "未知"
         crash_rate = safe_float(stat.get("crash_rate_pct")) or 0.0
         max_crash_rate = max(max_crash_rate, crash_rate)
+        actual_buyable_count = int(stat.get("actual_buyable_count") or 0)
+        touched_entry_count = int(stat.get("touched_entry_count") or 0)
+        touched_evidence_count = actual_buyable_count + touched_entry_count
+        sample_count = int(stat.get("sample_count") or 0)
+        touched_evidence_ratio_pct = touched_evidence_count / max(1, sample_count) * 100
+        avg_touch_return = safe_float(stat.get("avg_touch_return_pct")) or 0.0
+        adverse_drawdown = safe_float(stat.get("avg_adverse_drawdown_pct")) or 0.0
+        severe_touch_outcome = bool(
+            avg_touch_return <= -5.0
+            or adverse_drawdown <= -12.0
+            or crash_rate >= 60.0
+        )
+        hard_block_evidence = bool(
+            risk_level == "高"
+            and touched_evidence_count >= ENTRY_HARD_BLOCK_MIN_TOUCHED
+            and touched_evidence_ratio_pct >= ENTRY_HARD_BLOCK_MIN_TOUCH_RATIO_PCT
+            and severe_touch_outcome
+        )
+        if hard_block_evidence:
+            hard_block_evidence_count += 1
         if risk_level == "高":
             high_risk_weight += abs(contribution)
         matched.append(
@@ -2591,7 +2616,7 @@ def entry_safety_effect_for_row(row: dict[str, Any], feedback_payload: dict[str,
                 "id": factor["id"],
                 "label": factor["label"],
                 "dimension": factor["dimension"],
-                "sample_count": stat.get("sample_count"),
+                "sample_count": sample_count,
                 "avg_entry_return_pct": stat.get("avg_entry_return_pct"),
                 "avg_touch_return_pct": stat.get("avg_touch_return_pct"),
                 "avg_missed_return_pct": stat.get("avg_missed_return_pct"),
@@ -2602,6 +2627,9 @@ def entry_safety_effect_for_row(row: dict[str, Any], feedback_payload: dict[str,
                 "actual_buyable_count": stat.get("actual_buyable_count"),
                 "touched_entry_count": stat.get("touched_entry_count"),
                 "untouched_wait_count": stat.get("untouched_wait_count"),
+                "touched_evidence_count": touched_evidence_count,
+                "touched_evidence_ratio_pct": round_or_none(touched_evidence_ratio_pct),
+                "hard_block_evidence": hard_block_evidence,
                 "confidence": stat.get("confidence"),
                 "risk_level": risk_level,
                 "price_adjustment_pct": round_or_none(contribution, 3),
@@ -2613,7 +2641,7 @@ def entry_safety_effect_for_row(row: dict[str, Any], feedback_payload: dict[str,
     matched.sort(key=lambda item: abs(item.get("price_adjustment_pct") or 0), reverse=True)
 
     high_risk = total <= -1.0 or high_risk_weight >= 0.7 or (row.get("is_buyable_now") and total <= -0.25 and max_crash_rate >= 20)
-    block_buy = bool(row.get("is_buyable_now") and high_risk)
+    block_buy = bool(row.get("is_buyable_now") and high_risk and hard_block_evidence_count)
 
     if high_risk:
         label = "接入风险高"
@@ -2649,6 +2677,7 @@ def entry_safety_effect_for_row(row: dict[str, Any], feedback_payload: dict[str,
         "entry_safety_factors": matched[:5],
         "entry_safety_risk_flag": high_risk,
         "entry_safety_block_buy": block_buy,
+        "entry_safety_hard_evidence_count": hard_block_evidence_count,
         "entry_safety_observation_count": entry_payload.get("observation_count", 0),
     }
 
@@ -2702,8 +2731,13 @@ def apply_feedback_price_adjustment(
 
     row["factor_price_feedback_adjustment_pct"] = round_or_none(factor_adjustment_pct, 3)
     row["entry_safety_adjustment_pct"] = round_or_none(safety_adjustment_pct, 3)
+    projected_score = (
+        (safe_float(row.get("score")) or 0.0)
+        + feedback_bonus
+        + (safe_float(row.get("trend_score_bonus")) or 0.0)
+    )
 
-    if adjustment_pct == 0.0 and not entry_safety_meta.get("entry_safety_block_buy"):
+    if adjustment_pct == 0.0 and not entry_safety_meta.get("entry_safety_risk_flag"):
         label = "价格纪律不变"
         note = "回访样本或反馈强度不足，推荐接入价和可买价保持原模型结果。"
         row.update(
@@ -2778,7 +2812,28 @@ def apply_feedback_price_adjustment(
             f"；安全调整{format_optional_pct(safety_adjustment_pct)}；{safety_note}"
         )
 
-    if entry_safety_meta.get("entry_safety_block_buy") and row.get("is_buyable_now"):
+    risk_probe_eligible = bool(
+        entry_safety_meta.get("entry_safety_risk_flag")
+        and not entry_safety_meta.get("entry_safety_block_buy")
+        and row.get("is_buyable_now")
+        and row.get("trend_trade_eligible")
+        and projected_score >= RISK_PROBE_MIN_SCORE
+        and (safe_float(row.get("fund_flow_score")) or 0.0) >= RISK_PROBE_MIN_FUND_FLOW_SCORE
+        and row.get("buy_signal_key") in {"pullback_buy", "breakout_buy"}
+    )
+
+    if risk_probe_eligible:
+        row["base_buy_signal_key"] = row.get("buy_signal_key")
+        row["base_buy_signal_label"] = row.get("buy_signal_label")
+        row["buy_signal_key"] = "risk_probe"
+        row["buy_signal_label"] = "回访风险小仓试探"
+        row["entry_safety_probe_only"] = True
+        row["entry_safety_block_buy"] = False
+        row["buy_price_note"] = (
+            f"{row.get('buy_price_note') or ''} 历史接入风险偏高但硬拦截证据不足；"
+            "仅允许5%模拟仓位验证，不放宽失效价、不追高线和市场风险门槛。"
+        ).strip()
+    elif entry_safety_meta.get("entry_safety_block_buy") and row.get("is_buyable_now"):
         row["risk_adjusted_buyable_price"] = row.get("buyable_price")
         row["is_buyable_now"] = False
         row["base_buy_signal_key"] = row.get("buy_signal_key")

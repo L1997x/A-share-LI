@@ -13,6 +13,7 @@ INITIAL_CASH = 100_000.0
 STATE_SCHEMA_VERSION = 6
 MAX_POSITION_PCT = 0.20
 TRIAL_POSITION_PCT = 0.10
+RISK_PROBE_POSITION_PCT = 0.05
 MAX_POSITIONS = 5
 MAX_BUYS_PER_RUN = 2
 MAX_AFTERNOON_BUYS = 1
@@ -218,7 +219,7 @@ def _market(payload: dict[str, Any]) -> dict[str, Any]:
 
 
 def _actionable(stock: dict[str, Any]) -> bool:
-    return bool(stock.get("is_buyable_now") or stock.get("buy_signal_key") in {"pullback_buy", "breakout_buy"})
+    return bool(stock.get("is_buyable_now") or stock.get("buy_signal_key") in {"pullback_buy", "breakout_buy", "risk_probe"})
 
 
 def _trend_trade_eligible(stock: dict[str, Any]) -> bool:
@@ -236,6 +237,17 @@ def _trend_trade_eligible(stock: dict[str, Any]) -> bool:
         ma60_slope is None or ma60_slope >= MAX_MA60_TEN_DAY_DECLINE_PCT
     )
     return bool(price > ma20 > ma60 and slopes_ok)
+
+
+def _trade_execution_window_open(payload: dict[str, Any]) -> bool:
+    try:
+        generated = datetime.fromisoformat(str(payload.get("generated_at") or ""))
+    except (TypeError, ValueError):
+        return False
+    if generated.weekday() >= 5:
+        return False
+    minutes = generated.hour * 60 + generated.minute
+    return 9 * 60 + 30 <= minutes <= 11 * 60 + 30 or 13 * 60 <= minutes <= 15 * 60
 
 
 def _hard_blocked(stock: dict[str, Any]) -> bool:
@@ -293,9 +305,14 @@ def _plan_for_stock(stock: dict[str, Any], payload: dict[str, Any], run_key: str
             no_chase,
             planned * 1.012,
         ]
-        plan_type = "executable"
-        target_pct = MAX_POSITION_PCT
-        reason = f"明确可买信号：{stock.get('buy_signal_label') or stock.get('buy_signal_key')}"
+        risk_probe = bool(stock.get("entry_safety_probe_only") or stock.get("buy_signal_key") == "risk_probe")
+        plan_type = "probe" if risk_probe else "executable"
+        target_pct = RISK_PROBE_POSITION_PCT if risk_probe else MAX_POSITION_PCT
+        reason = (
+            "回访风险证据不足以硬拦截，仅以5%仓位验证"
+            if risk_probe
+            else f"明确可买信号：{stock.get('buy_signal_label') or stock.get('buy_signal_key')}"
+        )
     elif trial:
         candidates = [_trial_ceiling(stock), no_chase]
         plan_type = "trial"
@@ -402,7 +419,7 @@ def _create_plans(state: dict[str, Any], payload: dict[str, Any], events: list[d
         plan = _plan_for_stock(stock, payload, run_key)
         if not plan:
             continue
-        priority = {"executable": 2, "trial": 1, "watch": 0}[plan["planType"]]
+        priority = {"executable": 3, "probe": 2, "trial": 1, "watch": 0}[plan["planType"]]
         candidates.append((priority, _num(stock.get("score")) or 0.0, plan))
     candidates.sort(key=lambda item: (item[0], item[1]), reverse=True)
     portfolio_value = _portfolio_value(state, stocks, reviews)
@@ -435,7 +452,7 @@ def _create_plans(state: dict[str, Any], payload: dict[str, Any], events: list[d
                 "status": "pending",
                 "code": order["code"],
                 "name": order["name"],
-                "summary": "生成可执行计划" if order["planType"] == "executable" else "生成小仓试买观察" if order["planType"] == "trial" else "生成观察计划",
+                "summary": "生成可执行计划" if order["planType"] == "executable" else "生成5%风险试探" if order["planType"] == "probe" else "生成小仓试买观察" if order["planType"] == "trial" else "生成观察计划",
                 "reason": order["reason"],
                 "plannedEntryPrice": order["plannedEntryPrice"],
                 "maxBuyPrice": order["maxBuyPrice"],
@@ -563,8 +580,11 @@ def _execute_buys(state: dict[str, Any], payload: dict[str, Any], events: list[d
         stock = stocks.get(str(order.get("code")))
         state["diagnostics"]["buyChecks"] = int(state["diagnostics"].get("buyChecks", 0)) + 1
         if not stock:
-            reason = "股票不在最新池，云端继续观察但不执行"
-            _count_reason(state, "wait", reason)
+            reason = "股票已调出最新池，取消旧买入计划"
+            order["status"] = "cancelled"
+            order["cancelReason"] = reason
+            _count_reason(state, "cancel", reason)
+            _record(state, payload, {"type": "buy_cancelled", "status": "cancelled", "code": order["code"], "name": order["name"], "summary": "调出股票池后取消买入", "reason": reason, "plannedEntryPrice": order.get("plannedEntryPrice"), "maxBuyPrice": order.get("maxBuyPrice"), "score": order.get("score")})
             continue
         if not _trend_trade_eligible(stock):
             reason = "未满足上涨趋势门槛，取消旧买入计划"
@@ -621,10 +641,8 @@ def _execute_buys(state: dict[str, Any], payload: dict[str, Any], events: list[d
             reason = "本次快照买入数量已达上限"
             _count_reason(state, "wait", reason)
             continue
-        target_pct = min(
-            MAX_POSITION_PCT if actionable else TRIAL_POSITION_PCT,
-            _num(order.get("targetPositionPct")) or (MAX_POSITION_PCT if actionable else TRIAL_POSITION_PCT),
-        )
+        position_cap = RISK_PROBE_POSITION_PCT if order.get("planType") == "probe" else MAX_POSITION_PCT if actionable else TRIAL_POSITION_PCT
+        target_pct = min(position_cap, _num(order.get("targetPositionPct")) or position_cap)
         quantity = _affordable_quantity(state, execution_price, target_pct, portfolio_value)
         if quantity < 100:
             reason = "10万元资金与单票仓位限制下不足一手"
@@ -632,7 +650,7 @@ def _execute_buys(state: dict[str, Any], payload: dict[str, Any], events: list[d
             order["cancelReason"] = reason
             _count_reason(state, "cancel", reason)
             continue
-        reason = "明确可买信号验证通过" if actionable else "偏暖市场高分标的进入1.5个ATR缓冲区并通过止跌过滤，小仓试买"
+        reason = "回访风险小仓试探验证通过" if order.get("planType") == "probe" else "明确可买信号验证通过" if actionable else "偏暖市场高分标的进入1.5个ATR缓冲区并通过止跌过滤，小仓试买"
         _buy(state, payload, stock, order, execution_price, quantity, reason)
         events.append({"type": "buy", "summary": f"云端买入{stock.get('name')}{quantity}股，成交{execution_price:.2f}"})
         executed += 1
@@ -750,12 +768,12 @@ def run_cloud_simulation(payload: dict[str, Any], raw_state: dict[str, Any] | No
     if not run_key or state.get("lastAutoRunKey") == run_key:
         return state
     events: list[dict[str, Any]] = []
-    planning_only = _phase(payload) in {"preopen_watch", "overnight_watch"}
+    planning_only = _phase(payload) in {"preopen_watch", "overnight_watch", "evening_watch"} or not _trade_execution_window_open(payload)
     refresh_exit_feedback(state, payload)
     if not planning_only:
         _execute_sells(state, payload, events)
     refresh_exit_feedback(state)
-    if _phase(payload) in {"preopen_watch", "evening_watch", "overnight_watch"}:
+    if planning_only:
         _create_plans(state, payload, events)
     else:
         _execute_buys(state, payload, events)

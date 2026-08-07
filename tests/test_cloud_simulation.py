@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from scripts.cloud_simulation import default_simulation, run_cloud_simulation
+from scripts.cloud_simulation import _trend_trade_eligible, default_simulation, run_cloud_simulation
 
 
 def payload(
@@ -49,10 +49,11 @@ def payload(
         "resistance_price": 58.0,
         "buy_signal_key": signal,
         "buy_signal_label": "等待触发" if signal == "wait" else "回撤可买",
-        "buyable_price": price if signal in {"pullback_buy", "breakout_buy"} else None,
-        "buyable_price_upper": entry_upper if signal in {"pullback_buy", "breakout_buy"} else None,
+        "buyable_price": price if signal in {"pullback_buy", "breakout_buy", "risk_probe"} else None,
+        "buyable_price_upper": entry_upper if signal in {"pullback_buy", "breakout_buy", "risk_probe"} else None,
         "status_key": status,
-        "is_buyable_now": signal in {"pullback_buy", "breakout_buy"},
+        "is_buyable_now": signal in {"pullback_buy", "breakout_buy", "risk_probe"},
+        "entry_safety_probe_only": signal == "risk_probe",
         "entry_safety_block_buy": False,
         "market_context_block_buy": False,
         "fund_flow_score": 0.0,
@@ -78,6 +79,12 @@ def payload(
 
 
 class CloudSimulationTests(unittest.TestCase):
+    def test_trend_fallback_uses_moving_average_structure(self) -> None:
+        stock = payload("2026-07-14T10:00:00+08:00", "morning_entry", 50.0)["stocks"][0]
+        stock.pop("trend_trade_eligible")
+
+        self.assertTrue(_trend_trade_eligible(stock))
+
     def test_warm_high_score_plan_buys_only_inside_atr_buffer(self) -> None:
         state = run_cloud_simulation(payload("2026-07-13T20:00:00+08:00", "evening_watch", 57.0, ma20=55.0), default_simulation())
         self.assertEqual(state["pendingBuyOrders"][0]["planType"], "trial")
@@ -196,6 +203,44 @@ class CloudSimulationTests(unittest.TestCase):
         state = run_cloud_simulation(morning, state)
 
         self.assertEqual(state["positions"]["600001"]["quantity"], 200)
+
+    def test_entry_risk_probe_is_limited_to_five_percent(self) -> None:
+        evening = payload("2026-07-13T20:00:00+08:00", "evening_watch", 49.0, signal="risk_probe")
+        state = run_cloud_simulation(evening, default_simulation())
+        self.assertEqual(state["pendingBuyOrders"][0]["planType"], "probe")
+        self.assertEqual(state["pendingBuyOrders"][0]["targetPositionPct"], 0.05)
+
+        morning = payload("2026-07-14T10:00:00+08:00", "morning_entry", 49.0, signal="risk_probe")
+        state = run_cloud_simulation(morning, state)
+
+        self.assertEqual(state["positions"]["600001"]["quantity"], 100)
+        self.assertEqual(state["trades"][0]["reason"], "回访风险小仓试探验证通过")
+
+    def test_stock_removed_from_latest_pool_is_cancelled_only_once(self) -> None:
+        evening = payload("2026-07-13T20:00:00+08:00", "evening_watch", 49.0, score=8.0)
+        state = run_cloud_simulation(evening, default_simulation())
+
+        morning = payload("2026-07-14T10:00:00+08:00", "morning_entry", 49.0, signal="pullback_buy")
+        morning["stocks"][0]["code"] = "600002"
+        state = run_cloud_simulation(morning, state)
+        stale = next(order for order in state["pendingBuyOrders"] if order["code"] == "600001")
+
+        self.assertEqual(stale["status"], "cancelled")
+        self.assertEqual(stale["cancelReason"], "股票已调出最新池，取消旧买入计划")
+        self.assertEqual(state["diagnostics"]["cancelReasonCounts"]["股票已调出最新池，取消旧买入计划"], 1)
+
+        later = payload("2026-07-14T11:20:00+08:00", "morning_entry", 49.0, signal="pullback_buy")
+        later["stocks"][0]["code"] = "600002"
+        state = run_cloud_simulation(later, state)
+        self.assertEqual(state["diagnostics"]["cancelReasonCounts"]["股票已调出最新池，取消旧买入计划"], 1)
+
+    def test_after_close_refresh_creates_plan_but_does_not_trade(self) -> None:
+        after_close = payload("2026-07-14T15:48:00+08:00", "afternoon_risk", 49.0, signal="risk_probe")
+        state = run_cloud_simulation(after_close, default_simulation())
+
+        self.assertEqual(state["positions"], {})
+        self.assertEqual(state["diagnostics"]["buysExecuted"], 0)
+        self.assertEqual(state["pendingBuyOrders"][0]["planType"], "probe")
 
 
 if __name__ == "__main__":
