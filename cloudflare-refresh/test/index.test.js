@@ -15,10 +15,10 @@ const env = {
 
 const PRIMARY_CRONS = [
   "53 1 * * MON-FRI",
-  "13 3 * * MON-FRI",
   "23 5 * * MON-FRI",
   "23 6 * * MON-FRI",
   "53 11 * * MON-FRI",
+  "10 15 * * MON-FRI",
 ];
 
 test("normalizes Cloudflare weekdays for the GitHub workflow", () => {

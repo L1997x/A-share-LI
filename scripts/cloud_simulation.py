@@ -88,11 +88,15 @@ def _parse_date(value: Any) -> date | None:
 
 def _phase(payload: dict[str, Any]) -> str:
     phase = str(payload.get("update_phase") or (payload.get("universe_scan") or {}).get("update_phase") or "")
-    if phase in {"morning_entry", "afternoon_risk", "evening_watch"}:
+    if phase in {"preopen_watch", "morning_entry", "afternoon_risk", "evening_watch", "overnight_watch"}:
         return phase
     label = str(payload.get("update_phase_label") or (payload.get("universe_scan") or {}).get("update_phase_label") or "")
     if "20点" in label or "次日" in label:
         return "evening_watch"
+    if "23:10" in label or "隔夜" in label:
+        return "overnight_watch"
+    if "08:50" in label or "开盘前" in label:
+        return "preopen_watch"
     if "14:30" in label or "尾盘" in label:
         return "afternoon_risk"
     return "morning_entry"
@@ -239,8 +243,9 @@ def _hard_blocked(stock: dict[str, Any]) -> bool:
         stock.get("entry_safety_block_buy")
         or stock.get("market_context_block_buy")
         or stock.get("trend_block_buy")
+        or stock.get("global_market_hard_risk")
         or not _trend_trade_eligible(stock)
-        or stock.get("buy_signal_key") in {"risk_wait", "market_wait", "avoid"}
+        or stock.get("buy_signal_key") in {"risk_wait", "market_wait", "global_wait", "avoid"}
         or stock.get("status_key") == "avoid"
     )
 
@@ -305,6 +310,8 @@ def _plan_for_stock(stock: dict[str, Any], payload: dict[str, Any], run_key: str
     max_buy = min(finite) if finite else planned
     signal_date = str(payload.get("as_of_date") or "")
     parsed = _parse_date(signal_date) or date.today()
+    context_multiplier = min(1.0, max(0.5, _num(stock.get("context_position_multiplier")) or 1.0))
+    target_pct = target_pct * context_multiplier
     return {
         "id": f"{stock.get('code')}-{run_key}",
         "code": str(stock.get("code")),
@@ -324,6 +331,9 @@ def _plan_for_stock(stock: dict[str, Any], payload: dict[str, Any], run_key: str
         "entrySafetyBlockBuy": bool(stock.get("entry_safety_block_buy")),
         "trendTradeEligible": _trend_trade_eligible(stock),
         "trendLabel": stock.get("trend_label") or "",
+        "marketFundHeatLabel": stock.get("market_fund_heat_label") or "",
+        "globalMarketLabel": stock.get("global_market_label") or "",
+        "contextPositionMultiplier": _round(context_multiplier, 3),
         "planType": plan_type,
         "targetPositionPct": target_pct,
         "reason": reason,
@@ -611,7 +621,10 @@ def _execute_buys(state: dict[str, Any], payload: dict[str, Any], events: list[d
             reason = "本次快照买入数量已达上限"
             _count_reason(state, "wait", reason)
             continue
-        target_pct = MAX_POSITION_PCT if actionable else TRIAL_POSITION_PCT
+        target_pct = min(
+            MAX_POSITION_PCT if actionable else TRIAL_POSITION_PCT,
+            _num(order.get("targetPositionPct")) or (MAX_POSITION_PCT if actionable else TRIAL_POSITION_PCT),
+        )
         quantity = _affordable_quantity(state, execution_price, target_pct, portfolio_value)
         if quantity < 100:
             reason = "10万元资金与单票仓位限制下不足一手"
@@ -737,10 +750,12 @@ def run_cloud_simulation(payload: dict[str, Any], raw_state: dict[str, Any] | No
     if not run_key or state.get("lastAutoRunKey") == run_key:
         return state
     events: list[dict[str, Any]] = []
+    planning_only = _phase(payload) in {"preopen_watch", "overnight_watch"}
     refresh_exit_feedback(state, payload)
-    _execute_sells(state, payload, events)
+    if not planning_only:
+        _execute_sells(state, payload, events)
     refresh_exit_feedback(state)
-    if _phase(payload) == "evening_watch":
+    if _phase(payload) in {"preopen_watch", "evening_watch", "overnight_watch"}:
         _create_plans(state, payload, events)
     else:
         _execute_buys(state, payload, events)

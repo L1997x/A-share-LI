@@ -57,6 +57,10 @@ SCHEDULE_PHASE_MAP = {
     "38 6 * * 1-5": ("afternoon_risk", "14:30尾盘风控"),
     "0 12 * * 1-5": ("evening_watch", "20点次日关注"),
     "8 12 * * 1-5": ("evening_watch", "20点次日关注"),
+    "50 0 * * 1-5": ("preopen_watch", "08:50开盘前外盘复核"),
+    "8 1 * * 1-5": ("preopen_watch", "08:50开盘前外盘复核"),
+    "10 15 * * 1-5": ("overnight_watch", "23:10隔夜外盘复核"),
+    "28 15 * * 1-5": ("overnight_watch", "23:10隔夜外盘复核"),
 }
 SCHEDULE_PHASE_MAP.update(
     {
@@ -122,8 +126,12 @@ FEEDBACK_DIMENSION_WEIGHTS = {
 }
 FEEDBACK_DIMENSION_LABELS["market_regime"] = "市场阶段"
 FEEDBACK_DIMENSION_LABELS["update_phase"] = "更新时段"
+FEEDBACK_DIMENSION_LABELS["market_fund_heat"] = "市场资金热度"
+FEEDBACK_DIMENSION_LABELS["global_market"] = "全球市场影响"
 FEEDBACK_DIMENSION_WEIGHTS["market_regime"] = 0.75
 FEEDBACK_DIMENSION_WEIGHTS["update_phase"] = 0.6
+FEEDBACK_DIMENSION_WEIGHTS["market_fund_heat"] = 0.7
+FEEDBACK_DIMENSION_WEIGHTS["global_market"] = 0.7
 FEEDBACK_DIMENSION_LABELS["entry_sample_type"] = "接入样本类型"
 ENTRY_EFFECTIVENESS_DIMENSION_WEIGHTS = {
     "buy_signal": 1.25,
@@ -138,6 +146,8 @@ ENTRY_EFFECTIVENESS_DIMENSION_WEIGHTS = {
 }
 ENTRY_EFFECTIVENESS_DIMENSION_WEIGHTS["market_regime"] = 0.85
 ENTRY_EFFECTIVENESS_DIMENSION_WEIGHTS["update_phase"] = 0.65
+ENTRY_EFFECTIVENESS_DIMENSION_WEIGHTS["market_fund_heat"] = 0.8
+ENTRY_EFFECTIVENESS_DIMENSION_WEIGHTS["global_market"] = 0.8
 
 
 @dataclass(frozen=True)
@@ -753,7 +763,98 @@ def market_temperature_label(score: Any) -> tuple[str, str]:
     return "防守等待", "defensive"
 
 
-def build_market_environment(mainboard: pd.DataFrame, intraday_position: pd.Series) -> dict[str, Any]:
+def market_fund_heat_label(score: Any) -> tuple[str, str]:
+    value = safe_float(score)
+    if value is None:
+        return "资金热度未知", "unknown"
+    if value >= 24:
+        return "资金积极", "hot"
+    if value >= 9:
+        return "资金偏暖", "warm"
+    if value > -9:
+        return "资金平稳", "neutral"
+    if value > -24:
+        return "资金偏冷", "cool"
+    return "资金撤退", "cold"
+
+
+def build_market_fund_heat(mainboard: pd.DataFrame) -> dict[str, Any]:
+    count = int(len(mainboard))
+    turnover = pd.to_numeric(mainboard.get("turnover", pd.Series(dtype=float)), errors="coerce").dropna()
+    amount = pd.to_numeric(mainboard.get("amount", pd.Series(dtype=float)), errors="coerce").fillna(0)
+    today_pct = pd.to_numeric(mainboard.get("fund_today_main_net_pct", pd.Series(dtype=float)), errors="coerce")
+    five_pct = pd.to_numeric(mainboard.get("fund_5d_main_net_pct", pd.Series(dtype=float)), errors="coerce")
+    today_net = pd.to_numeric(mainboard.get("fund_today_main_net", pd.Series(dtype=float)), errors="coerce")
+    fund_available = today_pct.notna() | five_pct.notna() | today_net.notna()
+    coverage_count = int(fund_available.sum())
+    coverage_pct = coverage_count / max(1, count) * 100
+    today_valid = today_pct.dropna()
+    five_valid = five_pct.dropna()
+    median_turnover = float(turnover.median()) if not turnover.empty else None
+    today_positive_ratio = float((today_valid > 0).mean() * 100) if not today_valid.empty else None
+    five_positive_ratio = float((five_valid > 0).mean() * 100) if not five_valid.empty else None
+    median_today_pct = float(today_valid.median()) if not today_valid.empty else None
+    total_main_net = float(today_net.dropna().sum()) if today_net.notna().any() else None
+    total_amount = float(amount.sum())
+    top_count = max(1, int(math.ceil(count * 0.1)))
+    top_amount_share = float(amount.nlargest(top_count).sum() / total_amount * 100) if total_amount > 0 else None
+
+    activity_score = clamp(((median_turnover or 1.5) - 1.5) * 7.0, -9, 12)
+    raw_direction_score = 0.0
+    if today_positive_ratio is not None:
+        raw_direction_score += (today_positive_ratio - 50) * 0.34
+    if five_positive_ratio is not None:
+        raw_direction_score += (five_positive_ratio - 50) * 0.16
+    if median_today_pct is not None:
+        raw_direction_score += clamp(median_today_pct * 2.4, -8, 8)
+    concentration_penalty = max(0.0, (top_amount_share or 0.0) - 48) * 0.35
+    coverage_bias_guard = bool(coverage_count and coverage_pct < 40)
+    if raw_direction_score >= 0:
+        # Ranked fund-flow endpoints can return only the strongest subset. Positive
+        # breadth is trustworthy only after enough of the main-board universe is covered.
+        direction_reliability = clamp((coverage_pct - 20) / 35, 0.0, 1.0)
+    else:
+        # Keep partial downside evidence useful as a conservative risk warning.
+        direction_reliability = 0.5 + clamp(coverage_pct / 55, 0.0, 1.0) * 0.5
+    direction_score = raw_direction_score * direction_reliability
+    score = activity_score + direction_score - concentration_penalty
+    if coverage_bias_guard and median_turnover is None:
+        score = min(score, 8.0)
+    score = clamp(score, -45, 45)
+    label, regime = market_fund_heat_label(score)
+    confidence = "高" if coverage_pct >= 55 and median_turnover is not None else "中" if coverage_pct >= 20 or median_turnover is not None else "低"
+    return {
+        "available": bool(not turnover.empty or coverage_count),
+        "label": label,
+        "regime": regime,
+        "heat_score": round_or_none(score, 2),
+        "activity_score": round_or_none(activity_score, 2),
+        "direction_score": round_or_none(direction_score, 2),
+        "raw_direction_score": round_or_none(raw_direction_score, 2),
+        "direction_reliability": round_or_none(direction_reliability, 3),
+        "coverage_bias_guard": coverage_bias_guard,
+        "score_bonus": round_or_none(clamp(score / 60, -0.6, 0.5), 3),
+        "price_adjustment_pct": round_or_none(clamp(score / 80, -0.7, 0.35), 3),
+        "position_multiplier": round_or_none(clamp(1 + score / 100, 0.7, 1.0), 3),
+        "coverage_count": coverage_count,
+        "coverage_pct": round_or_none(coverage_pct),
+        "median_turnover_pct": round_or_none(median_turnover),
+        "today_positive_ratio_pct": round_or_none(today_positive_ratio),
+        "five_day_positive_ratio_pct": round_or_none(five_positive_ratio),
+        "median_today_main_net_pct": round_or_none(median_today_pct),
+        "total_main_net": round_or_none(total_main_net, 0),
+        "total_amount": round_or_none(total_amount, 0),
+        "top_10pct_amount_share_pct": round_or_none(top_amount_share),
+        "confidence": confidence,
+        "note": "资金热度综合全主板换手活跃度、主力净流入扩散和成交集中度；缺失项保持中性。",
+    }
+
+
+def build_market_environment(
+    mainboard: pd.DataFrame,
+    intraday_position: pd.Series,
+    fund_heat: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     count = int(len(mainboard))
     pct = pd.to_numeric(mainboard["pct_chg"], errors="coerce").dropna()
     amount = pd.to_numeric(mainboard["amount"], errors="coerce").fillna(0)
@@ -781,13 +882,16 @@ def build_market_environment(mainboard: pd.DataFrame, intraday_position: pd.Seri
     low_close_ratio = float((intraday_position <= 0.35).sum() / count * 100)
     total_amount = float(amount.sum())
 
-    score = (
+    breadth_score = (
         (up_ratio - 50) * 0.75
         + median_pct * 7.0
         + (strong_ratio - weak_ratio) * 1.15
         + limit_spread_ratio * 4.2
         + (high_close_ratio - low_close_ratio) * 0.22
     )
+    fund_heat = fund_heat or {}
+    fund_heat_score = safe_float(fund_heat.get("heat_score")) or 0.0
+    score = breadth_score + fund_heat_score * 0.28
     score = clamp(score, -60, 60)
     label, regime = market_temperature_label(score)
     risk_appetite = clamp(0.55 + score / 90, 0.2, 1.15)
@@ -805,6 +909,7 @@ def build_market_environment(mainboard: pd.DataFrame, intraday_position: pd.Seri
         "label": label,
         "regime": regime,
         "temperature_score": round_or_none(score, 2),
+        "breadth_score": round_or_none(breadth_score, 2),
         "risk_appetite": round_or_none(risk_appetite, 3),
         "score_bonus": round_or_none(score_bonus, 3),
         "price_adjustment_pct": round_or_none(price_adjustment_pct, 3),
@@ -821,8 +926,152 @@ def build_market_environment(mainboard: pd.DataFrame, intraday_position: pd.Seri
         "high_close_ratio_pct": round_or_none(high_close_ratio),
         "low_close_ratio_pct": round_or_none(low_close_ratio),
         "total_amount": round_or_none(total_amount, 0),
+        "fund_heat": fund_heat,
         "note": note,
     }
+
+
+GLOBAL_INSTRUMENTS = {
+    "hf_CHA50CFD": ("a50_futures", "富时中国A50期货", 0.28, "future"),
+    "b_HSI": ("hang_seng", "恒生指数", 0.16, "regional"),
+    "b_NKY": ("nikkei_225", "日经225", 0.06, "regional"),
+    "gb_ixic": ("nasdaq", "纳斯达克", 0.14, "cash"),
+    "gb_inx": ("sp500", "标普500", 0.10, "cash"),
+    "gb_$dji": ("dow", "道琼斯", 0.06, "cash"),
+    "hf_NQ": ("nasdaq_futures", "纳斯达克期货", 0.12, "future"),
+    "hf_ES": ("sp500_futures", "标普500期货", 0.08, "future"),
+    "fx_susdcny": ("usd_cny", "在岸人民币", 0.0, "currency"),
+}
+
+
+def global_market_label(score: Any) -> tuple[str, str]:
+    value = safe_float(score)
+    if value is None:
+        return "隔夜影响未知", "unknown"
+    if value >= 22:
+        return "外盘明显支持", "strong"
+    if value >= 9:
+        return "外盘偏暖", "supportive"
+    if value > -9:
+        return "外盘中性", "neutral"
+    if value > -22:
+        return "外盘偏弱", "cautious"
+    return "外盘风险较高", "defensive"
+
+
+def parse_sina_global_context(text: str, captured_at: datetime | None = None) -> dict[str, Any]:
+    captured_at = (captured_at or datetime.now(CN_TZ)).astimezone(CN_TZ)
+    raw_quotes = {symbol: body for symbol, body in re.findall(r'var hq_str_([^=]+)="([^"]*)";', text)}
+    instruments: list[dict[str, Any]] = []
+    warnings: list[str] = []
+    weighted_sum = 0.0
+    available_weight = 0.0
+    usd_cny_pct: float | None = None
+
+    for symbol, (key, name, weight, kind) in GLOBAL_INSTRUMENTS.items():
+        fields = raw_quotes.get(symbol, "").split(",")
+        try:
+            if kind == "cash":
+                price, pct_chg = safe_float(fields[1]), safe_float(fields[2])
+                quote_time = fields[3] if len(fields) > 3 else ""
+            elif kind == "regional":
+                price, pct_chg = safe_float(fields[1]), safe_float(fields[3])
+                quote_time = " ".join(part for part in (fields[6] if len(fields) > 6 else "", fields[5] if len(fields) > 5 else "") if part)
+            elif kind == "future":
+                price = safe_float(fields[0])
+                previous = safe_float(fields[8]) if len(fields) > 8 else None
+                pct_chg = (price / previous - 1) * 100 if price and previous else None
+                quote_time = " ".join(part for part in (fields[12] if len(fields) > 12 else "", fields[6] if len(fields) > 6 else "") if part)
+            else:
+                price = safe_float(fields[1])
+                pct_chg = safe_float(fields[10]) if len(fields) > 10 else None
+                quote_time = " ".join(part for part in (fields[17] if len(fields) > 17 else "", fields[0] if fields else "") if part)
+        except (IndexError, ValueError, TypeError):
+            price, pct_chg, quote_time = None, None, ""
+        if pct_chg is not None and abs(pct_chg) > 15:
+            warnings.append(f"{name}涨跌幅异常，已按缺失处理")
+            pct_chg = None
+        if price is None or pct_chg is None:
+            continue
+        instruments.append({
+            "key": key,
+            "name": name,
+            "kind": kind,
+            "price": round_or_none(price, 4),
+            "pct_chg": round_or_none(pct_chg, 3),
+            "quote_time": quote_time,
+            "weight": weight,
+        })
+        if kind == "currency":
+            usd_cny_pct = pct_chg
+        else:
+            weighted_sum += pct_chg * weight
+            available_weight += weight
+
+    weighted_return = weighted_sum / available_weight if available_weight >= 0.35 else None
+    if weighted_return is not None and usd_cny_pct is not None:
+        weighted_return -= usd_cny_pct * 0.18
+    risk_assets = [item for item in instruments if item["kind"] != "currency"]
+    negative_ratio = sum(1 for item in risk_assets if item["pct_chg"] < 0) / max(1, len(risk_assets))
+    worst_return = min((item["pct_chg"] for item in risk_assets), default=None)
+    score = clamp(weighted_return * 18, -45, 45) if weighted_return is not None else None
+    label, regime = global_market_label(score)
+    hard_risk = bool(score is not None and score <= -24 and negative_ratio >= 0.6 and (worst_return or 0) <= -2.0)
+    hour = captured_at.hour + captured_at.minute / 60
+    session = "欧美交易中" if hour >= 21.5 or hour < 5 else "欧美开盘前" if hour >= 19 else "隔夜收盘后" if hour < 9.5 else "亚洲交易或欧洲盘前"
+    confidence = "高" if available_weight >= 0.8 else "中" if available_weight >= 0.5 else "低"
+    return {
+        "available": weighted_return is not None,
+        "captured_at": captured_at.isoformat(timespec="seconds"),
+        "source": "Sina global indices/futures/FX",
+        "session": session,
+        "label": label,
+        "regime": regime,
+        "impact_score": round_or_none(score, 2),
+        "weighted_return_pct": round_or_none(weighted_return, 3),
+        "negative_ratio_pct": round_or_none(negative_ratio * 100),
+        "worst_return_pct": round_or_none(worst_return, 3),
+        "hard_risk": hard_risk,
+        "score_bonus": round_or_none(clamp((score or 0.0) / 65, -0.65, 0.45), 3),
+        "price_adjustment_pct": round_or_none(clamp((score or 0.0) / 70, -0.8, 0.45), 3),
+        "position_multiplier": round_or_none(clamp(1 + (score or 0.0) / 100, 0.65, 1.0), 3),
+        "confidence": confidence,
+        "instruments": instruments,
+        "warnings": warnings,
+        "note": "隔夜影响优先参考A50、恒生和美股科技风险偏好；仅调节次日接入价与仓位，极端共振下跌才拦截新买入。",
+    }
+
+
+def fetch_global_market_context(captured_at: datetime | None = None) -> dict[str, Any]:
+    symbols = ",".join(GLOBAL_INSTRUMENTS)
+    headers = {"Referer": "https://finance.sina.com.cn/", "User-Agent": "Mozilla/5.0"}
+    try:
+        response = requests.get(f"https://hq.sinajs.cn/list={symbols}", headers=headers, timeout=20)
+        response.raise_for_status()
+        payload = parse_sina_global_context(response.content.decode("gb18030", errors="replace"), captured_at)
+        if not payload.get("available"):
+            payload["warnings"].append("全球市场有效权重不足，未参与交易调整")
+        return payload
+    except Exception as exc:
+        label, regime = global_market_label(None)
+        return {
+            "available": False,
+            "captured_at": (captured_at or datetime.now(CN_TZ)).astimezone(CN_TZ).isoformat(timespec="seconds"),
+            "source": "Sina global indices/futures/FX",
+            "session": "未知",
+            "label": label,
+            "regime": regime,
+            "impact_score": None,
+            "weighted_return_pct": None,
+            "hard_risk": False,
+            "score_bonus": 0.0,
+            "price_adjustment_pct": 0.0,
+            "position_multiplier": 1.0,
+            "confidence": "低",
+            "instruments": [],
+            "warnings": [f"全球市场数据获取失败：{compact_error(exc)}"],
+            "note": "全球市场数据缺失，本轮保持中性，不把接口失败视为利空。",
+        }
 
 
 def theme_strength_label(score: Any) -> tuple[str, str]:
@@ -976,6 +1225,7 @@ def build_universe_scan(candidate_library: list[Candidate]) -> tuple[dict[str, d
     normalized["close"] = pd.to_numeric(normalized["最新价"], errors="coerce")
     normalized["pct_chg"] = pd.to_numeric(normalized["涨跌幅"], errors="coerce")
     normalized["amount"] = pd.to_numeric(normalized["成交额"], errors="coerce")
+    normalized["turnover"] = pd.to_numeric(normalized.get("换手率"), errors="coerce")
     normalized["high"] = pd.to_numeric(normalized["最高"], errors="coerce")
     normalized["low"] = pd.to_numeric(normalized["最低"], errors="coerce")
 
@@ -1040,7 +1290,8 @@ def build_universe_scan(candidate_library: list[Candidate]) -> tuple[dict[str, d
     ).round(2)
     mainboard = mainboard.sort_values(["layer_one_score", "amount"], ascending=[False, False]).reset_index(drop=True)
     mainboard["layer_one_rank"] = mainboard.index + 1
-    market_environment = build_market_environment(mainboard, intraday_position)
+    market_fund_heat = build_market_fund_heat(mainboard)
+    market_environment = build_market_environment(mainboard, intraday_position, market_fund_heat)
 
     universe_by_code: dict[str, dict[str, Any]] = {}
     for row in mainboard.itertuples(index=False):
@@ -1091,6 +1342,7 @@ def build_universe_scan(candidate_library: list[Candidate]) -> tuple[dict[str, d
         "export_limit": UNIVERSE_EXPORT_LIMIT,
         "note": "第一层扫描全主板行情快照，第二层只对可解释战略主题库中的入围标的做深度打分。",
         "market_environment": market_environment,
+        "market_fund_heat": market_fund_heat,
         "theme_strength": theme_strength,
         "fund_flow": fund_flow_payload,
         "top_mainboard": top_mainboard,
@@ -1611,6 +1863,8 @@ def update_phase_from_timestamp(value: Any = None) -> tuple[str, str]:
     minutes = local.hour * 60 + local.minute
     # Ad-hoc and recovery runs inherit the latest completed checkpoint instead
     # of being labeled as a future checkpoint.
+    if minutes < 9 * 60 + 15:
+        return "preopen_watch", "08:50开盘前外盘复核"
     if minutes < 11 * 60 + 20:
         return "morning_entry", "10点早盘接入"
     if minutes < 13 * 60 + 30:
@@ -1619,7 +1873,9 @@ def update_phase_from_timestamp(value: Any = None) -> tuple[str, str]:
         return "morning_entry", "13:30午后买入复检"
     if minutes < 20 * 60:
         return "afternoon_risk", "14:30尾盘风控"
-    return "evening_watch", "20点次日关注"
+    if minutes < 23 * 60:
+        return "evening_watch", "20点次日关注"
+    return "overnight_watch", "23:10隔夜外盘复核"
 
 
 def clean_feedback_value(value: Any) -> str:
@@ -1684,6 +1940,8 @@ def stock_feedback_factors(stock: dict[str, Any]) -> list[dict[str, str]]:
         ("price_source", stock.get("price_source") or "未知"),
         ("market_regime", stock.get("feedback_market_regime") or stock.get("market_regime") or "unknown"),
         ("update_phase", stock.get("update_phase_label") or stock.get("update_phase") or "unknown"),
+        ("market_fund_heat", stock.get("market_fund_heat_label") or "资金热度未知"),
+        ("global_market", stock.get("global_market_label") or "隔夜影响未知"),
     ]
     if stock.get("trend_label"):
         raw_factors.append(("trend", stock.get("trend_label")))
@@ -2183,7 +2441,7 @@ def build_model_feedback(
         "schema_version": "1.0",
         "generated_at": datetime.now(CN_TZ).isoformat(timespec="seconds"),
         "as_of_date": as_of_date,
-        "method": "历史推荐快照归因：按主题、买入信号、状态、资金流、有效筹码、全主板排名、接入价偏离、市场阶段、更新时间段等维度，计算后续收益相对同期推荐池均值的超额收益；样本少时做收缩，单股反馈分封顶；乱码/异常因子与筹码缺失因子不参与惩罚。",
+        "method": "历史推荐快照归因：按主题、买入信号、状态、个股资金流、市场资金热度、全球市场影响、有效筹码、全主板排名、接入价偏离、市场阶段和更新时间段等维度，计算后续收益相对同期推荐池均值的超额收益；样本少时做收缩，单股反馈分封顶；乱码/异常因子与缺失因子不参与惩罚。",
         "horizons": list(FEEDBACK_HORIZONS),
         "snapshot_count": len(snapshots),
         "observation_count": observations,
@@ -2195,6 +2453,8 @@ def build_model_feedback(
             "chip_missing_is_neutral": True,
             "uses_market_regime_segments": True,
             "uses_update_phase_segments": True,
+            "uses_market_fund_heat": True,
+            "uses_global_market_context": True,
         },
         "segmentation": {
             "market_regime_counts": dict(sorted(market_regime_counts.items())),
@@ -2569,11 +2829,29 @@ def apply_market_theme_context(row: dict[str, Any], market_environment: dict[str
     market_price_adjustment = safe_float(market_environment.get("price_adjustment_pct")) or 0.0
     market_regime = str(market_environment.get("regime") or "unknown")
     market_label = str(market_environment.get("label") or "市场温度未知")
+    fund_heat = market_environment.get("fund_heat") or {}
+    fund_heat_bonus = safe_float(fund_heat.get("score_bonus")) or 0.0
+    fund_heat_price_adjustment = safe_float(fund_heat.get("price_adjustment_pct")) or 0.0
+    global_market = market_environment.get("global_market") or {}
+    global_applies = bool(global_market.get("applies_to_entries"))
+    global_bonus = safe_float(global_market.get("score_bonus")) or 0.0 if global_applies else 0.0
+    global_price_adjustment = safe_float(global_market.get("price_adjustment_pct")) or 0.0 if global_applies else 0.0
     theme_bonus = safe_float(row.get("theme_strength_bonus")) or 0.0
     theme_score = safe_float(row.get("theme_strength_score"))
     theme_label = str(row.get("theme_strength_label") or "主题强度未知")
-    context_bonus = clamp(market_bonus * 0.65 + theme_bonus * 0.75, -1.2, 1.1)
-    context_price_adjustment = clamp(market_price_adjustment * 0.55 + theme_bonus * 0.22, -1.1, 0.55)
+    context_bonus = clamp(
+        market_bonus * 0.55 + theme_bonus * 0.75 + fund_heat_bonus * 0.45 + global_bonus * 0.45,
+        -1.35,
+        1.15,
+    )
+    context_price_adjustment = clamp(
+        market_price_adjustment * 0.45
+        + theme_bonus * 0.22
+        + fund_heat_price_adjustment * 0.35
+        + global_price_adjustment * 0.55,
+        -1.5,
+        0.65,
+    )
     if abs(context_bonus) < 0.01:
         context_bonus = 0.0
     if abs(context_price_adjustment) < 0.01:
@@ -2583,9 +2861,28 @@ def apply_market_theme_context(row: dict[str, Any], market_environment: dict[str
     row["market_temperature_label"] = market_label
     row["market_regime"] = market_regime
     row["market_risk_appetite"] = market_environment.get("risk_appetite")
+    row["market_fund_heat_score"] = fund_heat.get("heat_score")
+    row["market_fund_heat_label"] = fund_heat.get("label") or "资金热度未知"
+    row["market_fund_heat_regime"] = fund_heat.get("regime") or "unknown"
+    row["global_market_impact_score"] = global_market.get("impact_score")
+    row["global_market_label"] = global_market.get("label") or "隔夜影响未知"
+    row["global_market_regime"] = global_market.get("regime") or "unknown"
+    row["global_market_hard_risk"] = bool(global_market.get("hard_risk") and global_applies)
+    row["global_market_applies"] = global_applies
+    row["context_position_multiplier"] = round_or_none(
+        min(
+            1.0,
+            safe_float(fund_heat.get("position_multiplier")) or 1.0,
+            safe_float(global_market.get("position_multiplier")) or 1.0 if global_applies else 1.0,
+        ),
+        3,
+    )
     row["market_context_score_bonus"] = round_or_none(context_bonus, 3)
     row["market_context_price_adjustment_pct"] = round_or_none(context_price_adjustment, 3)
-    row["market_context_note"] = f"市场温度：{market_label}；主题强度：{theme_label}。{market_environment.get('note') or ''}"
+    row["market_context_note"] = (
+        f"市场温度：{market_label}；资金热度：{row['market_fund_heat_label']}；"
+        f"全球影响：{row['global_market_label']}；主题强度：{theme_label}。{market_environment.get('note') or ''}"
+    )
 
     if context_price_adjustment != 0:
         for key in (
@@ -2622,10 +2919,13 @@ def apply_market_theme_context(row: dict[str, Any], market_environment: dict[str
                 row[key] = round_or_none(updated)
 
     market_block = False
+    global_block = bool(global_applies and global_market.get("hard_risk"))
     if row.get("is_buyable_now") and market_regime in {"defensive", "cautious"}:
         theme_is_strong = theme_score is not None and theme_score >= 58
         if market_regime == "defensive" or row.get("buy_signal_key") == "breakout_buy" or not theme_is_strong:
             market_block = True
+    if row.get("is_buyable_now") and global_block:
+        market_block = True
 
     if market_block:
         row["market_context_block_buy"] = True
@@ -2633,9 +2933,9 @@ def apply_market_theme_context(row: dict[str, Any], market_environment: dict[str
         row["is_buyable_now"] = False
         row.setdefault("base_buy_signal_key", row.get("buy_signal_key"))
         row.setdefault("base_buy_signal_label", row.get("buy_signal_label"))
-        row["buy_signal_key"] = "market_wait"
-        row["buy_signal_label"] = "市场温度等待"
-        row["buy_price_path"] = "等待市场温度修复+个股重新确认"
+        row["buy_signal_key"] = "global_wait" if global_block else "market_wait"
+        row["buy_signal_label"] = "隔夜风险等待" if global_block else "市场温度等待"
+        row["buy_price_path"] = "等待外盘风险释放+个股重新确认" if global_block else "等待市场温度修复+个股重新确认"
         row["next_buy_trigger_price"] = row.get("recommended_entry_price") or row.get("next_buy_trigger_price")
         row["buyable_price"] = None
         row["buy_price_note"] = (
@@ -3652,6 +3952,19 @@ def build_payload() -> dict[str, Any]:
     generated_at = datetime.now(CN_TZ).isoformat(timespec="seconds")
     market_environment = universe_payload.get("market_environment") or {}
     current_feedback_context = feedback_context_meta(market_environment, generated_at)
+    global_market = fetch_global_market_context(parse_datetime_value(generated_at))
+    global_market["applies_to_entries"] = current_feedback_context["update_phase"] in {
+        "preopen_watch",
+        "morning_entry",
+        "evening_watch",
+        "overnight_watch",
+    }
+    universe_payload["global_market"] = global_market
+    market_environment["global_market"] = global_market
+    errors.extend(global_market.get("warnings") or [])
+    for row in rows:
+        row["market_fund_heat_label"] = (market_environment.get("fund_heat") or {}).get("label") or "资金热度未知"
+        row["global_market_label"] = global_market.get("label") or "隔夜影响未知"
     apply_feedback_context(rows, current_feedback_context)
     universe_payload["update_phase"] = current_feedback_context["update_phase"]
     universe_payload["update_phase_label"] = current_feedback_context["update_phase_label"]
@@ -3701,6 +4014,7 @@ def build_payload() -> dict[str, Any]:
         "entry_risk_flagged": sum(1 for row in rows if row.get("entry_safety_risk_flag")),
         "buy_signal_blocked": sum(1 for row in rows if row.get("entry_safety_block_buy")),
         "market_context_blocked": sum(1 for row in rows if row.get("market_context_block_buy")),
+        "global_market_blocked": sum(1 for row in rows if row.get("global_market_hard_risk") and row.get("market_context_block_buy")),
         "trend_eligible": sum(1 for row in rows if row.get("trend_trade_eligible")),
         "trend_ineligible": sum(1 for row in rows if not row.get("trend_trade_eligible")),
         "trend_buy_signal_blocked": sum(1 for row in rows if row.get("trend_buy_signal_blocked")),
@@ -3713,7 +4027,9 @@ def build_payload() -> dict[str, Any]:
     }
     theme_exposure = summarize_theme_exposure(rows)
     counts["risk_gated"] = counts["buy_signal_blocked"]
-    if counts["trend_buy_signal_blocked"]:
+    if counts["global_market_blocked"]:
+        overall_signal = f"{counts['global_market_blocked']}只可买信号因隔夜外盘共振风险被拦截"
+    elif counts["trend_buy_signal_blocked"]:
         overall_signal = f"{counts['trend_buy_signal_blocked']}只原可买信号因未满足上涨趋势被拦截"
     elif counts["market_context_blocked"]:
         overall_signal = f"{counts['market_context_blocked']}只可买信号被市场环境层降级"
@@ -3742,7 +4058,7 @@ def build_payload() -> dict[str, Any]:
         "update_phase_label": current_feedback_context["update_phase_label"],
         "market": "A股主板",
         "source_status": {
-            "quotes": "akshare.stock_zh_a_spot intraday snapshot + stock_zh_a_daily qfq / Sina + Eastmoney/Tonghuashun fund flow + Sina turnover chip estimate",
+            "quotes": "akshare.stock_zh_a_spot intraday snapshot + stock_zh_a_daily qfq / Sina + Eastmoney/Tonghuashun fund flow + Sina turnover chip estimate + Sina global indices/futures/FX",
             "fallback": False,
             "note": "免费数据源可能延迟或限流；关键决策请复核实时行情。",
             "warnings": errors,
@@ -3758,6 +4074,8 @@ def build_payload() -> dict[str, Any]:
             "price_feedback_factor": "推荐接入价和可买价会跟随回访反馈做小幅纪律校正；正反馈略放宽，负反馈收紧，不改变不追高线。",
             "entry_safety_factor": "接入有效性层会复盘历史可买/触达/未触达接入价样本的后续收益、最大不利回撤和暴跌率；风险偏高时先标记接入风险并下压接入价，只有原本可买的信号才会被取消为 risk_wait。",
             "market_context_factor": "市场环境层会根据全主板涨跌扩散、强弱股数量、涨停跌停差和收盘位置计算市场温度；主题强度层会按战略主题组的排名、资金流和扩散度修正排序、仓位等级和可买信号。",
+            "market_fund_heat_factor": "资金热度层综合全主板换手活跃度、主力净流入扩散率和成交集中度；偏冷时收紧接入价与仓位，数据缺失保持中性。",
+            "global_market_factor": "全球市场层跟踪A50、恒生、日经、美股指数及股指期货和人民币汇率；20点形成预案、23:10复核外盘、08:50开盘前更新，只有广泛且极端的共振下跌才拦截新买入。",
             "trend_factor": "趋势层要求现价高于MA20、MA20高于MA60、MA20近5日向上且MA60近10日不明显下行；满足后才允许生成和执行买入计划，下降或反弹修复阶段仅保留研究观察。",
             "feedback_enhancement_factor": "反馈增强层会过滤乱码/异常因子，将筹码缺失视为数据质量而非负面信号，并按市场阶段、更新时间段、回访归因和主题拥挤度进行小幅参数校准。",
             "candidates": [asdict(candidate) for candidate in candidate_library],

@@ -11,6 +11,26 @@ CN_TZ = ZoneInfo("Asia/Shanghai")
 
 
 class RefreshGuardTests(unittest.TestCase):
+    def test_preopen_global_slot_runs(self) -> None:
+        decision = decide_refresh(
+            "schedule",
+            "50 0 * * 1-5",
+            {"generated_at": "2026-07-10T23:10:00+08:00", "update_phase": "overnight_watch"},
+            datetime(2026, 7, 13, 8, 50, tzinfo=CN_TZ),
+        )
+        self.assertTrue(decision.run_generator)
+        self.assertEqual(decision.effective_schedule, "50 0 * * 1-5")
+
+    def test_overnight_backup_skips_completed_slot(self) -> None:
+        decision = decide_refresh(
+            "schedule",
+            "28 15 * * 1-5",
+            {"generated_at": "2026-07-13T23:14:00+08:00", "update_phase": "overnight_watch"},
+            datetime(2026, 7, 13, 23, 28, tzinfo=CN_TZ),
+        )
+        self.assertFalse(decision.run_generator)
+        self.assertFalse(decision.deploy_required)
+
     def test_primary_slot_runs(self) -> None:
         decision = decide_refresh(
             "schedule",

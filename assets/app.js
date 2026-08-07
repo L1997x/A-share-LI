@@ -1887,6 +1887,10 @@ function render() {
   const averageReturn = state.review?.summary?.average_return_pct ?? data.summary?.tracking?.average_return_pct;
   byId("averageReturn").textContent = formatPercent(averageReturn);
   byId("averageReturn").className = returnClass(averageReturn);
+  const marketFundHeat = data.universe_scan?.market_fund_heat || data.universe_scan?.market_environment?.fund_heat || {};
+  const globalMarket = data.universe_scan?.global_market || {};
+  byId("marketFundHeat").textContent = `${marketFundHeat.label || "未知"} / ${formatSignedNumber(marketFundHeat.heat_score, 1)}`;
+  byId("globalMarketImpact").textContent = `${globalMarket.label || "未知"} / ${formatSignedNumber(globalMarket.impact_score, 1)}`;
   byId("modelDescription").textContent = data.model?.description || byId("modelDescription").textContent;
 
   renderModelStatus(data);
@@ -1901,6 +1905,8 @@ function renderModelStatus(data) {
   const feedback = data.model_feedback || {};
   const entryFeedback = feedback.entry_effectiveness || {};
   const marketEnvironment = data.universe_scan?.market_environment || {};
+  const marketFundHeat = data.universe_scan?.market_fund_heat || marketEnvironment.fund_heat || {};
+  const globalMarket = data.universe_scan?.global_market || {};
   const segmentation = feedback.segmentation || {};
   const concentration = data.portfolio_concentration || {};
   const topThemes = data.universe_scan?.theme_strength?.top_groups || [];
@@ -1929,7 +1935,12 @@ function renderModelStatus(data) {
 
   byId("sourceStatus").textContent = `更新时间：${data.generated_at || "-"}${phaseText}；市场温度：${
     marketEnvironment.label || "-"
-  } / ${formatSignedNumber(marketEnvironment.temperature_score, 2)}${freshnessText}；${marketEnvironment.note || ""}${topThemeText}${exposureText}${concentrationText}；数据源：${
+  } / ${formatSignedNumber(marketEnvironment.temperature_score, 2)}；资金热度：${marketFundHeat.label || "-"} / ${formatSignedNumber(
+    marketFundHeat.heat_score,
+    2
+  )}；全球影响：${globalMarket.label || "-"} / ${formatSignedNumber(globalMarket.impact_score, 2)}（${globalMarket.session || "时段未知"}）${freshnessText}；${
+    marketEnvironment.note || ""
+  }${topThemeText}${exposureText}${concentrationText}；数据源：${
     data.source_status?.quotes || "-"
   }；${data.source_status?.note || ""}`;
 
@@ -2039,6 +2050,27 @@ function createStockCard(stock) {
   )} / ${formatPercent(stock.fund_5d_main_net_pct)}，资金分 ${formatNumber(stock.fund_flow_score)}，模型加减分 ${formatNumber(
     stock.fund_flow_bonus
   )}。资金流只作趋势质量验证。`;
+  const marketFundHeat = state.data?.universe_scan?.market_fund_heat || state.data?.universe_scan?.market_environment?.fund_heat || {};
+  const globalMarket = state.data?.universe_scan?.global_market || {};
+  node.querySelector(".market-fund-heat-detail").textContent = `${marketFundHeat.label || "资金热度未知"}：热度分 ${formatSignedNumber(
+    marketFundHeat.heat_score,
+    2
+  )}，主力净流入覆盖 ${formatPercent(marketFundHeat.coverage_pct)}，当日净流入股票占比 ${formatPercent(
+    marketFundHeat.today_positive_ratio_pct
+  )}，换手率中位数 ${formatPercent(marketFundHeat.median_turnover_pct)}，成交额前10%集中度 ${formatPercent(
+    marketFundHeat.top_10pct_amount_share_pct
+  )}。${marketFundHeat.note || "缺失项保持中性。"}`;
+  const globalMoves = (globalMarket.instruments || [])
+    .filter((item) => item.key !== "usd_cny")
+    .slice(0, 6)
+    .map((item) => `${item.name}${formatSignedNumber(item.pct_chg, 2)}%`)
+    .join("、");
+  node.querySelector(".global-market-detail").textContent = `${globalMarket.label || "隔夜影响未知"}：影响分 ${formatSignedNumber(
+    globalMarket.impact_score,
+    2
+  )}，加权涨跌 ${formatPercent(globalMarket.weighted_return_pct)}，${globalMarket.session || "时段未知"}，置信度 ${
+    globalMarket.confidence || "低"
+  }。${globalMoves || "外盘数据暂缺"}。${globalMarket.note || "缺失时保持中性。"}`;
   node.querySelector(".chip-detail").textContent = `${stock.chip_label || "筹码暂缺"}：获利比例 ${formatPercent(
     stock.chip_profit_ratio
   )}，平均成本 ${formatNumber(stock.chip_avg_cost)}，现价偏离平均成本 ${formatPercent(

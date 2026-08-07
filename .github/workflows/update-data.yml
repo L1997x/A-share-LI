@@ -27,6 +27,8 @@ on:
     # GitHub cron uses UTC. Primary jobs start about seven minutes before the
     # requested Beijing-time snapshot; backups use uncommon minutes to avoid
     # top-of-hour congestion.
+    - cron: "50 0 * * 1-5"  # 08:50 pre-open global-market check
+    - cron: "8 1 * * 1-5"   # 09:08 pre-open backup
     - cron: "53 1 * * 1-5"  # 09:53 -> 10:00 target
     - cron: "11 2 * * 1-5"  # 10:11 backup
     - cron: "13 3 * * 1-5"  # 11:13 -> 11:20 target
@@ -37,6 +39,8 @@ on:
     - cron: "41 6 * * 1-5"  # 14:41 backup
     - cron: "53 11 * * 1-5" # 19:53 -> 20:00 target
     - cron: "11 12 * * 1-5" # 20:11 backup
+    - cron: "10 15 * * 1-5" # 23:10 overnight global-market check
+    - cron: "28 15 * * 1-5" # 23:28 overnight backup
     # Low-cost watchdog. It exits before installing dependencies when the
     # latest due target is already covered.
     - cron: "7,22,37,52 1-12 * * 1-5"

@@ -18,6 +18,8 @@ def payload(
     ma20: float = 49.0,
     ma60: float | None = None,
     trend_eligible: bool = True,
+    global_hard_risk: bool = False,
+    context_position_multiplier: float = 1.0,
 ) -> dict:
     labels = {
         "morning_entry": "10点早盘接入",
@@ -56,6 +58,8 @@ def payload(
         "fund_flow_score": 0.0,
         "market_regime": "warm",
         "market_risk_appetite": 0.85,
+        "global_market_hard_risk": global_hard_risk,
+        "context_position_multiplier": context_position_multiplier,
     }
     return {
         "generated_at": generated_at,
@@ -159,6 +163,39 @@ class CloudSimulationTests(unittest.TestCase):
         self.assertEqual(state["positions"], {})
         self.assertEqual(state["pendingBuyOrders"][0]["status"], "cancelled")
         self.assertEqual(state["pendingBuyOrders"][0]["cancelReason"], "未满足上涨趋势门槛，取消旧买入计划")
+
+    def test_extreme_global_risk_blocks_new_plan(self) -> None:
+        evening = payload(
+            "2026-07-13T20:00:00+08:00",
+            "evening_watch",
+            49.0,
+            signal="pullback_buy",
+            global_hard_risk=True,
+        )
+        state = run_cloud_simulation(evening, default_simulation())
+
+        self.assertEqual(state["pendingBuyOrders"], [])
+        self.assertEqual(state["positions"], {})
+
+    def test_context_multiplier_reduces_actual_position(self) -> None:
+        evening = payload(
+            "2026-07-13T20:00:00+08:00",
+            "evening_watch",
+            49.0,
+            signal="pullback_buy",
+            context_position_multiplier=0.5,
+        )
+        state = run_cloud_simulation(evening, default_simulation())
+        morning = payload(
+            "2026-07-14T10:00:00+08:00",
+            "morning_entry",
+            49.0,
+            signal="pullback_buy",
+            context_position_multiplier=0.5,
+        )
+        state = run_cloud_simulation(morning, state)
+
+        self.assertEqual(state["positions"]["600001"]["quantity"], 200)
 
 
 if __name__ == "__main__":
