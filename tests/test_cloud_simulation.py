@@ -92,13 +92,28 @@ class CloudSimulationTests(unittest.TestCase):
 
         state = run_cloud_simulation(payload("2026-07-14T10:00:00+08:00", "morning_entry", 57.0, ma20=55.0), state)
         self.assertEqual(state["diagnostics"]["buysExecuted"], 0)
-        self.assertEqual(state["diagnostics"]["waitReasonCounts"]["含滑点价格高于最高买入价"], 1)
+        self.assertEqual(state["diagnostics"]["waitReasonCounts"]["快照价格高于最高买入触发价"], 1)
 
         state = run_cloud_simulation(payload("2026-07-14T11:20:00+08:00", "morning_entry", 55.0, ma20=55.0), state)
         self.assertEqual(state["diagnostics"]["buysExecuted"], 1)
         self.assertEqual(state["positions"]["600001"]["quantity"], 100)
         self.assertLess(state["cash"], 95_000)
         self.assertGreater(state["cash"], 94_000)
+
+    def test_max_buy_trigger_uses_snapshot_before_slippage(self) -> None:
+        state = run_cloud_simulation(
+            payload("2026-07-13T20:00:00+08:00", "evening_watch", 50.0, signal="pullback_buy"),
+            default_simulation(),
+        )
+        self.assertEqual(state["pendingBuyOrders"][0]["maxBuyPrice"], 50.0)
+
+        state = run_cloud_simulation(
+            payload("2026-07-14T10:00:00+08:00", "morning_entry", 50.0, signal="pullback_buy"),
+            state,
+        )
+
+        self.assertEqual(state["diagnostics"]["buysExecuted"], 1)
+        self.assertGreater(state["trades"][0]["price"], 50.0)
 
     def test_observation_plan_does_not_buy_without_signal_upgrade(self) -> None:
         evening = payload("2026-07-13T20:00:00+08:00", "evening_watch", 49.0, score=8.0)

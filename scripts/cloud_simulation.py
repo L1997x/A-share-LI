@@ -632,8 +632,8 @@ def _execute_buys(state: dict[str, Any], payload: dict[str, Any], events: list[d
             trial_ceiling = _trial_ceiling(stock)
             max_buy = min(value for value in (max_buy, trial_ceiling) if value is not None) if max_buy and trial_ceiling else max_buy or trial_ceiling
         execution_price = snapshot_price * (1 + BUY_SLIPPAGE_PCT)
-        if max_buy and execution_price > max_buy:
-            reason = "含滑点价格高于最高买入价"
+        if max_buy and snapshot_price > max_buy:
+            reason = "快照价格高于最高买入触发价"
             _count_reason(state, "wait", reason)
             _record(state, payload, {"type": "buy_deferred", "status": "pending", "code": order["code"], "name": order["name"], "summary": "价格未触发", "reason": reason, "plannedEntryPrice": order.get("plannedEntryPrice"), "maxBuyPrice": _round(max_buy, 2), "snapshotPrice": _round(snapshot_price, 2), "score": order.get("score")})
             continue
