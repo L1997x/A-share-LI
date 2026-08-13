@@ -394,8 +394,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-13T20:40:14+08:00|2026-08-13|20点次日关注",
+  "lastAutoRunKey": "2026-08-13T23:15:17+08:00|2026-08-13|23:10隔夜外盘复核",
   "autoLog": [
+    {
+      "runKey": "2026-08-13T23:15:17+08:00|2026-08-13|23:10隔夜外盘复核",
+      "at": "2026-08-13T23:15:17+08:00",
+      "tradeDate": "2026-08-13",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "当前没有符合资金和风控约束的新计划"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-13T20:40:14+08:00|2026-08-13|20点次日关注",
       "at": "2026-08-13T20:40:14+08:00",
@@ -1114,23 +1127,6 @@
       "tradeDate": "2026-08-07",
       "phase": "14:30尾盘风控",
       "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "当前没有符合资金和风控约束的新计划"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
-    },
-    {
-      "runKey": "2026-08-07T13:04:47+08:00|2026-08-07|11:20午前买入复检",
-      "at": "2026-08-07T13:04:47+08:00",
-      "tradeDate": "2026-08-07",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
       "events": [
         {
           "type": "buy_plan",
@@ -3767,11 +3763,11 @@
         },
         "2026-08-13": {
           "date": "2026-08-13",
-          "at": "2026-08-13T20:40:14+08:00",
+          "at": "2026-08-13T23:15:17+08:00",
           "price": 33.78,
           "returnPct": -2.059,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -3927,11 +3923,11 @@
         },
         "2026-08-13": {
           "date": "2026-08-13",
-          "at": "2026-08-13T20:40:14+08:00",
+          "at": "2026-08-13T23:15:17+08:00",
           "price": 6.42,
           "returnPct": 6.645,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4087,11 +4083,11 @@
         },
         "2026-08-13": {
           "date": "2026-08-13",
-          "at": "2026-08-13T20:40:14+08:00",
+          "at": "2026-08-13T23:15:17+08:00",
           "price": 13.85,
           "returnPct": -0.144,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4247,11 +4243,11 @@
         },
         "2026-08-13": {
           "date": "2026-08-13",
-          "at": "2026-08-13T20:40:14+08:00",
+          "at": "2026-08-13T23:15:17+08:00",
           "price": 65.23,
           "returnPct": 7.569,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4431,11 +4427,11 @@
         },
         "2026-08-13": {
           "date": "2026-08-13",
-          "at": "2026-08-13T20:40:14+08:00",
+          "at": "2026-08-13T23:15:17+08:00",
           "price": 23.69,
           "returnPct": 0.594,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4631,11 +4627,11 @@
         },
         "2026-08-13": {
           "date": "2026-08-13",
-          "at": "2026-08-13T20:40:14+08:00",
+          "at": "2026-08-13T23:15:17+08:00",
           "price": 50.46,
           "returnPct": -2.057,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4839,11 +4835,11 @@
         },
         "2026-08-13": {
           "date": "2026-08-13",
-          "at": "2026-08-13T20:40:14+08:00",
+          "at": "2026-08-13T23:15:17+08:00",
           "price": 32.21,
           "returnPct": 9.969,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5035,7 +5031,7 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 251,
+    "snapshotsProcessed": 252,
     "plansCreated": 338,
     "buyChecks": 1175,
     "buysExecuted": 8,
@@ -5052,7 +5048,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 4
     },
-    "lastRunAt": "2026-08-13T20:40:14+08:00",
+    "lastRunAt": "2026-08-13T23:15:17+08:00",
     "lastRunSummary": "当前没有符合资金和风控约束的新计划"
   }
 }
