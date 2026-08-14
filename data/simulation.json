@@ -394,8 +394,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-14T15:58:37+08:00|2026-08-14|14:30尾盘风控",
+  "lastAutoRunKey": "2026-08-14T20:30:49+08:00|2026-08-14|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-08-14T20:30:49+08:00|2026-08-14|20点次日关注",
+      "at": "2026-08-14T20:30:49+08:00",
+      "tradeDate": "2026-08-14",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划1只：中金黄金(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-14T15:58:37+08:00|2026-08-14|14:30尾盘风控",
       "at": "2026-08-14T15:58:37+08:00",
@@ -1132,26 +1145,38 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-08-10T09:57:34+08:00|2026-08-10|10点早盘接入",
-      "at": "2026-08-10T09:57:34+08:00",
-      "tradeDate": "2026-08-10",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "当前没有符合资金和风控约束的新计划"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
+    {
+      "id": "600489-2026-08-14T20:30:49+08:00|2026-08-14|20点次日关注",
+      "code": "600489",
+      "name": "中金黄金",
+      "status": "pending",
+      "signalDate": "2026-08-14",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-08-14T20:30:49+08:00|2026-08-14|20点次日关注",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-08-17",
+      "plannedEntryPrice": 21.22,
+      "maxBuyPrice": 22.03,
+      "noChasePrice": 28.32,
+      "score": 7.8,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金偏冷",
+      "globalMarketLabel": "外盘中性",
+      "contextPositionMultiplier": 0.823,
+      "planType": "watch",
+      "targetPositionPct": 0.0823,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
     {
       "id": "601899-2026-08-14T15:58:37+08:00|2026-08-14|14:30尾盘风控",
       "code": "601899",
@@ -1176,35 +1201,6 @@
       "contextPositionMultiplier": 0.823,
       "planType": "watch",
       "targetPositionPct": 0.0823,
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
-      "id": "600489-2026-08-14T14:28:46+08:00|2026-08-14|14:30尾盘风控",
-      "code": "600489",
-      "name": "中金黄金",
-      "status": "pending",
-      "signalDate": "2026-08-14",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-08-14T14:28:46+08:00|2026-08-14|14:30尾盘风控",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-08-17",
-      "plannedEntryPrice": 21.1,
-      "maxBuyPrice": 21.76,
-      "noChasePrice": 28.32,
-      "score": 7.7,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "trendTradeEligible": true,
-      "trendLabel": "上涨趋势",
-      "marketFundHeatLabel": "资金偏冷",
-      "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 0.813,
-      "planType": "watch",
-      "targetPositionPct": 0.0813,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
@@ -1979,6 +1975,24 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600489-2026-08-14T20:30:49+08:00",
+      "at": "2026-08-14T20:30:49+08:00",
+      "tradeDate": "2026-08-14",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600489",
+      "name": "中金黄金",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 21.22,
+      "maxBuyPrice": 22.03,
+      "noChasePrice": 28.32,
+      "validUntilDate": "2026-08-17",
+      "score": 7.8
+    },
     {
       "id": "buy_plan_created-601899-2026-08-14T15:58:37+08:00",
       "at": "2026-08-14T15:58:37+08:00",
@@ -3658,22 +3672,6 @@
       "noChasePrice": 94.91,
       "validUntilDate": "2026-08-08",
       "score": 7.9
-    },
-    {
-      "id": "buy_deferred-000333-2026-08-05T20:15:29+08:00",
-      "at": "2026-08-05T20:15:29+08:00",
-      "tradeDate": "2026-08-05",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "000333",
-      "name": "美的集团",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 82.03,
-      "maxBuyPrice": 83.95,
-      "score": 7.5
     }
   ],
   "exitReviews": [
@@ -3697,11 +3695,11 @@
       "dailyPrices": {
         "2026-08-14": {
           "date": "2026-08-14",
-          "at": "2026-08-14T15:58:37+08:00",
+          "at": "2026-08-14T20:30:49+08:00",
           "price": 32.53,
           "returnPct": 0.868,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3821,11 +3819,11 @@
         },
         "2026-08-14": {
           "date": "2026-08-14",
-          "at": "2026-08-14T15:58:37+08:00",
+          "at": "2026-08-14T20:30:49+08:00",
           "price": 34.04,
           "returnPct": -1.305,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3989,11 +3987,11 @@
         },
         "2026-08-14": {
           "date": "2026-08-14",
-          "at": "2026-08-14T15:58:37+08:00",
+          "at": "2026-08-14T20:30:49+08:00",
           "price": 6.5,
           "returnPct": 7.973,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4157,11 +4155,11 @@
         },
         "2026-08-14": {
           "date": "2026-08-14",
-          "at": "2026-08-14T15:58:37+08:00",
+          "at": "2026-08-14T20:30:49+08:00",
           "price": 13.51,
           "returnPct": -2.596,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4325,11 +4323,11 @@
         },
         "2026-08-14": {
           "date": "2026-08-14",
-          "at": "2026-08-14T15:58:37+08:00",
+          "at": "2026-08-14T20:30:49+08:00",
           "price": 66.19,
           "returnPct": 9.152,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4517,11 +4515,11 @@
         },
         "2026-08-14": {
           "date": "2026-08-14",
-          "at": "2026-08-14T15:58:37+08:00",
+          "at": "2026-08-14T20:30:49+08:00",
           "price": 23.23,
           "returnPct": -1.359,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4725,11 +4723,11 @@
         },
         "2026-08-14": {
           "date": "2026-08-14",
-          "at": "2026-08-14T15:58:37+08:00",
+          "at": "2026-08-14T20:30:49+08:00",
           "price": 50.03,
           "returnPct": -2.892,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4747,7 +4745,13 @@
           "price": 51.0,
           "returnPct": -1.009
         },
-        "20": null,
+        "20": {
+          "horizon": 20,
+          "date": "2026-08-14",
+          "at": "2026-08-14T20:30:49+08:00",
+          "price": 50.03,
+          "returnPct": -2.892
+        },
         "30": null
       },
       "observedTradingDays": 20,
@@ -4756,7 +4760,7 @@
       "currentReturnPct": -2.892,
       "maxPostExitReturnPct": 2.601,
       "minPostExitReturnPct": -2.892,
-      "latestMatureHorizon": 5,
+      "latestMatureHorizon": 20,
       "qualityLabel": "卖出合理",
       "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
       "feedbackEligible": true
@@ -4941,11 +4945,11 @@
         },
         "2026-08-14": {
           "date": "2026-08-14",
-          "at": "2026-08-14T15:58:37+08:00",
+          "at": "2026-08-14T20:30:49+08:00",
           "price": 32.53,
           "returnPct": 11.062,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5016,10 +5020,10 @@
       },
       {
         "horizon": 20,
-        "sampleCount": 1,
-        "avgPostExitReturnPct": 9.969,
-        "medianPostExitReturnPct": 9.969,
-        "prematureExitRatePct": 100.0,
+        "sampleCount": 2,
+        "avgPostExitReturnPct": 3.538,
+        "medianPostExitReturnPct": 3.538,
+        "prematureExitRatePct": 50.0,
         "avoidedLossRatePct": 0.0
       },
       {
@@ -5094,10 +5098,10 @@
           },
           {
             "horizon": 20,
-            "sampleCount": 1,
-            "avgPostExitReturnPct": 9.969,
-            "medianPostExitReturnPct": 9.969,
-            "prematureExitRatePct": 100.0,
+            "sampleCount": 2,
+            "avgPostExitReturnPct": 3.538,
+            "medianPostExitReturnPct": 3.538,
+            "prematureExitRatePct": 50.0,
             "avoidedLossRatePct": 0.0
           },
           {
@@ -5137,8 +5141,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 259,
-    "plansCreated": 345,
+    "snapshotsProcessed": 260,
+    "plansCreated": 346,
     "buyChecks": 1185,
     "buysExecuted": 8,
     "sellsExecuted": 8,
@@ -5154,7 +5158,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 6
     },
-    "lastRunAt": "2026-08-14T15:58:37+08:00",
-    "lastRunSummary": "更新云端计划1只：紫金矿业(watch)"
+    "lastRunAt": "2026-08-14T20:30:49+08:00",
+    "lastRunSummary": "更新云端计划1只：中金黄金(watch)"
   }
 }
