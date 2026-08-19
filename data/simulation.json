@@ -394,8 +394,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-19T15:26:57+08:00|2026-08-19|14:30尾盘风控",
+  "lastAutoRunKey": "2026-08-19T19:58:26+08:00|2026-08-19|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-08-19T19:58:26+08:00|2026-08-19|20点次日关注",
+      "at": "2026-08-19T19:58:26+08:00",
+      "tradeDate": "2026-08-19",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "当前没有符合资金和风控约束的新计划"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-19T15:26:57+08:00|2026-08-19|14:30尾盘风控",
       "at": "2026-08-19T15:26:57+08:00",
@@ -1122,23 +1135,6 @@
         {
           "type": "buy_wait",
           "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
-    },
-    {
-      "runKey": "2026-08-12T13:15:03+08:00|2026-08-12|11:20午前买入复检",
-      "at": "2026-08-12T13:15:03+08:00",
-      "tradeDate": "2026-08-12",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划1只：紫金矿业(trial)"
-        },
-        {
-          "type": "buy",
-          "summary": "云端买入紫金矿业200股，成交33.59"
         }
       ]
     }
@@ -3736,11 +3732,11 @@
         },
         "2026-08-19": {
           "date": "2026-08-19",
-          "at": "2026-08-19T15:26:57+08:00",
-          "price": 32.72,
-          "returnPct": 1.457,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "at": "2026-08-19T19:58:26+08:00",
+          "price": 32.76,
+          "returnPct": 1.581,
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -3757,8 +3753,8 @@
       },
       "observedTradingDays": 4,
       "currentDate": "2026-08-19",
-      "currentPrice": 32.72,
-      "currentReturnPct": 1.457,
+      "currentPrice": 32.76,
+      "currentReturnPct": 1.581,
       "maxPostExitReturnPct": 4.062,
       "minPostExitReturnPct": 0.868,
       "latestMatureHorizon": 3,
@@ -3890,11 +3886,11 @@
         },
         "2026-08-19": {
           "date": "2026-08-19",
-          "at": "2026-08-19T15:26:57+08:00",
+          "at": "2026-08-19T19:58:26+08:00",
           "price": 33.14,
           "returnPct": -3.914,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4082,11 +4078,11 @@
         },
         "2026-08-19": {
           "date": "2026-08-19",
-          "at": "2026-08-19T15:26:57+08:00",
+          "at": "2026-08-19T19:58:26+08:00",
           "price": 6.47,
           "returnPct": 7.475,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4274,11 +4270,11 @@
         },
         "2026-08-19": {
           "date": "2026-08-19",
-          "at": "2026-08-19T15:26:57+08:00",
+          "at": "2026-08-19T19:58:26+08:00",
           "price": 13.0,
           "returnPct": -6.273,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4466,11 +4462,11 @@
         },
         "2026-08-19": {
           "date": "2026-08-19",
-          "at": "2026-08-19T15:26:57+08:00",
-          "price": 63.9,
-          "returnPct": 5.376,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "at": "2026-08-19T19:58:26+08:00",
+          "price": 61.83,
+          "returnPct": 1.962,
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4493,8 +4489,8 @@
       },
       "observedTradingDays": 18,
       "currentDate": "2026-08-19",
-      "currentPrice": 63.9,
-      "currentReturnPct": 5.376,
+      "currentPrice": 61.83,
+      "currentReturnPct": 1.962,
       "maxPostExitReturnPct": 14.083,
       "minPostExitReturnPct": -11.28,
       "latestMatureHorizon": 5,
@@ -4682,11 +4678,11 @@
         },
         "2026-08-19": {
           "date": "2026-08-19",
-          "at": "2026-08-19T15:26:57+08:00",
+          "at": "2026-08-19T19:58:26+08:00",
           "price": 23.51,
           "returnPct": -0.17,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4920,11 +4916,11 @@
         },
         "2026-08-19": {
           "date": "2026-08-19",
-          "at": "2026-08-19T15:26:57+08:00",
+          "at": "2026-08-19T19:58:26+08:00",
           "price": 49.75,
           "returnPct": -3.436,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5166,11 +5162,11 @@
         },
         "2026-08-19": {
           "date": "2026-08-19",
-          "at": "2026-08-19T15:26:57+08:00",
-          "price": 32.72,
-          "returnPct": 11.71,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "at": "2026-08-19T19:58:26+08:00",
+          "price": 32.76,
+          "returnPct": 11.847,
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5199,8 +5195,8 @@
       },
       "observedTradingDays": 24,
       "currentDate": "2026-08-19",
-      "currentPrice": 32.72,
-      "currentReturnPct": 11.71,
+      "currentPrice": 32.76,
+      "currentReturnPct": 11.847,
       "maxPostExitReturnPct": 21.031,
       "minPostExitReturnPct": -2.356,
       "latestMatureHorizon": 20,
@@ -5362,7 +5358,7 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 285,
+    "snapshotsProcessed": 286,
     "plansCreated": 381,
     "buyChecks": 1207,
     "buysExecuted": 8,
@@ -5379,7 +5375,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 7
     },
-    "lastRunAt": "2026-08-19T15:26:57+08:00",
-    "lastRunSummary": "更新云端计划2只：山东黄金(watch)、中金黄金(watch)"
+    "lastRunAt": "2026-08-19T19:58:26+08:00",
+    "lastRunSummary": "当前没有符合资金和风控约束的新计划"
   }
 }
