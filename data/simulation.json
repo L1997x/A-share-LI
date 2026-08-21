@@ -497,8 +497,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-21T20:04:23+08:00|2026-08-21|14:30尾盘风控",
+  "lastAutoRunKey": "2026-08-21T20:21:10+08:00|2026-08-21|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-08-21T20:21:10+08:00|2026-08-21|20点次日关注",
+      "at": "2026-08-21T20:21:10+08:00",
+      "tradeDate": "2026-08-21",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：山东黄金(watch)、景旺电子(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-21T20:04:23+08:00|2026-08-21|14:30尾盘风控",
       "at": "2026-08-21T20:04:23+08:00",
@@ -1211,30 +1224,17 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-08-14T12:19:43+08:00|2026-08-14|11:20午前买入复检",
-      "at": "2026-08-14T12:19:43+08:00",
-      "tradeDate": "2026-08-14",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划1只：中金黄金(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "600547-2026-08-21T20:04:23+08:00|2026-08-21|14:30尾盘风控",
+      "id": "600547-2026-08-21T20:21:10+08:00|2026-08-21|20点次日关注",
       "code": "600547",
       "name": "山东黄金",
       "status": "pending",
       "signalDate": "2026-08-21",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-08-21T20:04:23+08:00|2026-08-21|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-08-21T20:21:10+08:00|2026-08-21|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-24",
       "plannedEntryPrice": 29.39,
@@ -1257,19 +1257,19 @@
       "executionPrice": null
     },
     {
-      "id": "603228-2026-08-21T20:04:23+08:00|2026-08-21|14:30尾盘风控",
+      "id": "603228-2026-08-21T20:21:10+08:00|2026-08-21|20点次日关注",
       "code": "603228",
       "name": "景旺电子",
       "status": "pending",
       "signalDate": "2026-08-21",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-08-21T20:04:23+08:00|2026-08-21|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-08-21T20:21:10+08:00|2026-08-21|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-24",
-      "plannedEntryPrice": 81.35,
-      "maxBuyPrice": 87.05,
+      "plannedEntryPrice": 81.38,
+      "maxBuyPrice": 87.07,
       "noChasePrice": 112.42,
-      "score": 8.7,
+      "score": 8.8,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -2124,6 +2124,42 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-603228-2026-08-21T20:21:10+08:00",
+      "at": "2026-08-21T20:21:10+08:00",
+      "tradeDate": "2026-08-21",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "603228",
+      "name": "景旺电子",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 81.38,
+      "maxBuyPrice": 87.07,
+      "noChasePrice": 112.42,
+      "validUntilDate": "2026-08-24",
+      "score": 8.8
+    },
+    {
+      "id": "buy_plan_created-600547-2026-08-21T20:21:10+08:00",
+      "at": "2026-08-21T20:21:10+08:00",
+      "tradeDate": "2026-08-21",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600547",
+      "name": "山东黄金",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 29.39,
+      "maxBuyPrice": 30.14,
+      "noChasePrice": 37.92,
+      "validUntilDate": "2026-08-24",
+      "score": 9.4
+    },
     {
       "id": "buy_plan_created-603228-2026-08-21T20:04:23+08:00",
       "at": "2026-08-21T20:04:23+08:00",
@@ -3833,42 +3869,6 @@
       "plannedEntryPrice": 30.21,
       "maxBuyPrice": 31.39,
       "score": 8.8
-    },
-    {
-      "id": "buy_plan_created-600489-2026-08-17T09:58:29+08:00",
-      "at": "2026-08-17T09:58:29+08:00",
-      "tradeDate": "2026-08-17",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600489",
-      "name": "中金黄金",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 21.29,
-      "maxBuyPrice": 22.1,
-      "noChasePrice": 28.32,
-      "validUntilDate": "2026-08-20",
-      "score": 7.9
-    },
-    {
-      "id": "buy_plan_created-601899-2026-08-17T09:58:29+08:00",
-      "at": "2026-08-17T09:58:29+08:00",
-      "tradeDate": "2026-08-17",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "601899",
-      "name": "紫金矿业",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 30.21,
-      "maxBuyPrice": 31.39,
-      "noChasePrice": 37.97,
-      "validUntilDate": "2026-08-20",
-      "score": 8.8
     }
   ],
   "exitReviews": [
@@ -3932,11 +3932,11 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T20:04:23+08:00",
+          "at": "2026-08-21T20:21:10+08:00",
           "price": 34.74,
           "returnPct": 7.721,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4108,11 +4108,11 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T20:04:23+08:00",
+          "at": "2026-08-21T20:21:10+08:00",
           "price": 33.68,
           "returnPct": -2.349,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4316,11 +4316,11 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T20:04:23+08:00",
+          "at": "2026-08-21T20:21:10+08:00",
           "price": 6.59,
           "returnPct": 9.468,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4341,7 +4341,7 @@
         "20": {
           "horizon": 20,
           "date": "2026-08-21",
-          "at": "2026-08-21T19:57:59+08:00",
+          "at": "2026-08-21T20:21:10+08:00",
           "price": 6.59,
           "returnPct": 9.468
         },
@@ -4530,11 +4530,11 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T20:04:23+08:00",
+          "at": "2026-08-21T20:21:10+08:00",
           "price": 12.88,
           "returnPct": -7.138,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4555,7 +4555,7 @@
         "20": {
           "horizon": 20,
           "date": "2026-08-21",
-          "at": "2026-08-21T19:57:59+08:00",
+          "at": "2026-08-21T20:21:10+08:00",
           "price": 12.88,
           "returnPct": -7.138
         },
@@ -4744,11 +4744,11 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T20:04:23+08:00",
+          "at": "2026-08-21T20:21:10+08:00",
           "price": 62.84,
           "returnPct": 3.628,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4769,7 +4769,7 @@
         "20": {
           "horizon": 20,
           "date": "2026-08-21",
-          "at": "2026-08-21T19:57:59+08:00",
+          "at": "2026-08-21T20:21:10+08:00",
           "price": 62.84,
           "returnPct": 3.628
         },
@@ -4982,11 +4982,11 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T20:04:23+08:00",
+          "at": "2026-08-21T20:21:10+08:00",
           "price": 23.17,
           "returnPct": -1.614,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5236,11 +5236,11 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T20:04:23+08:00",
+          "at": "2026-08-21T20:21:10+08:00",
           "price": 49.33,
           "returnPct": -4.251,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5498,11 +5498,11 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T20:04:23+08:00",
+          "at": "2026-08-21T20:21:10+08:00",
           "price": 34.74,
           "returnPct": 18.607,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5694,8 +5694,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 304,
-    "plansCreated": 414,
+    "snapshotsProcessed": 305,
+    "plansCreated": 416,
     "buyChecks": 1221,
     "buysExecuted": 10,
     "sellsExecuted": 8,
@@ -5711,7 +5711,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 7
     },
-    "lastRunAt": "2026-08-21T20:04:23+08:00",
+    "lastRunAt": "2026-08-21T20:21:10+08:00",
     "lastRunSummary": "更新云端计划2只：山东黄金(watch)、景旺电子(watch)"
   }
 }
