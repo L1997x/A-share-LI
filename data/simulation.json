@@ -497,8 +497,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-21T13:27:05+08:00|2026-08-21|13:30午后买入复检",
+  "lastAutoRunKey": "2026-08-21T15:15:41+08:00|2026-08-21|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-08-21T15:15:41+08:00|2026-08-21|14:30尾盘风控",
+      "at": "2026-08-21T15:15:41+08:00",
+      "tradeDate": "2026-08-21",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：景旺电子(watch)、中航沈飞(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-21T13:27:05+08:00|2026-08-21|13:30午后买入复检",
       "at": "2026-08-21T13:27:05+08:00",
@@ -1219,36 +1232,23 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-08-13T23:15:17+08:00|2026-08-13|23:10隔夜外盘复核",
-      "at": "2026-08-13T23:15:17+08:00",
-      "tradeDate": "2026-08-13",
-      "phase": "23:10隔夜外盘复核",
-      "phaseKey": "overnight_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "当前没有符合资金和风控约束的新计划"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "600760-2026-08-21T13:27:05+08:00|2026-08-21|13:30午后买入复检",
-      "code": "600760",
-      "name": "中航沈飞",
+      "id": "603228-2026-08-21T15:15:41+08:00|2026-08-21|14:30尾盘风控",
+      "code": "603228",
+      "name": "景旺电子",
       "status": "pending",
       "signalDate": "2026-08-21",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-08-21T13:27:05+08:00|2026-08-21|13:30午后买入复检",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-08-21T15:15:41+08:00|2026-08-21|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-24",
-      "plannedEntryPrice": 43.06,
-      "maxBuyPrice": 43.33,
-      "noChasePrice": 48.28,
-      "score": 8.1,
+      "plannedEntryPrice": 80.76,
+      "maxBuyPrice": 85.97,
+      "noChasePrice": 112.42,
+      "score": 8.7,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1256,38 +1256,38 @@
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
       "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 0.84,
+      "contextPositionMultiplier": 0.89,
       "planType": "watch",
-      "targetPositionPct": 0.084,
+      "targetPositionPct": 0.08900000000000001,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
       "executionPrice": null
     },
     {
-      "id": "603228-2026-08-21T09:56:04+08:00|2026-08-21|10点早盘接入",
-      "code": "603228",
-      "name": "景旺电子",
+      "id": "600760-2026-08-21T15:15:41+08:00|2026-08-21|14:30尾盘风控",
+      "code": "600760",
+      "name": "中航沈飞",
       "status": "pending",
       "signalDate": "2026-08-21",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-08-21T09:56:04+08:00|2026-08-21|10点早盘接入",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-08-21T15:15:41+08:00|2026-08-21|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-24",
-      "plannedEntryPrice": 80.78,
-      "maxBuyPrice": 85.98,
-      "noChasePrice": 112.42,
-      "score": 9.1,
+      "plannedEntryPrice": 43.21,
+      "maxBuyPrice": 43.44,
+      "noChasePrice": 48.28,
+      "score": 8.4,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
       "trendTradeEligible": true,
       "trendLabel": "上涨趋势",
-      "marketFundHeatLabel": "资金平稳",
+      "marketFundHeatLabel": "资金偏冷",
       "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 1.0,
+      "contextPositionMultiplier": 0.89,
       "planType": "watch",
-      "targetPositionPct": 0.1,
+      "targetPositionPct": 0.08900000000000001,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
@@ -2103,6 +2103,42 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600760-2026-08-21T15:15:41+08:00",
+      "at": "2026-08-21T15:15:41+08:00",
+      "tradeDate": "2026-08-21",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600760",
+      "name": "中航沈飞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 43.21,
+      "maxBuyPrice": 43.44,
+      "noChasePrice": 48.28,
+      "validUntilDate": "2026-08-24",
+      "score": 8.4
+    },
+    {
+      "id": "buy_plan_created-603228-2026-08-21T15:15:41+08:00",
+      "at": "2026-08-21T15:15:41+08:00",
+      "tradeDate": "2026-08-21",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "603228",
+      "name": "景旺电子",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 80.76,
+      "maxBuyPrice": 85.97,
+      "noChasePrice": 112.42,
+      "validUntilDate": "2026-08-24",
+      "score": 8.7
+    },
     {
       "id": "buy_deferred-603228-2026-08-21T13:27:05+08:00",
       "at": "2026-08-21T13:27:05+08:00",
@@ -3810,40 +3846,6 @@
       "plannedEntryPrice": 21.1,
       "maxBuyPrice": 21.76,
       "score": 7.7
-    },
-    {
-      "id": "buy_deferred-601899-2026-08-14T14:52:09+08:00",
-      "at": "2026-08-14T14:52:09+08:00",
-      "tradeDate": "2026-08-14",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "601899",
-      "name": "紫金矿业",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 29.64,
-      "maxBuyPrice": 30.63,
-      "score": 8.7
-    },
-    {
-      "id": "buy_plan_created-601899-2026-08-14T14:52:09+08:00",
-      "at": "2026-08-14T14:52:09+08:00",
-      "tradeDate": "2026-08-14",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "601899",
-      "name": "紫金矿业",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 29.64,
-      "maxBuyPrice": 30.63,
-      "noChasePrice": 37.97,
-      "validUntilDate": "2026-08-17",
-      "score": 8.7
     }
   ],
   "exitReviews": [
@@ -3907,10 +3909,10 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T13:27:05+08:00",
-          "price": 34.21,
-          "returnPct": 6.078,
-          "phase": "morning_entry",
+          "at": "2026-08-21T15:15:41+08:00",
+          "price": 34.74,
+          "returnPct": 7.721,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -3934,9 +3936,9 @@
       },
       "observedTradingDays": 6,
       "currentDate": "2026-08-21",
-      "currentPrice": 34.21,
-      "currentReturnPct": 6.078,
-      "maxPostExitReturnPct": 6.202,
+      "currentPrice": 34.74,
+      "currentReturnPct": 7.721,
+      "maxPostExitReturnPct": 7.721,
       "minPostExitReturnPct": 0.868,
       "latestMatureHorizon": 5,
       "qualityLabel": "偏早卖出",
@@ -4083,10 +4085,10 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T13:27:05+08:00",
-          "price": 33.64,
-          "returnPct": -2.464,
-          "phase": "morning_entry",
+          "at": "2026-08-21T15:15:41+08:00",
+          "price": 33.68,
+          "returnPct": -2.349,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4110,8 +4112,8 @@
       },
       "observedTradingDays": 16,
       "currentDate": "2026-08-21",
-      "currentPrice": 33.64,
-      "currentReturnPct": -2.464,
+      "currentPrice": 33.68,
+      "currentReturnPct": -2.349,
       "maxPostExitReturnPct": 2.001,
       "minPostExitReturnPct": -4.349,
       "latestMatureHorizon": 5,
@@ -4291,10 +4293,10 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T13:27:05+08:00",
-          "price": 6.51,
-          "returnPct": 8.14,
-          "phase": "morning_entry",
+          "at": "2026-08-21T15:15:41+08:00",
+          "price": 6.59,
+          "returnPct": 9.468,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4318,8 +4320,8 @@
       },
       "observedTradingDays": 20,
       "currentDate": "2026-08-21",
-      "currentPrice": 6.51,
-      "currentReturnPct": 8.14,
+      "currentPrice": 6.59,
+      "currentReturnPct": 9.468,
       "maxPostExitReturnPct": 15.615,
       "minPostExitReturnPct": 0.997,
       "latestMatureHorizon": 5,
@@ -4499,10 +4501,10 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T13:27:05+08:00",
-          "price": 12.84,
-          "returnPct": -7.426,
-          "phase": "morning_entry",
+          "at": "2026-08-21T15:15:41+08:00",
+          "price": 12.88,
+          "returnPct": -7.138,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4526,8 +4528,8 @@
       },
       "observedTradingDays": 20,
       "currentDate": "2026-08-21",
-      "currentPrice": 12.84,
-      "currentReturnPct": -7.426,
+      "currentPrice": 12.88,
+      "currentReturnPct": -7.138,
       "maxPostExitReturnPct": 3.893,
       "minPostExitReturnPct": -7.642,
       "latestMatureHorizon": 5,
@@ -4707,10 +4709,10 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T13:27:05+08:00",
-          "price": 62.8,
-          "returnPct": 3.562,
-          "phase": "morning_entry",
+          "at": "2026-08-21T15:15:41+08:00",
+          "price": 62.84,
+          "returnPct": 3.628,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4734,8 +4736,8 @@
       },
       "observedTradingDays": 20,
       "currentDate": "2026-08-21",
-      "currentPrice": 62.8,
-      "currentReturnPct": 3.562,
+      "currentPrice": 62.84,
+      "currentReturnPct": 3.628,
       "maxPostExitReturnPct": 14.083,
       "minPostExitReturnPct": -11.28,
       "latestMatureHorizon": 5,
@@ -4939,10 +4941,10 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T13:27:05+08:00",
-          "price": 23.11,
-          "returnPct": -1.868,
-          "phase": "morning_entry",
+          "at": "2026-08-21T15:15:41+08:00",
+          "price": 23.17,
+          "returnPct": -1.614,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4972,8 +4974,8 @@
       },
       "observedTradingDays": 23,
       "currentDate": "2026-08-21",
-      "currentPrice": 23.11,
-      "currentReturnPct": -1.868,
+      "currentPrice": 23.17,
+      "currentReturnPct": -1.614,
       "maxPostExitReturnPct": 6.454,
       "minPostExitReturnPct": -2.038,
       "latestMatureHorizon": 20,
@@ -5193,10 +5195,10 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T13:27:05+08:00",
-          "price": 49.48,
-          "returnPct": -3.96,
-          "phase": "morning_entry",
+          "at": "2026-08-21T15:15:41+08:00",
+          "price": 49.33,
+          "returnPct": -4.251,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5226,10 +5228,10 @@
       },
       "observedTradingDays": 25,
       "currentDate": "2026-08-21",
-      "currentPrice": 49.48,
-      "currentReturnPct": -3.96,
+      "currentPrice": 49.33,
+      "currentReturnPct": -4.251,
       "maxPostExitReturnPct": 2.601,
-      "minPostExitReturnPct": -3.96,
+      "minPostExitReturnPct": -4.251,
       "latestMatureHorizon": 20,
       "qualityLabel": "卖出合理",
       "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
@@ -5455,10 +5457,10 @@
         },
         "2026-08-21": {
           "date": "2026-08-21",
-          "at": "2026-08-21T13:27:05+08:00",
-          "price": 34.21,
-          "returnPct": 16.798,
-          "phase": "morning_entry",
+          "at": "2026-08-21T15:15:41+08:00",
+          "price": 34.74,
+          "returnPct": 18.607,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5488,8 +5490,8 @@
       },
       "observedTradingDays": 26,
       "currentDate": "2026-08-21",
-      "currentPrice": 34.21,
-      "currentReturnPct": 16.798,
+      "currentPrice": 34.74,
+      "currentReturnPct": 18.607,
       "maxPostExitReturnPct": 21.031,
       "minPostExitReturnPct": -2.356,
       "latestMatureHorizon": 20,
@@ -5651,8 +5653,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 301,
-    "plansCreated": 408,
+    "snapshotsProcessed": 302,
+    "plansCreated": 410,
     "buyChecks": 1221,
     "buysExecuted": 10,
     "sellsExecuted": 8,
@@ -5668,7 +5670,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 7
     },
-    "lastRunAt": "2026-08-21T13:27:05+08:00",
-    "lastRunSummary": "更新云端计划1只：中航沈飞(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-08-21T15:15:41+08:00",
+    "lastRunSummary": "更新云端计划2只：景旺电子(watch)、中航沈飞(watch)"
   }
 }
