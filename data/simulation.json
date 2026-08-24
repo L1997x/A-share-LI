@@ -497,8 +497,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-24T20:01:23+08:00|2026-08-24|20点次日关注",
+  "lastAutoRunKey": "2026-08-24T20:26:31+08:00|2026-08-24|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-08-24T20:26:31+08:00|2026-08-24|14:30尾盘风控",
+      "at": "2026-08-24T20:26:31+08:00",
+      "tradeDate": "2026-08-24",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：中航沈飞(watch)、中航西飞(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-24T20:01:23+08:00|2026-08-24|20点次日关注",
       "at": "2026-08-24T20:01:23+08:00",
@@ -1207,34 +1220,50 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-08-17T12:02:44+08:00|2026-08-17|11:20午前买入复检",
-      "at": "2026-08-17T12:02:44+08:00",
-      "tradeDate": "2026-08-17",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：紫金矿业(watch)、中金黄金(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000768-2026-08-24T15:22:27+08:00|2026-08-24|14:30尾盘风控",
+      "id": "600760-2026-08-24T20:26:31+08:00|2026-08-24|14:30尾盘风控",
+      "code": "600760",
+      "name": "中航沈飞",
+      "status": "pending",
+      "signalDate": "2026-08-24",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-08-24T20:26:31+08:00|2026-08-24|14:30尾盘风控",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-08-27",
+      "plannedEntryPrice": 43.38,
+      "maxBuyPrice": 43.93,
+      "noChasePrice": 48.28,
+      "score": 9.1,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金偏冷",
+      "globalMarketLabel": "外盘中性",
+      "contextPositionMultiplier": 0.805,
+      "planType": "watch",
+      "targetPositionPct": 0.08050000000000002,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "000768-2026-08-24T20:26:31+08:00|2026-08-24|14:30尾盘风控",
       "code": "000768",
       "name": "中航西飞",
       "status": "pending",
       "signalDate": "2026-08-24",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-08-24T15:22:27+08:00|2026-08-24|14:30尾盘风控",
+      "createdRunKey": "2026-08-24T20:26:31+08:00|2026-08-24|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-27",
-      "plannedEntryPrice": 20.99,
-      "maxBuyPrice": 21.17,
+      "plannedEntryPrice": 21.04,
+      "maxBuyPrice": 21.15,
       "noChasePrice": 23.33,
       "score": 8.9,
       "buySignalKey": "wait",
@@ -1243,7 +1272,7 @@
       "trendTradeEligible": true,
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
-      "globalMarketLabel": "外盘偏弱",
+      "globalMarketLabel": "外盘中性",
       "contextPositionMultiplier": 0.805,
       "planType": "watch",
       "targetPositionPct": 0.08050000000000002,
@@ -2121,6 +2150,42 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000768-2026-08-24T20:26:31+08:00",
+      "at": "2026-08-24T20:26:31+08:00",
+      "tradeDate": "2026-08-24",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000768",
+      "name": "中航西飞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 21.04,
+      "maxBuyPrice": 21.15,
+      "noChasePrice": 23.33,
+      "validUntilDate": "2026-08-27",
+      "score": 8.9
+    },
+    {
+      "id": "buy_plan_created-600760-2026-08-24T20:26:31+08:00",
+      "at": "2026-08-24T20:26:31+08:00",
+      "tradeDate": "2026-08-24",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600760",
+      "name": "中航沈飞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 43.38,
+      "maxBuyPrice": 43.93,
+      "noChasePrice": 48.28,
+      "validUntilDate": "2026-08-27",
+      "score": 9.1
+    },
     {
       "id": "buy_plan_created-000831-2026-08-24T15:22:27+08:00",
       "at": "2026-08-24T15:22:27+08:00",
@@ -3828,42 +3893,6 @@
       "noChasePrice": 37.97,
       "validUntilDate": "2026-08-20",
       "score": 8.4
-    },
-    {
-      "id": "buy_plan_created-600489-2026-08-17T20:18:12+08:00",
-      "at": "2026-08-17T20:18:12+08:00",
-      "tradeDate": "2026-08-17",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600489",
-      "name": "中金黄金",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 21.45,
-      "maxBuyPrice": 22.42,
-      "noChasePrice": 28.32,
-      "validUntilDate": "2026-08-20",
-      "score": 8.3
-    },
-    {
-      "id": "buy_plan_created-601899-2026-08-17T20:18:12+08:00",
-      "at": "2026-08-17T20:18:12+08:00",
-      "tradeDate": "2026-08-17",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "601899",
-      "name": "紫金矿业",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 30.61,
-      "maxBuyPrice": 31.55,
-      "noChasePrice": 37.97,
-      "validUntilDate": "2026-08-20",
-      "score": 8.4
     }
   ],
   "exitReviews": [
@@ -3935,11 +3964,11 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T20:01:23+08:00",
+          "at": "2026-08-24T20:26:31+08:00",
           "price": 34.54,
           "returnPct": 7.101,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "afternoon_risk",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4119,11 +4148,11 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T20:01:23+08:00",
+          "at": "2026-08-24T20:26:31+08:00",
           "price": 33.8,
           "returnPct": -2.001,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "afternoon_risk",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4335,11 +4364,11 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T20:01:23+08:00",
+          "at": "2026-08-24T20:26:31+08:00",
           "price": 6.63,
           "returnPct": 10.133,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "afternoon_risk",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4557,11 +4586,11 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T20:01:23+08:00",
+          "at": "2026-08-24T20:26:31+08:00",
           "price": 12.73,
           "returnPct": -8.219,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "afternoon_risk",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4779,11 +4808,11 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T20:01:23+08:00",
+          "at": "2026-08-24T20:26:31+08:00",
           "price": 60.4,
           "returnPct": -0.396,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "afternoon_risk",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5025,11 +5054,11 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T20:01:23+08:00",
+          "at": "2026-08-24T20:26:31+08:00",
           "price": 23.27,
           "returnPct": -1.189,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "afternoon_risk",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5287,11 +5316,11 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T20:01:23+08:00",
+          "at": "2026-08-24T20:26:31+08:00",
           "price": 49.5,
           "returnPct": -3.921,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "afternoon_risk",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5557,11 +5586,11 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T20:01:23+08:00",
+          "at": "2026-08-24T20:26:31+08:00",
           "price": 34.54,
           "returnPct": 17.924,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "afternoon_risk",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5753,8 +5782,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 312,
-    "plansCreated": 425,
+    "snapshotsProcessed": 313,
+    "plansCreated": 427,
     "buyChecks": 1229,
     "buysExecuted": 10,
     "sellsExecuted": 8,
@@ -5770,7 +5799,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 9
     },
-    "lastRunAt": "2026-08-24T20:01:23+08:00",
-    "lastRunSummary": "当前没有符合资金和风控约束的新计划"
+    "lastRunAt": "2026-08-24T20:26:31+08:00",
+    "lastRunSummary": "更新云端计划2只：中航沈飞(watch)、中航西飞(watch)"
   }
 }
