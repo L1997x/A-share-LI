@@ -497,8 +497,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-24T13:28:29+08:00|2026-08-24|13:30午后买入复检",
+  "lastAutoRunKey": "2026-08-24T15:22:27+08:00|2026-08-24|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-08-24T15:22:27+08:00|2026-08-24|14:30尾盘风控",
+      "at": "2026-08-24T15:22:27+08:00",
+      "tradeDate": "2026-08-24",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：中航西飞(watch)、中国稀土(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-24T13:28:29+08:00|2026-08-24|13:30午后买入复检",
       "at": "2026-08-24T13:28:29+08:00",
@@ -1211,36 +1224,23 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-08-14T23:16:09+08:00|2026-08-14|23:10隔夜外盘复核",
-      "at": "2026-08-14T23:16:09+08:00",
-      "tradeDate": "2026-08-14",
-      "phase": "23:10隔夜外盘复核",
-      "phaseKey": "overnight_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划1只：中金黄金(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000768-2026-08-24T13:28:29+08:00|2026-08-24|13:30午后买入复检",
+      "id": "000768-2026-08-24T15:22:27+08:00|2026-08-24|14:30尾盘风控",
       "code": "000768",
       "name": "中航西飞",
       "status": "pending",
       "signalDate": "2026-08-24",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-08-24T13:28:29+08:00|2026-08-24|13:30午后买入复检",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-08-24T15:22:27+08:00|2026-08-24|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-27",
-      "plannedEntryPrice": 20.72,
-      "maxBuyPrice": 20.86,
+      "plannedEntryPrice": 20.99,
+      "maxBuyPrice": 21.17,
       "noChasePrice": 23.33,
-      "score": 8.4,
+      "score": 8.9,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1248,28 +1248,28 @@
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
       "globalMarketLabel": "外盘偏弱",
-      "contextPositionMultiplier": 0.804,
+      "contextPositionMultiplier": 0.805,
       "planType": "watch",
-      "targetPositionPct": 0.08040000000000001,
+      "targetPositionPct": 0.08050000000000002,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
       "executionPrice": null
     },
     {
-      "id": "000831-2026-08-24T13:28:29+08:00|2026-08-24|13:30午后买入复检",
+      "id": "000831-2026-08-24T15:22:27+08:00|2026-08-24|14:30尾盘风控",
       "code": "000831",
       "name": "中国稀土",
       "status": "pending",
       "signalDate": "2026-08-24",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-08-24T13:28:29+08:00|2026-08-24|13:30午后买入复检",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-08-24T15:22:27+08:00|2026-08-24|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-27",
-      "plannedEntryPrice": 53.8,
-      "maxBuyPrice": 54.38,
+      "plannedEntryPrice": 53.96,
+      "maxBuyPrice": 54.55,
       "noChasePrice": 67.02,
-      "score": 8.2,
+      "score": 8.9,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1277,9 +1277,9 @@
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
       "globalMarketLabel": "外盘偏弱",
-      "contextPositionMultiplier": 0.804,
+      "contextPositionMultiplier": 0.805,
       "planType": "watch",
-      "targetPositionPct": 0.08040000000000001,
+      "targetPositionPct": 0.08050000000000002,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
@@ -2125,6 +2125,42 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000831-2026-08-24T15:22:27+08:00",
+      "at": "2026-08-24T15:22:27+08:00",
+      "tradeDate": "2026-08-24",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000831",
+      "name": "中国稀土",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 53.96,
+      "maxBuyPrice": 54.55,
+      "noChasePrice": 67.02,
+      "validUntilDate": "2026-08-27",
+      "score": 8.9
+    },
+    {
+      "id": "buy_plan_created-000768-2026-08-24T15:22:27+08:00",
+      "at": "2026-08-24T15:22:27+08:00",
+      "tradeDate": "2026-08-24",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000768",
+      "name": "中航西飞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 20.99,
+      "maxBuyPrice": 21.17,
+      "noChasePrice": 23.33,
+      "validUntilDate": "2026-08-27",
+      "score": 8.9
+    },
     {
       "id": "buy_deferred-000831-2026-08-24T13:28:29+08:00",
       "at": "2026-08-24T13:28:29+08:00",
@@ -3832,42 +3868,6 @@
       "noChasePrice": 37.97,
       "validUntilDate": "2026-08-20",
       "score": 8.4
-    },
-    {
-      "id": "buy_plan_created-600489-2026-08-17T19:57:15+08:00",
-      "at": "2026-08-17T19:57:15+08:00",
-      "tradeDate": "2026-08-17",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600489",
-      "name": "中金黄金",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 21.46,
-      "maxBuyPrice": 22.42,
-      "noChasePrice": 28.32,
-      "validUntilDate": "2026-08-20",
-      "score": 8.3
-    },
-    {
-      "id": "buy_plan_created-601899-2026-08-17T19:57:15+08:00",
-      "at": "2026-08-17T19:57:15+08:00",
-      "tradeDate": "2026-08-17",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "601899",
-      "name": "紫金矿业",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 30.62,
-      "maxBuyPrice": 31.56,
-      "noChasePrice": 37.97,
-      "validUntilDate": "2026-08-20",
-      "score": 8.4
     }
   ],
   "exitReviews": [
@@ -3939,10 +3939,10 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T13:28:29+08:00",
-          "price": 34.35,
-          "returnPct": 6.512,
-          "phase": "morning_entry",
+          "at": "2026-08-24T15:22:27+08:00",
+          "price": 34.54,
+          "returnPct": 7.101,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -3966,8 +3966,8 @@
       },
       "observedTradingDays": 7,
       "currentDate": "2026-08-24",
-      "currentPrice": 34.35,
-      "currentReturnPct": 6.512,
+      "currentPrice": 34.54,
+      "currentReturnPct": 7.101,
       "maxPostExitReturnPct": 7.721,
       "minPostExitReturnPct": 0.868,
       "latestMatureHorizon": 5,
@@ -4123,10 +4123,10 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T13:28:29+08:00",
-          "price": 33.81,
-          "returnPct": -1.972,
-          "phase": "morning_entry",
+          "at": "2026-08-24T15:22:27+08:00",
+          "price": 33.8,
+          "returnPct": -2.001,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4150,8 +4150,8 @@
       },
       "observedTradingDays": 17,
       "currentDate": "2026-08-24",
-      "currentPrice": 33.81,
-      "currentReturnPct": -1.972,
+      "currentPrice": 33.8,
+      "currentReturnPct": -2.001,
       "maxPostExitReturnPct": 2.001,
       "minPostExitReturnPct": -4.349,
       "latestMatureHorizon": 5,
@@ -4339,10 +4339,10 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T13:28:29+08:00",
-          "price": 6.54,
-          "returnPct": 8.638,
-          "phase": "morning_entry",
+          "at": "2026-08-24T15:22:27+08:00",
+          "price": 6.63,
+          "returnPct": 10.133,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4372,8 +4372,8 @@
       },
       "observedTradingDays": 21,
       "currentDate": "2026-08-24",
-      "currentPrice": 6.54,
-      "currentReturnPct": 8.638,
+      "currentPrice": 6.63,
+      "currentReturnPct": 10.133,
       "maxPostExitReturnPct": 15.615,
       "minPostExitReturnPct": 0.997,
       "latestMatureHorizon": 20,
@@ -4561,10 +4561,10 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T13:28:29+08:00",
-          "price": 12.69,
-          "returnPct": -8.508,
-          "phase": "morning_entry",
+          "at": "2026-08-24T15:22:27+08:00",
+          "price": 12.73,
+          "returnPct": -8.219,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4594,10 +4594,10 @@
       },
       "observedTradingDays": 21,
       "currentDate": "2026-08-24",
-      "currentPrice": 12.69,
-      "currentReturnPct": -8.508,
+      "currentPrice": 12.73,
+      "currentReturnPct": -8.219,
       "maxPostExitReturnPct": 3.893,
-      "minPostExitReturnPct": -8.508,
+      "minPostExitReturnPct": -8.219,
       "latestMatureHorizon": 20,
       "qualityLabel": "及时避险",
       "modelAction": "卖出后继续明显下跌，同类退出规则获得正反馈。",
@@ -4783,10 +4783,10 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T13:28:29+08:00",
+          "at": "2026-08-24T15:22:27+08:00",
           "price": 60.95,
           "returnPct": 0.511,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5029,10 +5029,10 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T13:28:29+08:00",
-          "price": 23.2,
-          "returnPct": -1.486,
-          "phase": "morning_entry",
+          "at": "2026-08-24T15:22:27+08:00",
+          "price": 23.27,
+          "returnPct": -1.189,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5062,8 +5062,8 @@
       },
       "observedTradingDays": 24,
       "currentDate": "2026-08-24",
-      "currentPrice": 23.2,
-      "currentReturnPct": -1.486,
+      "currentPrice": 23.27,
+      "currentReturnPct": -1.189,
       "maxPostExitReturnPct": 6.454,
       "minPostExitReturnPct": -2.038,
       "latestMatureHorizon": 20,
@@ -5291,10 +5291,10 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T13:28:29+08:00",
-          "price": 49.54,
-          "returnPct": -3.843,
-          "phase": "morning_entry",
+          "at": "2026-08-24T15:22:27+08:00",
+          "price": 49.5,
+          "returnPct": -3.921,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5324,8 +5324,8 @@
       },
       "observedTradingDays": 26,
       "currentDate": "2026-08-24",
-      "currentPrice": 49.54,
-      "currentReturnPct": -3.843,
+      "currentPrice": 49.5,
+      "currentReturnPct": -3.921,
       "maxPostExitReturnPct": 2.601,
       "minPostExitReturnPct": -4.251,
       "latestMatureHorizon": 20,
@@ -5561,10 +5561,10 @@
         },
         "2026-08-24": {
           "date": "2026-08-24",
-          "at": "2026-08-24T13:28:29+08:00",
-          "price": 34.35,
-          "returnPct": 17.276,
-          "phase": "morning_entry",
+          "at": "2026-08-24T15:22:27+08:00",
+          "price": 34.54,
+          "returnPct": 17.924,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5594,8 +5594,8 @@
       },
       "observedTradingDays": 27,
       "currentDate": "2026-08-24",
-      "currentPrice": 34.35,
-      "currentReturnPct": 17.276,
+      "currentPrice": 34.54,
+      "currentReturnPct": 17.924,
       "maxPostExitReturnPct": 21.031,
       "minPostExitReturnPct": -2.356,
       "latestMatureHorizon": 20,
@@ -5757,8 +5757,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 310,
-    "plansCreated": 423,
+    "snapshotsProcessed": 311,
+    "plansCreated": 425,
     "buyChecks": 1229,
     "buysExecuted": 10,
     "sellsExecuted": 8,
@@ -5774,7 +5774,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 9
     },
-    "lastRunAt": "2026-08-24T13:28:29+08:00",
-    "lastRunSummary": "更新云端计划2只：中航西飞(watch)、中国稀土(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-08-24T15:22:27+08:00",
+    "lastRunSummary": "更新云端计划2只：中航西飞(watch)、中国稀土(watch)"
   }
 }
