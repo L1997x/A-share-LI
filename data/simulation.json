@@ -484,8 +484,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-25T20:29:34+08:00|2026-08-25|20点次日关注",
+  "lastAutoRunKey": "2026-08-25T23:16:45+08:00|2026-08-25|23:10隔夜外盘复核",
   "autoLog": [
+    {
+      "runKey": "2026-08-25T23:16:45+08:00|2026-08-25|23:10隔夜外盘复核",
+      "at": "2026-08-25T23:16:45+08:00",
+      "tradeDate": "2026-08-25",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：格力电器(watch)、美的集团(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-25T20:29:34+08:00|2026-08-25|20点次日关注",
       "at": "2026-08-25T20:29:34+08:00",
@@ -1194,40 +1207,23 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-08-18T14:28:27+08:00|2026-08-18|14:30尾盘风控",
-      "at": "2026-08-18T14:28:27+08:00",
-      "tradeDate": "2026-08-18",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "当前没有符合资金和风控约束的新计划"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000651-2026-08-25T20:29:34+08:00|2026-08-25|20点次日关注",
+      "id": "000651-2026-08-25T23:16:45+08:00|2026-08-25|23:10隔夜外盘复核",
       "code": "000651",
       "name": "格力电器",
       "status": "pending",
       "signalDate": "2026-08-25",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-08-25T20:29:34+08:00|2026-08-25|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-08-25T23:16:45+08:00|2026-08-25|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-28",
-      "plannedEntryPrice": 40.56,
-      "maxBuyPrice": 40.89,
+      "plannedEntryPrice": 40.42,
+      "maxBuyPrice": 40.74,
       "noChasePrice": 45.05,
-      "score": 8.1,
+      "score": 8.2,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1244,19 +1240,19 @@
       "executionPrice": null
     },
     {
-      "id": "000333-2026-08-25T20:29:34+08:00|2026-08-25|20点次日关注",
+      "id": "000333-2026-08-25T23:16:45+08:00|2026-08-25|23:10隔夜外盘复核",
       "code": "000333",
       "name": "美的集团",
       "status": "pending",
       "signalDate": "2026-08-25",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-08-25T20:29:34+08:00|2026-08-25|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-08-25T23:16:45+08:00|2026-08-25|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-28",
-      "plannedEntryPrice": 83.16,
-      "maxBuyPrice": 83.78,
+      "plannedEntryPrice": 83.14,
+      "maxBuyPrice": 83.77,
       "noChasePrice": 94.91,
-      "score": 7.9,
+      "score": 8.0,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -2101,6 +2097,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000333-2026-08-25T23:16:45+08:00",
+      "at": "2026-08-25T23:16:45+08:00",
+      "tradeDate": "2026-08-25",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000333",
+      "name": "美的集团",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 83.14,
+      "maxBuyPrice": 83.77,
+      "noChasePrice": 94.91,
+      "validUntilDate": "2026-08-28",
+      "score": 8.0
+    },
+    {
+      "id": "buy_plan_created-000651-2026-08-25T23:16:45+08:00",
+      "at": "2026-08-25T23:16:45+08:00",
+      "tradeDate": "2026-08-25",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000651",
+      "name": "格力电器",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 40.42,
+      "maxBuyPrice": 40.74,
+      "noChasePrice": 45.05,
+      "validUntilDate": "2026-08-28",
+      "score": 8.2
+    },
     {
       "id": "buy_plan_created-000333-2026-08-25T20:29:34+08:00",
       "at": "2026-08-25T20:29:34+08:00",
@@ -3816,40 +3848,6 @@
       "plannedEntryPrice": 22.06,
       "maxBuyPrice": 22.79,
       "score": 8.8
-    },
-    {
-      "id": "buy_deferred-600547-2026-08-19T14:28:40+08:00",
-      "at": "2026-08-19T14:28:40+08:00",
-      "tradeDate": "2026-08-19",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600547",
-      "name": "山东黄金",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 27.38,
-      "maxBuyPrice": 28.08,
-      "score": 9.0
-    },
-    {
-      "id": "buy_plan_created-600489-2026-08-19T14:28:40+08:00",
-      "at": "2026-08-19T14:28:40+08:00",
-      "tradeDate": "2026-08-19",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600489",
-      "name": "中金黄金",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 22.06,
-      "maxBuyPrice": 22.79,
-      "noChasePrice": 28.32,
-      "validUntilDate": "2026-08-22",
-      "score": 8.8
     }
   ],
   "exitReviews": [
@@ -3999,11 +3997,11 @@
         },
         "2026-08-25": {
           "date": "2026-08-25",
-          "at": "2026-08-25T20:29:34+08:00",
+          "at": "2026-08-25T23:16:45+08:00",
           "price": 33.44,
           "returnPct": 3.69,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4191,11 +4189,11 @@
         },
         "2026-08-25": {
           "date": "2026-08-25",
-          "at": "2026-08-25T20:29:34+08:00",
+          "at": "2026-08-25T23:16:45+08:00",
           "price": 33.84,
           "returnPct": -1.885,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4415,11 +4413,11 @@
         },
         "2026-08-25": {
           "date": "2026-08-25",
-          "at": "2026-08-25T20:29:34+08:00",
+          "at": "2026-08-25T23:16:45+08:00",
           "price": 6.39,
           "returnPct": 6.146,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4645,11 +4643,11 @@
         },
         "2026-08-25": {
           "date": "2026-08-25",
-          "at": "2026-08-25T20:29:34+08:00",
+          "at": "2026-08-25T23:16:45+08:00",
           "price": 12.82,
           "returnPct": -7.57,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4875,11 +4873,11 @@
         },
         "2026-08-25": {
           "date": "2026-08-25",
-          "at": "2026-08-25T20:29:34+08:00",
+          "at": "2026-08-25T23:16:45+08:00",
           "price": 60.15,
           "returnPct": -0.808,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5129,11 +5127,11 @@
         },
         "2026-08-25": {
           "date": "2026-08-25",
-          "at": "2026-08-25T20:29:34+08:00",
+          "at": "2026-08-25T23:16:45+08:00",
           "price": 23.15,
           "returnPct": -1.699,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5399,11 +5397,11 @@
         },
         "2026-08-25": {
           "date": "2026-08-25",
-          "at": "2026-08-25T20:29:34+08:00",
+          "at": "2026-08-25T23:16:45+08:00",
           "price": 50.0,
           "returnPct": -2.95,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5677,11 +5675,11 @@
         },
         "2026-08-25": {
           "date": "2026-08-25",
-          "at": "2026-08-25T20:29:34+08:00",
+          "at": "2026-08-25T23:16:45+08:00",
           "price": 33.44,
           "returnPct": 14.169,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5873,8 +5871,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 323,
-    "plansCreated": 445,
+    "snapshotsProcessed": 324,
+    "plansCreated": 447,
     "buyChecks": 1240,
     "buysExecuted": 10,
     "sellsExecuted": 10,
@@ -5890,7 +5888,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 13
     },
-    "lastRunAt": "2026-08-25T20:29:34+08:00",
+    "lastRunAt": "2026-08-25T23:16:45+08:00",
     "lastRunSummary": "更新云端计划2只：格力电器(watch)、美的集团(watch)"
   }
 }
