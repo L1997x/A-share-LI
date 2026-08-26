@@ -638,8 +638,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-26T15:33:30+08:00|2026-08-26|14:30尾盘风控",
+  "lastAutoRunKey": "2026-08-26T19:59:01+08:00|2026-08-26|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-08-26T19:59:01+08:00|2026-08-26|20点次日关注",
+      "at": "2026-08-26T19:59:01+08:00",
+      "tradeDate": "2026-08-26",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "当前没有符合资金和风控约束的新计划"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-26T15:33:30+08:00|2026-08-26|14:30尾盘风控",
       "at": "2026-08-26T15:33:30+08:00",
@@ -1362,19 +1375,6 @@
         {
           "type": "buy_wait",
           "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
-    },
-    {
-      "runKey": "2026-08-18T23:15:24+08:00|2026-08-18|23:10隔夜外盘复核",
-      "at": "2026-08-18T23:15:24+08:00",
-      "tradeDate": "2026-08-18",
-      "phase": "23:10隔夜外盘复核",
-      "phaseKey": "overnight_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划1只：山东黄金(watch)"
         }
       ]
     }
@@ -4037,11 +4037,11 @@
       "dailyPrices": {
         "2026-08-26": {
           "date": "2026-08-26",
-          "at": "2026-08-26T15:33:30+08:00",
+          "at": "2026-08-26T19:59:01+08:00",
           "price": 26.43,
           "returnPct": 1.85,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4081,11 +4081,11 @@
       "dailyPrices": {
         "2026-08-26": {
           "date": "2026-08-26",
-          "at": "2026-08-26T15:33:30+08:00",
+          "at": "2026-08-26T19:59:01+08:00",
           "price": 34.47,
           "returnPct": 3.296,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4189,11 +4189,11 @@
         },
         "2026-08-26": {
           "date": "2026-08-26",
-          "at": "2026-08-26T15:33:30+08:00",
+          "at": "2026-08-26T19:59:01+08:00",
           "price": 34.47,
           "returnPct": 6.884,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4389,11 +4389,11 @@
         },
         "2026-08-26": {
           "date": "2026-08-26",
-          "at": "2026-08-26T15:33:30+08:00",
+          "at": "2026-08-26T19:59:01+08:00",
           "price": 34.17,
           "returnPct": -0.928,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4621,11 +4621,11 @@
         },
         "2026-08-26": {
           "date": "2026-08-26",
-          "at": "2026-08-26T15:33:30+08:00",
+          "at": "2026-08-26T19:59:01+08:00",
           "price": 6.75,
           "returnPct": 12.126,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4859,11 +4859,11 @@
         },
         "2026-08-26": {
           "date": "2026-08-26",
-          "at": "2026-08-26T15:33:30+08:00",
+          "at": "2026-08-26T19:59:01+08:00",
           "price": 12.98,
           "returnPct": -6.417,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5097,11 +5097,11 @@
         },
         "2026-08-26": {
           "date": "2026-08-26",
-          "at": "2026-08-26T15:33:30+08:00",
+          "at": "2026-08-26T19:59:01+08:00",
           "price": 60.57,
           "returnPct": -0.115,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5359,11 +5359,11 @@
         },
         "2026-08-26": {
           "date": "2026-08-26",
-          "at": "2026-08-26T15:33:30+08:00",
+          "at": "2026-08-26T19:59:01+08:00",
           "price": 23.42,
           "returnPct": -0.552,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5637,11 +5637,11 @@
         },
         "2026-08-26": {
           "date": "2026-08-26",
-          "at": "2026-08-26T15:33:30+08:00",
-          "price": 50.23,
-          "returnPct": -2.504,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "at": "2026-08-26T19:59:01+08:00",
+          "price": 50.25,
+          "returnPct": -2.465,
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5670,8 +5670,8 @@
       },
       "observedTradingDays": 28,
       "currentDate": "2026-08-26",
-      "currentPrice": 50.23,
-      "currentReturnPct": -2.504,
+      "currentPrice": 50.25,
+      "currentReturnPct": -2.465,
       "maxPostExitReturnPct": 2.601,
       "minPostExitReturnPct": -4.251,
       "latestMatureHorizon": 20,
@@ -5923,11 +5923,11 @@
         },
         "2026-08-26": {
           "date": "2026-08-26",
-          "at": "2026-08-26T15:33:30+08:00",
+          "at": "2026-08-26T19:59:01+08:00",
           "price": 34.47,
           "returnPct": 17.685,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -6119,7 +6119,7 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 329,
+    "snapshotsProcessed": 330,
     "plansCreated": 452,
     "buyChecks": 1251,
     "buysExecuted": 13,
@@ -6137,7 +6137,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 16
     },
-    "lastRunAt": "2026-08-26T15:33:30+08:00",
+    "lastRunAt": "2026-08-26T19:59:01+08:00",
     "lastRunSummary": "当前没有符合资金和风控约束的新计划"
   }
 }
