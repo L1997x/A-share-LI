@@ -689,8 +689,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-27T18:38:18+08:00|2026-08-27|14:30尾盘风控",
+  "lastAutoRunKey": "2026-08-27T19:57:50+08:00|2026-08-27|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-08-27T19:57:50+08:00|2026-08-27|20点次日关注",
+      "at": "2026-08-27T19:57:50+08:00",
+      "tradeDate": "2026-08-27",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划1只：中国稀土(trial)"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-27T18:38:18+08:00|2026-08-27|14:30尾盘风控",
       "at": "2026-08-27T18:38:18+08:00",
@@ -1415,36 +1428,23 @@
           "summary": "当前没有符合资金和风控约束的新计划"
         }
       ]
-    },
-    {
-      "runKey": "2026-08-19T15:26:57+08:00|2026-08-19|14:30尾盘风控",
-      "at": "2026-08-19T15:26:57+08:00",
-      "tradeDate": "2026-08-19",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：山东黄金(watch)、中金黄金(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000831-2026-08-27T18:38:18+08:00|2026-08-27|14:30尾盘风控",
+      "id": "000831-2026-08-27T19:57:50+08:00|2026-08-27|20点次日关注",
       "code": "000831",
       "name": "中国稀土",
       "status": "pending",
       "signalDate": "2026-08-27",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-08-27T18:38:18+08:00|2026-08-27|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-08-27T19:57:50+08:00|2026-08-27|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-30",
-      "plannedEntryPrice": 54.3,
-      "maxBuyPrice": 55.83,
+      "plannedEntryPrice": 54.6,
+      "maxBuyPrice": 60.79,
       "noChasePrice": 67.02,
-      "score": 8.6,
+      "score": 9.5,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1452,10 +1452,10 @@
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金平稳",
       "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 0.962,
-      "planType": "watch",
-      "targetPositionPct": 0.09620000000000001,
-      "reason": "观察计划，尚未升级为可执行买入信号",
+      "contextPositionMultiplier": 0.964,
+      "planType": "trial",
+      "targetPositionPct": 0.0964,
+      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
       "cancelReason": "",
       "executedAt": "",
       "executionPrice": null
@@ -2402,6 +2402,24 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000831-2026-08-27T19:57:50+08:00",
+      "at": "2026-08-27T19:57:50+08:00",
+      "tradeDate": "2026-08-27",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000831",
+      "name": "中国稀土",
+      "summary": "生成小仓试买观察",
+      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
+      "plannedEntryPrice": 54.6,
+      "maxBuyPrice": 60.79,
+      "noChasePrice": 67.02,
+      "validUntilDate": "2026-08-30",
+      "score": 9.5
+    },
     {
       "id": "buy_plan_created-000831-2026-08-27T18:38:18+08:00",
       "at": "2026-08-27T18:38:18+08:00",
@@ -4130,24 +4148,6 @@
       "noChasePrice": 112.42,
       "validUntilDate": "2026-08-23",
       "score": 8.1
-    },
-    {
-      "id": "buy_plan_created-600489-2026-08-20T23:15:07+08:00",
-      "at": "2026-08-20T23:15:07+08:00",
-      "tradeDate": "2026-08-20",
-      "phase": "23:10隔夜外盘复核",
-      "phaseKey": "overnight_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600489",
-      "name": "中金黄金",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 22.51,
-      "maxBuyPrice": 23.36,
-      "noChasePrice": 28.32,
-      "validUntilDate": "2026-08-23",
-      "score": 8.3
     }
   ],
   "exitReviews": [
@@ -4179,11 +4179,11 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T18:38:18+08:00",
+          "at": "2026-08-27T19:57:50+08:00",
           "price": 26.69,
           "returnPct": 2.852,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4231,11 +4231,11 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T18:38:18+08:00",
+          "at": "2026-08-27T19:57:50+08:00",
           "price": 34.57,
           "returnPct": 3.596,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4347,11 +4347,11 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T18:38:18+08:00",
+          "at": "2026-08-27T19:57:50+08:00",
           "price": 34.57,
           "returnPct": 7.194,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4555,11 +4555,11 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T18:38:18+08:00",
+          "at": "2026-08-27T19:57:50+08:00",
           "price": 34.52,
           "returnPct": 0.087,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4577,7 +4577,13 @@
           "price": 34.9,
           "returnPct": 1.189
         },
-        "20": null,
+        "20": {
+          "horizon": 20,
+          "date": "2026-08-27",
+          "at": "2026-08-27T19:57:50+08:00",
+          "price": 34.52,
+          "returnPct": 0.087
+        },
         "30": null
       },
       "observedTradingDays": 20,
@@ -4586,9 +4592,9 @@
       "currentReturnPct": 0.087,
       "maxPostExitReturnPct": 2.001,
       "minPostExitReturnPct": -4.349,
-      "latestMatureHorizon": 5,
-      "qualityLabel": "轻微卖早",
-      "modelAction": "存在小幅机会成本，继续积累样本，暂不调参。",
+      "latestMatureHorizon": 20,
+      "qualityLabel": "卖出合理",
+      "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
       "feedbackEligible": true
     },
     {
@@ -4795,11 +4801,11 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T18:38:18+08:00",
+          "at": "2026-08-27T19:57:50+08:00",
           "price": 6.76,
           "returnPct": 12.292,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5041,11 +5047,11 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T18:38:18+08:00",
+          "at": "2026-08-27T19:57:50+08:00",
           "price": 12.98,
           "returnPct": -6.417,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5287,11 +5293,11 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T18:38:18+08:00",
+          "at": "2026-08-27T19:57:50+08:00",
           "price": 63.86,
           "returnPct": 5.31,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5557,11 +5563,11 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T18:38:18+08:00",
+          "at": "2026-08-27T19:57:50+08:00",
           "price": 23.06,
           "returnPct": -2.081,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5843,11 +5849,11 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T18:38:18+08:00",
+          "at": "2026-08-27T19:57:50+08:00",
           "price": 49.99,
           "returnPct": -2.97,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -6137,11 +6143,11 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T18:38:18+08:00",
+          "at": "2026-08-27T19:57:50+08:00",
           "price": 34.57,
           "returnPct": 18.027,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -6166,7 +6172,13 @@
           "price": 32.21,
           "returnPct": 9.969
         },
-        "30": null
+        "30": {
+          "horizon": 30,
+          "date": "2026-08-27",
+          "at": "2026-08-27T19:57:50+08:00",
+          "price": 34.57,
+          "returnPct": 18.027
+        }
       },
       "observedTradingDays": 30,
       "currentDate": "2026-08-27",
@@ -6174,7 +6186,7 @@
       "currentReturnPct": 18.027,
       "maxPostExitReturnPct": 21.031,
       "minPostExitReturnPct": -2.356,
-      "latestMatureHorizon": 20,
+      "latestMatureHorizon": 30,
       "qualityLabel": "明显卖早",
       "modelAction": "卖出后继续大幅上涨，成熟样本足够后放宽对应退出条件。",
       "feedbackEligible": true
@@ -6212,19 +6224,19 @@
       },
       {
         "horizon": 20,
-        "sampleCount": 6,
-        "avgPostExitReturnPct": 2.166,
-        "medianPostExitReturnPct": 1.793,
-        "prematureExitRatePct": 50.0,
-        "avoidedLossRatePct": 16.7
+        "sampleCount": 7,
+        "avgPostExitReturnPct": 1.869,
+        "medianPostExitReturnPct": 0.087,
+        "prematureExitRatePct": 42.9,
+        "avoidedLossRatePct": 14.3
       },
       {
         "horizon": 30,
-        "sampleCount": 0,
-        "avgPostExitReturnPct": null,
-        "medianPostExitReturnPct": null,
-        "prematureExitRatePct": null,
-        "avoidedLossRatePct": null
+        "sampleCount": 1,
+        "avgPostExitReturnPct": 18.027,
+        "medianPostExitReturnPct": 18.027,
+        "prematureExitRatePct": 100.0,
+        "avoidedLossRatePct": 0.0
       }
     ],
     "reasonStats": [
@@ -6290,19 +6302,19 @@
           },
           {
             "horizon": 20,
-            "sampleCount": 5,
-            "avgPostExitReturnPct": 2.607,
-            "medianPostExitReturnPct": 3.628,
-            "prematureExitRatePct": 60.0,
-            "avoidedLossRatePct": 20.0
+            "sampleCount": 6,
+            "avgPostExitReturnPct": 2.187,
+            "medianPostExitReturnPct": 1.858,
+            "prematureExitRatePct": 50.0,
+            "avoidedLossRatePct": 16.7
           },
           {
             "horizon": 30,
-            "sampleCount": 0,
-            "avgPostExitReturnPct": null,
-            "medianPostExitReturnPct": null,
-            "prematureExitRatePct": null,
-            "avoidedLossRatePct": null
+            "sampleCount": 1,
+            "avgPostExitReturnPct": 18.027,
+            "medianPostExitReturnPct": 18.027,
+            "prematureExitRatePct": 100.0,
+            "avoidedLossRatePct": 0.0
           }
         ]
       }
@@ -6333,8 +6345,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 334,
-    "plansCreated": 458,
+    "snapshotsProcessed": 335,
+    "plansCreated": 459,
     "buyChecks": 1259,
     "buysExecuted": 14,
     "sellsExecuted": 10,
@@ -6351,7 +6363,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 17
     },
-    "lastRunAt": "2026-08-27T18:38:18+08:00",
-    "lastRunSummary": "更新云端计划1只：中国稀土(watch)"
+    "lastRunAt": "2026-08-27T19:57:50+08:00",
+    "lastRunSummary": "更新云端计划1只：中国稀土(trial)"
   }
 }
