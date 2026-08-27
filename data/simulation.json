@@ -689,8 +689,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-27T20:47:42+08:00|2026-08-27|20点次日关注",
+  "lastAutoRunKey": "2026-08-27T22:10:41+08:00|2026-08-27|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-08-27T22:10:41+08:00|2026-08-27|20点次日关注",
+      "at": "2026-08-27T22:10:41+08:00",
+      "tradeDate": "2026-08-27",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划1只：中国稀土(trial)"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-27T20:47:42+08:00|2026-08-27|20点次日关注",
       "at": "2026-08-27T20:47:42+08:00",
@@ -1415,34 +1428,21 @@
           "summary": "更新云端计划2只：中金黄金(watch)、山东黄金(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-08-19T20:20:03+08:00|2026-08-19|14:30尾盘风控",
-      "at": "2026-08-19T20:20:03+08:00",
-      "tradeDate": "2026-08-19",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：中金黄金(watch)、山东黄金(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000831-2026-08-27T20:47:42+08:00|2026-08-27|20点次日关注",
+      "id": "000831-2026-08-27T22:10:41+08:00|2026-08-27|20点次日关注",
       "code": "000831",
       "name": "中国稀土",
       "status": "pending",
       "signalDate": "2026-08-27",
       "signalPhase": "evening_watch",
-      "createdRunKey": "2026-08-27T20:47:42+08:00|2026-08-27|20点次日关注",
+      "createdRunKey": "2026-08-27T22:10:41+08:00|2026-08-27|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-08-30",
-      "plannedEntryPrice": 54.68,
-      "maxBuyPrice": 60.86,
+      "plannedEntryPrice": 54.74,
+      "maxBuyPrice": 60.92,
       "noChasePrice": 67.02,
       "score": 9.4,
       "buySignalKey": "wait",
@@ -2402,6 +2402,24 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000831-2026-08-27T22:10:41+08:00",
+      "at": "2026-08-27T22:10:41+08:00",
+      "tradeDate": "2026-08-27",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000831",
+      "name": "中国稀土",
+      "summary": "生成小仓试买观察",
+      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
+      "plannedEntryPrice": 54.74,
+      "maxBuyPrice": 60.92,
+      "noChasePrice": 67.02,
+      "validUntilDate": "2026-08-30",
+      "score": 9.4
+    },
     {
       "id": "buy_plan_created-000831-2026-08-27T20:47:42+08:00",
       "at": "2026-08-27T20:47:42+08:00",
@@ -4130,24 +4148,6 @@
       "noChasePrice": 112.42,
       "validUntilDate": "2026-08-24",
       "score": 9.1
-    },
-    {
-      "id": "buy_plan_created-600489-2026-08-21T09:56:04+08:00",
-      "at": "2026-08-21T09:56:04+08:00",
-      "tradeDate": "2026-08-21",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600489",
-      "name": "中金黄金",
-      "summary": "生成可执行计划",
-      "reason": "明确可买信号：可突破试探",
-      "plannedEntryPrice": 27.94,
-      "maxBuyPrice": 27.94,
-      "noChasePrice": 28.32,
-      "validUntilDate": "2026-08-24",
-      "score": 8.2
     }
   ],
   "exitReviews": [
@@ -4179,7 +4179,7 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 26.69,
           "returnPct": 2.852,
           "phase": "evening_watch",
@@ -4231,7 +4231,7 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 34.57,
           "returnPct": 3.596,
           "phase": "evening_watch",
@@ -4347,7 +4347,7 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 34.57,
           "returnPct": 7.194,
           "phase": "evening_watch",
@@ -4555,7 +4555,7 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 34.52,
           "returnPct": 0.087,
           "phase": "evening_watch",
@@ -4580,7 +4580,7 @@
         "20": {
           "horizon": 20,
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 34.52,
           "returnPct": 0.087
         },
@@ -4801,7 +4801,7 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 6.76,
           "returnPct": 12.292,
           "phase": "evening_watch",
@@ -5047,7 +5047,7 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 12.98,
           "returnPct": -6.417,
           "phase": "evening_watch",
@@ -5293,7 +5293,7 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 63.86,
           "returnPct": 5.31,
           "phase": "evening_watch",
@@ -5563,7 +5563,7 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 23.06,
           "returnPct": -2.081,
           "phase": "evening_watch",
@@ -5849,7 +5849,7 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 49.99,
           "returnPct": -2.97,
           "phase": "evening_watch",
@@ -6143,7 +6143,7 @@
         },
         "2026-08-27": {
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 34.57,
           "returnPct": 18.027,
           "phase": "evening_watch",
@@ -6175,7 +6175,7 @@
         "30": {
           "horizon": 30,
           "date": "2026-08-27",
-          "at": "2026-08-27T20:47:42+08:00",
+          "at": "2026-08-27T22:10:41+08:00",
           "price": 34.57,
           "returnPct": 18.027
         }
@@ -6345,8 +6345,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 336,
-    "plansCreated": 460,
+    "snapshotsProcessed": 337,
+    "plansCreated": 461,
     "buyChecks": 1259,
     "buysExecuted": 14,
     "sellsExecuted": 10,
@@ -6363,7 +6363,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 17
     },
-    "lastRunAt": "2026-08-27T20:47:42+08:00",
+    "lastRunAt": "2026-08-27T22:10:41+08:00",
     "lastRunSummary": "更新云端计划1只：中国稀土(trial)"
   }
 }
