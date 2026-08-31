@@ -728,8 +728,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-08-31T14:27:46+08:00|2026-08-31|14:30尾盘风控",
+  "lastAutoRunKey": "2026-08-31T15:47:54+08:00|2026-08-31|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-08-31T15:47:54+08:00|2026-08-31|14:30尾盘风控",
+      "at": "2026-08-31T15:47:54+08:00",
+      "tradeDate": "2026-08-31",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：山东黄金(watch)、中国稀土(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-08-31T14:27:46+08:00|2026-08-31|14:30尾盘风控",
       "at": "2026-08-31T14:27:46+08:00",
@@ -1470,39 +1483,22 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-08-21T09:56:04+08:00|2026-08-21|10点早盘接入",
-      "at": "2026-08-21T09:56:04+08:00",
-      "tradeDate": "2026-08-21",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：中金黄金(executable)、景旺电子(watch)"
-        },
-        {
-          "type": "buy",
-          "summary": "云端买入中金黄金700股，成交27.02"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000831-2026-08-31T14:27:46+08:00|2026-08-31|14:30尾盘风控",
-      "code": "000831",
-      "name": "中国稀土",
+      "id": "600547-2026-08-31T15:47:54+08:00|2026-08-31|14:30尾盘风控",
+      "code": "600547",
+      "name": "山东黄金",
       "status": "pending",
       "signalDate": "2026-08-31",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-08-31T14:27:46+08:00|2026-08-31|14:30尾盘风控",
+      "createdRunKey": "2026-08-31T15:47:54+08:00|2026-08-31|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-03",
-      "plannedEntryPrice": 55.66,
-      "maxBuyPrice": 57.53,
-      "noChasePrice": 67.02,
+      "plannedEntryPrice": 30.73,
+      "maxBuyPrice": 32.01,
+      "noChasePrice": 40.45,
       "score": 8.4,
       "buySignalKey": "wait",
       "statusKey": "wait",
@@ -1511,9 +1507,38 @@
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
       "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 0.857,
+      "contextPositionMultiplier": 0.892,
       "planType": "watch",
-      "targetPositionPct": 0.0857,
+      "targetPositionPct": 0.0892,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "000831-2026-08-31T15:47:54+08:00|2026-08-31|14:30尾盘风控",
+      "code": "000831",
+      "name": "中国稀土",
+      "status": "pending",
+      "signalDate": "2026-08-31",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-08-31T15:47:54+08:00|2026-08-31|14:30尾盘风控",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-09-03",
+      "plannedEntryPrice": 55.59,
+      "maxBuyPrice": 57.46,
+      "noChasePrice": 67.02,
+      "score": 8.1,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金偏冷",
+      "globalMarketLabel": "外盘中性",
+      "contextPositionMultiplier": 0.892,
+      "planType": "watch",
+      "targetPositionPct": 0.0892,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
@@ -1543,35 +1568,6 @@
       "contextPositionMultiplier": 0.857,
       "planType": "watch",
       "targetPositionPct": 0.0857,
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
-      "id": "600547-2026-08-28T13:28:09+08:00|2026-08-28|13:30午后买入复检",
-      "code": "600547",
-      "name": "山东黄金",
-      "status": "pending",
-      "signalDate": "2026-08-28",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-08-28T13:28:09+08:00|2026-08-28|13:30午后买入复检",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-08-31",
-      "plannedEntryPrice": 30.56,
-      "maxBuyPrice": 31.62,
-      "noChasePrice": 40.45,
-      "score": 7.5,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "trendTradeEligible": true,
-      "trendLabel": "上涨趋势",
-      "marketFundHeatLabel": "资金平稳",
-      "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 0.933,
-      "planType": "watch",
-      "targetPositionPct": 0.09330000000000001,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
@@ -2481,6 +2477,42 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000831-2026-08-31T15:47:54+08:00",
+      "at": "2026-08-31T15:47:54+08:00",
+      "tradeDate": "2026-08-31",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000831",
+      "name": "中国稀土",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 55.59,
+      "maxBuyPrice": 57.46,
+      "noChasePrice": 67.02,
+      "validUntilDate": "2026-09-03",
+      "score": 8.1
+    },
+    {
+      "id": "buy_plan_created-600547-2026-08-31T15:47:54+08:00",
+      "at": "2026-08-31T15:47:54+08:00",
+      "tradeDate": "2026-08-31",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600547",
+      "name": "山东黄金",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 30.73,
+      "maxBuyPrice": 32.01,
+      "noChasePrice": 40.45,
+      "validUntilDate": "2026-09-03",
+      "score": 8.4
+    },
     {
       "id": "buy_deferred-600547-2026-08-31T14:27:46+08:00",
       "at": "2026-08-31T14:27:46+08:00",
@@ -4187,42 +4219,6 @@
       "noChasePrice": 48.28,
       "validUntilDate": "2026-08-27",
       "score": 9.0
-    },
-    {
-      "id": "buy_plan_created-000831-2026-08-24T20:32:46+08:00",
-      "at": "2026-08-24T20:32:46+08:00",
-      "tradeDate": "2026-08-24",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "000831",
-      "name": "中国稀土",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 54.24,
-      "maxBuyPrice": 55.04,
-      "noChasePrice": 67.02,
-      "validUntilDate": "2026-08-27",
-      "score": 8.9
-    },
-    {
-      "id": "buy_plan_created-600760-2026-08-24T20:32:46+08:00",
-      "at": "2026-08-24T20:32:46+08:00",
-      "tradeDate": "2026-08-24",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600760",
-      "name": "中航沈飞",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 43.38,
-      "maxBuyPrice": 43.93,
-      "noChasePrice": 48.28,
-      "validUntilDate": "2026-08-27",
-      "score": 9.0
     }
   ],
   "exitReviews": [
@@ -4281,9 +4277,9 @@
       "dailyPrices": {
         "2026-08-31": {
           "date": "2026-08-31",
-          "at": "2026-08-31T14:27:46+08:00",
-          "price": 46.88,
-          "returnPct": 1.472,
+          "at": "2026-08-31T15:47:54+08:00",
+          "price": 46.92,
+          "returnPct": 1.558,
           "phase": "afternoon_risk",
           "finalized": false
         }
@@ -4296,10 +4292,10 @@
       },
       "observedTradingDays": 1,
       "currentDate": "2026-08-31",
-      "currentPrice": 46.88,
-      "currentReturnPct": 1.472,
-      "maxPostExitReturnPct": 1.472,
-      "minPostExitReturnPct": 1.472,
+      "currentPrice": 46.92,
+      "currentReturnPct": 1.558,
+      "maxPostExitReturnPct": 1.558,
+      "minPostExitReturnPct": 1.558,
       "latestMatureHorizon": null,
       "qualityLabel": "等待3个交易日样本",
       "modelAction": "样本尚未成熟，不调整卖出参数。",
@@ -4349,9 +4345,9 @@
         },
         "2026-08-31": {
           "date": "2026-08-31",
-          "at": "2026-08-31T14:27:46+08:00",
-          "price": 25.57,
-          "returnPct": -1.464,
+          "at": "2026-08-31T15:47:54+08:00",
+          "price": 25.62,
+          "returnPct": -1.272,
           "phase": "afternoon_risk",
           "finalized": false
         }
@@ -4370,10 +4366,10 @@
       },
       "observedTradingDays": 4,
       "currentDate": "2026-08-31",
-      "currentPrice": 25.57,
-      "currentReturnPct": -1.464,
+      "currentPrice": 25.62,
+      "currentReturnPct": -1.272,
       "maxPostExitReturnPct": 2.852,
-      "minPostExitReturnPct": -1.464,
+      "minPostExitReturnPct": -1.272,
       "latestMatureHorizon": 3,
       "qualityLabel": "轻微卖早",
       "modelAction": "存在小幅机会成本，继续积累样本，暂不调参。",
@@ -4423,9 +4419,9 @@
         },
         "2026-08-31": {
           "date": "2026-08-31",
-          "at": "2026-08-31T14:27:46+08:00",
-          "price": 33.72,
-          "returnPct": 1.049,
+          "at": "2026-08-31T15:47:54+08:00",
+          "price": 33.67,
+          "returnPct": 0.899,
           "phase": "afternoon_risk",
           "finalized": false
         }
@@ -4444,10 +4440,10 @@
       },
       "observedTradingDays": 4,
       "currentDate": "2026-08-31",
-      "currentPrice": 33.72,
-      "currentReturnPct": 1.049,
+      "currentPrice": 33.67,
+      "currentReturnPct": 0.899,
       "maxPostExitReturnPct": 3.836,
-      "minPostExitReturnPct": 1.049,
+      "minPostExitReturnPct": 0.899,
       "latestMatureHorizon": 3,
       "qualityLabel": "偏早卖出",
       "modelAction": "同类退出可能偏敏感，成熟样本足够后降低卖出敏感度。",
@@ -4561,9 +4557,9 @@
         },
         "2026-08-31": {
           "date": "2026-08-31",
-          "at": "2026-08-31T14:27:46+08:00",
-          "price": 33.72,
-          "returnPct": 4.558,
+          "at": "2026-08-31T15:47:54+08:00",
+          "price": 33.67,
+          "returnPct": 4.403,
           "phase": "afternoon_risk",
           "finalized": false
         }
@@ -4588,8 +4584,8 @@
       },
       "observedTradingDays": 12,
       "currentDate": "2026-08-31",
-      "currentPrice": 33.72,
-      "currentReturnPct": 4.558,
+      "currentPrice": 33.67,
+      "currentReturnPct": 4.403,
       "maxPostExitReturnPct": 7.721,
       "minPostExitReturnPct": 0.868,
       "latestMatureHorizon": 5,
@@ -4785,9 +4781,9 @@
         },
         "2026-08-31": {
           "date": "2026-08-31",
-          "at": "2026-08-31T14:27:46+08:00",
-          "price": 34.0,
-          "returnPct": -1.421,
+          "at": "2026-08-31T15:47:54+08:00",
+          "price": 34.08,
+          "returnPct": -1.189,
           "phase": "afternoon_risk",
           "finalized": false
         }
@@ -4818,8 +4814,8 @@
       },
       "observedTradingDays": 22,
       "currentDate": "2026-08-31",
-      "currentPrice": 34.0,
-      "currentReturnPct": -1.421,
+      "currentPrice": 34.08,
+      "currentReturnPct": -1.189,
       "maxPostExitReturnPct": 2.001,
       "minPostExitReturnPct": -4.349,
       "latestMatureHorizon": 20,
@@ -5047,9 +5043,9 @@
         },
         "2026-08-31": {
           "date": "2026-08-31",
-          "at": "2026-08-31T14:27:46+08:00",
-          "price": 6.66,
-          "returnPct": 10.631,
+          "at": "2026-08-31T15:47:54+08:00",
+          "price": 6.67,
+          "returnPct": 10.797,
           "phase": "afternoon_risk",
           "finalized": false
         }
@@ -5080,8 +5076,8 @@
       },
       "observedTradingDays": 26,
       "currentDate": "2026-08-31",
-      "currentPrice": 6.66,
-      "currentReturnPct": 10.631,
+      "currentPrice": 6.67,
+      "currentReturnPct": 10.797,
       "maxPostExitReturnPct": 15.615,
       "minPostExitReturnPct": 0.997,
       "latestMatureHorizon": 20,
@@ -5309,9 +5305,9 @@
         },
         "2026-08-31": {
           "date": "2026-08-31",
-          "at": "2026-08-31T14:27:46+08:00",
-          "price": 12.63,
-          "returnPct": -8.94,
+          "at": "2026-08-31T15:47:54+08:00",
+          "price": 12.66,
+          "returnPct": -8.724,
           "phase": "afternoon_risk",
           "finalized": false
         }
@@ -5342,10 +5338,10 @@
       },
       "observedTradingDays": 26,
       "currentDate": "2026-08-31",
-      "currentPrice": 12.63,
-      "currentReturnPct": -8.94,
+      "currentPrice": 12.66,
+      "currentReturnPct": -8.724,
       "maxPostExitReturnPct": 3.893,
-      "minPostExitReturnPct": -8.94,
+      "minPostExitReturnPct": -8.724,
       "latestMatureHorizon": 20,
       "qualityLabel": "及时避险",
       "modelAction": "卖出后继续明显下跌，同类退出规则获得正反馈。",
@@ -5571,9 +5567,9 @@
         },
         "2026-08-31": {
           "date": "2026-08-31",
-          "at": "2026-08-31T14:27:46+08:00",
-          "price": 64.92,
-          "returnPct": 7.058,
+          "at": "2026-08-31T15:47:54+08:00",
+          "price": 64.84,
+          "returnPct": 6.926,
           "phase": "afternoon_risk",
           "finalized": false
         }
@@ -5604,8 +5600,8 @@
       },
       "observedTradingDays": 26,
       "currentDate": "2026-08-31",
-      "currentPrice": 64.92,
-      "currentReturnPct": 7.058,
+      "currentPrice": 64.84,
+      "currentReturnPct": 6.926,
       "maxPostExitReturnPct": 14.083,
       "minPostExitReturnPct": -11.28,
       "latestMatureHorizon": 20,
@@ -5857,9 +5853,9 @@
         },
         "2026-08-31": {
           "date": "2026-08-31",
-          "at": "2026-08-31T14:27:46+08:00",
-          "price": 22.82,
-          "returnPct": -3.1,
+          "at": "2026-08-31T15:47:54+08:00",
+          "price": 22.97,
+          "returnPct": -2.463,
           "phase": "afternoon_risk",
           "finalized": false
         }
@@ -5890,10 +5886,10 @@
       },
       "observedTradingDays": 29,
       "currentDate": "2026-08-31",
-      "currentPrice": 22.82,
-      "currentReturnPct": -3.1,
+      "currentPrice": 22.97,
+      "currentReturnPct": -2.463,
       "maxPostExitReturnPct": 6.454,
-      "minPostExitReturnPct": -3.1,
+      "minPostExitReturnPct": -2.463,
       "latestMatureHorizon": 20,
       "qualityLabel": "卖出合理",
       "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
@@ -6159,9 +6155,9 @@
         },
         "2026-08-31": {
           "date": "2026-08-31",
-          "at": "2026-08-31T14:27:46+08:00",
-          "price": 50.26,
-          "returnPct": -2.446,
+          "at": "2026-08-31T15:47:54+08:00",
+          "price": 50.39,
+          "returnPct": -2.193,
           "phase": "afternoon_risk",
           "finalized": false
         }
@@ -6198,8 +6194,8 @@
       },
       "observedTradingDays": 31,
       "currentDate": "2026-08-31",
-      "currentPrice": 50.26,
-      "currentReturnPct": -2.446,
+      "currentPrice": 50.39,
+      "currentReturnPct": -2.193,
       "maxPostExitReturnPct": 2.601,
       "minPostExitReturnPct": -4.251,
       "latestMatureHorizon": 30,
@@ -6475,9 +6471,9 @@
         },
         "2026-08-31": {
           "date": "2026-08-31",
-          "at": "2026-08-31T14:27:46+08:00",
-          "price": 33.72,
-          "returnPct": 15.125,
+          "at": "2026-08-31T15:47:54+08:00",
+          "price": 33.67,
+          "returnPct": 14.954,
           "phase": "afternoon_risk",
           "finalized": false
         }
@@ -6514,8 +6510,8 @@
       },
       "observedTradingDays": 32,
       "currentDate": "2026-08-31",
-      "currentPrice": 33.72,
-      "currentReturnPct": 15.125,
+      "currentPrice": 33.67,
+      "currentReturnPct": 14.954,
       "maxPostExitReturnPct": 21.031,
       "minPostExitReturnPct": -2.356,
       "latestMatureHorizon": 30,
@@ -6677,8 +6673,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 348,
-    "plansCreated": 479,
+    "snapshotsProcessed": 349,
+    "plansCreated": 481,
     "buyChecks": 1277,
     "buysExecuted": 15,
     "sellsExecuted": 12,
@@ -6695,7 +6691,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 19
     },
-    "lastRunAt": "2026-08-31T14:27:46+08:00",
-    "lastRunSummary": "云端卖出紫金矿业200股，原因：评分跌破退出阈值；更新云端计划2只：中国稀土(watch)、中国平安(watch)；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-08-31T15:47:54+08:00",
+    "lastRunSummary": "更新云端计划2只：山东黄金(watch)、中国稀土(watch)"
   }
 }
