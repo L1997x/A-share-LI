@@ -761,8 +761,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-02T15:55:36+08:00|2026-09-02|14:30尾盘风控",
+  "lastAutoRunKey": "2026-09-02T19:32:13+08:00|2026-09-02|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-09-02T19:32:13+08:00|2026-09-02|14:30尾盘风控",
+      "at": "2026-09-02T19:32:13+08:00",
+      "tradeDate": "2026-09-02",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：中航西飞(watch)、招商银行(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-02T15:55:36+08:00|2026-09-02|14:30尾盘风控",
       "at": "2026-09-02T15:55:36+08:00",
@@ -1503,38 +1516,54 @@
           "summary": "更新云端计划2只：格力电器(watch)、美的集团(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-08-25T15:33:17+08:00|2026-08-25|14:30尾盘风控",
-      "at": "2026-08-25T15:33:17+08:00",
-      "tradeDate": "2026-08-25",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：格力电器(watch)、美的集团(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000768-2026-09-02T15:55:36+08:00|2026-09-02|14:30尾盘风控",
+      "id": "000768-2026-09-02T19:32:13+08:00|2026-09-02|14:30尾盘风控",
       "code": "000768",
       "name": "中航西飞",
       "status": "pending",
       "signalDate": "2026-09-02",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-02T15:55:36+08:00|2026-09-02|14:30尾盘风控",
+      "createdRunKey": "2026-09-02T19:32:13+08:00|2026-09-02|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-05",
-      "plannedEntryPrice": 20.88,
-      "maxBuyPrice": 21.02,
-      "noChasePrice": 23.51,
+      "plannedEntryPrice": 21.1,
+      "maxBuyPrice": 21.2,
+      "noChasePrice": 24.35,
       "score": 9.3,
-      "buySignalKey": "breakout_wait",
-      "statusKey": "breakout",
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金偏冷",
+      "globalMarketLabel": "外盘偏弱",
+      "contextPositionMultiplier": 0.818,
+      "planType": "watch",
+      "targetPositionPct": 0.0818,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "600036-2026-09-02T19:32:13+08:00|2026-09-02|14:30尾盘风控",
+      "code": "600036",
+      "name": "招商银行",
+      "status": "pending",
+      "signalDate": "2026-09-02",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-09-02T19:32:13+08:00|2026-09-02|14:30尾盘风控",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-09-05",
+      "plannedEntryPrice": 38.31,
+      "maxBuyPrice": 38.58,
+      "noChasePrice": 43.35,
+      "score": 8.2,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
       "entrySafetyBlockBuy": false,
       "trendTradeEligible": true,
       "trendLabel": "上涨趋势",
@@ -2495,6 +2524,42 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600036-2026-09-02T19:32:13+08:00",
+      "at": "2026-09-02T19:32:13+08:00",
+      "tradeDate": "2026-09-02",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600036",
+      "name": "招商银行",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 38.31,
+      "maxBuyPrice": 38.58,
+      "noChasePrice": 43.35,
+      "validUntilDate": "2026-09-05",
+      "score": 8.2
+    },
+    {
+      "id": "buy_plan_created-000768-2026-09-02T19:32:13+08:00",
+      "at": "2026-09-02T19:32:13+08:00",
+      "tradeDate": "2026-09-02",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000768",
+      "name": "中航西飞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 21.1,
+      "maxBuyPrice": 21.2,
+      "noChasePrice": 24.35,
+      "validUntilDate": "2026-09-05",
+      "score": 9.3
+    },
     {
       "id": "buy_plan_created-600547-2026-09-02T15:55:36+08:00",
       "at": "2026-09-02T15:55:36+08:00",
@@ -4205,40 +4270,6 @@
       "plannedEntryPrice": 29.64,
       "maxBuyPrice": 30.45,
       "score": 8.7
-    },
-    {
-      "id": "buy_deferred-000831-2026-08-27T14:26:35+08:00",
-      "at": "2026-08-27T14:26:35+08:00",
-      "tradeDate": "2026-08-27",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "000831",
-      "name": "中国稀土",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 53.85,
-      "maxBuyPrice": 55.05,
-      "score": 8.3
-    },
-    {
-      "id": "buy_plan_created-000831-2026-08-27T14:26:35+08:00",
-      "at": "2026-08-27T14:26:35+08:00",
-      "tradeDate": "2026-08-27",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "000831",
-      "name": "中国稀土",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 53.85,
-      "maxBuyPrice": 55.05,
-      "noChasePrice": 67.02,
-      "validUntilDate": "2026-08-30",
-      "score": 8.3
     }
   ],
   "exitReviews": [
@@ -4332,7 +4363,7 @@
       "dailyPrices": {
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 23.02,
           "returnPct": 1.634,
           "phase": "afternoon_risk",
@@ -4384,7 +4415,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 32.95,
           "returnPct": -2.08,
           "phase": "afternoon_risk",
@@ -4444,7 +4475,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 48.1,
           "returnPct": 4.113,
           "phase": "afternoon_risk",
@@ -4528,7 +4559,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 24.7,
           "returnPct": -4.817,
           "phase": "afternoon_risk",
@@ -4624,7 +4655,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 32.95,
           "returnPct": -1.259,
           "phase": "afternoon_risk",
@@ -4784,7 +4815,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 32.95,
           "returnPct": 2.171,
           "phase": "afternoon_risk",
@@ -5024,7 +5055,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 34.12,
           "returnPct": -1.073,
           "phase": "afternoon_risk",
@@ -5302,7 +5333,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 6.46,
           "returnPct": 7.309,
           "phase": "afternoon_risk",
@@ -5580,7 +5611,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 12.49,
           "returnPct": -9.95,
           "phase": "afternoon_risk",
@@ -5858,7 +5889,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 62.0,
           "returnPct": 2.243,
           "phase": "afternoon_risk",
@@ -6160,7 +6191,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 22.59,
           "returnPct": -4.076,
           "phase": "afternoon_risk",
@@ -6484,7 +6515,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 50.6,
           "returnPct": -1.786,
           "phase": "afternoon_risk",
@@ -6816,7 +6847,7 @@
         },
         "2026-09-02": {
           "date": "2026-09-02",
-          "at": "2026-09-02T15:55:36+08:00",
+          "at": "2026-09-02T19:32:13+08:00",
           "price": 32.95,
           "returnPct": 12.496,
           "phase": "afternoon_risk",
@@ -7018,8 +7049,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 369,
-    "plansCreated": 517,
+    "snapshotsProcessed": 370,
+    "plansCreated": 519,
     "buyChecks": 1299,
     "buysExecuted": 16,
     "sellsExecuted": 15,
@@ -7036,7 +7067,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 21
     },
-    "lastRunAt": "2026-09-02T15:55:36+08:00",
-    "lastRunSummary": "更新云端计划2只：中航西飞(watch)、山东黄金(watch)"
+    "lastRunAt": "2026-09-02T19:32:13+08:00",
+    "lastRunSummary": "更新云端计划2只：中航西飞(watch)、招商银行(watch)"
   }
 }
