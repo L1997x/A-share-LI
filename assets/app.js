@@ -1889,8 +1889,15 @@ function render() {
   byId("averageReturn").className = returnClass(averageReturn);
   const marketFundHeat = data.universe_scan?.market_fund_heat || data.universe_scan?.market_environment?.fund_heat || {};
   const globalMarket = data.universe_scan?.global_market || {};
-  byId("marketFundHeat").textContent = `${marketFundHeat.label || "未知"} / ${formatSignedNumber(marketFundHeat.heat_score, 1)}`;
-  byId("globalMarketImpact").textContent = `${globalMarket.label || "未知"} / ${formatSignedNumber(globalMarket.impact_score, 1)}`;
+  const marketFundHeatNode = byId("marketFundHeat");
+  if (marketFundHeatNode) {
+    marketFundHeatNode.textContent = `${marketFundHeat.label || "未知"} / ${formatSignedNumber(marketFundHeat.heat_score, 1)}`;
+  }
+  const globalMarketImpactNode = byId("globalMarketImpact");
+  if (globalMarketImpactNode) {
+    globalMarketImpactNode.textContent = `${globalMarket.label || "未知"} / ${formatSignedNumber(globalMarket.impact_score, 1)}`;
+  }
+  renderMarketPulse(data);
   byId("modelDescription").textContent = data.model?.description || byId("modelDescription").textContent;
 
   renderModelStatus(data);
@@ -1899,6 +1906,36 @@ function render() {
   renderSimulationPanel();
   if (state.autoRunMessage) setSimulationMessage(state.autoRunMessage, "info");
   renderReviewCenter();
+}
+
+function renderMarketPulse(data) {
+  const environment = data.universe_scan?.market_environment || {};
+  const heat = data.universe_scan?.market_fund_heat || environment.fund_heat || {};
+  const global = data.universe_scan?.global_market || {};
+  const source = data.source_status || {};
+  const quality = source.degraded ? "降级可用" : source.fallback ? "回退数据" : "正常";
+  const breadth = environment.mainboard_count
+    ? `上涨${environment.advancers ?? "-"} / 下跌${environment.decliners ?? "-"} · ${formatPercent(environment.up_ratio_pct)}`
+    : "全主板扩散数据暂缺";
+  const dynamicCount = data.universe_scan?.dynamic_candidate_count;
+  const scope = data.universe_scan?.mainboard_count
+    ? `${data.universe_scan.mainboard_count}只主板 · 动态候选${dynamicCount ?? "-"}只`
+    : "动态扫描数据暂缺";
+  const set = (id, value, className = "") => {
+    const node = byId(id);
+    if (!node) return;
+    node.textContent = value;
+    node.className = className;
+  };
+  set("marketStatusBadge", environment.label || "市场状态未知");
+  set("marketTemperature", `${environment.label || "未知"} ${formatSignedNumber(environment.temperature_score, 1)}`);
+  set("marketBreadth", breadth);
+  set("marketHeatValue", `${heat.label || "未知"} ${formatSignedNumber(heat.heat_score, 1)}`);
+  set("marketHeatDetail", `覆盖${formatPercent(heat.coverage_pct)} · ${scope}`);
+  set("marketGlobalValue", `${global.label || "未知"} ${formatSignedNumber(global.impact_score, 1)}`);
+  set("marketGlobalDetail", `${global.session || "时段未知"} · ${global.confidence || "低"}置信`);
+  set("marketDataQuality", quality, source.degraded || source.fallback ? "quality-warning" : "quality-ok");
+  set("marketDataQualityDetail", `${source.warnings?.length || 0}项告警 · ${data.generated_at || "-"}`);
 }
 
 function renderModelStatus(data) {
@@ -1933,7 +1970,7 @@ function renderModelStatus(data) {
       } 个；单股修正上限 ±${formatNumber(feedback.score_cap, 2)} 分。${feedback.summary?.note || ""}`
     : "反馈模型：等待历史样本积累。";
 
-  byId("sourceStatus").textContent = `更新时间：${data.generated_at || "-"}${phaseText}；市场温度：${
+  byId("sourceStatus").textContent = `数据状态：${data.source_status?.degraded ? "降级可用" : data.source_status?.fallback ? "回退数据" : "正常"}；更新时间：${data.generated_at || "-"}${phaseText}；市场温度：${
     marketEnvironment.label || "-"
   } / ${formatSignedNumber(marketEnvironment.temperature_score, 2)}；资金热度：${marketFundHeat.label || "-"} / ${formatSignedNumber(
     marketFundHeat.heat_score,

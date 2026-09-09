@@ -22,7 +22,7 @@ TRIAL_MIN_SCORE = 8.8
 TRIAL_ATR_BUFFER = 1.5
 TRIAL_MAX_MA20_PREMIUM = 0.05
 MAX_MA60_TEN_DAY_DECLINE_PCT = -1.0
-PLAN_VALID_DAYS = 3
+PLAN_VALID_DAYS = 1
 STOP_LOSS_PCT = 0.06
 TAKE_PROFIT_PCT = 0.12
 TRAILING_STOP_PCT = 0.06
@@ -431,6 +431,29 @@ def _create_plans(state: dict[str, Any], payload: dict[str, Any], events: list[d
         selected.append(plan)
         if len(selected) >= min(MAX_BUYS_PER_RUN, open_slots):
             break
+    # Refresh every still-eligible plan from the latest snapshot. The top two
+    # are ordered first for execution priority, while the rest remain visible
+    # as current watch plans instead of carrying stale prices forward.
+    selected_codes = {plan["code"] for plan in selected}
+    refreshed = list(selected)
+    refreshed_codes = set(selected_codes)
+    for stock in stocks.values():
+        code = str(stock.get("code"))
+        if code in refreshed_codes or code in state["positions"]:
+            continue
+        if (_num(stock.get("score")) or 0.0) < MIN_SCORE or _hard_blocked(stock):
+            continue
+        plan = _plan_for_stock(stock, payload, run_key)
+        if plan:
+            refreshed.append(plan)
+            refreshed_codes.add(code)
+    affordable_refreshed = []
+    for plan in refreshed:
+        price = _num(plan.get("maxBuyPrice")) or _num(plan.get("plannedEntryPrice")) or 0.0
+        target_pct = _num(plan.get("targetPositionPct")) or TRIAL_POSITION_PCT
+        if price > 0 and _affordable_quantity(state, price, target_pct, portfolio_value) >= 100:
+            affordable_refreshed.append(plan)
+    selected = affordable_refreshed[:50]
     selected_codes = {plan["code"] for plan in selected}
     today = _parse_date(payload.get("as_of_date"))
     preserved = []
@@ -745,7 +768,10 @@ def _execute_sells(state: dict[str, Any], payload: dict[str, Any], events: list[
         elif highest > avg_cost * 1.04 and price <= trailing:
             reason = f"触发移动止盈{trailing:.2f}"
         elif phase in {"afternoon_risk", "evening_watch"} and (_num(stock.get("score")) or 0.0) < exit_score_threshold:
-            reason = "评分跌破退出阈值"
+            score_streak = int(_num(position.get("scoreExitStreak")) or 0) + 1
+            position["scoreExitStreak"] = score_streak
+            if score_streak >= 2:
+                reason = "评分连续两次跌破退出阈值"
         elif phase in {"afternoon_risk", "evening_watch"} and stock.get("status_key") == "avoid":
             reason = "模型状态转为不追高/退出"
         elif phase in {"afternoon_risk", "evening_watch"} and _hold_days(position, today) >= max_hold_days:

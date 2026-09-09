@@ -11,6 +11,8 @@
   --red: #b42318;
   --line: #d9e2ef;
   --shadow: 0 10px 24px rgba(15, 76, 129, 0.08);
+  --shadow-soft: 0 4px 14px rgba(15, 76, 129, 0.06);
+  --radius: 10px;
 }
 
 * {
@@ -27,6 +29,16 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
 }
 
 .topbar {
@@ -71,9 +83,71 @@ h1 {
 }
 
 main {
-  width: min(960px, 100%);
+  width: min(1180px, 100%);
   margin: 0 auto;
+  padding: 18px 20px 36px;
+}
+
+.dashboard-module {
+  min-width: 0;
+}
+
+.module-kicker {
+  margin-bottom: 3px;
+  color: var(--brand);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.market-panel {
+  margin-bottom: 14px;
   padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.market-panel h2 {
+  font-size: 19px;
+}
+
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.market-tile {
+  min-width: 0;
+  padding: 13px;
+  background: #f7faff;
+  border: 1px solid #e3ebf5;
+  border-radius: 8px;
+}
+
+.market-tile span,
+.market-tile em {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.market-tile strong {
+  display: block;
+  margin: 5px 0 4px;
+  overflow-wrap: anywhere;
+  font-size: 17px;
+}
+
+.quality-warning {
+  color: var(--yellow) !important;
+}
+
+.quality-ok {
+  color: var(--green) !important;
 }
 
 .ghost-button,
@@ -108,7 +182,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
   gap: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .summary-band > div,
@@ -119,7 +193,7 @@ main {
 .stock-card {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
@@ -156,13 +230,16 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 8px;
-  margin: 8px 0 14px;
+  margin: 8px 0 16px;
+  padding: 5px;
+  background: #eaf0f7;
+  border-radius: 10px;
 }
 
 .tab {
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--panel);
+  background: transparent;
   color: var(--muted);
   padding: 10px 6px;
   font-weight: 700;
@@ -176,11 +253,14 @@ main {
 
 .stock-list {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
 .stock-card {
   overflow: hidden;
+  min-width: 0;
+  box-shadow: var(--shadow-soft);
 }
 
 .card-head {
@@ -362,6 +442,10 @@ dd {
   padding: 16px;
 }
 
+.simulation-panel {
+  padding: 18px;
+}
+
 .simulation-panel h2,
 .review-panel h2,
 .model-panel h2 {
@@ -524,13 +608,52 @@ dd {
   gap: 12px;
 }
 
+.simulation-modules {
+  display: grid;
+  gap: 12px;
+}
+
+.simulation-module,
+.auto-log-panel {
+  min-width: 0;
+  padding: 14px;
+  background: #fbfdff;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  box-shadow: var(--shadow-soft);
+}
+
+.simulation-modules > .simulation-grid {
+  display: contents;
+}
+
+.simulation-module h3,
+.auto-log-panel h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.simulation-module h3::before,
+.auto-log-panel h3::before {
+  width: 4px;
+  height: 16px;
+  content: "";
+  background: var(--brand);
+  border-radius: 3px;
+}
+
+.wide-module {
+  grid-column: 1 / -1;
+}
+
 .simulation-grid h3 {
   margin: 0 0 8px;
   font-size: 15px;
 }
 
 .auto-log-panel {
-  margin-top: 12px;
+  margin-top: 0;
 }
 
 .auto-log-panel h3 {
@@ -551,6 +674,17 @@ dd {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--line);
+}
+
+.simulation-list:empty::after,
+.review-list:empty::after,
+.stock-list:empty::after {
+  display: block;
+  padding: 18px 12px;
+  color: var(--muted);
+  content: "暂无数据";
+  font-size: 13px;
+  text-align: center;
 }
 
 .simulation-row {
@@ -660,11 +794,23 @@ dd {
   }
 
   main {
-    padding: 12px;
+    padding: 12px 12px 28px;
   }
 
   .summary-band {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .market-panel,
+  .simulation-panel,
+  .review-panel,
+  .model-panel {
+    padding: 13px;
+  }
+
+  .market-grid,
+  .stock-list {
+    grid-template-columns: 1fr;
   }
 
   .metrics {
@@ -702,6 +848,14 @@ dd {
 
   .simulation-grid {
     grid-template-columns: 1fr;
+  }
+
+  .simulation-modules > .simulation-grid {
+    display: grid;
+  }
+
+  .wide-module {
+    grid-column: auto;
   }
 
   .simulation-row,

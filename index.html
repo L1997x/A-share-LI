@@ -22,7 +22,7 @@
     </header>
 
     <main>
-      <section class="summary-band" aria-live="polite">
+      <section class="summary-band dashboard-module" aria-live="polite">
         <div>
           <span class="label">数据时间</span>
           <strong id="asOfDate">加载中</strong>
@@ -58,7 +58,23 @@
         这是研究观察和模拟交易工具，不是自动下单系统。模拟收益用于检验模型和交易纪律，不代表真实账户收益。真实下单前，请复核实时行情、公告、财报、交易费用和个人风险承受能力。
       </section>
 
-      <nav class="tabs" aria-label="筛选观察状态">
+      <section class="market-panel dashboard-module">
+        <div class="section-head">
+          <div>
+            <p class="module-kicker">MARKET PULSE</p>
+            <h2>市场脉搏</h2>
+          </div>
+          <span id="marketStatusBadge" class="section-badge">-</span>
+        </div>
+        <div class="market-grid">
+          <div class="market-tile"><span>市场温度</span><strong id="marketTemperature">-</strong><em id="marketBreadth">-</em></div>
+          <div class="market-tile"><span>资金热度</span><strong id="marketHeatValue">-</strong><em id="marketHeatDetail">-</em></div>
+          <div class="market-tile"><span>全球影响</span><strong id="marketGlobalValue">-</strong><em id="marketGlobalDetail">-</em></div>
+          <div class="market-tile"><span>数据质量</span><strong id="marketDataQuality">-</strong><em id="marketDataQualityDetail">-</em></div>
+        </div>
+      </section>
+
+      <nav class="tabs dashboard-module" aria-label="筛选观察状态">
         <button class="tab active" data-filter="all">全部</button>
         <button class="tab" data-filter="buyable">可买入</button>
         <button class="tab" data-filter="watch">观察区</button>
@@ -67,7 +83,7 @@
         <button class="tab" data-filter="avoid">不追高</button>
       </nav>
 
-      <section id="stockList" class="stock-list"></section>
+      <section id="stockList" class="stock-list dashboard-module"></section>
 
       <section class="simulation-panel" id="simulationPanel">
         <div class="section-head">
@@ -192,32 +208,34 @@
 
         <p id="simulationMessage" class="simulation-message"></p>
 
-        <div class="simulation-grid">
-          <div>
-            <h3>当前持仓</h3>
-            <div id="simulationPositions" class="simulation-list"></div>
+        <div class="simulation-modules module-grid">
+          <div class="simulation-grid">
+            <section class="simulation-module">
+              <h3>当前持仓</h3>
+              <div id="simulationPositions" class="simulation-list"></div>
+            </section>
+            <section class="simulation-module">
+              <h3>成交记录</h3>
+              <div id="simulationTrades" class="simulation-list"></div>
+            </section>
           </div>
-          <div>
-            <h3>成交记录</h3>
-            <div id="simulationTrades" class="simulation-list"></div>
-          </div>
-        </div>
-        <div class="auto-log-panel">
-          <h3>待执行计划</h3>
-          <div id="simulationPlans" class="simulation-list"></div>
-        </div>
-        <div class="auto-log-panel">
+          <section class="auto-log-panel wide-module">
+            <h3>待执行计划</h3>
+            <div id="simulationPlans" class="simulation-list"></div>
+          </section>
+          <section class="auto-log-panel wide-module">
           <h3>卖出后回访</h3>
           <p class="panel-note">正收益表示卖出后继续上涨的机会成本，负收益表示卖出后避开的下跌；按卖出后的第 3、5、20、30 个交易日复核。</p>
           <div id="simulationExitFeedback" class="simulation-list"></div>
-        </div>
-        <div class="auto-log-panel">
+          </section>
+          <section class="auto-log-panel">
           <h3>决策复盘</h3>
           <div id="simulationDecisionJournal" class="simulation-list"></div>
-        </div>
-        <div class="auto-log-panel">
+          </section>
+          <section class="auto-log-panel">
           <h3>自动策略日志</h3>
           <div id="simulationAutoLog" class="simulation-list"></div>
+          </section>
         </div>
       </section>
 

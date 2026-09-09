@@ -35,6 +35,7 @@ HISTORY_SNAPSHOT_RETENTION = 120
 CN_TZ = timezone(timedelta(hours=8))
 FINAL_POOL_SIZE = 10
 DEEP_ANALYSIS_LIMIT = 28
+DYNAMIC_CANDIDATE_LIMIT = 80
 UNIVERSE_EXPORT_LIMIT = 120
 FEEDBACK_HORIZONS = (1, 3, 5, 10)
 FEEDBACK_SCORE_CAP = 0.8
@@ -746,6 +747,7 @@ def fetch_market_fund_flow() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]
     return merged, {
         "source": provider,
         "available": bool(merged),
+        "degraded": bool(warnings),
         "fetched_horizons": fetched,
         "record_count": len(merged),
         "warnings": warnings,
@@ -1465,10 +1467,32 @@ def select_candidates_from_universe(candidate_library: list[Candidate]) -> tuple
         return fallback_candidates, fallback_meta, universe_payload, warnings
     warnings.extend(universe_payload.get("fund_flow", {}).get("warnings", []))
 
+    # Keep the explainable library, but also allow new leaders from the full
+    # main-board scan to enter the second-stage review.
+    library_codes = {candidate.code for candidate in candidate_library}
+    dynamic_candidates: list[Candidate] = []
+    for scan in (universe_payload.get("top_mainboard") or [])[:DYNAMIC_CANDIDATE_LIMIT]:
+        code = normalize_code(scan.get("code"))
+        if not code or code in library_codes or not is_mainboard_code(code):
+            continue
+        name = clean_display_text(scan.get("name"), code)
+        dynamic_candidates.append(
+            Candidate(
+                code,
+                name,
+                "动态强势候选",
+                "来自全主板第一层动态排名，先验证趋势、成交活跃度和资金扩散，再决定是否进入产业链深度研究。",
+                4.4,
+                ["全主板强势排名", "成交活跃度", "趋势延续验证"],
+                ["基本面尚未完成深度核验", "短线拥挤风险", "第一层信号可能反转"],
+            )
+        )
+    analysis_library = [*candidate_library, *dynamic_candidates]
+
     scored: list[tuple[float, Candidate]] = []
     meta_by_code: dict[str, dict[str, Any]] = {}
     theme_strength_by_group = (universe_payload.get("theme_strength") or {}).get("by_group", {})
-    for candidate in candidate_library:
+    for candidate in analysis_library:
         scan = universe_by_code.get(candidate.code)
         if not scan:
             continue
@@ -1478,7 +1502,7 @@ def select_candidates_from_universe(candidate_library: list[Candidate]) -> tuple
         first_layer_score = safe_float(scan.get("layer_one_score")) or 0.0
         combined_score = first_layer_score + candidate.base_score * 7 + theme_bonus * 10
         meta_by_code[candidate.code] = {
-            "candidate_source": "全主板第一层入围",
+            "candidate_source": "战略主题库+全主板第一层入围" if candidate.code in library_codes else "全主板动态候选",
             "layer_one_score": round_or_none(first_layer_score),
             "layer_one_rank": scan.get("layer_one_rank"),
             "layer_one_pct_chg": scan.get("pct_chg"),
@@ -1499,10 +1523,10 @@ def select_candidates_from_universe(candidate_library: list[Candidate]) -> tuple
     if len(scored) < min(FINAL_POOL_SIZE, 6):
         warnings.append("全主板扫描匹配到的战略候选不足，已用主题库兜底补齐。")
         existing = {candidate.code for _, candidate in scored}
-        supplement_candidates = [candidate for candidate in candidate_library if candidate.code not in existing]
+        supplement_candidates = [candidate for candidate in analysis_library if candidate.code not in existing]
         live_quotes, quote_warnings = fetch_sina_live_quotes([candidate.code for candidate in supplement_candidates[:DEEP_ANALYSIS_LIMIT]])
         warnings.extend(quote_warnings)
-        for candidate in candidate_library:
+        for candidate in analysis_library:
             if candidate.code in existing:
                 continue
             live_quote = live_quotes.get(candidate.code, {})
@@ -1529,6 +1553,21 @@ def select_candidates_from_universe(candidate_library: list[Candidate]) -> tuple
 
     scored.sort(key=lambda item: item[0], reverse=True)
     selected = [candidate for _, candidate in scored[:DEEP_ANALYSIS_LIMIT]]
+    live_quotes, quote_warnings = fetch_sina_live_quotes([candidate.code for candidate in selected])
+    warnings.extend(quote_warnings)
+    for candidate in selected:
+        live_quote = live_quotes.get(candidate.code)
+        if live_quote:
+            meta_by_code.setdefault(candidate.code, {}).update(
+                {
+                    "live_quote_date": live_quote.get("live_quote_date"),
+                    "live_quote_snapshot_at": live_quote.get("live_quote_snapshot_at"),
+                    "live_close": live_quote.get("live_close"),
+                }
+            )
+    universe_payload["strategic_library_count"] = len(library_codes)
+    universe_payload["dynamic_candidate_count"] = len(dynamic_candidates)
+    universe_payload["analysis_library_count"] = len(analysis_library)
     universe_payload["deep_analysis_count"] = len(selected)
     universe_payload["final_pool_size"] = FINAL_POOL_SIZE
     return selected, meta_by_code, universe_payload, warnings
@@ -4117,6 +4156,7 @@ def build_payload() -> dict[str, Any]:
         "source_status": {
             "quotes": "akshare.stock_zh_a_spot intraday snapshot + stock_zh_a_daily qfq / Sina + Eastmoney/Tonghuashun fund flow + Sina turnover chip estimate + Sina global indices/futures/FX",
             "fallback": False,
+            "degraded": bool((universe_payload.get("fund_flow") or {}).get("degraded") or errors),
             "note": "免费数据源可能延迟或限流；关键决策请复核实时行情。",
             "warnings": errors,
         },
