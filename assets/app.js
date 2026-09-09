@@ -36,6 +36,7 @@ const state = {
   data: null,
   review: null,
   filter: "all",
+  activeView: "overview",
   simulation: loadSimulation(),
   autoRunMessage: "",
   refreshTimer: null,
@@ -1906,6 +1907,19 @@ function render() {
   renderSimulationPanel();
   if (state.autoRunMessage) setSimulationMessage(state.autoRunMessage, "info");
   renderReviewCenter();
+  renderWorkspaceView();
+}
+
+function renderWorkspaceView() {
+  document.querySelectorAll("[data-view-section]").forEach((section) => {
+    const visible = section.dataset.viewSection === state.activeView;
+    section.hidden = !visible;
+  });
+  document.querySelectorAll(".workspace-tab").forEach((button) => {
+    const active = button.dataset.view === state.activeView;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-selected", String(active));
+  });
 }
 
 function renderMarketPulse(data) {
@@ -2557,6 +2571,8 @@ function selectStockForSimulation(stock) {
   if (price) byId("simulationPriceInput").value = formatNumber(price);
   byId("simulationQuantityInput").value = "100";
   saveSimulation();
+  state.activeView = "simulation";
+  renderWorkspaceView();
   setSimulationMessage(`已带入 ${stock.name}，模拟价 ${price ? formatNumber(price) : "-"}。`, "info");
   byId("simulationPanel").scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -2785,6 +2801,14 @@ document.querySelectorAll(".tab").forEach((button) => {
   });
 });
 
+document.querySelectorAll(".workspace-tab").forEach((button) => {
+  button.addEventListener("click", () => {
+    state.activeView = button.dataset.view || "overview";
+    renderWorkspaceView();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
 let deferredPrompt;
 const installButton = byId("installButton");
 
@@ -2810,4 +2834,5 @@ if ("serviceWorker" in navigator) {
 
 bindSimulationEvents();
 scheduleAutoRefresh();
+renderWorkspaceView();
 loadPool({ reason: "initial" });

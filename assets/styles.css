@@ -226,6 +226,49 @@ main {
   line-height: 1.55;
 }
 
+.workspace-nav {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  gap: 4px;
+  margin: 0 0 16px;
+  padding: 5px;
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+}
+
+.workspace-tab {
+  flex: 1 0 auto;
+  min-width: 92px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--muted);
+  padding: 10px 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.workspace-tab:hover {
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+
+.workspace-tab.active {
+  background: var(--brand);
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(15, 76, 129, 0.2);
+}
+
+.workspace-section[hidden] {
+  display: none !important;
+}
+
 .tabs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
@@ -320,7 +363,7 @@ main {
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   background: var(--line);
   border-top: 1px solid var(--line);
@@ -335,6 +378,7 @@ main {
 .metrics strong {
   display: block;
   word-break: break-word;
+  font-size: 14px;
 }
 
 .quick-actions {
@@ -405,6 +449,17 @@ main {
 .detail {
   border-top: 1px solid var(--line);
   padding: 14px;
+  background: #ffffff;
+}
+
+.compact-indicators {
+  color: #31445d;
+}
+
+.compact-indicators strong {
+  display: inline;
+  margin-right: 4px;
+  font-size: inherit;
 }
 
 .logic {
@@ -444,6 +499,11 @@ dd {
 
 .simulation-panel {
   padding: 18px;
+}
+
+.simulation-panel > .section-head p {
+  max-width: 760px;
+  font-size: 13px;
 }
 
 .simulation-panel h2,
@@ -799,6 +859,15 @@ dd {
 
   .summary-band {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workspace-nav {
+    top: 0;
+    margin-right: -12px;
+    margin-left: -12px;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
   }
 
   .market-panel,

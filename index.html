@@ -58,7 +58,15 @@
         这是研究观察和模拟交易工具，不是自动下单系统。模拟收益用于检验模型和交易纪律，不代表真实账户收益。真实下单前，请复核实时行情、公告、财报、交易费用和个人风险承受能力。
       </section>
 
-      <section class="market-panel dashboard-module">
+      <nav class="workspace-nav" aria-label="功能模块">
+        <button class="workspace-tab active" type="button" data-view="overview">总览</button>
+        <button class="workspace-tab" type="button" data-view="stocks">选股池</button>
+        <button class="workspace-tab" type="button" data-view="simulation">模拟交易</button>
+        <button class="workspace-tab" type="button" data-view="review">回访中心</button>
+        <button class="workspace-tab" type="button" data-view="model">模型说明</button>
+      </nav>
+
+      <section class="market-panel dashboard-module workspace-section" data-view-section="overview">
         <div class="section-head">
           <div>
             <p class="module-kicker">MARKET PULSE</p>
@@ -74,7 +82,7 @@
         </div>
       </section>
 
-      <nav class="tabs dashboard-module" aria-label="筛选观察状态">
+      <nav class="tabs dashboard-module workspace-section" data-view-section="stocks" aria-label="筛选观察状态">
         <button class="tab active" data-filter="all">全部</button>
         <button class="tab" data-filter="buyable">可买入</button>
         <button class="tab" data-filter="watch">观察区</button>
@@ -83,9 +91,9 @@
         <button class="tab" data-filter="avoid">不追高</button>
       </nav>
 
-      <section id="stockList" class="stock-list dashboard-module"></section>
+      <section id="stockList" class="stock-list dashboard-module workspace-section" data-view-section="stocks"></section>
 
-      <section class="simulation-panel" id="simulationPanel">
+      <section class="simulation-panel workspace-section" data-view-section="simulation" id="simulationPanel">
         <div class="section-head">
           <div>
             <h2>模拟交易</h2>
@@ -239,7 +247,7 @@
         </div>
       </section>
 
-      <section class="review-panel">
+      <section class="review-panel workspace-section" data-view-section="review">
         <div class="section-head">
           <div>
             <h2>回访中心</h2>
@@ -250,7 +258,7 @@
         <div id="reviewList" class="review-list"></div>
       </section>
 
-      <section class="model-panel">
+      <section class="model-panel workspace-section" data-view-section="model">
         <h2>模型思路</h2>
         <p id="modelDescription">长期趋势确认 → 产业链瓶颈 → 供需验证 → 低关注度/锁定价 → 催化剂 → 估值重估。</p>
         <div id="feedbackStatus" class="source-status"></div>
@@ -272,14 +280,7 @@
           <div><span>买入信号</span><strong class="buy-signal"></strong></div>
           <div><span>趋势</span><strong class="trend-status"></strong></div>
           <div><span>当前可买价</span><strong class="buy-price"></strong></div>
-          <div><span>资金流</span><strong class="fund-flow"></strong></div>
-          <div><span>筹码</span><strong class="chip-status"></strong></div>
-          <div><span>反馈</span><strong class="feedback-bonus"></strong></div>
           <div><span>接入价</span><strong class="entry-price"></strong></div>
-          <div><span>突破价</span><strong class="breakout-price"></strong></div>
-          <div><span>观察区间</span><strong class="watch-zone"></strong></div>
-          <div><span>不追高线</span><strong class="no-chase"></strong></div>
-          <div><span>回访收益</span><strong class="tracking-return"></strong></div>
           <div><span>评分</span><strong class="score"></strong></div>
           <div><span>决策等级</span><strong class="decision-grade"></strong></div>
         </div>
@@ -290,6 +291,10 @@
           <p class="logic"></p>
           <dl>
             <div><dt>产业链位置</dt><dd class="theme"></dd></div>
+            <div><dt>辅助指标</dt><dd class="compact-indicators">
+              资金流 <strong class="fund-flow"></strong> · 筹码 <strong class="chip-status"></strong> · 反馈 <strong class="feedback-bonus"></strong><br />
+              突破价 <strong class="breakout-price"></strong> · 观察区 <strong class="watch-zone"></strong> · 不追高线 <strong class="no-chase"></strong> · 回访 <strong class="tracking-return"></strong>
+            </dd></div>
             <div><dt>第一层初筛</dt><dd class="layer-one"></dd></div>
             <div><dt>趋势过滤</dt><dd class="trend-detail"></dd></div>
             <div><dt>买入观察</dt><dd class="buy-detail"></dd></div>
