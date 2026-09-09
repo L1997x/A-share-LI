@@ -6,6 +6,8 @@ from scripts.generate_pool import (
     apply_feedback_price_adjustment,
     entry_effectiveness_factors,
     entry_safety_effect_for_row,
+    finalize_entry_effectiveness_factor,
+    finalize_feedback_factor,
 )
 
 
@@ -44,6 +46,52 @@ def candidate_row() -> dict:
 
 
 class EntrySafetyProbeTests(unittest.TestCase):
+    def test_feedback_factor_requires_evidence_before_decision_use(self) -> None:
+        factor = finalize_feedback_factor(
+            {
+                "id": "test",
+                "dimension": "trend",
+                "value": "上涨趋势",
+                "label": "趋势=上涨趋势",
+                "raw_count": 5,
+                "weighted_count": 5.0,
+                "return_sum": 10.0,
+                "excess_sum": 8.0,
+                "hit_weight": 4.0,
+                "horizons": {1},
+            }
+        )
+        self.assertEqual(factor["evidence_level"], "insufficient")
+        self.assertFalse(factor["decision_eligible"])
+        self.assertEqual(factor["application_weight"], 0.0)
+
+    def test_untouched_entry_samples_cannot_raise_entry_price(self) -> None:
+        factor = finalize_entry_effectiveness_factor(
+            {
+                "id": "test",
+                "dimension": "status",
+                "value": "等回踩",
+                "label": "状态=等回踩",
+                "raw_count": 100,
+                "weighted_count": 20.0,
+                "entry_return_sum": 200.0,
+                "touch_return_sum": 0.0,
+                "missed_return_sum": 200.0,
+                "touch_adverse_drawdown_sum": 0.0,
+                "touched_weight": 0.0,
+                "untouched_weight": 20.0,
+                "hit_weight": 0.0,
+                "crash_weight": 0.0,
+                "actual_buyable_count": 0,
+                "touched_entry_count": 0,
+                "untouched_wait_count": 100,
+                "horizons": {1},
+            }
+        )
+        self.assertEqual(factor["evidence_level"], "insufficient")
+        self.assertFalse(factor["decision_eligible"])
+        self.assertEqual(factor["price_adjustment_pct"], 0.0)
+
     def test_broad_risk_factor_cannot_hard_block_even_with_severe_history(self) -> None:
         row = candidate_row()
         factor = entry_effectiveness_factors(row)[0]

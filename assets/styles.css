@@ -446,6 +446,56 @@ main {
   color: var(--red);
 }
 
+.feedback-application {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 10px 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.feedback-metric {
+  min-width: 0;
+  padding: 10px 12px;
+  background: #fbfdff;
+}
+
+.feedback-metric span,
+.feedback-metric em {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+}
+
+.feedback-metric strong {
+  display: block;
+  margin: 3px 0;
+  color: var(--ink);
+  font-size: 17px;
+}
+
+.feedback-metric.metric-warning strong {
+  color: var(--red);
+}
+
+.feedback-metric.metric-positive strong {
+  color: var(--green);
+}
+
+.feedback-application-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 9px 12px;
+  background: #f5f8fb;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
 .detail {
   border-top: 1px solid var(--line);
   padding: 14px;
@@ -931,6 +981,10 @@ dd {
   .simulation-row.compact,
   .simulation-row.exit-feedback-summary,
   .simulation-row.exit-feedback-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feedback-application {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 

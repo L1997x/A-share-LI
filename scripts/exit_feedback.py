@@ -332,9 +332,13 @@ def build_exit_feedback(state: dict[str, Any]) -> dict[str, Any]:
     score_stat = mature("score_exit", 5)
     if score_stat:
         average = _num(score_stat.get("avgPostExitReturnPct")) or 0.0
+        median_return = _num(score_stat.get("medianPostExitReturnPct")) or 0.0
         if average >= 3:
             adjustments["exitScoreThresholdDelta"] = -0.2
             adjustments["notes"].append("评分退出后5日平均上涨，退出阈值下调0.2并减少过早卖出。")
+        elif average >= 1 and median_return >= 0.5:
+            adjustments["exitScoreThresholdDelta"] = -0.1
+            adjustments["notes"].append("评分退出后5日持续小幅上涨，退出阈值下调0.1进行保守校准。")
         elif average <= -3:
             adjustments["exitScoreThresholdDelta"] = 0.1
             adjustments["notes"].append("评分退出后5日继续下跌，退出阈值上调0.1以更早控制风险。")

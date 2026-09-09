@@ -43,6 +43,14 @@ FEEDBACK_MIN_STRONG_SAMPLES = 8
 ENTRY_FEEDBACK_MIN_SAMPLES = 6
 ENTRY_FEEDBACK_PRICE_CAP_DOWN = -2.4
 ENTRY_FEEDBACK_PRICE_CAP_UP = 0.6
+FEEDBACK_USABLE_MIN_SAMPLES = 12
+FEEDBACK_USABLE_MIN_WEIGHTED_SAMPLES = 3.0
+FEEDBACK_USABLE_MIN_CONFIDENCE = 0.30
+FEEDBACK_STRONG_MIN_SAMPLES = 30
+FEEDBACK_STRONG_MIN_WEIGHTED_SAMPLES = 8.0
+FEEDBACK_STRONG_MIN_CONFIDENCE = 0.55
+ENTRY_TOUCHED_MIN_SAMPLES = 8
+ENTRY_TOUCHED_STRONG_MIN_SAMPLES = 20
 ENTRY_HARD_BLOCK_MIN_TOUCHED = 8
 ENTRY_HARD_BLOCK_MIN_TOUCH_RATIO_PCT = 8.0
 ENTRY_HARD_BLOCK_DIMENSIONS = {"buy_signal", "status", "entry_gap"}
@@ -2236,6 +2244,23 @@ def finalize_feedback_factor(raw: dict[str, Any]) -> dict[str, Any]:
     shrunk_excess = avg_excess * sample_shrink
     confidence = clamp(sample_shrink * min(1.0, weighted_count / FEEDBACK_MIN_STRONG_SAMPLES), 0.0, 1.0)
     score_effect = clamp(shrunk_excess / 4.0, -0.45, 0.45)
+    if (
+        raw_count >= FEEDBACK_STRONG_MIN_SAMPLES
+        and weighted_count >= FEEDBACK_STRONG_MIN_WEIGHTED_SAMPLES
+        and confidence >= FEEDBACK_STRONG_MIN_CONFIDENCE
+    ):
+        evidence_level = "strong"
+        application_weight = 1.0
+    elif (
+        raw_count >= FEEDBACK_USABLE_MIN_SAMPLES
+        and weighted_count >= FEEDBACK_USABLE_MIN_WEIGHTED_SAMPLES
+        and confidence >= FEEDBACK_USABLE_MIN_CONFIDENCE
+    ):
+        evidence_level = "usable"
+        application_weight = 0.65
+    else:
+        evidence_level = "insufficient"
+        application_weight = 0.0
     return {
         "id": raw["id"],
         "dimension": raw["dimension"],
@@ -2249,6 +2274,9 @@ def finalize_feedback_factor(raw: dict[str, Any]) -> dict[str, Any]:
         "hit_rate_pct": round_or_none(hit_rate),
         "confidence": round_or_none(confidence, 3),
         "score_effect": round_or_none(score_effect, 3),
+        "evidence_level": evidence_level,
+        "application_weight": application_weight,
+        "decision_eligible": application_weight > 0,
         "horizons": sorted(raw["horizons"]),
     }
 
@@ -2266,8 +2294,19 @@ def finalize_entry_effectiveness_factor(raw: dict[str, Any]) -> dict[str, Any]:
     crash_rate = raw["crash_weight"] / touched_weight * 100 if touched_weight else 0.0
     touch_rate = touched_weight / weighted_count * 100 if weighted_count else 0.0
     untouched_rate = untouched_weight / weighted_count * 100 if weighted_count else 0.0
-    sample_shrink = raw_count / (raw_count + ENTRY_FEEDBACK_MIN_SAMPLES)
-    confidence = clamp(sample_shrink * min(1.0, weighted_count / ENTRY_FEEDBACK_MIN_SAMPLES), 0.0, 1.0)
+    touched_count = int(raw.get("actual_buyable_count", 0)) + int(raw.get("touched_entry_count", 0))
+    touched_sample_shrink = touched_count / (touched_count + ENTRY_TOUCHED_MIN_SAMPLES)
+    confidence = clamp(
+        touched_sample_shrink * min(1.0, touched_weight / ENTRY_FEEDBACK_MIN_SAMPLES),
+        0.0,
+        1.0,
+    )
+    if touched_count >= ENTRY_TOUCHED_STRONG_MIN_SAMPLES and touched_weight >= 6 and confidence >= 0.45:
+        evidence_level = "strong"
+    elif touched_count >= ENTRY_TOUCHED_MIN_SAMPLES and touched_weight >= 2 and confidence >= 0.20:
+        evidence_level = "usable"
+    else:
+        evidence_level = "insufficient"
 
     downside_penalty = 0.0
     if touched_weight:
@@ -2278,14 +2317,17 @@ def finalize_entry_effectiveness_factor(raw: dict[str, Any]) -> dict[str, Any]:
         downside_penalty += max(0.0, crash_rate - 15) / 35.0
 
     upside_credit = max(0.0, avg_touch_return) / 8.0 if touched_weight else 0.0
-    upside_credit += max(0.0, hit_rate - 55) / 80.0
-    if untouched_weight and avg_missed_return > 3:
-        upside_credit += min(0.6, (avg_missed_return - 3) / 12.0) * (untouched_weight / weighted_count if weighted_count else 0)
+    upside_credit += max(0.0, hit_rate - 55) / 80.0 if touched_weight else 0.0
+    # 未触达样本只能说明接入价可能偏保守，不能证明提高价格后仍然安全。
+    if touched_count >= ENTRY_TOUCHED_MIN_SAMPLES and untouched_weight and avg_missed_return > 3:
+        upside_credit += min(0.25, (avg_missed_return - 3) / 24.0)
     price_adjustment = clamp(
-        (upside_credit - downside_penalty) * sample_shrink,
+        (upside_credit - downside_penalty) * touched_sample_shrink,
         ENTRY_FEEDBACK_PRICE_CAP_DOWN,
         ENTRY_FEEDBACK_PRICE_CAP_UP,
     )
+    if evidence_level == "insufficient":
+        price_adjustment = 0.0
 
     if touched_weight and (crash_rate >= 35 or avg_adverse_drawdown <= -8 or avg_touch_return <= -5):
         risk_level = "高"
@@ -2313,6 +2355,8 @@ def finalize_entry_effectiveness_factor(raw: dict[str, Any]) -> dict[str, Any]:
         "touched_entry_count": int(raw.get("touched_entry_count", 0)),
         "untouched_wait_count": int(raw.get("untouched_wait_count", 0)),
         "confidence": round_or_none(confidence, 3),
+        "evidence_level": evidence_level,
+        "decision_eligible": evidence_level != "insufficient",
         "price_adjustment_pct": round_or_none(price_adjustment, 3),
         "risk_level": risk_level,
         "horizons": sorted(raw["horizons"]),
@@ -2552,9 +2596,10 @@ def feedback_effect_for_row(row: dict[str, Any], feedback_payload: dict[str, Any
         if not stat:
             continue
         effect = safe_float(stat.get("score_effect")) or 0.0
+        application_weight = safe_float(stat.get("application_weight")) or 0.0
         confidence = safe_float(stat.get("confidence")) or 0.0
         dimension_weight = FEEDBACK_DIMENSION_WEIGHTS.get(factor["dimension"], 0.5)
-        contribution = effect * confidence * dimension_weight
+        contribution = effect * confidence * application_weight * dimension_weight
         if abs(contribution) < 0.005:
             continue
         matched.append(
@@ -2565,6 +2610,8 @@ def feedback_effect_for_row(row: dict[str, Any], feedback_payload: dict[str, Any
                 "sample_count": stat.get("sample_count"),
                 "avg_excess_return_pct": stat.get("avg_excess_return_pct"),
                 "confidence": stat.get("confidence"),
+                "evidence_level": stat.get("evidence_level", "insufficient"),
+                "decision_eligible": bool(stat.get("decision_eligible")),
                 "score_effect": round_or_none(contribution, 3),
             }
         )
@@ -2593,6 +2640,14 @@ def feedback_effect_for_row(row: dict[str, Any], feedback_payload: dict[str, Any
         "feedback_confidence": feedback_payload.get("confidence", "低"),
         "feedback_note": note,
         "feedback_factors": matched[:5],
+        "feedback_decision_eligible": bool(matched),
+        "feedback_evidence_level": (
+            "strong"
+            if any(item.get("evidence_level") == "strong" for item in matched)
+            else "usable"
+            if any(item.get("evidence_level") == "usable" for item in matched)
+            else "insufficient"
+        ),
     }
 
 def format_optional_pct(value: Any) -> str:
@@ -2627,6 +2682,10 @@ def entry_safety_effect_for_row(row: dict[str, Any], feedback_payload: dict[str,
         if abs(contribution) < 0.01:
             continue
         risk_level = stat.get("risk_level") or "未知"
+        evidence_level = stat.get("evidence_level") or "insufficient"
+        # Older archived feedback snapshots did not include this field.
+        if stat.get("decision_eligible") is False:
+            continue
         crash_rate = safe_float(stat.get("crash_rate_pct")) or 0.0
         max_crash_rate = max(max_crash_rate, crash_rate)
         actual_buyable_count = int(stat.get("actual_buyable_count") or 0)
@@ -2673,6 +2732,8 @@ def entry_safety_effect_for_row(row: dict[str, Any], feedback_payload: dict[str,
                 "hard_block_evidence": hard_block_evidence,
                 "confidence": stat.get("confidence"),
                 "risk_level": risk_level,
+                "evidence_level": evidence_level,
+                "decision_eligible": True,
                 "price_adjustment_pct": round_or_none(contribution, 3),
             }
         )
@@ -2720,6 +2781,14 @@ def entry_safety_effect_for_row(row: dict[str, Any], feedback_payload: dict[str,
         "entry_safety_block_buy": block_buy,
         "entry_safety_hard_evidence_count": hard_block_evidence_count,
         "entry_safety_observation_count": entry_payload.get("observation_count", 0),
+        "entry_safety_decision_eligible": bool(matched),
+        "entry_safety_evidence_level": (
+            "strong"
+            if any(item.get("evidence_level") == "strong" for item in matched)
+            else "usable"
+            if any(item.get("evidence_level") == "usable" for item in matched)
+            else "insufficient"
+        ),
     }
 
 
@@ -2893,6 +2962,90 @@ def apply_feedback_price_adjustment(
     row["entry_price_note"] = f"{row.get('entry_price_note') or ''} {row['price_feedback_note']}".strip()
     row["buy_price_note"] = f"{row.get('buy_price_note') or ''} {row['price_feedback_note']}".strip()
     return row
+
+
+def apply_feedback_decision_calibration(row: dict[str, Any]) -> dict[str, Any]:
+    """Turn evidence-qualified feedback into bounded, inspectable trade controls."""
+    feedback_bonus = safe_float(row.get("feedback_bonus")) or 0.0
+    feedback_eligible = bool(row.get("feedback_decision_eligible"))
+    entry_eligible = bool(row.get("entry_safety_decision_eligible"))
+    raw_score = safe_float(row.get("base_model_score")) or safe_float(row.get("score")) or 0.0
+    final_score = safe_float(row.get("score")) or 0.0
+    position_multiplier = 1.0
+    actions: list[str] = []
+
+    if feedback_eligible and feedback_bonus <= -0.35:
+        position_multiplier = 0.60
+        actions.append("负反馈降低新仓上限40%")
+    elif feedback_eligible and feedback_bonus <= -0.18:
+        position_multiplier = 0.75
+        actions.append("负反馈降低新仓上限25%")
+
+    entry_adjustment = safe_float(row.get("entry_safety_adjustment_pct")) or 0.0
+    if entry_eligible and entry_adjustment <= -0.45:
+        position_multiplier = min(position_multiplier, 0.70)
+        actions.append("接入有效性偏弱，进一步降低新仓上限")
+
+    market_regime = str(row.get("market_regime") or "")
+    risk_appetite = safe_float(row.get("market_risk_appetite")) or 0.0
+    price = safe_float(row.get("close"))
+    entry_upper = safe_float(row.get("entry_price_upper")) or safe_float(row.get("recommended_entry_price"))
+    fund_flow = safe_float(row.get("fund_flow_score"))
+    near_entry = bool(price and entry_upper and price <= entry_upper * 1.012)
+    feedback_trial = bool(
+        not row.get("is_buyable_now")
+        and row.get("trend_trade_eligible")
+        and not row.get("trend_block_buy")
+        and not row.get("market_context_block_buy")
+        and not row.get("entry_safety_block_buy")
+        and entry_eligible
+        and entry_adjustment >= 0.10
+        and final_score >= 8.2
+        and near_entry
+        and market_regime in {"strong", "warm", "neutral"}
+        and risk_appetite >= 0.55
+        and (fund_flow is None or fund_flow >= -1.5)
+    )
+    if feedback_trial:
+        row["feedback_trial_eligible"] = True
+        row["feedback_trial_target_pct"] = 0.05
+        actions.append("接入回访验证较好，允许5%反馈试探")
+    else:
+        row["feedback_trial_eligible"] = False
+        row["feedback_trial_target_pct"] = 0.0
+
+    row["feedback_position_multiplier"] = round_or_none(position_multiplier, 3)
+    row["feedback_calibration"] = {
+        "schema_version": 1,
+        "raw_score": round_or_none(raw_score, 3),
+        "feedback_score_delta": round_or_none(feedback_bonus, 3),
+        "final_score": round_or_none(final_score, 3),
+        "score_changed": abs(feedback_bonus) >= 0.05,
+        "price_adjustment_pct": row.get("price_feedback_adjustment_pct"),
+        "position_multiplier": round_or_none(position_multiplier, 3),
+        "feedback_trial_eligible": feedback_trial,
+        "evidence_level": row.get("feedback_evidence_level", "insufficient"),
+        "entry_evidence_level": row.get("entry_safety_evidence_level", "insufficient"),
+        "actions": actions or ["证据不足或不满足受控升级条件，保持原交易资格"],
+    }
+    return row
+
+
+def feedback_application_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    calibrations = [row.get("feedback_calibration") or {} for row in rows]
+    return {
+        "schema_version": 1,
+        "candidate_count": len(rows),
+        "score_changed_count": sum(bool(item.get("score_changed")) for item in calibrations),
+        "price_changed_count": sum(
+            abs(safe_float(item.get("price_adjustment_pct")) or 0.0) >= 0.05 for item in calibrations
+        ),
+        "position_reduced_count": sum((safe_float(item.get("position_multiplier")) or 1.0) < 0.999 for item in calibrations),
+        "feedback_trial_count": sum(bool(item.get("feedback_trial_eligible")) for item in calibrations),
+        "decision_evidence_count": sum(bool(row.get("feedback_decision_eligible")) for row in rows),
+        "entry_evidence_count": sum(bool(row.get("entry_safety_decision_eligible")) for row in rows),
+        "note": "仅在单因子证据达到样本、时间加权样本和置信度门槛后才改变评分、价格、仓位或试探资格；未触达等待样本不再单独放宽接入价。",
+    }
 
 
 def apply_trend_context(row: dict[str, Any]) -> dict[str, Any]:
@@ -4025,6 +4178,7 @@ def build_payload() -> dict[str, Any]:
             fund_flow_bonus = safe_float(meta.get("fund_flow_bonus")) or 0.0
             chip_bonus = safe_float(row.get("chip_bonus")) or 0.0
             row["score"] = round(row["score"] + layer_one_bonus + fund_flow_bonus + chip_bonus, 1)
+            row["base_model_score"] = row["score"]
             row["candidate_source"] = meta.get("candidate_source") or "主题库"
             row["layer_one_score"] = meta.get("layer_one_score")
             row["layer_one_rank"] = meta.get("layer_one_rank")
@@ -4076,6 +4230,7 @@ def build_payload() -> dict[str, Any]:
         row["score"] = round(row["score"] + feedback_bonus + trend_bonus, 1)
         apply_trend_context(row)
         apply_market_theme_context(row, market_environment)
+        apply_feedback_decision_calibration(row)
 
     concentration_payload = apply_portfolio_concentration_control(rows)
     rows.sort(
@@ -4087,6 +4242,7 @@ def build_payload() -> dict[str, Any]:
         reverse=True,
     )
     rows = rows[:FINAL_POOL_SIZE]
+    feedback_payload["application"] = feedback_application_summary(rows)
     for index, row in enumerate(rows, start=1):
         row["rank"] = index
 

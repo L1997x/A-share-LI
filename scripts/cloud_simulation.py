@@ -10,7 +10,7 @@ except ImportError:
     from exit_feedback import BASE_EXIT_SETTINGS, refresh_exit_feedback
 
 INITIAL_CASH = 100_000.0
-STATE_SCHEMA_VERSION = 6
+STATE_SCHEMA_VERSION = 7
 MAX_POSITION_PCT = 0.20
 TRIAL_POSITION_PCT = 0.10
 RISK_PROBE_POSITION_PCT = 0.05
@@ -289,6 +289,7 @@ def _plan_for_stock(stock: dict[str, Any], payload: dict[str, Any], run_key: str
     market = _market(payload)
     actionable = _actionable(stock)
     trial = _trial_eligible(stock, market)
+    feedback_trial = bool(stock.get("feedback_trial_eligible"))
     planned = _first_price(
         stock.get("buyable_price") if actionable else None,
         stock.get("recommended_entry_price"),
@@ -313,6 +314,11 @@ def _plan_for_stock(stock: dict[str, Any], payload: dict[str, Any], run_key: str
             if risk_probe
             else f"明确可买信号：{stock.get('buy_signal_label') or stock.get('buy_signal_key')}"
         )
+    elif feedback_trial:
+        candidates = [_first_price(stock.get("entry_price_upper")), no_chase]
+        plan_type = "feedback_trial"
+        target_pct = min(RISK_PROBE_POSITION_PCT, _num(stock.get("feedback_trial_target_pct")) or RISK_PROBE_POSITION_PCT)
+        reason = "接入价回访具备实际触达证据，趋势、价格和资金条件同时满足，允许5%反馈试探"
     elif trial:
         candidates = [_trial_ceiling(stock), no_chase]
         plan_type = "trial"
@@ -328,7 +334,8 @@ def _plan_for_stock(stock: dict[str, Any], payload: dict[str, Any], run_key: str
     signal_date = str(payload.get("as_of_date") or "")
     parsed = _parse_date(signal_date) or date.today()
     context_multiplier = min(1.0, max(0.5, _num(stock.get("context_position_multiplier")) or 1.0))
-    target_pct = target_pct * context_multiplier
+    feedback_multiplier = min(1.0, max(0.5, _num(stock.get("feedback_position_multiplier")) or 1.0))
+    target_pct = target_pct * context_multiplier * feedback_multiplier
     return {
         "id": f"{stock.get('code')}-{run_key}",
         "code": str(stock.get("code")),
@@ -351,6 +358,9 @@ def _plan_for_stock(stock: dict[str, Any], payload: dict[str, Any], run_key: str
         "marketFundHeatLabel": stock.get("market_fund_heat_label") or "",
         "globalMarketLabel": stock.get("global_market_label") or "",
         "contextPositionMultiplier": _round(context_multiplier, 3),
+        "feedbackPositionMultiplier": _round(feedback_multiplier, 3),
+        "feedbackEvidenceLevel": stock.get("feedback_evidence_level") or "insufficient",
+        "entryEvidenceLevel": stock.get("entry_safety_evidence_level") or "insufficient",
         "planType": plan_type,
         "targetPositionPct": target_pct,
         "reason": reason,
@@ -419,7 +429,7 @@ def _create_plans(state: dict[str, Any], payload: dict[str, Any], events: list[d
         plan = _plan_for_stock(stock, payload, run_key)
         if not plan:
             continue
-        priority = {"executable": 3, "probe": 2, "trial": 1, "watch": 0}[plan["planType"]]
+        priority = {"executable": 4, "probe": 3, "feedback_trial": 2, "trial": 1, "watch": 0}[plan["planType"]]
         candidates.append((priority, _num(stock.get("score")) or 0.0, plan))
     candidates.sort(key=lambda item: (item[0], item[1]), reverse=True)
     portfolio_value = _portfolio_value(state, stocks, reviews)
@@ -475,7 +485,7 @@ def _create_plans(state: dict[str, Any], payload: dict[str, Any], events: list[d
                 "status": "pending",
                 "code": order["code"],
                 "name": order["name"],
-                "summary": "生成可执行计划" if order["planType"] == "executable" else "生成5%风险试探" if order["planType"] == "probe" else "生成小仓试买观察" if order["planType"] == "trial" else "生成观察计划",
+                "summary": "生成可执行计划" if order["planType"] == "executable" else "生成5%风险试探" if order["planType"] == "probe" else "生成5%反馈试探" if order["planType"] == "feedback_trial" else "生成小仓试买观察" if order["planType"] == "trial" else "生成观察计划",
                 "reason": order["reason"],
                 "plannedEntryPrice": order["plannedEntryPrice"],
                 "maxBuyPrice": order["maxBuyPrice"],
@@ -624,7 +634,8 @@ def _execute_buys(state: dict[str, Any], payload: dict[str, Any], events: list[d
             continue
         actionable = _actionable(stock)
         trial = _trial_eligible(stock, market)
-        if not actionable and not trial:
+        feedback_trial = bool(stock.get("feedback_trial_eligible"))
+        if not actionable and not trial and not feedback_trial:
             reason = "观察计划尚未升级为可执行信号"
             _count_reason(state, "wait", reason)
             _record(state, payload, {"type": "buy_deferred", "status": "pending", "code": order["code"], "name": order["name"], "summary": "继续观察", "reason": reason, "plannedEntryPrice": order.get("plannedEntryPrice"), "maxBuyPrice": order.get("maxBuyPrice"), "score": order.get("score")})
@@ -646,7 +657,7 @@ def _execute_buys(state: dict[str, Any], payload: dict[str, Any], events: list[d
             reason = "价格低于MA20超过3%，等待止跌确认"
             _count_reason(state, "wait", reason)
             continue
-        if trial and ma20 and snapshot_price > ma20 * (1 + TRIAL_MAX_MA20_PREMIUM):
+        if (trial or feedback_trial) and ma20 and snapshot_price > ma20 * (1 + TRIAL_MAX_MA20_PREMIUM):
             reason = "价格高于MA20超过5%，避免追涨后回撤"
             _count_reason(state, "wait", reason)
             continue
@@ -664,7 +675,7 @@ def _execute_buys(state: dict[str, Any], payload: dict[str, Any], events: list[d
             reason = "本次快照买入数量已达上限"
             _count_reason(state, "wait", reason)
             continue
-        position_cap = RISK_PROBE_POSITION_PCT if order.get("planType") == "probe" else MAX_POSITION_PCT if actionable else TRIAL_POSITION_PCT
+        position_cap = RISK_PROBE_POSITION_PCT if order.get("planType") in {"probe", "feedback_trial"} else MAX_POSITION_PCT if actionable else TRIAL_POSITION_PCT
         target_pct = min(position_cap, _num(order.get("targetPositionPct")) or position_cap)
         quantity = _affordable_quantity(state, execution_price, target_pct, portfolio_value)
         if quantity < 100:
@@ -673,7 +684,7 @@ def _execute_buys(state: dict[str, Any], payload: dict[str, Any], events: list[d
             order["cancelReason"] = reason
             _count_reason(state, "cancel", reason)
             continue
-        reason = "回访风险小仓试探验证通过" if order.get("planType") == "probe" else "明确可买信号验证通过" if actionable else "偏暖市场高分标的进入1.5个ATR缓冲区并通过止跌过滤，小仓试买"
+        reason = "回访风险小仓试探验证通过" if order.get("planType") == "probe" else "回访接入证据试探验证通过" if order.get("planType") == "feedback_trial" else "明确可买信号验证通过" if actionable else "偏暖市场高分标的进入1.5个ATR缓冲区并通过止跌过滤，小仓试买"
         _buy(state, payload, stock, order, execution_price, quantity, reason)
         events.append({"type": "buy", "summary": f"云端买入{stock.get('name')}{quantity}股，成交{execution_price:.2f}"})
         executed += 1

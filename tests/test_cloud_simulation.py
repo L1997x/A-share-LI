@@ -231,6 +231,26 @@ class CloudSimulationTests(unittest.TestCase):
         self.assertEqual(state["positions"]["600001"]["quantity"], 100)
         self.assertEqual(state["trades"][0]["reason"], "回访风险小仓试探验证通过")
 
+    def test_feedback_trial_can_upgrade_a_near_entry_watch_plan(self) -> None:
+        evening = payload("2026-07-13T20:00:00+08:00", "evening_watch", 49.0, score=8.4)
+        stock = evening["stocks"][0]
+        stock.update(
+            {
+                "entry_safety_decision_eligible": True,
+                "entry_safety_adjustment_pct": 0.2,
+                "feedback_trial_eligible": True,
+                "feedback_trial_target_pct": 0.05,
+            }
+        )
+        state = run_cloud_simulation(evening, default_simulation())
+        self.assertEqual(state["pendingBuyOrders"][0]["planType"], "feedback_trial")
+
+        morning = payload("2026-07-14T10:00:00+08:00", "morning_entry", 49.0, score=8.4)
+        morning["stocks"][0].update(stock)
+        state = run_cloud_simulation(morning, state)
+        self.assertEqual(state["trades"][0]["reason"], "回访接入证据试探验证通过")
+        self.assertEqual(state["positions"]["600001"]["quantity"], 100)
+
     def test_stock_removed_from_latest_pool_is_cancelled_only_once(self) -> None:
         evening = payload("2026-07-13T20:00:00+08:00", "evening_watch", 49.0, score=8.0)
         state = run_cloud_simulation(evening, default_simulation())

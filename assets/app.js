@@ -185,6 +185,21 @@ const formatPriceFeedback = (stock) => {
   return `${stock.price_feedback_label || "价格纪律不变"}：${adjustment}。${stock.price_feedback_note || ""}`;
 };
 
+const evidenceLabel = (level) => ({ strong: "充分", usable: "可用", insufficient: "不足" }[level] || "不足");
+
+const formatFeedbackCalibration = (stock) => {
+  const calibration = stock.feedback_calibration || {};
+  const score = isFiniteNumber(calibration.feedback_score_delta) ? formatSignedNumber(calibration.feedback_score_delta, 3) : "-";
+  const price = formatPercent(calibration.price_adjustment_pct, 3);
+  const multiplier = isFiniteNumber(calibration.position_multiplier)
+    ? `${formatNumber(Number(calibration.position_multiplier) * 100, 0)}%`
+    : "100%";
+  const trial = calibration.feedback_trial_eligible ? "允许5%反馈试探" : "未升级试探";
+  return `证据：反馈${evidenceLabel(calibration.evidence_level || stock.feedback_evidence_level)}、接入${evidenceLabel(
+    calibration.entry_evidence_level || stock.entry_safety_evidence_level
+  )}；校准：评分${score}，价格${price}，新仓上限${multiplier}，${trial}。`;
+};
+
 const formatEntrySafety = (stock) => {
   const adjustment = formatPercent(stock.entry_safety_adjustment_pct, 3);
   const factors = stock.entry_safety_factors || [];
@@ -371,6 +386,10 @@ function normalizePendingBuyOrders(raw = []) {
         entrySafetyBlockBuy: Boolean(order.entrySafetyBlockBuy),
         trendTradeEligible: order.trendTradeEligible !== false,
         trendLabel: order.trendLabel || "",
+        contextPositionMultiplier: isFiniteNumber(order.contextPositionMultiplier) ? Number(order.contextPositionMultiplier) : 1,
+        feedbackPositionMultiplier: isFiniteNumber(order.feedbackPositionMultiplier) ? Number(order.feedbackPositionMultiplier) : 1,
+        feedbackEvidenceLevel: order.feedbackEvidenceLevel || "insufficient",
+        entryEvidenceLevel: order.entryEvidenceLevel || "insufficient",
         planType: order.planType || "watch",
         targetPositionPct: isFiniteNumber(order.targetPositionPct) ? Number(order.targetPositionPct) : null,
         reason: order.reason || "",
@@ -1977,6 +1996,23 @@ function renderModelStatus(data) {
   const concentrationText = concentration.schema_version
     ? `；组合拥挤度：${concentration.penalized_count ?? 0}只候选被轻微降权`
     : "";
+  const application = feedback.application || {};
+  const applicationNode = byId("feedbackApplication");
+  if (applicationNode) {
+    const metric = (label, value, detail, className = "") => `
+      <div class="feedback-metric ${className}">
+        <span>${label}</span>
+        <strong>${value}</strong>
+        <em>${detail}</em>
+      </div>`;
+    applicationNode.innerHTML = [
+      metric("评分已调整", `${application.score_changed_count ?? 0} 只`, "反馈分差达到展示阈值"),
+      metric("价格已调整", `${application.price_changed_count ?? 0} 只`, "接入价纪律发生变化"),
+      metric("仓位已收紧", `${application.position_reduced_count ?? 0} 只`, "负反馈或接入风险触发", "metric-warning"),
+      metric("反馈试探", `${application.feedback_trial_count ?? 0} 只`, "最多5%模拟仓位", "metric-positive"),
+      `<p class="feedback-application-note">决策证据 ${application.decision_evidence_count ?? 0} 只 · 接入证据 ${application.entry_evidence_count ?? 0} 只 · ${application.note || "反馈需要达到证据门槛后才参与交易决策。"}</p>`,
+    ].join("");
+  }
 
   byId("feedbackStatus").textContent = feedback.schema_version
     ? `反馈模型：${feedback.confidence || "低"}置信；样本 ${feedback.observation_count ?? 0} 条；因子 ${
@@ -2134,7 +2170,7 @@ function createStockCard(stock) {
   node.querySelector(".feedback-detail").textContent = `${stock.feedback_label || "回访样本不足"}：反馈分 ${formatSignedNumber(
     stock.feedback_bonus,
     3
-  )}，整体置信 ${stock.feedback_confidence || "低"}。${formatFeedbackFactors(stock)}。${formatPriceFeedback(stock)} ${
+  )}，整体置信 ${stock.feedback_confidence || "低"}。${formatFeedbackFactors(stock)}。${formatPriceFeedback(stock)} ${formatFeedbackCalibration(stock)} ${
     stock.portfolio_concentration_note || ""
   } ${formatEntrySafety(stock)}`;
   node.querySelector(".entry-detail").textContent = `推荐接入价 ${formatNumber(
@@ -2406,12 +2442,12 @@ function renderSimulationPlans() {
   const buyRows = pendingOrders.map(
     (order) => {
       ensureBuyOrderValidUntil(order);
-      const planLabel = order.planType === "executable" ? "可执行" : order.planType === "probe" ? "5%风险试探" : order.planType === "trial" ? "小仓试买观察" : "观察";
+      const planLabel = order.planType === "executable" ? "可执行" : order.planType === "probe" ? "5%风险试探" : order.planType === "feedback_trial" ? "5%反馈试探" : order.planType === "trial" ? "小仓试买观察" : "观察";
       return `
         <article class="simulation-row compact">
           <div>
             <strong>${escapeHtml(planLabel)} ${escapeHtml(order.name)}</strong>
-            <em>${escapeHtml(order.code)} · ${escapeHtml(order.reason || "20点计划")}</em>
+            <em>${escapeHtml(order.code)} · ${escapeHtml(order.reason || "20点计划")} · 反馈${escapeHtml(evidenceLabel(order.feedbackEvidenceLevel))} · 接入${escapeHtml(evidenceLabel(order.entryEvidenceLevel))}</em>
           </div>
           <div>
             <span>计划/最高买入价</span>
@@ -2419,7 +2455,7 @@ function renderSimulationPlans() {
           </div>
           <div>
             <span>执行窗口</span>
-            <strong>所有交易快照云端复检 · 有效至${escapeHtml(order.validUntilDate || "-")}</strong>
+            <strong>所有交易快照云端复检 · 仓位${formatNumber((order.targetPositionPct || 0) * 100, 1)}% · 有效至${escapeHtml(order.validUntilDate || "-")}</strong>
           </div>
         </article>
       `;
