@@ -889,8 +889,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-10T20:00:26+08:00|2026-09-10|20点次日关注",
+  "lastAutoRunKey": "2026-09-10T23:18:19+08:00|2026-09-10|23:10隔夜外盘复核",
   "autoLog": [
+    {
+      "runKey": "2026-09-10T23:18:19+08:00|2026-09-10|23:10隔夜外盘复核",
+      "at": "2026-09-10T23:18:19+08:00",
+      "tradeDate": "2026-09-10",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "当前没有符合资金和风控约束的新计划"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-10T20:00:26+08:00|2026-09-10|20点次日关注",
       "at": "2026-09-10T20:00:26+08:00",
@@ -1602,19 +1615,6 @@
     {
       "runKey": "2026-09-03T17:59:58+08:00|2026-09-03|14:30尾盘风控",
       "at": "2026-09-03T17:59:58+08:00",
-      "tradeDate": "2026-09-03",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：中航西飞(watch)、招商银行(watch)"
-        }
-      ]
-    },
-    {
-      "runKey": "2026-09-03T16:03:02+08:00|2026-09-03|14:30尾盘风控",
-      "at": "2026-09-03T16:03:02+08:00",
       "tradeDate": "2026-09-03",
       "phase": "14:30尾盘风控",
       "phaseKey": "afternoon_risk",
@@ -4289,11 +4289,11 @@
       "dailyPrices": {
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 34.11,
           "returnPct": -0.525,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4349,11 +4349,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 41.57,
           "returnPct": 1.242,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4415,11 +4415,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 55.52,
           "returnPct": -1.368,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4481,11 +4481,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 48.6,
           "returnPct": 3.47,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4571,11 +4571,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 34.11,
           "returnPct": 3.552,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4667,11 +4667,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 6.5,
           "returnPct": 0.619,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4771,11 +4771,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 23.5,
           "returnPct": 3.753,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4883,11 +4883,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 34.11,
           "returnPct": 1.367,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5003,11 +5003,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 48.6,
           "returnPct": 5.195,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5147,11 +5147,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 25.38,
           "returnPct": -2.197,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5291,11 +5291,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 34.11,
           "returnPct": 2.218,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5499,11 +5499,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 34.11,
           "returnPct": 5.767,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5793,11 +5793,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 40.82,
           "returnPct": 18.353,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6125,11 +6125,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 6.5,
           "returnPct": 7.973,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6457,11 +6457,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 12.49,
           "returnPct": -9.95,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6789,11 +6789,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 63.91,
           "returnPct": 5.392,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7145,11 +7145,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 22.49,
           "returnPct": -4.501,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7517,11 +7517,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 50.4,
           "returnPct": -2.174,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7897,11 +7897,11 @@
         },
         "2026-09-10": {
           "date": "2026-09-10",
-          "at": "2026-09-10T20:00:26+08:00",
+          "at": "2026-09-10T23:18:19+08:00",
           "price": 34.11,
           "returnPct": 16.456,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8101,7 +8101,7 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 426,
+    "snapshotsProcessed": 427,
     "plansCreated": 604,
     "buyChecks": 1360,
     "buysExecuted": 19,
@@ -8119,7 +8119,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 36
     },
-    "lastRunAt": "2026-09-10T20:00:26+08:00",
+    "lastRunAt": "2026-09-10T23:18:19+08:00",
     "lastRunSummary": "当前没有符合资金和风控约束的新计划"
   }
 }
