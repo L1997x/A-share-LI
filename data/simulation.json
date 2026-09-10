@@ -889,8 +889,25 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
+  "lastAutoRunKey": "2026-09-10T09:56:17+08:00|2026-09-10|10点早盘接入",
   "autoLog": [
+    {
+      "runKey": "2026-09-10T09:56:17+08:00|2026-09-10|10点早盘接入",
+      "at": "2026-09-10T09:56:17+08:00",
+      "tradeDate": "2026-09-10",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "当前没有符合资金和风控约束的新计划"
+        },
+        {
+          "type": "buy_wait",
+          "summary": "本次买入复检未成交，原因已写入决策复盘"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
       "at": "2026-09-09T23:22:13+08:00",
@@ -1615,19 +1632,6 @@
           "summary": "更新云端计划2只：中航西飞(watch)、招商银行(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-02T19:32:13+08:00|2026-09-02|14:30尾盘风控",
-      "at": "2026-09-02T19:32:13+08:00",
-      "tradeDate": "2026-09-02",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：中航西飞(watch)、招商银行(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
@@ -1635,7 +1639,7 @@
       "id": "600489-2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
       "code": "600489",
       "name": "中金黄金",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-09",
       "signalPhase": "evening_watch",
       "createdRunKey": "2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
@@ -1656,7 +1660,7 @@
       "planType": "watch",
       "targetPositionPct": 0.083,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1664,7 +1668,7 @@
       "id": "600760-2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
       "code": "600760",
       "name": "中航沈飞",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-09",
       "signalPhase": "evening_watch",
       "createdRunKey": "2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
@@ -1685,7 +1689,7 @@
       "planType": "watch",
       "targetPositionPct": 0.083,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1693,7 +1697,7 @@
       "id": "600150-2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
       "code": "600150",
       "name": "中国船舶",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-09",
       "signalPhase": "evening_watch",
       "createdRunKey": "2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
@@ -1714,7 +1718,7 @@
       "planType": "watch",
       "targetPositionPct": 0.083,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "模型或接入安全层硬拦截",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1722,7 +1726,7 @@
       "id": "600348-2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
       "code": "600348",
       "name": "华阳股份",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-09",
       "signalPhase": "evening_watch",
       "createdRunKey": "2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
@@ -1743,7 +1747,7 @@
       "planType": "watch",
       "targetPositionPct": 0.083,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1751,7 +1755,7 @@
       "id": "601225-2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
       "code": "601225",
       "name": "陕西煤业",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-09",
       "signalPhase": "evening_watch",
       "createdRunKey": "2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
@@ -1772,7 +1776,7 @@
       "planType": "watch",
       "targetPositionPct": 0.083,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1780,7 +1784,7 @@
       "id": "000933-2026-09-09T23:15:18+08:00|2026-09-09|23:10隔夜外盘复核",
       "code": "000933",
       "name": "神火股份",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-09",
       "signalPhase": "overnight_watch",
       "createdRunKey": "2026-09-09T23:15:18+08:00|2026-09-09|23:10隔夜外盘复核",
@@ -1801,7 +1805,7 @@
       "planType": "executable",
       "targetPositionPct": 0.166,
       "reason": "明确可买信号：可突破试探",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1809,7 +1813,7 @@
       "id": "000768-2026-09-09T14:28:14+08:00|2026-09-09|14:30尾盘风控",
       "code": "000768",
       "name": "中航西飞",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-09",
       "signalPhase": "afternoon_risk",
       "createdRunKey": "2026-09-09T14:28:14+08:00|2026-09-09|14:30尾盘风控",
@@ -1830,7 +1834,7 @@
       "planType": "watch",
       "targetPositionPct": 0.0826,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1838,7 +1842,7 @@
       "id": "000651-2026-09-09T13:23:34+08:00|2026-09-09|11:20午前买入复检",
       "code": "000651",
       "name": "格力电器",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-09",
       "signalPhase": "morning_entry",
       "createdRunKey": "2026-09-09T13:23:34+08:00|2026-09-09|11:20午前买入复检",
@@ -1859,7 +1863,7 @@
       "planType": "watch",
       "targetPositionPct": 0.08460000000000001,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -2736,6 +2740,118 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_cancelled-000651-2026-09-10T09:56:17+08:00",
+      "at": "2026-09-10T09:56:17+08:00",
+      "tradeDate": "2026-09-10",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "000651",
+      "name": "格力电器",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 38.1,
+      "maxBuyPrice": 38.24,
+      "score": 7.5
+    },
+    {
+      "id": "buy_cancelled-000768-2026-09-10T09:56:17+08:00",
+      "at": "2026-09-10T09:56:17+08:00",
+      "tradeDate": "2026-09-10",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "000768",
+      "name": "中航西飞",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 21.53,
+      "maxBuyPrice": 21.89,
+      "score": 8.8
+    },
+    {
+      "id": "buy_cancelled-000933-2026-09-10T09:56:17+08:00",
+      "at": "2026-09-10T09:56:17+08:00",
+      "tradeDate": "2026-09-10",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "000933",
+      "name": "神火股份",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 29.12,
+      "maxBuyPrice": 29.12,
+      "score": 7.6
+    },
+    {
+      "id": "buy_cancelled-601225-2026-09-10T09:56:17+08:00",
+      "at": "2026-09-10T09:56:17+08:00",
+      "tradeDate": "2026-09-10",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "601225",
+      "name": "陕西煤业",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 25.71,
+      "maxBuyPrice": 26.0,
+      "score": 7.7
+    },
+    {
+      "id": "buy_cancelled-600348-2026-09-10T09:56:17+08:00",
+      "at": "2026-09-10T09:56:17+08:00",
+      "tradeDate": "2026-09-10",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "600348",
+      "name": "华阳股份",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 8.89,
+      "maxBuyPrice": 9.02,
+      "score": 7.7
+    },
+    {
+      "id": "buy_cancelled-600760-2026-09-10T09:56:17+08:00",
+      "at": "2026-09-10T09:56:17+08:00",
+      "tradeDate": "2026-09-10",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "600760",
+      "name": "中航沈飞",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 45.17,
+      "maxBuyPrice": 45.97,
+      "score": 8.5
+    },
+    {
+      "id": "buy_cancelled-600489-2026-09-10T09:56:17+08:00",
+      "at": "2026-09-10T09:56:17+08:00",
+      "tradeDate": "2026-09-10",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "600489",
+      "name": "中金黄金",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 24.91,
+      "maxBuyPrice": 25.13,
+      "score": 8.8
+    },
     {
       "id": "buy_plan_created-601225-2026-09-09T23:22:13+08:00",
       "at": "2026-09-09T23:22:13+08:00",
@@ -4369,132 +4485,6 @@
       "noChasePrice": 43.48,
       "validUntilDate": "2026-09-07",
       "score": 8.2
-    },
-    {
-      "id": "buy_plan_created-600036-2026-09-03T23:15:21+08:00",
-      "at": "2026-09-03T23:15:21+08:00",
-      "tradeDate": "2026-09-03",
-      "phase": "23:10隔夜外盘复核",
-      "phaseKey": "overnight_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600036",
-      "name": "招商银行",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 39.38,
-      "maxBuyPrice": 39.67,
-      "noChasePrice": 43.48,
-      "validUntilDate": "2026-09-06",
-      "score": 8.7
-    },
-    {
-      "id": "buy_plan_created-000768-2026-09-03T23:15:21+08:00",
-      "at": "2026-09-03T23:15:21+08:00",
-      "tradeDate": "2026-09-03",
-      "phase": "23:10隔夜外盘复核",
-      "phaseKey": "overnight_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "000768",
-      "name": "中航西飞",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 21.45,
-      "maxBuyPrice": 21.62,
-      "noChasePrice": 25.09,
-      "validUntilDate": "2026-09-06",
-      "score": 8.8
-    },
-    {
-      "id": "buy_plan_created-600036-2026-09-03T19:59:08+08:00",
-      "at": "2026-09-03T19:59:08+08:00",
-      "tradeDate": "2026-09-03",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600036",
-      "name": "招商银行",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 39.36,
-      "maxBuyPrice": 39.65,
-      "noChasePrice": 43.48,
-      "validUntilDate": "2026-09-06",
-      "score": 8.6
-    },
-    {
-      "id": "buy_plan_created-000768-2026-09-03T19:59:08+08:00",
-      "at": "2026-09-03T19:59:08+08:00",
-      "tradeDate": "2026-09-03",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "000768",
-      "name": "中航西飞",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 21.43,
-      "maxBuyPrice": 21.6,
-      "noChasePrice": 25.09,
-      "validUntilDate": "2026-09-06",
-      "score": 8.7
-    },
-    {
-      "id": "buy_plan_created-600036-2026-09-03T19:28:53+08:00",
-      "at": "2026-09-03T19:28:53+08:00",
-      "tradeDate": "2026-09-03",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600036",
-      "name": "招商银行",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 39.36,
-      "maxBuyPrice": 39.65,
-      "noChasePrice": 43.48,
-      "validUntilDate": "2026-09-06",
-      "score": 8.6
-    },
-    {
-      "id": "buy_plan_created-000768-2026-09-03T19:28:53+08:00",
-      "at": "2026-09-03T19:28:53+08:00",
-      "tradeDate": "2026-09-03",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "000768",
-      "name": "中航西飞",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 21.43,
-      "maxBuyPrice": 21.6,
-      "noChasePrice": 25.09,
-      "validUntilDate": "2026-09-06",
-      "score": 8.7
-    },
-    {
-      "id": "buy_plan_created-600036-2026-09-03T17:59:58+08:00",
-      "at": "2026-09-03T17:59:58+08:00",
-      "tradeDate": "2026-09-03",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600036",
-      "name": "招商银行",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 39.36,
-      "maxBuyPrice": 39.65,
-      "noChasePrice": 43.48,
-      "validUntilDate": "2026-09-06",
-      "score": 8.6
     }
   ],
   "exitReviews": [
@@ -4515,19 +4505,28 @@
       "entryAt": "2026-09-04T10:02:57+08:00",
       "entryPrice": 34.02,
       "entryReason": "偏暖市场高分标的进入1.5个ATR缓冲区并通过止跌过滤，小仓试买",
-      "dailyPrices": {},
+      "dailyPrices": {
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 34.16,
+          "returnPct": -0.379,
+          "phase": "morning_entry",
+          "finalized": false
+        }
+      },
       "milestones": {
         "3": null,
         "5": null,
         "20": null,
         "30": null
       },
-      "observedTradingDays": 0,
-      "currentDate": null,
-      "currentPrice": null,
-      "currentReturnPct": null,
-      "maxPostExitReturnPct": null,
-      "minPostExitReturnPct": null,
+      "observedTradingDays": 1,
+      "currentDate": "2026-09-10",
+      "currentPrice": 34.16,
+      "currentReturnPct": -0.379,
+      "maxPostExitReturnPct": -0.379,
+      "minPostExitReturnPct": -0.379,
       "latestMatureHorizon": null,
       "qualityLabel": "等待3个交易日样本",
       "modelAction": "样本尚未成熟，不调整卖出参数。",
@@ -4566,6 +4565,14 @@
           "returnPct": -0.146,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 41.33,
+          "returnPct": 0.658,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4574,11 +4581,11 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 2,
-      "currentDate": "2026-09-09",
-      "currentPrice": 41.0,
-      "currentReturnPct": -0.146,
-      "maxPostExitReturnPct": -0.146,
+      "observedTradingDays": 3,
+      "currentDate": "2026-09-10",
+      "currentPrice": 41.33,
+      "currentReturnPct": 0.658,
+      "maxPostExitReturnPct": 0.658,
       "minPostExitReturnPct": -0.39,
       "latestMatureHorizon": null,
       "qualityLabel": "等待3个交易日样本",
@@ -4618,6 +4625,14 @@
           "returnPct": -0.053,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 55.49,
+          "returnPct": -1.421,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4626,12 +4641,12 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 2,
-      "currentDate": "2026-09-09",
-      "currentPrice": 56.26,
-      "currentReturnPct": -0.053,
+      "observedTradingDays": 3,
+      "currentDate": "2026-09-10",
+      "currentPrice": 55.49,
+      "currentReturnPct": -1.421,
       "maxPostExitReturnPct": 0.497,
-      "minPostExitReturnPct": -0.053,
+      "minPostExitReturnPct": -1.421,
       "latestMatureHorizon": null,
       "qualityLabel": "等待3个交易日样本",
       "modelAction": "样本尚未成熟，不调整卖出参数。",
@@ -4670,6 +4685,14 @@
           "returnPct": 4.13,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 48.89,
+          "returnPct": 4.088,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4678,10 +4701,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 2,
-      "currentDate": "2026-09-09",
-      "currentPrice": 48.91,
-      "currentReturnPct": 4.13,
+      "observedTradingDays": 3,
+      "currentDate": "2026-09-10",
+      "currentPrice": 48.89,
+      "currentReturnPct": 4.088,
       "maxPostExitReturnPct": 4.13,
       "minPostExitReturnPct": 2.427,
       "latestMatureHorizon": null,
@@ -4746,6 +4769,14 @@
           "returnPct": 4.432,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 34.16,
+          "returnPct": 3.704,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4766,10 +4797,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 5,
-      "currentDate": "2026-09-09",
-      "currentPrice": 34.4,
-      "currentReturnPct": 4.432,
+      "observedTradingDays": 6,
+      "currentDate": "2026-09-10",
+      "currentPrice": 34.16,
+      "currentReturnPct": 3.704,
       "maxPostExitReturnPct": 4.432,
       "minPostExitReturnPct": -0.121,
       "latestMatureHorizon": 5,
@@ -4834,6 +4865,14 @@
           "returnPct": 1.703,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 6.56,
+          "returnPct": 1.548,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4854,10 +4893,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 5,
-      "currentDate": "2026-09-09",
-      "currentPrice": 6.57,
-      "currentReturnPct": 1.703,
+      "observedTradingDays": 6,
+      "currentDate": "2026-09-10",
+      "currentPrice": 6.56,
+      "currentReturnPct": 1.548,
       "maxPostExitReturnPct": 1.703,
       "minPostExitReturnPct": -1.238,
       "latestMatureHorizon": 5,
@@ -4930,6 +4969,14 @@
           "returnPct": 5.74,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 23.76,
+          "returnPct": 4.901,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4950,10 +4997,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 6,
-      "currentDate": "2026-09-09",
-      "currentPrice": 23.95,
-      "currentReturnPct": 5.74,
+      "observedTradingDays": 7,
+      "currentDate": "2026-09-10",
+      "currentPrice": 23.76,
+      "currentReturnPct": 4.901,
       "maxPostExitReturnPct": 5.74,
       "minPostExitReturnPct": 1.634,
       "latestMatureHorizon": 5,
@@ -5034,6 +5081,14 @@
           "returnPct": 2.229,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 34.16,
+          "returnPct": 1.516,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5054,10 +5109,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 7,
-      "currentDate": "2026-09-09",
-      "currentPrice": 34.4,
-      "currentReturnPct": 2.229,
+      "observedTradingDays": 8,
+      "currentDate": "2026-09-10",
+      "currentPrice": 34.16,
+      "currentReturnPct": 1.516,
       "maxPostExitReturnPct": 2.229,
       "minPostExitReturnPct": -2.229,
       "latestMatureHorizon": 5,
@@ -5146,6 +5201,14 @@
           "returnPct": 5.866,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 48.89,
+          "returnPct": 5.823,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5166,10 +5229,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 8,
-      "currentDate": "2026-09-09",
-      "currentPrice": 48.91,
-      "currentReturnPct": 5.866,
+      "observedTradingDays": 9,
+      "currentDate": "2026-09-10",
+      "currentPrice": 48.89,
+      "currentReturnPct": 5.823,
       "maxPostExitReturnPct": 5.866,
       "minPostExitReturnPct": 1.558,
       "latestMatureHorizon": 5,
@@ -5282,6 +5345,14 @@
           "returnPct": -0.231,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 25.47,
+          "returnPct": -1.85,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5302,10 +5373,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 11,
-      "currentDate": "2026-09-09",
-      "currentPrice": 25.89,
-      "currentReturnPct": -0.231,
+      "observedTradingDays": 12,
+      "currentDate": "2026-09-10",
+      "currentPrice": 25.47,
+      "currentReturnPct": -1.85,
       "maxPostExitReturnPct": 2.852,
       "minPostExitReturnPct": -4.817,
       "latestMatureHorizon": 5,
@@ -5418,6 +5489,14 @@
           "returnPct": 3.087,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 34.16,
+          "returnPct": 2.367,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5438,10 +5517,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 11,
-      "currentDate": "2026-09-09",
-      "currentPrice": 34.4,
-      "currentReturnPct": 3.087,
+      "observedTradingDays": 12,
+      "currentDate": "2026-09-10",
+      "currentPrice": 34.16,
+      "currentReturnPct": 2.367,
       "maxPostExitReturnPct": 3.836,
       "minPostExitReturnPct": -1.408,
       "latestMatureHorizon": 5,
@@ -5618,6 +5697,14 @@
           "returnPct": 6.667,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 34.16,
+          "returnPct": 5.922,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5638,10 +5725,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 19,
-      "currentDate": "2026-09-09",
-      "currentPrice": 34.4,
-      "currentReturnPct": 6.667,
+      "observedTradingDays": 20,
+      "currentDate": "2026-09-10",
+      "currentPrice": 34.16,
+      "currentReturnPct": 5.922,
       "maxPostExitReturnPct": 7.721,
       "minPostExitReturnPct": 0.868,
       "latestMatureHorizon": 5,
@@ -5898,6 +5985,14 @@
           "returnPct": 14.613,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 40.25,
+          "returnPct": 16.7,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5924,11 +6019,11 @@
         },
         "30": null
       },
-      "observedTradingDays": 29,
-      "currentDate": "2026-09-09",
-      "currentPrice": 39.53,
-      "currentReturnPct": 14.613,
-      "maxPostExitReturnPct": 14.613,
+      "observedTradingDays": 30,
+      "currentDate": "2026-09-10",
+      "currentPrice": 40.25,
+      "currentReturnPct": 16.7,
+      "maxPostExitReturnPct": 16.7,
       "minPostExitReturnPct": -4.349,
       "latestMatureHorizon": 20,
       "qualityLabel": "卖出合理",
@@ -6216,6 +6311,14 @@
           "returnPct": 9.136,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 6.56,
+          "returnPct": 8.97,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6248,10 +6351,10 @@
           "returnPct": 6.146
         }
       },
-      "observedTradingDays": 33,
-      "currentDate": "2026-09-09",
-      "currentPrice": 6.57,
-      "currentReturnPct": 9.136,
+      "observedTradingDays": 34,
+      "currentDate": "2026-09-10",
+      "currentPrice": 6.56,
+      "currentReturnPct": 8.97,
       "maxPostExitReturnPct": 15.615,
       "minPostExitReturnPct": 0.997,
       "latestMatureHorizon": 30,
@@ -6540,6 +6643,14 @@
           "returnPct": -9.445,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 12.45,
+          "returnPct": -10.238,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6572,10 +6683,10 @@
           "returnPct": -9.156
         }
       },
-      "observedTradingDays": 33,
-      "currentDate": "2026-09-09",
-      "currentPrice": 12.56,
-      "currentReturnPct": -9.445,
+      "observedTradingDays": 34,
+      "currentDate": "2026-09-10",
+      "currentPrice": 12.45,
+      "currentReturnPct": -10.238,
       "maxPostExitReturnPct": 3.893,
       "minPostExitReturnPct": -10.454,
       "latestMatureHorizon": 30,
@@ -6864,6 +6975,14 @@
           "returnPct": 7.784,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 64.28,
+          "returnPct": 6.003,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6896,10 +7015,10 @@
           "returnPct": 6.926
         }
       },
-      "observedTradingDays": 33,
-      "currentDate": "2026-09-09",
-      "currentPrice": 65.36,
-      "currentReturnPct": 7.784,
+      "observedTradingDays": 34,
+      "currentDate": "2026-09-10",
+      "currentPrice": 64.28,
+      "currentReturnPct": 6.003,
       "maxPostExitReturnPct": 14.083,
       "minPostExitReturnPct": -11.28,
       "latestMatureHorizon": 30,
@@ -7212,6 +7331,14 @@
           "returnPct": -4.671,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 22.36,
+          "returnPct": -5.053,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7244,12 +7371,12 @@
           "returnPct": -2.675
         }
       },
-      "observedTradingDays": 36,
-      "currentDate": "2026-09-09",
-      "currentPrice": 22.45,
-      "currentReturnPct": -4.671,
+      "observedTradingDays": 37,
+      "currentDate": "2026-09-10",
+      "currentPrice": 22.36,
+      "currentReturnPct": -5.053,
       "maxPostExitReturnPct": 6.454,
-      "minPostExitReturnPct": -4.841,
+      "minPostExitReturnPct": -5.053,
       "latestMatureHorizon": 30,
       "qualityLabel": "卖出合理",
       "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
@@ -7576,6 +7703,14 @@
           "returnPct": -2.038,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 50.34,
+          "returnPct": -2.29,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7608,10 +7743,10 @@
           "returnPct": -2.95
         }
       },
-      "observedTradingDays": 38,
-      "currentDate": "2026-09-09",
-      "currentPrice": 50.47,
-      "currentReturnPct": -2.038,
+      "observedTradingDays": 39,
+      "currentDate": "2026-09-10",
+      "currentPrice": 50.34,
+      "currentReturnPct": -2.29,
       "maxPostExitReturnPct": 2.601,
       "minPostExitReturnPct": -4.251,
       "latestMatureHorizon": 30,
@@ -7948,6 +8083,14 @@
           "returnPct": 17.446,
           "phase": "evening_watch",
           "finalized": true
+        },
+        "2026-09-10": {
+          "date": "2026-09-10",
+          "at": "2026-09-10T09:56:17+08:00",
+          "price": 34.16,
+          "returnPct": 16.627,
+          "phase": "morning_entry",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7980,10 +8123,10 @@
           "returnPct": 18.027
         }
       },
-      "observedTradingDays": 39,
-      "currentDate": "2026-09-09",
-      "currentPrice": 34.4,
-      "currentReturnPct": 17.446,
+      "observedTradingDays": 40,
+      "currentDate": "2026-09-10",
+      "currentPrice": 34.16,
+      "currentReturnPct": 16.627,
       "maxPostExitReturnPct": 21.031,
       "minPostExitReturnPct": -2.356,
       "latestMatureHorizon": 30,
@@ -8145,9 +8288,9 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 419,
+    "snapshotsProcessed": 420,
     "plansCreated": 603,
-    "buyChecks": 1350,
+    "buyChecks": 1358,
     "buysExecuted": 19,
     "sellsExecuted": 19,
     "waitReasonCounts": {
@@ -8159,11 +8302,11 @@
       "快照价格高于最高买入触发价": 4
     },
     "cancelReasonCounts": {
-      "模型或接入安全层硬拦截": 22,
+      "模型或接入安全层硬拦截": 23,
       "未满足上涨趋势门槛，取消旧买入计划": 7,
-      "股票已调出最新池，取消旧买入计划": 29
+      "股票已调出最新池，取消旧买入计划": 36
     },
-    "lastRunAt": "2026-09-09T23:22:13+08:00",
-    "lastRunSummary": "更新云端计划5只：中金黄金(watch)、中航沈飞(watch)、中国船舶(watch)、华阳股份(watch)、陕西煤业(watch)"
+    "lastRunAt": "2026-09-10T09:56:17+08:00",
+    "lastRunSummary": "当前没有符合资金和风控约束的新计划；本次买入复检未成交，原因已写入决策复盘"
   }
 }
