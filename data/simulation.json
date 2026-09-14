@@ -889,8 +889,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-14T18:50:48+08:00|2026-09-14|14:30尾盘风控",
+  "lastAutoRunKey": "2026-09-14T19:58:52+08:00|2026-09-14|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-09-14T19:58:52+08:00|2026-09-14|20点次日关注",
+      "at": "2026-09-14T19:58:52+08:00",
+      "tradeDate": "2026-09-14",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划1只：移远通信(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-14T18:50:48+08:00|2026-09-14|14:30尾盘风控",
       "at": "2026-09-14T18:50:48+08:00",
@@ -1607,38 +1620,21 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-07T13:19:39+08:00|2026-09-07|11:20午前买入复检",
-      "at": "2026-09-07T13:19:39+08:00",
-      "tradeDate": "2026-09-07",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划1只：景旺电子(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "603236-2026-09-14T18:50:48+08:00|2026-09-14|14:30尾盘风控",
+      "id": "603236-2026-09-14T19:58:52+08:00|2026-09-14|20点次日关注",
       "code": "603236",
       "name": "移远通信",
       "status": "pending",
       "signalDate": "2026-09-14",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-14T18:50:48+08:00|2026-09-14|14:30尾盘风控",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-09-14T19:58:52+08:00|2026-09-14|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-15",
-      "plannedEntryPrice": 58.13,
-      "maxBuyPrice": 59.82,
+      "plannedEntryPrice": 58.15,
+      "maxBuyPrice": 59.84,
       "noChasePrice": 69.91,
       "score": 8.3,
       "buySignalKey": "wait",
@@ -2538,6 +2534,24 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-603236-2026-09-14T19:58:52+08:00",
+      "at": "2026-09-14T19:58:52+08:00",
+      "tradeDate": "2026-09-14",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "603236",
+      "name": "移远通信",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 58.15,
+      "maxBuyPrice": 59.84,
+      "noChasePrice": 69.91,
+      "validUntilDate": "2026-09-15",
+      "score": 8.3
+    },
     {
       "id": "buy_plan_created-603236-2026-09-14T18:50:48+08:00",
       "at": "2026-09-14T18:50:48+08:00",
@@ -4253,24 +4267,6 @@
       "quantity": 400,
       "feeTotal": 13.3758,
       "realizedPnl": -292.79
-    },
-    {
-      "id": "sell_executed-601318-2026-09-07T14:26:35+08:00",
-      "at": "2026-09-07T14:26:35+08:00",
-      "tradeDate": "2026-09-07",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "sell_executed",
-      "status": "executed",
-      "code": "601318",
-      "name": "中国平安",
-      "summary": "云端自动卖出300股",
-      "reason": "评分跌破退出阈值",
-      "snapshotPrice": 56.4,
-      "executionPrice": 56.29,
-      "quantity": 300,
-      "feeTotal": 13.6778,
-      "realizedPnl": -576.75
     }
   ],
   "exitReviews": [
@@ -4310,15 +4306,21 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 32.25,
           "returnPct": -5.949,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
-        "3": null,
+        "3": {
+          "horizon": 3,
+          "date": "2026-09-14",
+          "at": "2026-09-14T19:58:52+08:00",
+          "price": 32.25,
+          "returnPct": -5.949
+        },
         "5": null,
         "20": null,
         "30": null
@@ -4329,10 +4331,10 @@
       "currentReturnPct": -5.949,
       "maxPostExitReturnPct": -0.525,
       "minPostExitReturnPct": -5.949,
-      "latestMatureHorizon": null,
-      "qualityLabel": "等待3个交易日样本",
-      "modelAction": "样本尚未成熟，不调整卖出参数。",
-      "feedbackEligible": false
+      "latestMatureHorizon": 3,
+      "qualityLabel": "及时避险",
+      "modelAction": "卖出后继续明显下跌，同类退出规则获得正反馈。",
+      "feedbackEligible": true
     },
     {
       "id": "sell-600036-2026-09-07T14:26:35+08:00",
@@ -4386,11 +4388,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 41.83,
           "returnPct": 1.875,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4401,7 +4403,13 @@
           "price": 41.57,
           "returnPct": 1.242
         },
-        "5": null,
+        "5": {
+          "horizon": 5,
+          "date": "2026-09-14",
+          "at": "2026-09-14T19:58:52+08:00",
+          "price": 41.83,
+          "returnPct": 1.875
+        },
         "20": null,
         "30": null
       },
@@ -4411,7 +4419,7 @@
       "currentReturnPct": 1.875,
       "maxPostExitReturnPct": 1.875,
       "minPostExitReturnPct": -0.39,
-      "latestMatureHorizon": 3,
+      "latestMatureHorizon": 5,
       "qualityLabel": "轻微卖早",
       "modelAction": "存在小幅机会成本，继续积累样本，暂不调参。",
       "feedbackEligible": true
@@ -4468,11 +4476,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 54.73,
           "returnPct": -2.771,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4483,7 +4491,13 @@
           "price": 55.52,
           "returnPct": -1.368
         },
-        "5": null,
+        "5": {
+          "horizon": 5,
+          "date": "2026-09-14",
+          "at": "2026-09-14T19:58:52+08:00",
+          "price": 54.73,
+          "returnPct": -2.771
+        },
         "20": null,
         "30": null
       },
@@ -4493,7 +4507,7 @@
       "currentReturnPct": -2.771,
       "maxPostExitReturnPct": 0.497,
       "minPostExitReturnPct": -2.771,
-      "latestMatureHorizon": 3,
+      "latestMatureHorizon": 5,
       "qualityLabel": "卖出合理",
       "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
       "feedbackEligible": true
@@ -4550,11 +4564,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 45.5,
           "returnPct": -3.13,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4565,7 +4579,13 @@
           "price": 48.6,
           "returnPct": 3.47
         },
-        "5": null,
+        "5": {
+          "horizon": 5,
+          "date": "2026-09-14",
+          "at": "2026-09-14T19:58:52+08:00",
+          "price": 45.5,
+          "returnPct": -3.13
+        },
         "20": null,
         "30": null
       },
@@ -4575,9 +4595,9 @@
       "currentReturnPct": -3.13,
       "maxPostExitReturnPct": 4.13,
       "minPostExitReturnPct": -3.13,
-      "latestMatureHorizon": 3,
-      "qualityLabel": "偏早卖出",
-      "modelAction": "同类退出可能偏敏感，成熟样本足够后降低卖出敏感度。",
+      "latestMatureHorizon": 5,
+      "qualityLabel": "卖出合理",
+      "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
       "feedbackEligible": true
     },
     {
@@ -4656,11 +4676,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 32.25,
           "returnPct": -2.095,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4768,11 +4788,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 6.09,
           "returnPct": -5.728,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -4888,11 +4908,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 22.62,
           "returnPct": -0.132,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5016,11 +5036,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 32.25,
           "returnPct": -4.16,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5152,11 +5172,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 45.5,
           "returnPct": -1.515,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5312,11 +5332,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 24.6,
           "returnPct": -5.202,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5472,11 +5492,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 32.25,
           "returnPct": -3.356,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5696,11 +5716,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 32.25,
           "returnPct": 0.0,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -6006,11 +6026,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 38.98,
           "returnPct": 13.018,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -6354,11 +6374,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 6.09,
           "returnPct": 1.163,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -6702,11 +6722,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 12.23,
           "returnPct": -11.824,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -7050,11 +7070,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 61.57,
           "returnPct": 1.534,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -7422,11 +7442,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 22.21,
           "returnPct": -5.69,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -7810,11 +7830,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 50.76,
           "returnPct": -1.475,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -8206,11 +8226,11 @@
         },
         "2026-09-14": {
           "date": "2026-09-14",
-          "at": "2026-09-14T18:50:48+08:00",
+          "at": "2026-09-14T19:58:52+08:00",
           "price": 32.25,
           "returnPct": 10.106,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -8265,25 +8285,25 @@
       30
     ],
     "exitCount": 19,
-    "maturedExitCount": 18,
+    "maturedExitCount": 19,
     "minSamplesForAdjustment": 3,
     "confidence": "高",
     "horizonStats": [
       {
         "horizon": 3,
-        "sampleCount": 18,
-        "avgPostExitReturnPct": 1.145,
-        "medianPostExitReturnPct": 0.684,
-        "prematureExitRatePct": 33.3,
-        "avoidedLossRatePct": 5.6
+        "sampleCount": 19,
+        "avgPostExitReturnPct": 0.771,
+        "medianPostExitReturnPct": 0.127,
+        "prematureExitRatePct": 31.6,
+        "avoidedLossRatePct": 10.5
       },
       {
         "horizon": 5,
-        "sampleCount": 15,
-        "avgPostExitReturnPct": 1.592,
-        "medianPostExitReturnPct": 1.189,
-        "prematureExitRatePct": 40.0,
-        "avoidedLossRatePct": 13.3
+        "sampleCount": 18,
+        "avgPostExitReturnPct": 1.103,
+        "medianPostExitReturnPct": 1.134,
+        "prematureExitRatePct": 33.3,
+        "avoidedLossRatePct": 16.7
       },
       {
         "horizon": 20,
@@ -8349,19 +8369,19 @@
         "horizons": [
           {
             "horizon": 3,
-            "sampleCount": 15,
-            "avgPostExitReturnPct": 0.782,
-            "medianPostExitReturnPct": 0.039,
-            "prematureExitRatePct": 26.7,
-            "avoidedLossRatePct": 6.7
+            "sampleCount": 16,
+            "avgPostExitReturnPct": 0.361,
+            "medianPostExitReturnPct": 0.005,
+            "prematureExitRatePct": 25.0,
+            "avoidedLossRatePct": 12.5
           },
           {
             "horizon": 5,
-            "sampleCount": 12,
-            "avgPostExitReturnPct": 1.294,
-            "medianPostExitReturnPct": 1.134,
-            "prematureExitRatePct": 33.3,
-            "avoidedLossRatePct": 16.7
+            "sampleCount": 15,
+            "avgPostExitReturnPct": 0.767,
+            "medianPostExitReturnPct": 1.079,
+            "prematureExitRatePct": 26.7,
+            "avoidedLossRatePct": 20.0
           },
           {
             "horizon": 20,
@@ -8386,32 +8406,30 @@
       "stopLossPctDelta": 0.0,
       "takeProfitPctDelta": 0.0,
       "trailingStopPctDelta": 0.0,
-      "exitScoreThresholdDelta": -0.1,
+      "exitScoreThresholdDelta": 0.0,
       "maxHoldDaysDelta": 0,
-      "applied": true,
-      "notes": [
-        "评分退出后5日持续小幅上涨，退出阈值下调0.1进行保守校准。"
-      ]
+      "applied": false,
+      "notes": []
     },
     "effectiveSettings": {
       "stopLossPct": 0.06,
       "takeProfitPct": 0.12,
       "trailingStopPct": 0.06,
-      "exitScoreThreshold": 6.1,
+      "exitScoreThreshold": 6.2,
       "maxHoldDays": 10
     },
-    "modelAction": "评分退出后5日持续小幅上涨，退出阈值下调0.1进行保守校准。"
+    "modelAction": "已有成熟卖出样本，但同类样本未达到3笔或偏差未越过阈值，暂不调参。"
   },
   "effectiveExitSettings": {
     "stopLossPct": 0.06,
     "takeProfitPct": 0.12,
     "trailingStopPct": 0.06,
-    "exitScoreThreshold": 6.1,
+    "exitScoreThreshold": 6.2,
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 441,
-    "plansCreated": 615,
+    "snapshotsProcessed": 442,
+    "plansCreated": 616,
     "buyChecks": 1367,
     "buysExecuted": 19,
     "sellsExecuted": 19,
@@ -8428,7 +8446,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 39
     },
-    "lastRunAt": "2026-09-14T18:50:48+08:00",
+    "lastRunAt": "2026-09-14T19:58:52+08:00",
     "lastRunSummary": "更新云端计划1只：移远通信(watch)"
   }
 }
