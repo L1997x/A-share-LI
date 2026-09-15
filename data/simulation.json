@@ -889,8 +889,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-15T19:57:35+08:00|2026-09-15|14:30尾盘风控",
+  "lastAutoRunKey": "2026-09-15T23:15:09+08:00|2026-09-15|23:10隔夜外盘复核",
   "autoLog": [
+    {
+      "runKey": "2026-09-15T23:15:09+08:00|2026-09-15|23:10隔夜外盘复核",
+      "at": "2026-09-15T23:15:09+08:00",
+      "tradeDate": "2026-09-15",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：金帝股份(watch)、福龙马(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-15T19:57:35+08:00|2026-09-15|14:30尾盘风控",
       "at": "2026-09-15T19:57:35+08:00",
@@ -1591,40 +1604,23 @@
           "summary": "更新云端计划2只：航发动力(trial)、中航沈飞(trial)"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-08T14:28:17+08:00|2026-09-08|14:30尾盘风控",
-      "at": "2026-09-08T14:28:17+08:00",
-      "tradeDate": "2026-09-08",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：航发动力(trial)、中航沈飞(trial)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "603270-2026-09-15T19:57:35+08:00|2026-09-15|14:30尾盘风控",
+      "id": "603270-2026-09-15T23:15:09+08:00|2026-09-15|23:10隔夜外盘复核",
       "code": "603270",
       "name": "金帝股份",
       "status": "pending",
       "signalDate": "2026-09-15",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-15T19:57:35+08:00|2026-09-15|14:30尾盘风控",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-09-15T23:15:09+08:00|2026-09-15|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-16",
-      "plannedEntryPrice": 30.11,
-      "maxBuyPrice": 30.62,
+      "plannedEntryPrice": 30.1,
+      "maxBuyPrice": 30.6,
       "noChasePrice": 40.78,
-      "score": 8.1,
+      "score": 8.0,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1644,19 +1640,19 @@
       "executionPrice": null
     },
     {
-      "id": "603686-2026-09-15T19:57:35+08:00|2026-09-15|14:30尾盘风控",
+      "id": "603686-2026-09-15T23:15:09+08:00|2026-09-15|23:10隔夜外盘复核",
       "code": "603686",
       "name": "福龙马",
       "status": "pending",
       "signalDate": "2026-09-15",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-15T19:57:35+08:00|2026-09-15|14:30尾盘风控",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-09-15T23:15:09+08:00|2026-09-15|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-16",
-      "plannedEntryPrice": 13.02,
-      "maxBuyPrice": 13.14,
+      "plannedEntryPrice": 13.01,
+      "maxBuyPrice": 13.13,
       "noChasePrice": 14.84,
-      "score": 7.7,
+      "score": 7.6,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -2566,6 +2562,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-603686-2026-09-15T23:15:09+08:00",
+      "at": "2026-09-15T23:15:09+08:00",
+      "tradeDate": "2026-09-15",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "603686",
+      "name": "福龙马",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 13.01,
+      "maxBuyPrice": 13.13,
+      "noChasePrice": 14.84,
+      "validUntilDate": "2026-09-16",
+      "score": 7.6
+    },
+    {
+      "id": "buy_plan_created-603270-2026-09-15T23:15:09+08:00",
+      "at": "2026-09-15T23:15:09+08:00",
+      "tradeDate": "2026-09-15",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "603270",
+      "name": "金帝股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 30.1,
+      "maxBuyPrice": 30.6,
+      "noChasePrice": 40.78,
+      "validUntilDate": "2026-09-16",
+      "score": 8.0
+    },
     {
       "id": "buy_plan_created-603686-2026-09-15T19:57:35+08:00",
       "at": "2026-09-15T19:57:35+08:00",
@@ -4263,42 +4295,6 @@
       "noChasePrice": 52.52,
       "validUntilDate": "2026-09-11",
       "score": 9.5
-    },
-    {
-      "id": "buy_plan_created-600893-2026-09-08T19:31:40+08:00",
-      "at": "2026-09-08T19:31:40+08:00",
-      "tradeDate": "2026-09-08",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600893",
-      "name": "航发动力",
-      "summary": "生成小仓试买观察",
-      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
-      "plannedEntryPrice": 37.58,
-      "maxBuyPrice": 40.0,
-      "noChasePrice": 43.34,
-      "validUntilDate": "2026-09-11",
-      "score": 9.5
-    },
-    {
-      "id": "buy_plan_created-600760-2026-09-08T17:53:47+08:00",
-      "at": "2026-09-08T17:53:47+08:00",
-      "tradeDate": "2026-09-08",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600760",
-      "name": "中航沈飞",
-      "summary": "生成小仓试买观察",
-      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
-      "plannedEntryPrice": 45.52,
-      "maxBuyPrice": 48.06,
-      "noChasePrice": 52.52,
-      "validUntilDate": "2026-09-11",
-      "score": 9.5
     }
   ],
   "exitReviews": [
@@ -4346,10 +4342,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 31.68,
           "returnPct": -7.612,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -4436,10 +4432,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 41.1,
           "returnPct": 0.097,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -4532,10 +4528,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 53.9,
           "returnPct": -4.246,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -4628,10 +4624,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 44.8,
           "returnPct": -4.62,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -4748,10 +4744,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 31.68,
           "returnPct": -3.825,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -4868,10 +4864,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 6.02,
           "returnPct": -6.811,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -4996,10 +4992,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 22.3,
           "returnPct": -1.545,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -5132,10 +5128,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 31.68,
           "returnPct": -5.854,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -5276,10 +5272,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 44.8,
           "returnPct": -3.03,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -5444,10 +5440,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 24.48,
           "returnPct": -5.665,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -5612,10 +5608,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 31.68,
           "returnPct": -5.064,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -5844,10 +5840,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 31.68,
           "returnPct": -1.767,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -6162,10 +6158,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 38.16,
           "returnPct": 10.641,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -6518,10 +6514,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 6.02,
           "returnPct": 0.0,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -6874,10 +6870,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 12.09,
           "returnPct": -12.833,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -7230,10 +7226,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 60.8,
           "returnPct": 0.264,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -7610,10 +7606,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 21.99,
           "returnPct": -6.624,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -8006,10 +8002,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 50.74,
           "returnPct": -1.514,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -8410,10 +8406,10 @@
         },
         "2026-09-15": {
           "date": "2026-09-15",
-          "at": "2026-09-15T19:57:35+08:00",
+          "at": "2026-09-15T23:15:09+08:00",
           "price": 31.68,
           "returnPct": 8.16,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -8612,8 +8608,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 451,
-    "plansCreated": 628,
+    "snapshotsProcessed": 452,
+    "plansCreated": 630,
     "buyChecks": 1373,
     "buysExecuted": 19,
     "sellsExecuted": 19,
@@ -8630,7 +8626,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 43
     },
-    "lastRunAt": "2026-09-15T19:57:35+08:00",
+    "lastRunAt": "2026-09-15T23:15:09+08:00",
     "lastRunSummary": "更新云端计划2只：金帝股份(watch)、福龙马(watch)"
   }
 }
