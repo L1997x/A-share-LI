@@ -992,8 +992,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-17T00:38:34+08:00|2026-09-16|08:50开盘前外盘复核",
+  "lastAutoRunKey": "2026-09-17T00:49:07+08:00|2026-09-16|08:50开盘前外盘复核",
   "autoLog": [
+    {
+      "runKey": "2026-09-17T00:49:07+08:00|2026-09-16|08:50开盘前外盘复核",
+      "at": "2026-09-17T00:49:07+08:00",
+      "tradeDate": "2026-09-16",
+      "phase": "08:50开盘前外盘复核",
+      "phaseKey": "preopen_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：高能环境(watch)、方正科技(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-17T00:38:34+08:00|2026-09-16|08:50开盘前外盘复核",
       "at": "2026-09-17T00:38:34+08:00",
@@ -1690,34 +1703,21 @@
           "summary": "更新云端计划2只：中金黄金(watch)、中国船舶(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-09T17:56:51+08:00|2026-09-09|14:30尾盘风控",
-      "at": "2026-09-09T17:56:51+08:00",
-      "tradeDate": "2026-09-09",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：中航沈飞(watch)、中金黄金(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "603588-2026-09-17T00:38:34+08:00|2026-09-16|08:50开盘前外盘复核",
+      "id": "603588-2026-09-17T00:49:07+08:00|2026-09-16|08:50开盘前外盘复核",
       "code": "603588",
       "name": "高能环境",
       "status": "pending",
       "signalDate": "2026-09-16",
       "signalPhase": "preopen_watch",
-      "createdRunKey": "2026-09-17T00:38:34+08:00|2026-09-16|08:50开盘前外盘复核",
+      "createdRunKey": "2026-09-17T00:49:07+08:00|2026-09-16|08:50开盘前外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-17",
       "plannedEntryPrice": 14.86,
-      "maxBuyPrice": 14.97,
+      "maxBuyPrice": 14.98,
       "noChasePrice": 17.06,
       "score": 8.0,
       "buySignalKey": "wait",
@@ -1739,17 +1739,17 @@
       "executionPrice": null
     },
     {
-      "id": "600601-2026-09-17T00:38:34+08:00|2026-09-16|08:50开盘前外盘复核",
+      "id": "600601-2026-09-17T00:49:07+08:00|2026-09-16|08:50开盘前外盘复核",
       "code": "600601",
       "name": "方正科技",
       "status": "pending",
       "signalDate": "2026-09-16",
       "signalPhase": "preopen_watch",
-      "createdRunKey": "2026-09-17T00:38:34+08:00|2026-09-16|08:50开盘前外盘复核",
+      "createdRunKey": "2026-09-17T00:49:07+08:00|2026-09-16|08:50开盘前外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-17",
       "plannedEntryPrice": 12.76,
-      "maxBuyPrice": 13.23,
+      "maxBuyPrice": 13.22,
       "noChasePrice": 16.25,
       "score": 7.5,
       "buySignalKey": "wait",
@@ -2676,6 +2676,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600601-2026-09-17T00:49:07+08:00",
+      "at": "2026-09-17T00:49:07+08:00",
+      "tradeDate": "2026-09-16",
+      "phase": "08:50开盘前外盘复核",
+      "phaseKey": "preopen_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600601",
+      "name": "方正科技",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 12.76,
+      "maxBuyPrice": 13.22,
+      "noChasePrice": 16.25,
+      "validUntilDate": "2026-09-17",
+      "score": 7.5
+    },
+    {
+      "id": "buy_plan_created-603588-2026-09-17T00:49:07+08:00",
+      "at": "2026-09-17T00:49:07+08:00",
+      "tradeDate": "2026-09-16",
+      "phase": "08:50开盘前外盘复核",
+      "phaseKey": "preopen_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "603588",
+      "name": "高能环境",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 14.86,
+      "maxBuyPrice": 14.98,
+      "noChasePrice": 17.06,
+      "validUntilDate": "2026-09-17",
+      "score": 8.0
+    },
     {
       "id": "buy_plan_created-600601-2026-09-17T00:38:34+08:00",
       "at": "2026-09-17T00:38:34+08:00",
@@ -4393,38 +4429,6 @@
       "plannedEntryPrice": 92.82,
       "maxBuyPrice": 94.75,
       "score": 8.1
-    },
-    {
-      "id": "buy_deferred-000651-2026-09-09T14:28:14+08:00",
-      "at": "2026-09-09T14:28:14+08:00",
-      "tradeDate": "2026-09-09",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "000651",
-      "name": "格力电器",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 38.1,
-      "maxBuyPrice": 38.24,
-      "score": 7.5
-    },
-    {
-      "id": "buy_deferred-000768-2026-09-09T14:28:14+08:00",
-      "at": "2026-09-09T14:28:14+08:00",
-      "tradeDate": "2026-09-09",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "000768",
-      "name": "中航西飞",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 21.53,
-      "maxBuyPrice": 21.89,
-      "score": 8.8
     }
   ],
   "exitReviews": [
@@ -4480,7 +4484,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 32.17,
           "returnPct": -6.183,
           "phase": "preopen_watch",
@@ -4584,7 +4588,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 40.92,
           "returnPct": -0.341,
           "phase": "preopen_watch",
@@ -4688,7 +4692,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 53.51,
           "returnPct": -4.939,
           "phase": "preopen_watch",
@@ -4792,7 +4796,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 44.37,
           "returnPct": -5.535,
           "phase": "preopen_watch",
@@ -4920,7 +4924,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 32.17,
           "returnPct": -2.338,
           "phase": "preopen_watch",
@@ -5048,7 +5052,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 6.09,
           "returnPct": -5.728,
           "phase": "preopen_watch",
@@ -5184,7 +5188,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 22.35,
           "returnPct": -1.325,
           "phase": "preopen_watch",
@@ -5328,7 +5332,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 32.17,
           "returnPct": -4.398,
           "phase": "preopen_watch",
@@ -5480,7 +5484,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 44.37,
           "returnPct": -3.961,
           "phase": "preopen_watch",
@@ -5656,7 +5660,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 25.22,
           "returnPct": -2.813,
           "phase": "preopen_watch",
@@ -5832,7 +5836,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 32.17,
           "returnPct": -3.596,
           "phase": "preopen_watch",
@@ -6072,7 +6076,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 32.17,
           "returnPct": -0.248,
           "phase": "preopen_watch",
@@ -6398,7 +6402,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 37.79,
           "returnPct": 9.568,
           "phase": "preopen_watch",
@@ -6762,7 +6766,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 6.09,
           "returnPct": 1.163,
           "phase": "preopen_watch",
@@ -7126,7 +7130,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 12.17,
           "returnPct": -12.257,
           "phase": "preopen_watch",
@@ -7490,7 +7494,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 62.33,
           "returnPct": 2.787,
           "phase": "preopen_watch",
@@ -7878,7 +7882,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 22.02,
           "returnPct": -6.497,
           "phase": "preopen_watch",
@@ -8282,7 +8286,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 50.84,
           "returnPct": -1.32,
           "phase": "preopen_watch",
@@ -8694,7 +8698,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-17T00:38:34+08:00",
+          "at": "2026-09-17T00:49:07+08:00",
           "price": 32.17,
           "returnPct": 9.833,
           "phase": "preopen_watch",
@@ -8898,8 +8902,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 463,
-    "plansCreated": 646,
+    "snapshotsProcessed": 464,
+    "plansCreated": 648,
     "buyChecks": 1379,
     "buysExecuted": 21,
     "sellsExecuted": 19,
@@ -8916,7 +8920,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 46
     },
-    "lastRunAt": "2026-09-17T00:38:34+08:00",
+    "lastRunAt": "2026-09-17T00:49:07+08:00",
     "lastRunSummary": "更新云端计划2只：高能环境(watch)、方正科技(watch)"
   }
 }
