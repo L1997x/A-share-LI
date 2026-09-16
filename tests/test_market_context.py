@@ -5,7 +5,13 @@ from datetime import datetime, timezone, timedelta
 
 import pandas as pd
 
-from scripts.generate_pool import build_market_fund_heat, parse_sina_global_context
+from scripts.generate_pool import (
+    apply_market_theme_context,
+    build_global_theme_context,
+    build_market_fund_heat,
+    global_theme_effect_for_row,
+    parse_sina_global_context,
+)
 
 
 CN_TZ = timezone(timedelta(hours=8))
@@ -90,6 +96,50 @@ class GlobalMarketContextTests(unittest.TestCase):
 
         self.assertTrue(context["hard_risk"])
         self.assertEqual(context["regime"], "defensive")
+
+
+class GlobalThemeContextTests(unittest.TestCase):
+    def test_software_strength_does_not_leak_to_ai_hardware(self) -> None:
+        context = build_global_theme_context(
+            {
+                "QQQ": {"return_5d_pct": 0.2, "return_1m_pct": 0.5},
+                "IGV": {"return_5d_pct": 3.4, "return_1m_pct": 3.2},
+                "SOXX": {"return_5d_pct": -4.4, "return_1m_pct": -9.0},
+                "SMH": {"return_5d_pct": -4.0, "return_1m_pct": -7.2},
+            },
+            datetime(2026, 9, 16, 23, 10, tzinfo=CN_TZ),
+        )
+        software = global_theme_effect_for_row(
+            {"theme": "软件/云", "trend_trade_eligible": True, "fund_flow_score": 3.0}, context, True
+        )
+        hardware = global_theme_effect_for_row(
+            {"theme": "光模块/AI服务器", "trend_trade_eligible": True, "fund_flow_score": 3.0}, context, True
+        )
+
+        self.assertEqual(software["global_theme_regime"], "strong")
+        self.assertGreater(software["global_theme_score_bonus"], 0)
+        self.assertEqual(hardware["global_theme_regime"], "cautious")
+        self.assertLess(hardware["global_theme_score_bonus"], 0)
+
+    def test_missing_theme_data_is_neutral_and_never_creates_buy_signal(self) -> None:
+        context = build_global_theme_context({}, datetime(2026, 9, 16, 23, 10, tzinfo=CN_TZ))
+        row = {
+            "theme": "软件", "trend_trade_eligible": True, "fund_flow_score": 4.0,
+            "is_buyable_now": False, "score": 8.0, "status_key": "watch",
+        }
+        effect = global_theme_effect_for_row(row, context, True)
+        apply_market_theme_context(
+            row,
+            {
+                "temperature_score": 0.0, "score_bonus": 0.0, "price_adjustment_pct": 0.0,
+                "regime": "neutral", "label": "市场中性", "fund_heat": {},
+                "global_market": {"applies_to_entries": True}, "global_theme_context": context,
+            },
+        )
+
+        self.assertFalse(effect["global_theme_applies"])
+        self.assertEqual(effect["global_theme_score_bonus"], 0.0)
+        self.assertFalse(row["is_buyable_now"])
 
 
 if __name__ == "__main__":

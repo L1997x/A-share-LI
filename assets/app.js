@@ -1945,6 +1945,7 @@ function renderMarketPulse(data) {
   const environment = data.universe_scan?.market_environment || {};
   const heat = data.universe_scan?.market_fund_heat || environment.fund_heat || {};
   const global = data.universe_scan?.global_market || {};
+  const globalThemes = data.universe_scan?.global_theme_context || {};
   const source = data.source_status || {};
   const quality = source.degraded ? "降级可用" : source.fallback ? "回退数据" : "正常";
   const breadth = environment.mainboard_count
@@ -1966,7 +1967,10 @@ function renderMarketPulse(data) {
   set("marketHeatValue", `${heat.label || "未知"} ${formatSignedNumber(heat.heat_score, 1)}`);
   set("marketHeatDetail", `覆盖${formatPercent(heat.coverage_pct)} · ${scope}`);
   set("marketGlobalValue", `${global.label || "未知"} ${formatSignedNumber(global.impact_score, 1)}`);
-  set("marketGlobalDetail", `${global.session || "时段未知"} · ${global.confidence || "低"}置信`);
+  const leadingThemes = (globalThemes.top_themes || [])
+    .map((item) => `${item.label}${formatSignedNumber(item.return_5d_pct, 1)}%`)
+    .join("、");
+  set("marketGlobalDetail", `${global.session || "时段未知"} · ${global.confidence || "低"}置信${leadingThemes ? ` · 主题：${leadingThemes}` : ""}`);
   set("marketDataQuality", quality, source.degraded || source.fallback ? "quality-warning" : "quality-ok");
   set("marketDataQualityDetail", `${source.warnings?.length || 0}项告警 · ${data.generated_at || "-"}`);
 }
@@ -1977,6 +1981,7 @@ function renderModelStatus(data) {
   const marketEnvironment = data.universe_scan?.market_environment || {};
   const marketFundHeat = data.universe_scan?.market_fund_heat || marketEnvironment.fund_heat || {};
   const globalMarket = data.universe_scan?.global_market || {};
+  const globalThemes = data.universe_scan?.global_theme_context || {};
   const segmentation = feedback.segmentation || {};
   const concentration = data.portfolio_concentration || {};
   const topThemes = data.universe_scan?.theme_strength?.top_groups || [];
@@ -1987,6 +1992,11 @@ function renderModelStatus(data) {
         .join("、")}`
     : "";
   const phaseText = data.universe_scan?.update_phase_label ? `；更新时间段：${data.universe_scan.update_phase_label}` : "";
+  const globalThemeText = (globalThemes.top_themes || []).length
+    ? `；美股主题：${globalThemes.top_themes
+        .map((item) => `${item.label}/${item.regime_label}（5日${formatSignedNumber(item.return_5d_pct, 1)}%）`)
+        .join("、")}`
+    : "";
   const freshnessText = marketFreshnessNote(data);
   const exposureText = data.summary?.theme_exposure
     ? `；最终主题分布：${Object.entries(data.summary.theme_exposure)
@@ -2027,7 +2037,7 @@ function renderModelStatus(data) {
     2
   )}；全球影响：${globalMarket.label || "-"} / ${formatSignedNumber(globalMarket.impact_score, 2)}（${globalMarket.session || "时段未知"}）${freshnessText}；${
     marketEnvironment.note || ""
-  }${topThemeText}${exposureText}${concentrationText}；数据源：${
+  }${globalThemeText}${topThemeText}${exposureText}${concentrationText}；数据源：${
     data.source_status?.quotes || "-"
   }；${data.source_status?.note || ""}`;
 
@@ -2139,6 +2149,15 @@ function createStockCard(stock) {
   )}。资金流只作趋势质量验证。`;
   const marketFundHeat = state.data?.universe_scan?.market_fund_heat || state.data?.universe_scan?.market_environment?.fund_heat || {};
   const globalMarket = state.data?.universe_scan?.global_market || {};
+  const globalTheme = stock.global_theme_label && stock.global_theme_label !== "不适用"
+    ? ` 外围主题：${stock.global_theme_label} / ${stock.global_theme_regime_label || "未知"}，5日${formatSignedNumber(
+        stock.global_theme_return_5d_pct,
+        2
+      )}%、1月${formatSignedNumber(stock.global_theme_return_1m_pct, 2)}%，评分调整${formatSignedNumber(
+        stock.global_theme_score_bonus,
+        2
+      )}，接入价调整${formatSignedNumber(stock.global_theme_price_adjustment_pct, 2)}%。${stock.global_theme_note || ""}`
+    : ` 外围主题：不适用。${stock.global_theme_note || ""}`;
   node.querySelector(".market-fund-heat-detail").textContent = `${marketFundHeat.label || "资金热度未知"}：热度分 ${formatSignedNumber(
     marketFundHeat.heat_score,
     2
@@ -2157,7 +2176,7 @@ function createStockCard(stock) {
     2
   )}，加权涨跌 ${formatPercent(globalMarket.weighted_return_pct)}，${globalMarket.session || "时段未知"}，置信度 ${
     globalMarket.confidence || "低"
-  }。${globalMoves || "外盘数据暂缺"}。${globalMarket.note || "缺失时保持中性。"}`;
+  }。${globalMoves || "外盘数据暂缺"}。${globalMarket.note || "缺失时保持中性。"}${globalTheme}`;
   node.querySelector(".chip-detail").textContent = `${stock.chip_label || "筹码暂缺"}：获利比例 ${formatPercent(
     stock.chip_profit_ratio
   )}，平均成本 ${formatNumber(stock.chip_avg_cost)}，现价偏离平均成本 ${formatPercent(

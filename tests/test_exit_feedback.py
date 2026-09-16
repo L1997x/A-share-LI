@@ -117,6 +117,25 @@ class ExitFeedbackTests(unittest.TestCase):
         self.assertTrue(feedback["parameterAdjustments"]["applied"])
         self.assertEqual(feedback["effectiveSettings"]["exitScoreThreshold"], 6.0)
 
+    def test_medium_term_score_exit_follow_through_lowers_threshold_slightly(self) -> None:
+        state = {"trades": [], "exitReviews": []}
+        for index in range(6):
+            state["exitReviews"].append(
+                {
+                    "id": f"sell-{index}",
+                    "tradeId": f"sell-{index}",
+                    "reasonKey": "score_exit",
+                    "reasonLabel": "评分退出",
+                    "feedbackEligible": True,
+                    "milestones": {"3": None, "5": {"returnPct": 0.1}, "20": {"returnPct": 3.0}, "30": None},
+                }
+            )
+
+        feedback = build_exit_feedback(state)
+
+        self.assertEqual(feedback["parameterAdjustments"]["exitScoreThresholdDelta"], -0.1)
+        self.assertEqual(feedback["effectiveSettings"]["exitScoreThreshold"], 6.1)
+
 
 if __name__ == "__main__":
     unittest.main()

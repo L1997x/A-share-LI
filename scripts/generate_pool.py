@@ -5,6 +5,7 @@ import math
 import os
 import re
 import subprocess
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -958,6 +959,29 @@ GLOBAL_INSTRUMENTS = {
     "fx_susdcny": ("usd_cny", "在岸人民币", 0.0, "currency"),
 }
 
+# These ETFs describe overseas industry leadership.  They are deliberately kept
+# separate from the broad overnight risk score: an overseas software move must
+# not be treated as evidence for an A-share hardware stock.
+GLOBAL_THEME_ETFS = {
+    "ai_hardware": {"label": "半导体/AI硬件", "symbols": ("SOXX", "SMH")},
+    "software_cloud": {"label": "软件/云与AI应用", "symbols": ("IGV",)},
+    "oil_gas": {"label": "油气能源", "symbols": ("XLE",)},
+    "defense": {"label": "军工", "symbols": ("ITA",)},
+    "nuclear": {"label": "铀/核电", "symbols": ("URA",)},
+    "solar": {"label": "光伏", "symbols": ("TAN",)},
+    "biotech": {"label": "生物医药", "symbols": ("XBI",)},
+}
+GLOBAL_THEME_BENCHMARK = "QQQ"
+GLOBAL_THEME_MATCHERS = (
+    ("ai_hardware", ("AI服务器", "算力", "半导体", "PCB", "封装", "光模块", "电子材料", "封测")),
+    ("software_cloud", ("软件", "云", "AI应用", "企业服务")),
+    ("oil_gas", ("油气", "油服")),
+    ("defense", ("军机", "军工", "航空", "发动机", "大飞机")),
+    ("nuclear", ("核电", "铀")),
+    ("solar", ("光伏",)),
+    ("biotech", ("创新药",)),
+)
+
 
 def global_market_label(score: Any) -> tuple[str, str]:
     value = safe_float(score)
@@ -1087,6 +1111,110 @@ def fetch_global_market_context(captured_at: datetime | None = None) -> dict[str
             "warnings": [f"全球市场数据获取失败：{compact_error(exc)}"],
             "note": "全球市场数据缺失，本轮保持中性，不把接口失败视为利空。",
         }
+
+
+def _yahoo_theme_returns(symbol: str) -> dict[str, float | None]:
+    proxy = os.getenv("HTTPS_PROXY") or os.getenv("https_proxy") or os.getenv("ALL_PROXY") or os.getenv("all_proxy")
+    proxies = {"https": proxy} if proxy else None
+    response = requests.get(
+        f"https://query2.finance.yahoo.com/v8/finance/chart/{symbol}",
+        params={"range": "1mo", "interval": "1d", "events": "history"},
+        headers={"User-Agent": "Mozilla/5.0"},
+        timeout=15,
+        proxies=proxies,
+    )
+    response.raise_for_status()
+    result = (response.json().get("chart", {}).get("result") or [None])[0] or {}
+    closes = ((result.get("indicators") or {}).get("quote") or [{}])[0].get("close") or []
+    values = [float(value) for value in closes if safe_float(value) and safe_float(value) > 0]
+    if len(values) < 6:
+        raise ValueError("日线数量不足")
+    latest = values[-1]
+    return {
+        "return_5d_pct": round_or_none((latest / values[-6] - 1) * 100, 3),
+        "return_1m_pct": round_or_none((latest / values[0] - 1) * 100, 3),
+        "close": round_or_none(latest, 4),
+    }
+
+
+def global_theme_regime(return_5d: Any, return_1m: Any, relative_5d: Any, relative_1m: Any) -> tuple[str, str]:
+    five_day = safe_float(return_5d)
+    one_month = safe_float(return_1m)
+    rel_five = safe_float(relative_5d)
+    rel_month = safe_float(relative_1m)
+    if None in (five_day, one_month, rel_five, rel_month):
+        return "主题数据暂缺", "unknown"
+    if five_day >= 1.5 and one_month >= 2.0 and (rel_five >= 0.8 or rel_month >= 1.2):
+        return "外盘主题强势", "strong"
+    if five_day >= 0 and one_month >= 0 and (rel_five >= -0.5 or rel_month >= 0):
+        return "外盘主题偏强", "supportive"
+    if five_day <= -6.0 and one_month <= -8.0:
+        return "外盘主题防御", "defensive"
+    if five_day <= -2.5 and one_month <= -4.0:
+        return "外盘主题偏弱", "cautious"
+    return "外盘主题中性", "neutral"
+
+
+def build_global_theme_context(returns_by_symbol: dict[str, dict[str, Any]], captured_at: datetime | None = None) -> dict[str, Any]:
+    benchmark = returns_by_symbol.get(GLOBAL_THEME_BENCHMARK) or {}
+    benchmark_5d = safe_float(benchmark.get("return_5d_pct"))
+    benchmark_1m = safe_float(benchmark.get("return_1m_pct"))
+    themes: list[dict[str, Any]] = []
+    for key, config in GLOBAL_THEME_ETFS.items():
+        records = [returns_by_symbol.get(symbol) for symbol in config["symbols"] if returns_by_symbol.get(symbol)]
+        five_day_values = [safe_float(record.get("return_5d_pct")) for record in records]
+        month_values = [safe_float(record.get("return_1m_pct")) for record in records]
+        five_day_values = [value for value in five_day_values if value is not None]
+        month_values = [value for value in month_values if value is not None]
+        five_day = sum(five_day_values) / len(five_day_values) if five_day_values else None
+        one_month = sum(month_values) / len(month_values) if month_values else None
+        relative_5d = five_day - benchmark_5d if five_day is not None and benchmark_5d is not None else None
+        relative_1m = one_month - benchmark_1m if one_month is not None and benchmark_1m is not None else None
+        label, regime = global_theme_regime(five_day, one_month, relative_5d, relative_1m)
+        themes.append({
+            "key": key,
+            "label": config["label"],
+            "etfs": list(config["symbols"]),
+            "return_5d_pct": round_or_none(five_day, 3),
+            "return_1m_pct": round_or_none(one_month, 3),
+            "relative_qqq_5d_pct": round_or_none(relative_5d, 3),
+            "relative_qqq_1m_pct": round_or_none(relative_1m, 3),
+            "regime": regime,
+            "regime_label": label,
+            "available": five_day is not None and one_month is not None,
+        })
+    available = [item for item in themes if item["available"]]
+    strength = sorted(available, key=lambda item: ((safe_float(item["return_5d_pct"]) or 0) + (safe_float(item["return_1m_pct"]) or 0)), reverse=True)
+    return {
+        "available": bool(available),
+        "captured_at": (captured_at or datetime.now(CN_TZ)).astimezone(CN_TZ).isoformat(timespec="seconds"),
+        "source": "Yahoo Finance chart API (1mo daily)",
+        "benchmark": {"symbol": GLOBAL_THEME_BENCHMARK, **benchmark},
+        "themes": themes,
+        "top_themes": strength[:2],
+        "note": "外围行业主题只在A股本地趋势、资金和接入风险均通过时，有限调节排序与接入纪律；不会单独产生买入信号。",
+    }
+
+
+def fetch_global_theme_context(captured_at: datetime | None = None) -> dict[str, Any]:
+    symbols = [GLOBAL_THEME_BENCHMARK, *[symbol for config in GLOBAL_THEME_ETFS.values() for symbol in config["symbols"]]]
+    returns_by_symbol: dict[str, dict[str, Any]] = {}
+    warnings: list[str] = []
+    # Keep concurrency small. It bounds refresh latency without issuing the
+    # burst that Yahoo rejects on some routes.
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        futures = {executor.submit(_yahoo_theme_returns, symbol): symbol for symbol in symbols}
+        for future in as_completed(futures):
+            symbol = futures[future]
+            try:
+                returns_by_symbol[symbol] = future.result()
+            except Exception as exc:
+                warnings.append(f"{symbol}主题数据获取失败：{compact_error(exc)}")
+    payload = build_global_theme_context(returns_by_symbol, captured_at)
+    payload["warnings"] = warnings
+    if not payload["available"]:
+        payload["note"] = "外围行业主题数据缺失，本轮保持中性，不把接口失败视为利空。"
+    return payload
 
 
 def theme_strength_label(score: Any) -> tuple[str, str]:
@@ -3072,6 +3200,40 @@ def apply_trend_context(row: dict[str, Any]) -> dict[str, Any]:
     return row
 
 
+def global_theme_effect_for_row(row: dict[str, Any], global_theme_context: dict[str, Any], global_market_applies: bool) -> dict[str, Any]:
+    theme_text = " ".join(str(row.get(key) or "") for key in ("theme", "theme_group"))
+    matched_key = next((key for key, keywords in GLOBAL_THEME_MATCHERS if any(keyword in theme_text for keyword in keywords)), None)
+    themes_by_key = {item.get("key"): item for item in global_theme_context.get("themes") or []}
+    theme = themes_by_key.get(matched_key) or {}
+    regime = str(theme.get("regime") or "unknown")
+    fund_score = safe_float(row.get("fund_flow_score"))
+    local_ready = bool(row.get("trend_trade_eligible")) and (fund_score is None or fund_score >= -2.0) and not bool(row.get("entry_safety_risk_flag"))
+    applies = bool(matched_key and theme.get("available") and global_market_applies and local_ready)
+    score_bonus_by_regime = {"strong": 0.22, "supportive": 0.10, "neutral": 0.0, "cautious": -0.25, "defensive": -0.35}
+    price_by_regime = {"strong": 0.20, "supportive": 0.08, "neutral": 0.0, "cautious": -0.40, "defensive": -0.50}
+    score_bonus = score_bonus_by_regime.get(regime, 0.0) if applies else 0.0
+    price_adjustment = price_by_regime.get(regime, 0.0) if applies else 0.0
+    def signed_percent(value: Any) -> str:
+        number = safe_float(value)
+        return f"{number:+.2f}%" if number is not None else "暂无"
+    return {
+        "global_theme_key": matched_key,
+        "global_theme_label": theme.get("label") or "不适用",
+        "global_theme_regime": regime,
+        "global_theme_regime_label": theme.get("regime_label") or "外围主题不适用",
+        "global_theme_return_5d_pct": theme.get("return_5d_pct"),
+        "global_theme_return_1m_pct": theme.get("return_1m_pct"),
+        "global_theme_score_bonus": round_or_none(score_bonus, 3),
+        "global_theme_price_adjustment_pct": round_or_none(price_adjustment, 3),
+        "global_theme_applies": applies,
+        "global_theme_note": (
+            f"映射{theme.get('label')}：5日{signed_percent(theme.get('return_5d_pct'))}，"
+            f"1月{signed_percent(theme.get('return_1m_pct'))}，{theme.get('regime_label') or '主题数据暂缺'}。"
+            if matched_key else "本股主题与外围行业ETF无直接映射，不使用跨行业传导。"
+        ) + ("本地趋势、资金或接入风险未通过，外围主题仅展示不参与决策。" if matched_key and not applies else ""),
+    }
+
+
 def apply_market_theme_context(row: dict[str, Any], market_environment: dict[str, Any]) -> dict[str, Any]:
     market_score = safe_float(market_environment.get("temperature_score")) or 0.0
     market_bonus = safe_float(market_environment.get("score_bonus")) or 0.0
@@ -3085,11 +3247,16 @@ def apply_market_theme_context(row: dict[str, Any], market_environment: dict[str
     global_applies = bool(global_market.get("applies_to_entries"))
     global_bonus = safe_float(global_market.get("score_bonus")) or 0.0 if global_applies else 0.0
     global_price_adjustment = safe_float(global_market.get("price_adjustment_pct")) or 0.0 if global_applies else 0.0
+    global_theme_context = market_environment.get("global_theme_context") or {}
+    global_theme_effect = global_theme_effect_for_row(row, global_theme_context, global_applies)
+    row.update(global_theme_effect)
+    global_theme_bonus = safe_float(global_theme_effect.get("global_theme_score_bonus")) or 0.0
+    global_theme_price_adjustment = safe_float(global_theme_effect.get("global_theme_price_adjustment_pct")) or 0.0
     theme_bonus = safe_float(row.get("theme_strength_bonus")) or 0.0
     theme_score = safe_float(row.get("theme_strength_score"))
     theme_label = str(row.get("theme_strength_label") or "主题强度未知")
     context_bonus = clamp(
-        market_bonus * 0.55 + theme_bonus * 0.75 + fund_heat_bonus * 0.45 + global_bonus * 0.45,
+        market_bonus * 0.55 + theme_bonus * 0.75 + fund_heat_bonus * 0.45 + global_bonus * 0.45 + global_theme_bonus,
         -1.35,
         1.15,
     )
@@ -3097,7 +3264,8 @@ def apply_market_theme_context(row: dict[str, Any], market_environment: dict[str
         market_price_adjustment * 0.45
         + theme_bonus * 0.22
         + fund_heat_price_adjustment * 0.35
-        + global_price_adjustment * 0.55,
+        + global_price_adjustment * 0.55
+        + global_theme_price_adjustment,
         -1.5,
         0.65,
     )
@@ -3130,7 +3298,8 @@ def apply_market_theme_context(row: dict[str, Any], market_environment: dict[str
     row["market_context_price_adjustment_pct"] = round_or_none(context_price_adjustment, 3)
     row["market_context_note"] = (
         f"市场温度：{market_label}；资金热度：{row['market_fund_heat_label']}；"
-        f"全球影响：{row['global_market_label']}；主题强度：{theme_label}。{market_environment.get('note') or ''}"
+        f"全球影响：{row['global_market_label']}；外围主题：{row['global_theme_regime_label']}；"
+        f"主题强度：{theme_label}。{market_environment.get('note') or ''}"
     )
 
     if context_price_adjustment != 0:
@@ -4209,9 +4378,13 @@ def build_payload() -> dict[str, Any]:
         "evening_watch",
         "overnight_watch",
     }
+    global_theme_context = fetch_global_theme_context(parse_datetime_value(generated_at))
     universe_payload["global_market"] = global_market
+    universe_payload["global_theme_context"] = global_theme_context
     market_environment["global_market"] = global_market
+    market_environment["global_theme_context"] = global_theme_context
     errors.extend(global_market.get("warnings") or [])
+    errors.extend(global_theme_context.get("warnings") or [])
     for row in rows:
         row["market_fund_heat_label"] = (market_environment.get("fund_heat") or {}).get("label") or "资金热度未知"
         row["global_market_label"] = global_market.get("label") or "隔夜影响未知"

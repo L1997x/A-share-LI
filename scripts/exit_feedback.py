@@ -343,6 +343,17 @@ def build_exit_feedback(state: dict[str, Any]) -> dict[str, Any]:
             adjustments["exitScoreThresholdDelta"] = 0.1
             adjustments["notes"].append("评分退出后5日继续下跌，退出阈值上调0.1以更早控制风险。")
 
+    # Short-horizon returns can be flat even when a score exit repeatedly cuts
+    # medium-term trends.  Use this only after six mature same-reason samples,
+    # and keep the adjustment smaller than the 5-day signal.
+    score_long_stat = mature("score_exit", 20)
+    if score_long_stat and int(score_long_stat.get("sampleCount") or 0) >= 6 and adjustments["exitScoreThresholdDelta"] == 0.0:
+        average = _num(score_long_stat.get("avgPostExitReturnPct")) or 0.0
+        median_return = _num(score_long_stat.get("medianPostExitReturnPct")) or 0.0
+        if average >= 2.0 and median_return >= 2.0:
+            adjustments["exitScoreThresholdDelta"] = -0.1
+            adjustments["notes"].append("评分退出后20日仍有趋势延续，退出阈值下调0.1；硬止损、止盈与风险退出不变。")
+
     stop_stat = mature("hard_stop", 3)
     if stop_stat:
         average = _num(stop_stat.get("avgPostExitReturnPct")) or 0.0
