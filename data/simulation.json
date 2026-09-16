@@ -992,8 +992,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-16T16:34:31+08:00|2026-09-16|14:30尾盘风控",
+  "lastAutoRunKey": "2026-09-16T18:06:59+08:00|2026-09-16|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-09-16T18:06:59+08:00|2026-09-16|14:30尾盘风控",
+      "at": "2026-09-16T18:06:59+08:00",
+      "tradeDate": "2026-09-16",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：高能环境(watch)、方正科技(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-16T16:34:31+08:00|2026-09-16|14:30尾盘风控",
       "at": "2026-09-16T16:34:31+08:00",
@@ -1706,36 +1719,55 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-08T23:23:41+08:00|2026-09-08|20点次日关注",
-      "at": "2026-09-08T23:23:41+08:00",
-      "tradeDate": "2026-09-08",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：航发动力(trial)、中航沈飞(trial)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "600601-2026-09-16T16:34:31+08:00|2026-09-16|14:30尾盘风控",
+      "id": "603588-2026-09-16T18:06:59+08:00|2026-09-16|14:30尾盘风控",
+      "code": "603588",
+      "name": "高能环境",
+      "status": "pending",
+      "signalDate": "2026-09-16",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-09-16T18:06:59+08:00|2026-09-16|14:30尾盘风控",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-09-17",
+      "plannedEntryPrice": 14.88,
+      "maxBuyPrice": 14.99,
+      "noChasePrice": 17.06,
+      "score": 8.2,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金平稳",
+      "globalMarketLabel": "外盘中性",
+      "contextPositionMultiplier": 1.0,
+      "feedbackPositionMultiplier": 1.0,
+      "feedbackEvidenceLevel": "strong",
+      "entryEvidenceLevel": "insufficient",
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "600601-2026-09-16T18:06:59+08:00|2026-09-16|14:30尾盘风控",
       "code": "600601",
       "name": "方正科技",
       "status": "pending",
       "signalDate": "2026-09-16",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-16T16:34:31+08:00|2026-09-16|14:30尾盘风控",
+      "createdRunKey": "2026-09-16T18:06:59+08:00|2026-09-16|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-17",
-      "plannedEntryPrice": 12.7,
-      "maxBuyPrice": 13.09,
-      "noChasePrice": 16.14,
-      "score": 7.9,
+      "plannedEntryPrice": 12.77,
+      "maxBuyPrice": 13.24,
+      "noChasePrice": 16.25,
+      "score": 7.6,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -2660,6 +2692,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600601-2026-09-16T18:06:59+08:00",
+      "at": "2026-09-16T18:06:59+08:00",
+      "tradeDate": "2026-09-16",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600601",
+      "name": "方正科技",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 12.77,
+      "maxBuyPrice": 13.24,
+      "noChasePrice": 16.25,
+      "validUntilDate": "2026-09-17",
+      "score": 7.6
+    },
+    {
+      "id": "buy_plan_created-603588-2026-09-16T18:06:59+08:00",
+      "at": "2026-09-16T18:06:59+08:00",
+      "tradeDate": "2026-09-16",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "603588",
+      "name": "高能环境",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 14.88,
+      "maxBuyPrice": 14.99,
+      "noChasePrice": 17.06,
+      "validUntilDate": "2026-09-17",
+      "score": 8.2
+    },
     {
       "id": "buy_plan_created-600601-2026-09-16T16:34:31+08:00",
       "at": "2026-09-16T16:34:31+08:00",
@@ -4365,38 +4433,6 @@
       "noChasePrice": 52.52,
       "validUntilDate": "2026-09-12",
       "score": 9.1
-    },
-    {
-      "id": "buy_deferred-603228-2026-09-09T09:58:05+08:00",
-      "at": "2026-09-09T09:58:05+08:00",
-      "tradeDate": "2026-09-09",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "603228",
-      "name": "景旺电子",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 92.82,
-      "maxBuyPrice": 94.75,
-      "score": 8.1
-    },
-    {
-      "id": "buy_cancelled-600893-2026-09-09T09:58:05+08:00",
-      "at": "2026-09-09T09:58:05+08:00",
-      "tradeDate": "2026-09-09",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "600893",
-      "name": "航发动力",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 37.51,
-      "maxBuyPrice": 39.92,
-      "score": 9.4
     }
   ],
   "exitReviews": [
@@ -4452,7 +4488,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 32.29,
           "returnPct": -5.833,
           "phase": "afternoon_risk",
@@ -4550,7 +4586,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 40.92,
           "returnPct": -0.341,
           "phase": "afternoon_risk",
@@ -4654,7 +4690,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 53.51,
           "returnPct": -4.939,
           "phase": "afternoon_risk",
@@ -4758,7 +4794,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 44.37,
           "returnPct": -5.535,
           "phase": "afternoon_risk",
@@ -4886,7 +4922,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 32.29,
           "returnPct": -1.973,
           "phase": "afternoon_risk",
@@ -5014,7 +5050,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 6.09,
           "returnPct": -5.728,
           "phase": "afternoon_risk",
@@ -5150,7 +5186,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 22.35,
           "returnPct": -1.325,
           "phase": "afternoon_risk",
@@ -5294,7 +5330,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 32.29,
           "returnPct": -4.042,
           "phase": "afternoon_risk",
@@ -5446,7 +5482,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 44.37,
           "returnPct": -3.961,
           "phase": "afternoon_risk",
@@ -5622,7 +5658,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 25.22,
           "returnPct": -2.813,
           "phase": "afternoon_risk",
@@ -5798,7 +5834,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 32.29,
           "returnPct": -3.236,
           "phase": "afternoon_risk",
@@ -6038,7 +6074,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 32.29,
           "returnPct": 0.124,
           "phase": "afternoon_risk",
@@ -6364,7 +6400,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 37.79,
           "returnPct": 9.568,
           "phase": "afternoon_risk",
@@ -6728,7 +6764,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 6.09,
           "returnPct": 1.163,
           "phase": "afternoon_risk",
@@ -7092,7 +7128,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 12.17,
           "returnPct": -12.257,
           "phase": "afternoon_risk",
@@ -7456,7 +7492,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 62.33,
           "returnPct": 2.787,
           "phase": "afternoon_risk",
@@ -7844,7 +7880,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 22.02,
           "returnPct": -6.497,
           "phase": "afternoon_risk",
@@ -8248,7 +8284,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 50.84,
           "returnPct": -1.32,
           "phase": "afternoon_risk",
@@ -8660,7 +8696,7 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T16:34:31+08:00",
+          "at": "2026-09-16T18:06:59+08:00",
           "price": 32.29,
           "returnPct": 10.242,
           "phase": "afternoon_risk",
@@ -8862,8 +8898,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 457,
-    "plansCreated": 635,
+    "snapshotsProcessed": 458,
+    "plansCreated": 637,
     "buyChecks": 1379,
     "buysExecuted": 21,
     "sellsExecuted": 19,
@@ -8880,7 +8916,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 46
     },
-    "lastRunAt": "2026-09-16T16:34:31+08:00",
-    "lastRunSummary": "更新云端计划1只：方正科技(watch)"
+    "lastRunAt": "2026-09-16T18:06:59+08:00",
+    "lastRunSummary": "更新云端计划2只：高能环境(watch)、方正科技(watch)"
   }
 }
