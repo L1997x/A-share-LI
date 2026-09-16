@@ -992,8 +992,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-16T20:00:33+08:00|2026-09-16|20点次日关注",
+  "lastAutoRunKey": "2026-09-16T23:15:50+08:00|2026-09-16|23:10隔夜外盘复核",
   "autoLog": [
+    {
+      "runKey": "2026-09-16T23:15:50+08:00|2026-09-16|23:10隔夜外盘复核",
+      "at": "2026-09-16T23:15:50+08:00",
+      "tradeDate": "2026-09-16",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：高能环境(watch)、方正科技(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-16T20:00:33+08:00|2026-09-16|20点次日关注",
       "at": "2026-09-16T20:00:33+08:00",
@@ -1690,42 +1703,21 @@
           "summary": "更新云端计划2只：中航沈飞(watch)、中金黄金(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-09T14:28:14+08:00|2026-09-09|14:30尾盘风控",
-      "at": "2026-09-09T14:28:14+08:00",
-      "tradeDate": "2026-09-09",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "sell",
-          "summary": "云端卖出紫金矿业200股，原因：评分跌破退出阈值"
-        },
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划2只：中航沈飞(watch)、中航西飞(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "603588-2026-09-16T20:00:33+08:00|2026-09-16|20点次日关注",
+      "id": "603588-2026-09-16T23:15:50+08:00|2026-09-16|23:10隔夜外盘复核",
       "code": "603588",
       "name": "高能环境",
       "status": "pending",
       "signalDate": "2026-09-16",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-09-16T20:00:33+08:00|2026-09-16|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-09-16T23:15:50+08:00|2026-09-16|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-17",
-      "plannedEntryPrice": 14.87,
-      "maxBuyPrice": 14.98,
+      "plannedEntryPrice": 14.88,
+      "maxBuyPrice": 14.99,
       "noChasePrice": 17.06,
       "score": 8.1,
       "buySignalKey": "wait",
@@ -1747,17 +1739,17 @@
       "executionPrice": null
     },
     {
-      "id": "600601-2026-09-16T20:00:33+08:00|2026-09-16|20点次日关注",
+      "id": "600601-2026-09-16T23:15:50+08:00|2026-09-16|23:10隔夜外盘复核",
       "code": "600601",
       "name": "方正科技",
       "status": "pending",
       "signalDate": "2026-09-16",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-09-16T20:00:33+08:00|2026-09-16|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-09-16T23:15:50+08:00|2026-09-16|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-17",
       "plannedEntryPrice": 12.76,
-      "maxBuyPrice": 13.22,
+      "maxBuyPrice": 13.23,
       "noChasePrice": 16.25,
       "score": 7.5,
       "buySignalKey": "wait",
@@ -1768,11 +1760,11 @@
       "marketFundHeatLabel": "资金平稳",
       "globalMarketLabel": "外盘中性",
       "contextPositionMultiplier": 1.0,
-      "feedbackPositionMultiplier": 1.0,
+      "feedbackPositionMultiplier": 0.75,
       "feedbackEvidenceLevel": "strong",
       "entryEvidenceLevel": "insufficient",
       "planType": "watch",
-      "targetPositionPct": 0.1,
+      "targetPositionPct": 0.07500000000000001,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
@@ -2684,6 +2676,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600601-2026-09-16T23:15:50+08:00",
+      "at": "2026-09-16T23:15:50+08:00",
+      "tradeDate": "2026-09-16",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600601",
+      "name": "方正科技",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 12.76,
+      "maxBuyPrice": 13.23,
+      "noChasePrice": 16.25,
+      "validUntilDate": "2026-09-17",
+      "score": 7.5
+    },
+    {
+      "id": "buy_plan_created-603588-2026-09-16T23:15:50+08:00",
+      "at": "2026-09-16T23:15:50+08:00",
+      "tradeDate": "2026-09-16",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "603588",
+      "name": "高能环境",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 14.88,
+      "maxBuyPrice": 14.99,
+      "noChasePrice": 17.06,
+      "validUntilDate": "2026-09-17",
+      "score": 8.1
+    },
     {
       "id": "buy_plan_created-600601-2026-09-16T20:00:33+08:00",
       "at": "2026-09-16T20:00:33+08:00",
@@ -4395,40 +4423,6 @@
       "noChasePrice": 52.52,
       "validUntilDate": "2026-09-12",
       "score": 9.1
-    },
-    {
-      "id": "sell_executed-601899-2026-09-09T14:28:14+08:00",
-      "at": "2026-09-09T14:28:14+08:00",
-      "tradeDate": "2026-09-09",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "sell_executed",
-      "status": "executed",
-      "code": "601899",
-      "name": "紫金矿业",
-      "summary": "云端自动卖出200股",
-      "reason": "评分跌破退出阈值",
-      "snapshotPrice": 34.36,
-      "executionPrice": 34.29,
-      "quantity": 200,
-      "feeTotal": 8.4977,
-      "realizedPnl": 41.11
-    },
-    {
-      "id": "buy_deferred-603228-2026-09-09T13:23:34+08:00",
-      "at": "2026-09-09T13:23:34+08:00",
-      "tradeDate": "2026-09-09",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "603228",
-      "name": "景旺电子",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 92.82,
-      "maxBuyPrice": 94.75,
-      "score": 8.1
     }
   ],
   "exitReviews": [
@@ -4484,11 +4478,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 32.29,
           "returnPct": -5.833,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4588,11 +4582,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 40.92,
           "returnPct": -0.341,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4692,11 +4686,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 53.51,
           "returnPct": -4.939,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4796,11 +4790,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 44.37,
           "returnPct": -5.535,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4924,11 +4918,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 32.29,
           "returnPct": -1.973,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5052,11 +5046,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 6.09,
           "returnPct": -5.728,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5188,11 +5182,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 22.35,
           "returnPct": -1.325,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5332,11 +5326,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 32.29,
           "returnPct": -4.042,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5484,11 +5478,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 44.37,
           "returnPct": -3.961,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5660,11 +5654,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 25.22,
           "returnPct": -2.813,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5836,11 +5830,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 32.29,
           "returnPct": -3.236,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6076,11 +6070,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 32.29,
           "returnPct": 0.124,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6402,11 +6396,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 37.79,
           "returnPct": 9.568,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6766,11 +6760,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 6.09,
           "returnPct": 1.163,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7130,11 +7124,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 12.17,
           "returnPct": -12.257,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7494,11 +7488,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 62.33,
           "returnPct": 2.787,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7882,11 +7876,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 22.02,
           "returnPct": -6.497,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8286,11 +8280,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 50.84,
           "returnPct": -1.32,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8698,11 +8692,11 @@
         },
         "2026-09-16": {
           "date": "2026-09-16",
-          "at": "2026-09-16T20:00:33+08:00",
+          "at": "2026-09-16T23:15:50+08:00",
           "price": 32.29,
           "returnPct": 10.242,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8900,8 +8894,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 460,
-    "plansCreated": 641,
+    "snapshotsProcessed": 461,
+    "plansCreated": 643,
     "buyChecks": 1379,
     "buysExecuted": 21,
     "sellsExecuted": 19,
@@ -8918,7 +8912,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 46
     },
-    "lastRunAt": "2026-09-16T20:00:33+08:00",
+    "lastRunAt": "2026-09-16T23:15:50+08:00",
     "lastRunSummary": "更新云端计划2只：高能环境(watch)、方正科技(watch)"
   }
 }
