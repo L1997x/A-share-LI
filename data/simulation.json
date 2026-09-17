@@ -994,8 +994,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-17T15:38:19+08:00|2026-09-17|14:30尾盘风控",
+  "lastAutoRunKey": "2026-09-17T16:40:00+08:00|2026-09-17|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-09-17T16:40:00+08:00|2026-09-17|14:30尾盘风控",
+      "at": "2026-09-17T16:40:00+08:00",
+      "tradeDate": "2026-09-17",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划4只：伊利股份(watch)、中国船舶(watch)、我爱我家(watch)、亚盛集团(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-17T15:38:19+08:00|2026-09-17|14:30尾盘风控",
       "at": "2026-09-17T15:38:19+08:00",
@@ -1704,34 +1717,21 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-09T23:22:13+08:00|2026-09-09|20点次日关注",
-      "at": "2026-09-09T23:22:13+08:00",
-      "tradeDate": "2026-09-09",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划5只：中金黄金(watch)、中航沈飞(watch)、中国船舶(watch)、华阳股份(watch)、陕西煤业(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "600887-2026-09-17T15:38:19+08:00|2026-09-17|14:30尾盘风控",
+      "id": "600887-2026-09-17T16:40:00+08:00|2026-09-17|14:30尾盘风控",
       "code": "600887",
       "name": "伊利股份",
       "status": "pending",
       "signalDate": "2026-09-17",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-17T15:38:19+08:00|2026-09-17|14:30尾盘风控",
+      "createdRunKey": "2026-09-17T16:40:00+08:00|2026-09-17|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-18",
-      "plannedEntryPrice": 26.11,
-      "maxBuyPrice": 26.26,
+      "plannedEntryPrice": 26.14,
+      "maxBuyPrice": 26.27,
       "noChasePrice": 28.65,
       "score": 8.9,
       "buySignalKey": "wait",
@@ -1753,17 +1753,17 @@
       "executionPrice": null
     },
     {
-      "id": "600150-2026-09-17T15:38:19+08:00|2026-09-17|14:30尾盘风控",
+      "id": "600150-2026-09-17T16:40:00+08:00|2026-09-17|14:30尾盘风控",
       "code": "600150",
       "name": "中国船舶",
       "status": "pending",
       "signalDate": "2026-09-17",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-17T15:38:19+08:00|2026-09-17|14:30尾盘风控",
+      "createdRunKey": "2026-09-17T16:40:00+08:00|2026-09-17|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-18",
-      "plannedEntryPrice": 35.44,
-      "maxBuyPrice": 36.22,
+      "plannedEntryPrice": 35.59,
+      "maxBuyPrice": 36.52,
       "noChasePrice": 43.67,
       "score": 8.5,
       "buySignalKey": "wait",
@@ -1785,13 +1785,13 @@
       "executionPrice": null
     },
     {
-      "id": "000560-2026-09-17T15:38:19+08:00|2026-09-17|14:30尾盘风控",
+      "id": "000560-2026-09-17T16:40:00+08:00|2026-09-17|14:30尾盘风控",
       "code": "000560",
       "name": "我爱我家",
       "status": "pending",
       "signalDate": "2026-09-17",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-17T15:38:19+08:00|2026-09-17|14:30尾盘风控",
+      "createdRunKey": "2026-09-17T16:40:00+08:00|2026-09-17|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-18",
       "plannedEntryPrice": 2.54,
@@ -1817,17 +1817,17 @@
       "executionPrice": null
     },
     {
-      "id": "600108-2026-09-17T15:38:19+08:00|2026-09-17|14:30尾盘风控",
+      "id": "600108-2026-09-17T16:40:00+08:00|2026-09-17|14:30尾盘风控",
       "code": "600108",
       "name": "亚盛集团",
       "status": "pending",
       "signalDate": "2026-09-17",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-17T15:38:19+08:00|2026-09-17|14:30尾盘风控",
+      "createdRunKey": "2026-09-17T16:40:00+08:00|2026-09-17|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-18",
       "plannedEntryPrice": 3.92,
-      "maxBuyPrice": 3.94,
+      "maxBuyPrice": 3.93,
       "noChasePrice": 6.36,
       "score": 7.8,
       "buySignalKey": "wait",
@@ -2835,6 +2835,78 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600108-2026-09-17T16:40:00+08:00",
+      "at": "2026-09-17T16:40:00+08:00",
+      "tradeDate": "2026-09-17",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600108",
+      "name": "亚盛集团",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 3.92,
+      "maxBuyPrice": 3.93,
+      "noChasePrice": 6.36,
+      "validUntilDate": "2026-09-18",
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-000560-2026-09-17T16:40:00+08:00",
+      "at": "2026-09-17T16:40:00+08:00",
+      "tradeDate": "2026-09-17",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000560",
+      "name": "我爱我家",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 2.54,
+      "maxBuyPrice": 2.63,
+      "noChasePrice": 3.65,
+      "validUntilDate": "2026-09-18",
+      "score": 8.1
+    },
+    {
+      "id": "buy_plan_created-600150-2026-09-17T16:40:00+08:00",
+      "at": "2026-09-17T16:40:00+08:00",
+      "tradeDate": "2026-09-17",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600150",
+      "name": "中国船舶",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 35.59,
+      "maxBuyPrice": 36.52,
+      "noChasePrice": 43.67,
+      "validUntilDate": "2026-09-18",
+      "score": 8.5
+    },
+    {
+      "id": "buy_plan_created-600887-2026-09-17T16:40:00+08:00",
+      "at": "2026-09-17T16:40:00+08:00",
+      "tradeDate": "2026-09-17",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600887",
+      "name": "伊利股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 26.14,
+      "maxBuyPrice": 26.27,
+      "noChasePrice": 28.65,
+      "validUntilDate": "2026-09-18",
+      "score": 8.9
+    },
     {
       "id": "buy_plan_created-600108-2026-09-17T15:38:19+08:00",
       "at": "2026-09-17T15:38:19+08:00",
@@ -4498,70 +4570,6 @@
       "plannedEntryPrice": 21.53,
       "maxBuyPrice": 21.89,
       "score": 8.8
-    },
-    {
-      "id": "buy_cancelled-000933-2026-09-10T09:56:17+08:00",
-      "at": "2026-09-10T09:56:17+08:00",
-      "tradeDate": "2026-09-10",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "000933",
-      "name": "神火股份",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 29.12,
-      "maxBuyPrice": 29.12,
-      "score": 7.6
-    },
-    {
-      "id": "buy_cancelled-601225-2026-09-10T09:56:17+08:00",
-      "at": "2026-09-10T09:56:17+08:00",
-      "tradeDate": "2026-09-10",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "601225",
-      "name": "陕西煤业",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 25.71,
-      "maxBuyPrice": 26.0,
-      "score": 7.7
-    },
-    {
-      "id": "buy_cancelled-600348-2026-09-10T09:56:17+08:00",
-      "at": "2026-09-10T09:56:17+08:00",
-      "tradeDate": "2026-09-10",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "600348",
-      "name": "华阳股份",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 8.89,
-      "maxBuyPrice": 9.02,
-      "score": 7.7
-    },
-    {
-      "id": "buy_cancelled-600760-2026-09-10T09:56:17+08:00",
-      "at": "2026-09-10T09:56:17+08:00",
-      "tradeDate": "2026-09-10",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "600760",
-      "name": "中航沈飞",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 45.17,
-      "maxBuyPrice": 45.97,
-      "score": 8.5
     }
   ],
   "exitReviews": [
@@ -4625,7 +4633,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 30.9,
           "returnPct": -9.886,
           "phase": "afternoon_risk",
@@ -4737,7 +4745,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 40.6,
           "returnPct": -1.12,
           "phase": "afternoon_risk",
@@ -4849,7 +4857,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 53.35,
           "returnPct": -5.223,
           "phase": "afternoon_risk",
@@ -4961,7 +4969,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 44.0,
           "returnPct": -6.323,
           "phase": "afternoon_risk",
@@ -5097,7 +5105,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 30.9,
           "returnPct": -6.193,
           "phase": "afternoon_risk",
@@ -5233,7 +5241,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 6.02,
           "returnPct": -6.811,
           "phase": "afternoon_risk",
@@ -5377,7 +5385,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 22.22,
           "returnPct": -1.898,
           "phase": "afternoon_risk",
@@ -5529,7 +5537,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 30.9,
           "returnPct": -8.172,
           "phase": "afternoon_risk",
@@ -5689,7 +5697,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 44.0,
           "returnPct": -4.762,
           "phase": "afternoon_risk",
@@ -5873,7 +5881,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 23.9,
           "returnPct": -7.9,
           "phase": "afternoon_risk",
@@ -6057,7 +6065,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 30.9,
           "returnPct": -7.402,
           "phase": "afternoon_risk",
@@ -6305,7 +6313,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 30.9,
           "returnPct": -4.186,
           "phase": "afternoon_risk",
@@ -6639,7 +6647,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 38.96,
           "returnPct": 12.96,
           "phase": "afternoon_risk",
@@ -7011,7 +7019,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 6.02,
           "returnPct": 0.0,
           "phase": "afternoon_risk",
@@ -7383,7 +7391,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 12.05,
           "returnPct": -13.122,
           "phase": "afternoon_risk",
@@ -7755,7 +7763,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 61.27,
           "returnPct": 1.039,
           "phase": "afternoon_risk",
@@ -8151,7 +8159,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 21.95,
           "returnPct": -6.794,
           "phase": "afternoon_risk",
@@ -8563,7 +8571,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 51.39,
           "returnPct": -0.252,
           "phase": "afternoon_risk",
@@ -8983,7 +8991,7 @@
         },
         "2026-09-17": {
           "date": "2026-09-17",
-          "at": "2026-09-17T15:38:19+08:00",
+          "at": "2026-09-17T16:40:00+08:00",
           "price": 30.9,
           "returnPct": 5.497,
           "phase": "afternoon_risk",
@@ -9187,8 +9195,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 468,
-    "plansCreated": 661,
+    "snapshotsProcessed": 469,
+    "plansCreated": 665,
     "buyChecks": 1394,
     "buysExecuted": 21,
     "sellsExecuted": 19,
@@ -9205,7 +9213,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 52
     },
-    "lastRunAt": "2026-09-17T15:38:19+08:00",
+    "lastRunAt": "2026-09-17T16:40:00+08:00",
     "lastRunSummary": "更新云端计划4只：伊利股份(watch)、中国船舶(watch)、我爱我家(watch)、亚盛集团(watch)"
   }
 }
