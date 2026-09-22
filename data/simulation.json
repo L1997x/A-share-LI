@@ -1135,8 +1135,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-22T18:09:03+08:00|2026-09-22|14:30尾盘风控",
+  "lastAutoRunKey": "2026-09-22T19:54:13+08:00|2026-09-22|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-09-22T19:54:13+08:00|2026-09-22|14:30尾盘风控",
+      "at": "2026-09-22T19:54:13+08:00",
+      "tradeDate": "2026-09-22",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划3只：北方铜业(watch)、郑州煤电(watch)、歌尔股份(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-22T18:09:03+08:00|2026-09-22|14:30尾盘风控",
       "at": "2026-09-22T18:09:03+08:00",
@@ -1845,37 +1858,20 @@
           "summary": "更新云端计划1只：金帝股份(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-15T14:28:33+08:00|2026-09-15|14:30尾盘风控",
-      "at": "2026-09-15T14:28:33+08:00",
-      "tradeDate": "2026-09-15",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "当前没有符合资金和风控约束的新计划"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000737-2026-09-22T18:09:03+08:00|2026-09-22|14:30尾盘风控",
+      "id": "000737-2026-09-22T19:54:13+08:00|2026-09-22|14:30尾盘风控",
       "code": "000737",
       "name": "北方铜业",
       "status": "pending",
       "signalDate": "2026-09-22",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-22T18:09:03+08:00|2026-09-22|14:30尾盘风控",
+      "createdRunKey": "2026-09-22T19:54:13+08:00|2026-09-22|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-23",
-      "plannedEntryPrice": 14.04,
+      "plannedEntryPrice": 14.05,
       "maxBuyPrice": 14.56,
       "noChasePrice": 18.24,
       "score": 8.5,
@@ -1898,16 +1894,16 @@
       "executionPrice": null
     },
     {
-      "id": "600121-2026-09-22T18:09:03+08:00|2026-09-22|14:30尾盘风控",
+      "id": "600121-2026-09-22T19:54:13+08:00|2026-09-22|14:30尾盘风控",
       "code": "600121",
       "name": "郑州煤电",
       "status": "pending",
       "signalDate": "2026-09-22",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-22T18:09:03+08:00|2026-09-22|14:30尾盘风控",
+      "createdRunKey": "2026-09-22T19:54:13+08:00|2026-09-22|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-23",
-      "plannedEntryPrice": 4.75,
+      "plannedEntryPrice": 4.76,
       "maxBuyPrice": 4.95,
       "noChasePrice": 6.63,
       "score": 8.3,
@@ -1930,17 +1926,17 @@
       "executionPrice": null
     },
     {
-      "id": "002241-2026-09-22T18:09:03+08:00|2026-09-22|14:30尾盘风控",
+      "id": "002241-2026-09-22T19:54:13+08:00|2026-09-22|14:30尾盘风控",
       "code": "002241",
       "name": "歌尔股份",
       "status": "pending",
       "signalDate": "2026-09-22",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-22T18:09:03+08:00|2026-09-22|14:30尾盘风控",
+      "createdRunKey": "2026-09-22T19:54:13+08:00|2026-09-22|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-23",
-      "plannedEntryPrice": 22.99,
-      "maxBuyPrice": 23.27,
+      "plannedEntryPrice": 23.0,
+      "maxBuyPrice": 23.28,
       "noChasePrice": 25.93,
       "score": 7.8,
       "buySignalKey": "wait",
@@ -2987,6 +2983,60 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-002241-2026-09-22T19:54:13+08:00",
+      "at": "2026-09-22T19:54:13+08:00",
+      "tradeDate": "2026-09-22",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "002241",
+      "name": "歌尔股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 23.0,
+      "maxBuyPrice": 23.28,
+      "noChasePrice": 25.93,
+      "validUntilDate": "2026-09-23",
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-600121-2026-09-22T19:54:13+08:00",
+      "at": "2026-09-22T19:54:13+08:00",
+      "tradeDate": "2026-09-22",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600121",
+      "name": "郑州煤电",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 4.76,
+      "maxBuyPrice": 4.95,
+      "noChasePrice": 6.63,
+      "validUntilDate": "2026-09-23",
+      "score": 8.3
+    },
+    {
+      "id": "buy_plan_created-000737-2026-09-22T19:54:13+08:00",
+      "at": "2026-09-22T19:54:13+08:00",
+      "tradeDate": "2026-09-22",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000737",
+      "name": "北方铜业",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 14.05,
+      "maxBuyPrice": 14.56,
+      "noChasePrice": 18.24,
+      "validUntilDate": "2026-09-23",
+      "score": 8.5
+    },
     {
       "id": "buy_plan_created-002241-2026-09-22T18:09:03+08:00",
       "at": "2026-09-22T18:09:03+08:00",
@@ -4676,60 +4726,6 @@
       "plannedEntryPrice": 35.43,
       "maxBuyPrice": 36.22,
       "score": 8.5
-    },
-    {
-      "id": "buy_plan_created-002734-2026-09-17T14:28:10+08:00",
-      "at": "2026-09-17T14:28:10+08:00",
-      "tradeDate": "2026-09-17",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "002734",
-      "name": "利民股份",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 15.88,
-      "maxBuyPrice": 16.29,
-      "noChasePrice": 19.34,
-      "validUntilDate": "2026-09-18",
-      "score": 7.5
-    },
-    {
-      "id": "buy_plan_created-000560-2026-09-17T14:28:10+08:00",
-      "at": "2026-09-17T14:28:10+08:00",
-      "tradeDate": "2026-09-17",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "000560",
-      "name": "我爱我家",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 2.54,
-      "maxBuyPrice": 2.63,
-      "noChasePrice": 3.65,
-      "validUntilDate": "2026-09-18",
-      "score": 8.0
-    },
-    {
-      "id": "buy_plan_created-600150-2026-09-17T14:28:10+08:00",
-      "at": "2026-09-17T14:28:10+08:00",
-      "tradeDate": "2026-09-17",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600150",
-      "name": "中国船舶",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 35.43,
-      "maxBuyPrice": 36.22,
-      "noChasePrice": 43.67,
-      "validUntilDate": "2026-09-18",
-      "score": 8.5
     }
   ],
   "exitReviews": [
@@ -4761,7 +4757,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 49.41,
           "returnPct": -5.652,
           "phase": "afternoon_risk",
@@ -4813,7 +4809,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 8.6,
           "returnPct": -1.602,
           "phase": "afternoon_risk",
@@ -4921,7 +4917,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 31.41,
           "returnPct": -8.399,
           "phase": "afternoon_risk",
@@ -5057,7 +5053,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 40.82,
           "returnPct": -0.585,
           "phase": "afternoon_risk",
@@ -5193,7 +5189,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 54.46,
           "returnPct": -3.251,
           "phase": "afternoon_risk",
@@ -5329,7 +5325,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 44.71,
           "returnPct": -4.812,
           "phase": "afternoon_risk",
@@ -5489,7 +5485,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 31.41,
           "returnPct": -4.645,
           "phase": "afternoon_risk",
@@ -5649,7 +5645,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 6.16,
           "returnPct": -4.644,
           "phase": "afternoon_risk",
@@ -5817,7 +5813,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 22.84,
           "returnPct": 0.839,
           "phase": "afternoon_risk",
@@ -5993,7 +5989,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 31.41,
           "returnPct": -6.657,
           "phase": "afternoon_risk",
@@ -6177,7 +6173,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 44.71,
           "returnPct": -3.225,
           "phase": "afternoon_risk",
@@ -6385,7 +6381,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 23.47,
           "returnPct": -9.557,
           "phase": "afternoon_risk",
@@ -6593,7 +6589,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 31.41,
           "returnPct": -5.874,
           "phase": "afternoon_risk",
@@ -6865,7 +6861,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 31.41,
           "returnPct": -2.605,
           "phase": "afternoon_risk",
@@ -7223,7 +7219,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 40.12,
           "returnPct": 16.324,
           "phase": "afternoon_risk",
@@ -7619,7 +7615,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 6.16,
           "returnPct": 2.326,
           "phase": "afternoon_risk",
@@ -8015,7 +8011,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 12.22,
           "returnPct": -11.896,
           "phase": "afternoon_risk",
@@ -8411,7 +8407,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 63.3,
           "returnPct": 4.387,
           "phase": "afternoon_risk",
@@ -8831,7 +8827,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 22.23,
           "returnPct": -5.605,
           "phase": "afternoon_risk",
@@ -9267,7 +9263,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 51.32,
           "returnPct": -0.388,
           "phase": "afternoon_risk",
@@ -9711,7 +9707,7 @@
         },
         "2026-09-22": {
           "date": "2026-09-22",
-          "at": "2026-09-22T18:09:03+08:00",
+          "at": "2026-09-22T19:54:13+08:00",
           "price": 31.41,
           "returnPct": 7.238,
           "phase": "afternoon_risk",
@@ -9915,8 +9911,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 496,
-    "plansCreated": 715,
+    "snapshotsProcessed": 497,
+    "plansCreated": 718,
     "buyChecks": 1429,
     "buysExecuted": 24,
     "sellsExecuted": 21,
@@ -9933,7 +9929,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 70
     },
-    "lastRunAt": "2026-09-22T18:09:03+08:00",
+    "lastRunAt": "2026-09-22T19:54:13+08:00",
     "lastRunSummary": "更新云端计划3只：北方铜业(watch)、郑州煤电(watch)、歌尔股份(watch)"
   }
 }
