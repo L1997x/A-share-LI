@@ -1114,8 +1114,25 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-25T13:28:51+08:00|2026-09-24|13:30午后买入复检",
+  "lastAutoRunKey": "2026-09-25T14:28:39+08:00|2026-09-24|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-09-25T14:28:39+08:00|2026-09-24|14:30尾盘风控",
+      "at": "2026-09-25T14:28:39+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：长江电力(watch)、宝钢股份(watch)"
+        },
+        {
+          "type": "buy_wait",
+          "summary": "本次买入复检未成交，原因已写入决策复盘"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-25T13:28:51+08:00|2026-09-24|13:30午后买入复检",
       "at": "2026-09-25T13:28:51+08:00",
@@ -1844,34 +1861,21 @@
           "summary": "更新云端计划4只：伊利股份(watch)、中国船舶(watch)、我爱我家(watch)、亚盛集团(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-17T16:40:00+08:00|2026-09-17|14:30尾盘风控",
-      "at": "2026-09-17T16:40:00+08:00",
-      "tradeDate": "2026-09-17",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划4只：伊利股份(watch)、中国船舶(watch)、我爱我家(watch)、亚盛集团(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "600900-2026-09-25T13:28:51+08:00|2026-09-24|13:30午后买入复检",
+      "id": "600900-2026-09-25T14:28:39+08:00|2026-09-24|14:30尾盘风控",
       "code": "600900",
       "name": "长江电力",
       "status": "pending",
       "signalDate": "2026-09-24",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-09-25T13:28:51+08:00|2026-09-24|13:30午后买入复检",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-09-25T14:28:39+08:00|2026-09-24|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-25",
       "plannedEntryPrice": 26.97,
-      "maxBuyPrice": 27.97,
+      "maxBuyPrice": 27.98,
       "noChasePrice": 30.6,
       "score": 7.9,
       "buySignalKey": "wait",
@@ -1883,7 +1887,7 @@
       "globalMarketLabel": "外盘中性",
       "contextPositionMultiplier": 0.805,
       "feedbackPositionMultiplier": 1.0,
-      "feedbackEvidenceLevel": "strong",
+      "feedbackEvidenceLevel": "usable",
       "entryEvidenceLevel": "insufficient",
       "planType": "watch",
       "targetPositionPct": 0.08050000000000002,
@@ -1893,13 +1897,13 @@
       "executionPrice": null
     },
     {
-      "id": "600019-2026-09-25T13:28:51+08:00|2026-09-24|13:30午后买入复检",
+      "id": "600019-2026-09-25T14:28:39+08:00|2026-09-24|14:30尾盘风控",
       "code": "600019",
       "name": "宝钢股份",
       "status": "pending",
       "signalDate": "2026-09-24",
-      "signalPhase": "morning_entry",
-      "createdRunKey": "2026-09-25T13:28:51+08:00|2026-09-24|13:30午后买入复检",
+      "signalPhase": "afternoon_risk",
+      "createdRunKey": "2026-09-25T14:28:39+08:00|2026-09-24|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-25",
       "plannedEntryPrice": 5.68,
@@ -1915,7 +1919,7 @@
       "globalMarketLabel": "外盘中性",
       "contextPositionMultiplier": 0.805,
       "feedbackPositionMultiplier": 1.0,
-      "feedbackEvidenceLevel": "strong",
+      "feedbackEvidenceLevel": "usable",
       "entryEvidenceLevel": "insufficient",
       "planType": "watch",
       "targetPositionPct": 0.08050000000000002,
@@ -2887,6 +2891,74 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_deferred-600019-2026-09-25T14:28:39+08:00",
+      "at": "2026-09-25T14:28:39+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600019",
+      "name": "宝钢股份",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 5.68,
+      "maxBuyPrice": 5.7,
+      "score": 7.9
+    },
+    {
+      "id": "buy_deferred-600900-2026-09-25T14:28:39+08:00",
+      "at": "2026-09-25T14:28:39+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600900",
+      "name": "长江电力",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 26.97,
+      "maxBuyPrice": 27.98,
+      "score": 7.9
+    },
+    {
+      "id": "buy_plan_created-600019-2026-09-25T14:28:39+08:00",
+      "at": "2026-09-25T14:28:39+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600019",
+      "name": "宝钢股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 5.68,
+      "maxBuyPrice": 5.7,
+      "noChasePrice": 6.19,
+      "validUntilDate": "2026-09-25",
+      "score": 7.9
+    },
+    {
+      "id": "buy_plan_created-600900-2026-09-25T14:28:39+08:00",
+      "at": "2026-09-25T14:28:39+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600900",
+      "name": "长江电力",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 26.97,
+      "maxBuyPrice": 27.98,
+      "noChasePrice": 30.6,
+      "validUntilDate": "2026-09-25",
+      "score": 7.9
+    },
     {
       "id": "buy_deferred-600019-2026-09-25T13:28:51+08:00",
       "at": "2026-09-25T13:28:51+08:00",
@@ -4552,78 +4624,6 @@
       "noChasePrice": 67.84,
       "validUntilDate": "2026-09-22",
       "score": 8.8
-    },
-    {
-      "id": "buy_plan_created-600893-2026-09-21T09:56:55+08:00",
-      "at": "2026-09-21T09:56:55+08:00",
-      "tradeDate": "2026-09-21",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600893",
-      "name": "航发动力",
-      "summary": "生成小仓试买观察",
-      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
-      "plannedEntryPrice": 38.46,
-      "maxBuyPrice": 41.7,
-      "noChasePrice": 45.01,
-      "validUntilDate": "2026-09-22",
-      "score": 9.2
-    },
-    {
-      "id": "buy_plan_created-000880-2026-09-18T23:16:35+08:00",
-      "at": "2026-09-18T23:16:35+08:00",
-      "tradeDate": "2026-09-18",
-      "phase": "23:10隔夜外盘复核",
-      "phaseKey": "overnight_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "000880",
-      "name": "潍柴重机",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 23.92,
-      "maxBuyPrice": 24.38,
-      "noChasePrice": 28.42,
-      "validUntilDate": "2026-09-19",
-      "score": 8.1
-    },
-    {
-      "id": "buy_plan_created-000880-2026-09-18T19:59:09+08:00",
-      "at": "2026-09-18T19:59:09+08:00",
-      "tradeDate": "2026-09-18",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "000880",
-      "name": "潍柴重机",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 23.94,
-      "maxBuyPrice": 24.4,
-      "noChasePrice": 28.42,
-      "validUntilDate": "2026-09-19",
-      "score": 8.2
-    },
-    {
-      "id": "buy_plan_created-000880-2026-09-18T19:31:20+08:00",
-      "at": "2026-09-18T19:31:20+08:00",
-      "tradeDate": "2026-09-18",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "000880",
-      "name": "潍柴重机",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 23.92,
-      "maxBuyPrice": 24.38,
-      "noChasePrice": 28.42,
-      "validUntilDate": "2026-09-19",
-      "score": 8.1
     }
   ],
   "exitReviews": [
@@ -4682,10 +4682,10 @@
       "dailyPrices": {
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 38.29,
           "returnPct": -3.454,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4726,10 +4726,10 @@
       "dailyPrices": {
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 50.67,
           "returnPct": -2.651,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4794,10 +4794,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 46.71,
           "returnPct": -10.808,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4868,10 +4868,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 8.78,
           "returnPct": 0.458,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -4998,10 +4998,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 30.01,
           "returnPct": -12.482,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5150,10 +5150,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 40.69,
           "returnPct": -0.901,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5302,10 +5302,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 53.25,
           "returnPct": -5.401,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5454,10 +5454,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 43.03,
           "returnPct": -8.388,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5630,10 +5630,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 30.01,
           "returnPct": -8.895,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5806,10 +5806,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 5.89,
           "returnPct": -8.824,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5990,10 +5990,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 22.1,
           "returnPct": -2.428,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -6182,10 +6182,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 30.01,
           "returnPct": -10.817,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -6382,10 +6382,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 43.03,
           "returnPct": -6.861,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -6606,10 +6606,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 22.12,
           "returnPct": -14.759,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -6836,10 +6836,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 30.01,
           "returnPct": -10.069,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -7130,10 +7130,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 30.01,
           "returnPct": -6.946,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -7510,10 +7510,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 38.09,
           "returnPct": 10.438,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -7922,10 +7922,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 5.89,
           "returnPct": -2.159,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -8334,10 +8334,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 11.75,
           "returnPct": -15.285,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -8746,10 +8746,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 61.0,
           "returnPct": 0.594,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -9182,10 +9182,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 22.27,
           "returnPct": -5.435,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -9634,10 +9634,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 49.87,
           "returnPct": -3.203,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -10094,10 +10094,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T13:28:51+08:00",
+          "at": "2026-09-25T14:28:39+08:00",
           "price": 30.01,
           "returnPct": 2.458,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -10335,13 +10335,13 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 518,
-    "plansCreated": 742,
-    "buyChecks": 1448,
+    "snapshotsProcessed": 519,
+    "plansCreated": 744,
+    "buyChecks": 1450,
     "buysExecuted": 24,
     "sellsExecuted": 24,
     "waitReasonCounts": {
-      "观察计划尚未升级为可执行信号": 565,
+      "观察计划尚未升级为可执行信号": 567,
       "股票不在最新池，云端继续观察但不执行": 684,
       "价格高于MA20超过5%，避免追涨后回撤": 50,
       "含滑点价格高于最高买入价": 5,
@@ -10353,7 +10353,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 78
     },
-    "lastRunAt": "2026-09-25T13:28:51+08:00",
+    "lastRunAt": "2026-09-25T14:28:39+08:00",
     "lastRunSummary": "更新云端计划2只：长江电力(watch)、宝钢股份(watch)；本次买入复检未成交，原因已写入决策复盘"
   }
 }
