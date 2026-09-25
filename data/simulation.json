@@ -1114,8 +1114,25 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-24T23:17:43+08:00|2026-09-24|23:10隔夜外盘复核",
+  "lastAutoRunKey": "2026-09-25T09:57:56+08:00|2026-09-24|10点早盘接入",
   "autoLog": [
+    {
+      "runKey": "2026-09-25T09:57:56+08:00|2026-09-24|10点早盘接入",
+      "at": "2026-09-25T09:57:56+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：长江电力(watch)、宝钢股份(watch)"
+        },
+        {
+          "type": "buy_wait",
+          "summary": "本次买入复检未成交，原因已写入决策复盘"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-24T23:17:43+08:00|2026-09-24|23:10隔夜外盘复核",
       "at": "2026-09-24T23:17:43+08:00",
@@ -1836,38 +1853,21 @@
           "summary": "更新云端计划4只：伊利股份(watch)、中国船舶(watch)、我爱我家(watch)、亚盛集团(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-17T14:28:10+08:00|2026-09-17|14:30尾盘风控",
-      "at": "2026-09-17T14:28:10+08:00",
-      "tradeDate": "2026-09-17",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划3只：中国船舶(watch)、我爱我家(watch)、利民股份(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "600900-2026-09-24T23:17:43+08:00|2026-09-24|23:10隔夜外盘复核",
+      "id": "600900-2026-09-25T09:57:56+08:00|2026-09-24|10点早盘接入",
       "code": "600900",
       "name": "长江电力",
       "status": "pending",
       "signalDate": "2026-09-24",
-      "signalPhase": "overnight_watch",
-      "createdRunKey": "2026-09-24T23:17:43+08:00|2026-09-24|23:10隔夜外盘复核",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-09-25T09:57:56+08:00|2026-09-24|10点早盘接入",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-25",
       "plannedEntryPrice": 26.95,
-      "maxBuyPrice": 27.95,
+      "maxBuyPrice": 27.96,
       "noChasePrice": 30.6,
       "score": 7.8,
       "buySignalKey": "wait",
@@ -1889,17 +1889,17 @@
       "executionPrice": null
     },
     {
-      "id": "600019-2026-09-24T23:17:43+08:00|2026-09-24|23:10隔夜外盘复核",
+      "id": "600019-2026-09-25T09:57:56+08:00|2026-09-24|10点早盘接入",
       "code": "600019",
       "name": "宝钢股份",
       "status": "pending",
       "signalDate": "2026-09-24",
-      "signalPhase": "overnight_watch",
-      "createdRunKey": "2026-09-24T23:17:43+08:00|2026-09-24|23:10隔夜外盘复核",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-09-25T09:57:56+08:00|2026-09-24|10点早盘接入",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-25",
-      "plannedEntryPrice": 5.67,
-      "maxBuyPrice": 5.69,
+      "plannedEntryPrice": 5.68,
+      "maxBuyPrice": 5.7,
       "noChasePrice": 6.19,
       "score": 7.8,
       "buySignalKey": "wait",
@@ -1924,7 +1924,7 @@
       "id": "601975-2026-09-24T14:28:57+08:00|2026-09-24|14:30尾盘风控",
       "code": "601975",
       "name": "招商南油",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-24",
       "signalPhase": "afternoon_risk",
       "createdRunKey": "2026-09-24T14:28:57+08:00|2026-09-24|14:30尾盘风控",
@@ -1948,7 +1948,7 @@
       "planType": "watch",
       "targetPositionPct": 0.06022500000000001,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -2915,6 +2915,90 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_cancelled-601975-2026-09-25T09:57:56+08:00",
+      "at": "2026-09-25T09:57:56+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "601975",
+      "name": "招商南油",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 4.19,
+      "maxBuyPrice": 4.29,
+      "score": 7.7
+    },
+    {
+      "id": "buy_deferred-600019-2026-09-25T09:57:56+08:00",
+      "at": "2026-09-25T09:57:56+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600019",
+      "name": "宝钢股份",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 5.68,
+      "maxBuyPrice": 5.7,
+      "score": 7.8
+    },
+    {
+      "id": "buy_deferred-600900-2026-09-25T09:57:56+08:00",
+      "at": "2026-09-25T09:57:56+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600900",
+      "name": "长江电力",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 26.95,
+      "maxBuyPrice": 27.96,
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-600019-2026-09-25T09:57:56+08:00",
+      "at": "2026-09-25T09:57:56+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600019",
+      "name": "宝钢股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 5.68,
+      "maxBuyPrice": 5.7,
+      "noChasePrice": 6.19,
+      "validUntilDate": "2026-09-25",
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-600900-2026-09-25T09:57:56+08:00",
+      "at": "2026-09-25T09:57:56+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600900",
+      "name": "长江电力",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 26.95,
+      "maxBuyPrice": 27.96,
+      "noChasePrice": 30.6,
+      "validUntilDate": "2026-09-25",
+      "score": 7.8
+    },
     {
       "id": "buy_plan_created-600019-2026-09-24T23:17:43+08:00",
       "at": "2026-09-24T23:17:43+08:00",
@@ -4570,88 +4654,6 @@
       "quantity": 100,
       "feeTotal": 7.6706,
       "realizedPnl": -38.72
-    },
-    {
-      "id": "sell_executed-000592-2026-09-18T14:48:01+08:00",
-      "at": "2026-09-18T14:48:01+08:00",
-      "tradeDate": "2026-09-18",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "sell_executed",
-      "status": "executed",
-      "code": "000592",
-      "name": "平潭发展",
-      "summary": "云端自动卖出2200股",
-      "reason": "评分连续两次跌破退出阈值",
-      "snapshotPrice": 8.76,
-      "executionPrice": 8.74,
-      "quantity": 2200,
-      "feeTotal": 15.5791,
-      "realizedPnl": 11.6
-    },
-    {
-      "id": "buy_cancelled-002292-2026-09-18T13:19:08+08:00",
-      "at": "2026-09-18T13:19:08+08:00",
-      "tradeDate": "2026-09-18",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "002292",
-      "name": "奥飞娱乐",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 8.18,
-      "maxBuyPrice": 8.43,
-      "score": 7.8
-    },
-    {
-      "id": "buy_cancelled-600127-2026-09-18T13:19:08+08:00",
-      "at": "2026-09-18T13:19:08+08:00",
-      "tradeDate": "2026-09-18",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "600127",
-      "name": "金健米业",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 10.67,
-      "maxBuyPrice": 12.21,
-      "score": 8.4
-    },
-    {
-      "id": "buy_cancelled-002734-2026-09-18T09:58:44+08:00",
-      "at": "2026-09-18T09:58:44+08:00",
-      "tradeDate": "2026-09-18",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "002734",
-      "name": "利民股份",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 15.88,
-      "maxBuyPrice": 16.29,
-      "score": 7.5
-    },
-    {
-      "id": "buy_cancelled-600108-2026-09-18T09:58:44+08:00",
-      "at": "2026-09-18T09:58:44+08:00",
-      "tradeDate": "2026-09-18",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "600108",
-      "name": "亚盛集团",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 3.92,
-      "maxBuyPrice": 3.93,
-      "score": 7.8
     }
   ],
   "exitReviews": [
@@ -4710,10 +4712,10 @@
       "dailyPrices": {
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 38.29,
           "returnPct": -3.454,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -4754,10 +4756,10 @@
       "dailyPrices": {
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 50.67,
           "returnPct": -2.651,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -4822,10 +4824,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 46.71,
           "returnPct": -10.808,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -4896,10 +4898,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 8.78,
           "returnPct": 0.458,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5026,10 +5028,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 30.01,
           "returnPct": -12.482,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5178,10 +5180,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 40.69,
           "returnPct": -0.901,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5330,10 +5332,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 53.25,
           "returnPct": -5.401,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5482,10 +5484,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 43.03,
           "returnPct": -8.388,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5658,10 +5660,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 30.01,
           "returnPct": -8.895,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5834,10 +5836,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 5.89,
           "returnPct": -8.824,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -6018,10 +6020,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 22.1,
           "returnPct": -2.428,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -6210,10 +6212,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 30.01,
           "returnPct": -10.817,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -6410,10 +6412,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 43.03,
           "returnPct": -6.861,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -6634,10 +6636,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 22.12,
           "returnPct": -14.759,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -6864,10 +6866,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 30.01,
           "returnPct": -10.069,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -7158,10 +7160,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 30.01,
           "returnPct": -6.946,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -7538,10 +7540,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 38.09,
           "returnPct": 10.438,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -7950,10 +7952,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 5.89,
           "returnPct": -2.159,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -8362,10 +8364,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 11.75,
           "returnPct": -15.285,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -8774,10 +8776,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 61.0,
           "returnPct": 0.594,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -9210,10 +9212,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 22.27,
           "returnPct": -5.435,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -9662,10 +9664,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 49.87,
           "returnPct": -3.203,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -10122,10 +10124,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-24T23:17:43+08:00",
+          "at": "2026-09-25T09:57:56+08:00",
           "price": 30.01,
           "returnPct": 2.458,
-          "phase": "overnight_watch",
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -10363,13 +10365,13 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 516,
-    "plansCreated": 738,
-    "buyChecks": 1443,
+    "snapshotsProcessed": 517,
+    "plansCreated": 740,
+    "buyChecks": 1446,
     "buysExecuted": 24,
     "sellsExecuted": 24,
     "waitReasonCounts": {
-      "观察计划尚未升级为可执行信号": 561,
+      "观察计划尚未升级为可执行信号": 563,
       "股票不在最新池，云端继续观察但不执行": 684,
       "价格高于MA20超过5%，避免追涨后回撤": 50,
       "含滑点价格高于最高买入价": 5,
@@ -10379,9 +10381,9 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 24,
       "未满足上涨趋势门槛，取消旧买入计划": 7,
-      "股票已调出最新池，取消旧买入计划": 77
+      "股票已调出最新池，取消旧买入计划": 78
     },
-    "lastRunAt": "2026-09-24T23:17:43+08:00",
-    "lastRunSummary": "更新云端计划2只：长江电力(watch)、宝钢股份(watch)"
+    "lastRunAt": "2026-09-25T09:57:56+08:00",
+    "lastRunSummary": "更新云端计划2只：长江电力(watch)、宝钢股份(watch)；本次买入复检未成交，原因已写入决策复盘"
   }
 }
