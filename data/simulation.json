@@ -1114,8 +1114,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-25T20:07:39+08:00|2026-09-24|14:30尾盘风控",
+  "lastAutoRunKey": "2026-09-25T23:17:06+08:00|2026-09-24|23:10隔夜外盘复核",
   "autoLog": [
+    {
+      "runKey": "2026-09-25T23:17:06+08:00|2026-09-24|23:10隔夜外盘复核",
+      "at": "2026-09-25T23:17:06+08:00",
+      "tradeDate": "2026-09-24",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "当前没有符合资金和风控约束的新计划"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-25T20:07:39+08:00|2026-09-24|14:30尾盘风控",
       "at": "2026-09-25T20:07:39+08:00",
@@ -1834,23 +1847,6 @@
         {
           "type": "buy_plan",
           "summary": "更新云端计划1只：百亚股份(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
-    },
-    {
-      "runKey": "2026-09-18T13:19:08+08:00|2026-09-18|11:20午前买入复检",
-      "at": "2026-09-18T13:19:08+08:00",
-      "tradeDate": "2026-09-18",
-      "phase": "11:20午前买入复检",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "当前没有符合资金和风控约束的新计划"
         },
         {
           "type": "buy_wait",
@@ -4706,10 +4702,10 @@
       "dailyPrices": {
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 38.29,
           "returnPct": -3.454,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -4750,10 +4746,10 @@
       "dailyPrices": {
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 50.67,
           "returnPct": -2.651,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -4818,10 +4814,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 46.71,
           "returnPct": -10.808,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -4892,10 +4888,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 8.78,
           "returnPct": 0.458,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -5022,10 +5018,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 30.01,
           "returnPct": -12.482,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -5174,10 +5170,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 40.69,
           "returnPct": -0.901,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -5326,10 +5322,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 53.25,
           "returnPct": -5.401,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -5478,10 +5474,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 43.03,
           "returnPct": -8.388,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -5654,10 +5650,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 30.01,
           "returnPct": -8.895,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -5830,10 +5826,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 5.89,
           "returnPct": -8.824,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -6014,10 +6010,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 22.1,
           "returnPct": -2.428,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -6206,10 +6202,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 30.01,
           "returnPct": -10.817,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -6406,10 +6402,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 43.03,
           "returnPct": -6.861,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -6630,10 +6626,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 22.12,
           "returnPct": -14.759,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -6860,10 +6856,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 30.01,
           "returnPct": -10.069,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -7154,10 +7150,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 30.01,
           "returnPct": -6.946,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -7534,10 +7530,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 38.09,
           "returnPct": 10.438,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -7946,10 +7942,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 5.89,
           "returnPct": -2.159,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -8358,10 +8354,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 11.75,
           "returnPct": -15.285,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -8770,10 +8766,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 61.0,
           "returnPct": 0.594,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -9206,10 +9202,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 22.27,
           "returnPct": -5.435,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -9658,10 +9654,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 49.87,
           "returnPct": -3.203,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -10118,10 +10114,10 @@
         },
         "2026-09-24": {
           "date": "2026-09-24",
-          "at": "2026-09-25T20:07:39+08:00",
+          "at": "2026-09-25T23:17:06+08:00",
           "price": 30.01,
           "returnPct": 2.458,
-          "phase": "afternoon_risk",
+          "phase": "overnight_watch",
           "finalized": false
         }
       },
@@ -10359,7 +10355,7 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 524,
+    "snapshotsProcessed": 525,
     "plansCreated": 751,
     "buyChecks": 1450,
     "buysExecuted": 24,
@@ -10377,7 +10373,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 78
     },
-    "lastRunAt": "2026-09-25T20:07:39+08:00",
-    "lastRunSummary": "更新云端计划2只：长江电力(watch)、宝钢股份(watch)"
+    "lastRunAt": "2026-09-25T23:17:06+08:00",
+    "lastRunSummary": "当前没有符合资金和风控约束的新计划"
   }
 }
