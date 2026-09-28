@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-25T23:16:13+08:00",
+  "generated_at": "2026-09-28T09:55:48+08:00",
   "source": "fallback + Sina live quotes",
   "scope": "战略主题库",
   "raw_count": 0,
@@ -20,100 +20,100 @@
     "note": "全市场扫描失败，市场环境层暂不参与信号调整。",
     "global_market": {
       "available": true,
-      "captured_at": "2026-09-25T23:17:06+08:00",
+      "captured_at": "2026-09-28T10:01:57+08:00",
       "source": "Sina global indices/futures/FX",
-      "session": "欧美交易中",
+      "session": "亚洲交易或欧洲盘前",
       "label": "外盘中性",
       "regime": "neutral",
-      "impact_score": 0.12,
-      "weighted_return_pct": 0.007,
-      "negative_ratio_pct": 25.0,
-      "worst_return_pct": -1.01,
+      "impact_score": -3.56,
+      "weighted_return_pct": -0.198,
+      "negative_ratio_pct": 50.0,
+      "worst_return_pct": -1.464,
       "hard_risk": false,
-      "score_bonus": 0.002,
-      "price_adjustment_pct": 0.002,
-      "position_multiplier": 1.0,
+      "score_bonus": -0.055,
+      "price_adjustment_pct": -0.051,
+      "position_multiplier": 0.964,
       "confidence": "高",
       "instruments": [
         {
           "key": "a50_futures",
           "name": "富时中国A50期货",
           "kind": "future",
-          "price": 14157.5,
-          "pct_chg": -0.166,
-          "quote_time": "2026-09-25 23:16:49",
+          "price": 13973.34,
+          "pct_chg": -1.464,
+          "quote_time": "2026-09-28 10:01:57",
           "weight": 0.28
         },
         {
           "key": "hang_seng",
           "name": "恒生指数",
           "kind": "regional",
-          "price": 24510.09,
-          "pct_chg": -1.01,
-          "quote_time": "16:08:00",
+          "price": 24685.83,
+          "pct_chg": 0.72,
+          "quote_time": "09:00:21",
           "weight": 0.16
         },
         {
           "key": "nikkei_225",
           "name": "日经225",
           "kind": "regional",
-          "price": 66363.98,
-          "pct_chg": 1.3,
-          "quote_time": "2026-09-25 14:12:00",
+          "price": 66347.04,
+          "pct_chg": -0.03,
+          "quote_time": "2026-09-28 14:12:00",
           "weight": 0.06
         },
         {
           "key": "nasdaq",
           "name": "纳斯达克",
           "kind": "cash",
-          "price": 27007.3335,
-          "pct_chg": 0.25,
-          "quote_time": "2026-09-25 23:17:05",
+          "price": 27068.7165,
+          "pct_chg": 0.48,
+          "quote_time": "2026-09-26 05:30:00",
           "weight": 0.14
         },
         {
           "key": "sp500",
           "name": "标普500",
           "kind": "cash",
-          "price": 7719.5098,
-          "pct_chg": 0.2,
-          "quote_time": "2026-09-25 23:16:46",
+          "price": 7743.4102,
+          "pct_chg": 0.51,
+          "quote_time": "2026-09-26 04:40:06",
           "weight": 0.1
         },
         {
           "key": "dow",
           "name": "道琼斯",
           "kind": "cash",
-          "price": 51527.9102,
-          "pct_chg": 0.35,
-          "quote_time": "2026-09-25 23:16:46",
+          "price": 51828.6211,
+          "pct_chg": 0.93,
+          "quote_time": "2026-09-26 05:05:15",
           "weight": 0.06
         },
         {
           "key": "nasdaq_futures",
           "name": "纳斯达克期货",
           "kind": "future",
-          "price": 30818.275,
-          "pct_chg": 0.299,
-          "quote_time": "2026-09-25 23:17:07",
+          "price": 30742.355,
+          "pct_chg": -0.413,
+          "quote_time": "2026-09-28 10:01:57",
           "weight": 0.12
         },
         {
           "key": "sp500_futures",
           "name": "标普500期货",
           "kind": "future",
-          "price": 7782.975,
-          "pct_chg": 0.309,
-          "quote_time": "2026-09-25 23:17:07",
+          "price": 7779.32,
+          "pct_chg": -0.214,
+          "quote_time": "2026-09-28 10:01:55",
           "weight": 0.08
         },
         {
           "key": "usd_cny",
           "name": "在岸人民币",
           "kind": "currency",
-          "price": 6.7121,
-          "pct_chg": 0.0,
-          "quote_time": "2026-09-25 00:56:01",
+          "price": 6.7149,
+          "pct_chg": 0.046,
+          "quote_time": "2026-09-28 10:01:03",
           "weight": 0.0
         }
       ],
@@ -123,13 +123,13 @@
     },
     "global_theme_context": {
       "available": true,
-      "captured_at": "2026-09-25T23:17:06+08:00",
+      "captured_at": "2026-09-28T10:01:57+08:00",
       "source": "Yahoo Finance chart API (1mo daily)",
       "benchmark": {
         "symbol": "QQQ",
-        "return_5d_pct": 3.021,
-        "return_1m_pct": 4.576,
-        "close": 743.2427
+        "return_5d_pct": 3.195,
+        "return_1m_pct": 4.657,
+        "close": 744.5
       },
       "themes": [
         {
@@ -139,10 +139,10 @@
             "SOXX",
             "SMH"
           ],
-          "return_5d_pct": 6.577,
-          "return_1m_pct": 10.197,
-          "relative_qqq_5d_pct": 3.556,
-          "relative_qqq_1m_pct": 5.621,
+          "return_5d_pct": 6.644,
+          "return_1m_pct": 10.127,
+          "relative_qqq_5d_pct": 3.449,
+          "relative_qqq_1m_pct": 5.47,
           "regime": "strong",
           "regime_label": "外盘主题强势",
           "available": true
@@ -153,12 +153,12 @@
           "etfs": [
             "IGV"
           ],
-          "return_5d_pct": 2.626,
-          "return_1m_pct": 5.145,
-          "relative_qqq_5d_pct": -0.395,
-          "relative_qqq_1m_pct": 0.569,
-          "regime": "supportive",
-          "regime_label": "外盘主题偏强",
+          "return_5d_pct": 1.591,
+          "return_1m_pct": 3.536,
+          "relative_qqq_5d_pct": -1.604,
+          "relative_qqq_1m_pct": -1.121,
+          "regime": "neutral",
+          "regime_label": "外盘主题中性",
           "available": true
         },
         {
@@ -167,10 +167,10 @@
           "etfs": [
             "XLE"
           ],
-          "return_5d_pct": -3.342,
-          "return_1m_pct": 0.162,
-          "relative_qqq_5d_pct": -6.363,
-          "relative_qqq_1m_pct": -4.414,
+          "return_5d_pct": -3.53,
+          "return_1m_pct": -0.625,
+          "relative_qqq_5d_pct": -6.725,
+          "relative_qqq_1m_pct": -5.282,
           "regime": "neutral",
           "regime_label": "外盘主题中性",
           "available": true
@@ -181,10 +181,10 @@
           "etfs": [
             "ITA"
           ],
-          "return_5d_pct": -0.507,
-          "return_1m_pct": -9.195,
-          "relative_qqq_5d_pct": -3.528,
-          "relative_qqq_1m_pct": -13.771,
+          "return_5d_pct": -0.014,
+          "return_1m_pct": -9.548,
+          "relative_qqq_5d_pct": -3.209,
+          "relative_qqq_1m_pct": -14.205,
           "regime": "neutral",
           "regime_label": "外盘主题中性",
           "available": true
@@ -195,10 +195,10 @@
           "etfs": [
             "URA"
           ],
-          "return_5d_pct": -1.945,
-          "return_1m_pct": -15.164,
-          "relative_qqq_5d_pct": -4.966,
-          "relative_qqq_1m_pct": -19.74,
+          "return_5d_pct": -1.777,
+          "return_1m_pct": -14.86,
+          "relative_qqq_5d_pct": -4.972,
+          "relative_qqq_1m_pct": -19.517,
           "regime": "neutral",
           "regime_label": "外盘主题中性",
           "available": true
@@ -209,10 +209,10 @@
           "etfs": [
             "TAN"
           ],
-          "return_5d_pct": -3.811,
-          "return_1m_pct": -10.092,
-          "relative_qqq_5d_pct": -6.832,
-          "relative_qqq_1m_pct": -14.668,
+          "return_5d_pct": -3.504,
+          "return_1m_pct": -9.676,
+          "relative_qqq_5d_pct": -6.699,
+          "relative_qqq_1m_pct": -14.333,
           "regime": "cautious",
           "regime_label": "外盘主题偏弱",
           "available": true
@@ -223,10 +223,10 @@
           "etfs": [
             "XBI"
           ],
-          "return_5d_pct": -1.155,
-          "return_1m_pct": -8.391,
-          "relative_qqq_5d_pct": -4.176,
-          "relative_qqq_1m_pct": -12.967,
+          "return_5d_pct": -1.078,
+          "return_1m_pct": -7.934,
+          "relative_qqq_5d_pct": -4.273,
+          "relative_qqq_1m_pct": -12.591,
           "regime": "neutral",
           "regime_label": "外盘主题中性",
           "available": true
@@ -240,10 +240,10 @@
             "SOXX",
             "SMH"
           ],
-          "return_5d_pct": 6.577,
-          "return_1m_pct": 10.197,
-          "relative_qqq_5d_pct": 3.556,
-          "relative_qqq_1m_pct": 5.621,
+          "return_5d_pct": 6.644,
+          "return_1m_pct": 10.127,
+          "relative_qqq_5d_pct": 3.449,
+          "relative_qqq_1m_pct": 5.47,
           "regime": "strong",
           "regime_label": "外盘主题强势",
           "available": true
@@ -254,12 +254,12 @@
           "etfs": [
             "IGV"
           ],
-          "return_5d_pct": 2.626,
-          "return_1m_pct": 5.145,
-          "relative_qqq_5d_pct": -0.395,
-          "relative_qqq_1m_pct": 0.569,
-          "regime": "supportive",
-          "regime_label": "外盘主题偏强",
+          "return_5d_pct": 1.591,
+          "return_1m_pct": 3.536,
+          "relative_qqq_5d_pct": -1.604,
+          "relative_qqq_1m_pct": -1.121,
+          "regime": "neutral",
+          "regime_label": "外盘主题中性",
           "available": true
         }
       ],
@@ -276,104 +276,104 @@
   },
   "top_mainboard": [],
   "matched_library": [],
-  "market_date": "2026-09-24",
-  "quote_snapshot_at": "2026-09-25T23:16:13+08:00",
+  "market_date": "2026-09-28",
+  "quote_snapshot_at": "2026-09-28T09:55:48+08:00",
   "global_market": {
     "available": true,
-    "captured_at": "2026-09-25T23:17:06+08:00",
+    "captured_at": "2026-09-28T10:01:57+08:00",
     "source": "Sina global indices/futures/FX",
-    "session": "欧美交易中",
+    "session": "亚洲交易或欧洲盘前",
     "label": "外盘中性",
     "regime": "neutral",
-    "impact_score": 0.12,
-    "weighted_return_pct": 0.007,
-    "negative_ratio_pct": 25.0,
-    "worst_return_pct": -1.01,
+    "impact_score": -3.56,
+    "weighted_return_pct": -0.198,
+    "negative_ratio_pct": 50.0,
+    "worst_return_pct": -1.464,
     "hard_risk": false,
-    "score_bonus": 0.002,
-    "price_adjustment_pct": 0.002,
-    "position_multiplier": 1.0,
+    "score_bonus": -0.055,
+    "price_adjustment_pct": -0.051,
+    "position_multiplier": 0.964,
     "confidence": "高",
     "instruments": [
       {
         "key": "a50_futures",
         "name": "富时中国A50期货",
         "kind": "future",
-        "price": 14157.5,
-        "pct_chg": -0.166,
-        "quote_time": "2026-09-25 23:16:49",
+        "price": 13973.34,
+        "pct_chg": -1.464,
+        "quote_time": "2026-09-28 10:01:57",
         "weight": 0.28
       },
       {
         "key": "hang_seng",
         "name": "恒生指数",
         "kind": "regional",
-        "price": 24510.09,
-        "pct_chg": -1.01,
-        "quote_time": "16:08:00",
+        "price": 24685.83,
+        "pct_chg": 0.72,
+        "quote_time": "09:00:21",
         "weight": 0.16
       },
       {
         "key": "nikkei_225",
         "name": "日经225",
         "kind": "regional",
-        "price": 66363.98,
-        "pct_chg": 1.3,
-        "quote_time": "2026-09-25 14:12:00",
+        "price": 66347.04,
+        "pct_chg": -0.03,
+        "quote_time": "2026-09-28 14:12:00",
         "weight": 0.06
       },
       {
         "key": "nasdaq",
         "name": "纳斯达克",
         "kind": "cash",
-        "price": 27007.3335,
-        "pct_chg": 0.25,
-        "quote_time": "2026-09-25 23:17:05",
+        "price": 27068.7165,
+        "pct_chg": 0.48,
+        "quote_time": "2026-09-26 05:30:00",
         "weight": 0.14
       },
       {
         "key": "sp500",
         "name": "标普500",
         "kind": "cash",
-        "price": 7719.5098,
-        "pct_chg": 0.2,
-        "quote_time": "2026-09-25 23:16:46",
+        "price": 7743.4102,
+        "pct_chg": 0.51,
+        "quote_time": "2026-09-26 04:40:06",
         "weight": 0.1
       },
       {
         "key": "dow",
         "name": "道琼斯",
         "kind": "cash",
-        "price": 51527.9102,
-        "pct_chg": 0.35,
-        "quote_time": "2026-09-25 23:16:46",
+        "price": 51828.6211,
+        "pct_chg": 0.93,
+        "quote_time": "2026-09-26 05:05:15",
         "weight": 0.06
       },
       {
         "key": "nasdaq_futures",
         "name": "纳斯达克期货",
         "kind": "future",
-        "price": 30818.275,
-        "pct_chg": 0.299,
-        "quote_time": "2026-09-25 23:17:07",
+        "price": 30742.355,
+        "pct_chg": -0.413,
+        "quote_time": "2026-09-28 10:01:57",
         "weight": 0.12
       },
       {
         "key": "sp500_futures",
         "name": "标普500期货",
         "kind": "future",
-        "price": 7782.975,
-        "pct_chg": 0.309,
-        "quote_time": "2026-09-25 23:17:07",
+        "price": 7779.32,
+        "pct_chg": -0.214,
+        "quote_time": "2026-09-28 10:01:55",
         "weight": 0.08
       },
       {
         "key": "usd_cny",
         "name": "在岸人民币",
         "kind": "currency",
-        "price": 6.7121,
-        "pct_chg": 0.0,
-        "quote_time": "2026-09-25 00:56:01",
+        "price": 6.7149,
+        "pct_chg": 0.046,
+        "quote_time": "2026-09-28 10:01:03",
         "weight": 0.0
       }
     ],
@@ -383,13 +383,13 @@
   },
   "global_theme_context": {
     "available": true,
-    "captured_at": "2026-09-25T23:17:06+08:00",
+    "captured_at": "2026-09-28T10:01:57+08:00",
     "source": "Yahoo Finance chart API (1mo daily)",
     "benchmark": {
       "symbol": "QQQ",
-      "return_5d_pct": 3.021,
-      "return_1m_pct": 4.576,
-      "close": 743.2427
+      "return_5d_pct": 3.195,
+      "return_1m_pct": 4.657,
+      "close": 744.5
     },
     "themes": [
       {
@@ -399,10 +399,10 @@
           "SOXX",
           "SMH"
         ],
-        "return_5d_pct": 6.577,
-        "return_1m_pct": 10.197,
-        "relative_qqq_5d_pct": 3.556,
-        "relative_qqq_1m_pct": 5.621,
+        "return_5d_pct": 6.644,
+        "return_1m_pct": 10.127,
+        "relative_qqq_5d_pct": 3.449,
+        "relative_qqq_1m_pct": 5.47,
         "regime": "strong",
         "regime_label": "外盘主题强势",
         "available": true
@@ -413,12 +413,12 @@
         "etfs": [
           "IGV"
         ],
-        "return_5d_pct": 2.626,
-        "return_1m_pct": 5.145,
-        "relative_qqq_5d_pct": -0.395,
-        "relative_qqq_1m_pct": 0.569,
-        "regime": "supportive",
-        "regime_label": "外盘主题偏强",
+        "return_5d_pct": 1.591,
+        "return_1m_pct": 3.536,
+        "relative_qqq_5d_pct": -1.604,
+        "relative_qqq_1m_pct": -1.121,
+        "regime": "neutral",
+        "regime_label": "外盘主题中性",
         "available": true
       },
       {
@@ -427,10 +427,10 @@
         "etfs": [
           "XLE"
         ],
-        "return_5d_pct": -3.342,
-        "return_1m_pct": 0.162,
-        "relative_qqq_5d_pct": -6.363,
-        "relative_qqq_1m_pct": -4.414,
+        "return_5d_pct": -3.53,
+        "return_1m_pct": -0.625,
+        "relative_qqq_5d_pct": -6.725,
+        "relative_qqq_1m_pct": -5.282,
         "regime": "neutral",
         "regime_label": "外盘主题中性",
         "available": true
@@ -441,10 +441,10 @@
         "etfs": [
           "ITA"
         ],
-        "return_5d_pct": -0.507,
-        "return_1m_pct": -9.195,
-        "relative_qqq_5d_pct": -3.528,
-        "relative_qqq_1m_pct": -13.771,
+        "return_5d_pct": -0.014,
+        "return_1m_pct": -9.548,
+        "relative_qqq_5d_pct": -3.209,
+        "relative_qqq_1m_pct": -14.205,
         "regime": "neutral",
         "regime_label": "外盘主题中性",
         "available": true
@@ -455,10 +455,10 @@
         "etfs": [
           "URA"
         ],
-        "return_5d_pct": -1.945,
-        "return_1m_pct": -15.164,
-        "relative_qqq_5d_pct": -4.966,
-        "relative_qqq_1m_pct": -19.74,
+        "return_5d_pct": -1.777,
+        "return_1m_pct": -14.86,
+        "relative_qqq_5d_pct": -4.972,
+        "relative_qqq_1m_pct": -19.517,
         "regime": "neutral",
         "regime_label": "外盘主题中性",
         "available": true
@@ -469,10 +469,10 @@
         "etfs": [
           "TAN"
         ],
-        "return_5d_pct": -3.811,
-        "return_1m_pct": -10.092,
-        "relative_qqq_5d_pct": -6.832,
-        "relative_qqq_1m_pct": -14.668,
+        "return_5d_pct": -3.504,
+        "return_1m_pct": -9.676,
+        "relative_qqq_5d_pct": -6.699,
+        "relative_qqq_1m_pct": -14.333,
         "regime": "cautious",
         "regime_label": "外盘主题偏弱",
         "available": true
@@ -483,10 +483,10 @@
         "etfs": [
           "XBI"
         ],
-        "return_5d_pct": -1.155,
-        "return_1m_pct": -8.391,
-        "relative_qqq_5d_pct": -4.176,
-        "relative_qqq_1m_pct": -12.967,
+        "return_5d_pct": -1.078,
+        "return_1m_pct": -7.934,
+        "relative_qqq_5d_pct": -4.273,
+        "relative_qqq_1m_pct": -12.591,
         "regime": "neutral",
         "regime_label": "外盘主题中性",
         "available": true
@@ -500,10 +500,10 @@
           "SOXX",
           "SMH"
         ],
-        "return_5d_pct": 6.577,
-        "return_1m_pct": 10.197,
-        "relative_qqq_5d_pct": 3.556,
-        "relative_qqq_1m_pct": 5.621,
+        "return_5d_pct": 6.644,
+        "return_1m_pct": 10.127,
+        "relative_qqq_5d_pct": 3.449,
+        "relative_qqq_1m_pct": 5.47,
         "regime": "strong",
         "regime_label": "外盘主题强势",
         "available": true
@@ -514,18 +514,18 @@
         "etfs": [
           "IGV"
         ],
-        "return_5d_pct": 2.626,
-        "return_1m_pct": 5.145,
-        "relative_qqq_5d_pct": -0.395,
-        "relative_qqq_1m_pct": 0.569,
-        "regime": "supportive",
-        "regime_label": "外盘主题偏强",
+        "return_5d_pct": 1.591,
+        "return_1m_pct": 3.536,
+        "relative_qqq_5d_pct": -1.604,
+        "relative_qqq_1m_pct": -1.121,
+        "regime": "neutral",
+        "regime_label": "外盘主题中性",
         "available": true
       }
     ],
     "note": "外围行业主题只在A股本地趋势、资金和接入风险均通过时，有限调节排序与接入纪律；不会单独产生买入信号。",
     "warnings": []
   },
-  "update_phase": "overnight_watch",
-  "update_phase_label": "23:10隔夜外盘复核"
+  "update_phase": "morning_entry",
+  "update_phase_label": "10点早盘接入"
 }
