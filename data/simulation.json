@@ -1114,8 +1114,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-28T16:46:06+08:00|2026-09-28|14:30尾盘风控",
+  "lastAutoRunKey": "2026-09-28T17:44:28+08:00|2026-09-28|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-09-28T17:44:28+08:00|2026-09-28|14:30尾盘风控",
+      "at": "2026-09-28T17:44:28+08:00",
+      "tradeDate": "2026-09-28",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划3只：中航西飞(watch)、天融信(watch)、伊利股份(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-28T16:46:06+08:00|2026-09-28|14:30尾盘风控",
       "at": "2026-09-28T16:46:06+08:00",
@@ -1836,42 +1849,21 @@
           "summary": "本次买入复检未成交，原因已写入决策复盘"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-21T09:56:55+08:00|2026-09-21|10点早盘接入",
-      "at": "2026-09-21T09:56:55+08:00",
-      "tradeDate": "2026-09-21",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划4只：航发动力(trial)、飞龙股份(trial)、海鸥住工(watch)、精华制药(watch)"
-        },
-        {
-          "type": "buy",
-          "summary": "云端买入航发动力200股，成交40.87"
-        },
-        {
-          "type": "buy",
-          "summary": "云端买入飞龙股份100股，成交55.51"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000768-2026-09-28T15:50:33+08:00|2026-09-28|14:30尾盘风控",
+      "id": "000768-2026-09-28T17:44:28+08:00|2026-09-28|14:30尾盘风控",
       "code": "000768",
       "name": "中航西飞",
       "status": "pending",
       "signalDate": "2026-09-28",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-28T15:50:33+08:00|2026-09-28|14:30尾盘风控",
+      "createdRunKey": "2026-09-28T17:44:28+08:00|2026-09-28|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-29",
-      "plannedEntryPrice": 21.98,
-      "maxBuyPrice": 22.3,
+      "plannedEntryPrice": 22.15,
+      "maxBuyPrice": 22.27,
       "noChasePrice": 25.83,
       "score": 8.7,
       "buySignalKey": "wait",
@@ -1893,19 +1885,19 @@
       "executionPrice": null
     },
     {
-      "id": "002212-2026-09-28T15:50:33+08:00|2026-09-28|14:30尾盘风控",
+      "id": "002212-2026-09-28T17:44:28+08:00|2026-09-28|14:30尾盘风控",
       "code": "002212",
       "name": "天融信",
       "status": "pending",
       "signalDate": "2026-09-28",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-28T15:50:33+08:00|2026-09-28|14:30尾盘风控",
+      "createdRunKey": "2026-09-28T17:44:28+08:00|2026-09-28|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-29",
-      "plannedEntryPrice": 6.76,
-      "maxBuyPrice": 6.85,
+      "plannedEntryPrice": 6.77,
+      "maxBuyPrice": 6.87,
       "noChasePrice": 8.63,
-      "score": 7.6,
+      "score": 7.7,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1925,17 +1917,17 @@
       "executionPrice": null
     },
     {
-      "id": "600887-2026-09-28T15:50:33+08:00|2026-09-28|14:30尾盘风控",
+      "id": "600887-2026-09-28T17:44:28+08:00|2026-09-28|14:30尾盘风控",
       "code": "600887",
       "name": "伊利股份",
       "status": "pending",
       "signalDate": "2026-09-28",
       "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-09-28T15:50:33+08:00|2026-09-28|14:30尾盘风控",
+      "createdRunKey": "2026-09-28T17:44:28+08:00|2026-09-28|14:30尾盘风控",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-29",
-      "plannedEntryPrice": 26.12,
-      "maxBuyPrice": 26.35,
+      "plannedEntryPrice": 26.16,
+      "maxBuyPrice": 26.37,
       "noChasePrice": 28.78,
       "score": 7.5,
       "buySignalKey": "wait",
@@ -2919,6 +2911,60 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600887-2026-09-28T17:44:28+08:00",
+      "at": "2026-09-28T17:44:28+08:00",
+      "tradeDate": "2026-09-28",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600887",
+      "name": "伊利股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 26.16,
+      "maxBuyPrice": 26.37,
+      "noChasePrice": 28.78,
+      "validUntilDate": "2026-09-29",
+      "score": 7.5
+    },
+    {
+      "id": "buy_plan_created-002212-2026-09-28T17:44:28+08:00",
+      "at": "2026-09-28T17:44:28+08:00",
+      "tradeDate": "2026-09-28",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "002212",
+      "name": "天融信",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 6.77,
+      "maxBuyPrice": 6.87,
+      "noChasePrice": 8.63,
+      "validUntilDate": "2026-09-29",
+      "score": 7.7
+    },
+    {
+      "id": "buy_plan_created-000768-2026-09-28T17:44:28+08:00",
+      "at": "2026-09-28T17:44:28+08:00",
+      "tradeDate": "2026-09-28",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000768",
+      "name": "中航西飞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 22.15,
+      "maxBuyPrice": 22.27,
+      "noChasePrice": 25.83,
+      "validUntilDate": "2026-09-29",
+      "score": 8.7
+    },
     {
       "id": "buy_plan_created-600887-2026-09-28T15:50:33+08:00",
       "at": "2026-09-28T15:50:33+08:00",
@@ -4594,58 +4640,6 @@
       "plannedEntryPrice": 6.7,
       "maxBuyPrice": 6.7,
       "score": 8.7
-    },
-    {
-      "id": "buy_deferred-002141-2026-09-22T09:57:10+08:00",
-      "at": "2026-09-22T09:57:10+08:00",
-      "tradeDate": "2026-09-22",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "002141",
-      "name": "贤丰控股",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 6.35,
-      "maxBuyPrice": 6.63,
-      "score": 8.2
-    },
-    {
-      "id": "buy_plan_created-002141-2026-09-22T09:57:10+08:00",
-      "at": "2026-09-22T09:57:10+08:00",
-      "tradeDate": "2026-09-22",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "002141",
-      "name": "贤丰控股",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 6.35,
-      "maxBuyPrice": 6.63,
-      "noChasePrice": 7.81,
-      "validUntilDate": "2026-09-23",
-      "score": 8.2
-    },
-    {
-      "id": "buy_plan_created-603082-2026-09-22T09:57:10+08:00",
-      "at": "2026-09-22T09:57:10+08:00",
-      "tradeDate": "2026-09-22",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "603082",
-      "name": "北自科技股份",
-      "summary": "生成小仓试买观察",
-      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
-      "plannedEntryPrice": 45.2,
-      "maxBuyPrice": 52.07,
-      "noChasePrice": 58.33,
-      "validUntilDate": "2026-09-23",
-      "score": 8.8
     }
   ],
   "exitReviews": [
@@ -4669,7 +4663,7 @@
       "dailyPrices": {
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 6.37,
           "returnPct": -12.017,
           "phase": "afternoon_risk",
@@ -4721,7 +4715,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 38.68,
           "returnPct": -2.471,
           "phase": "afternoon_risk",
@@ -4773,7 +4767,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 46.5,
           "returnPct": -10.663,
           "phase": "afternoon_risk",
@@ -4849,7 +4843,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 43.7,
           "returnPct": -16.555,
           "phase": "afternoon_risk",
@@ -4931,7 +4925,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 9.29,
           "returnPct": 6.293,
           "phase": "afternoon_risk",
@@ -5069,7 +5063,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 29.42,
           "returnPct": -14.202,
           "phase": "afternoon_risk",
@@ -5229,7 +5223,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 40.64,
           "returnPct": -1.023,
           "phase": "afternoon_risk",
@@ -5389,7 +5383,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 52.4,
           "returnPct": -6.911,
           "phase": "afternoon_risk",
@@ -5549,7 +5543,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 43.34,
           "returnPct": -7.728,
           "phase": "afternoon_risk",
@@ -5733,7 +5727,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 29.42,
           "returnPct": -10.686,
           "phase": "afternoon_risk",
@@ -5917,7 +5911,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 5.69,
           "returnPct": -11.92,
           "phase": "afternoon_risk",
@@ -6109,7 +6103,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 22.92,
           "returnPct": 1.192,
           "phase": "afternoon_risk",
@@ -6309,7 +6303,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 29.42,
           "returnPct": -12.571,
           "phase": "afternoon_risk",
@@ -6517,7 +6511,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 43.34,
           "returnPct": -6.19,
           "phase": "afternoon_risk",
@@ -6749,7 +6743,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 20.95,
           "returnPct": -19.268,
           "phase": "afternoon_risk",
@@ -6987,7 +6981,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 29.42,
           "returnPct": -11.837,
           "phase": "afternoon_risk",
@@ -7289,7 +7283,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 29.42,
           "returnPct": -8.775,
           "phase": "afternoon_risk",
@@ -7677,7 +7671,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 38.08,
           "returnPct": 10.409,
           "phase": "afternoon_risk",
@@ -8097,7 +8091,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 5.69,
           "returnPct": -5.482,
           "phase": "afternoon_risk",
@@ -8517,7 +8511,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 11.48,
           "returnPct": -17.231,
           "phase": "afternoon_risk",
@@ -8937,7 +8931,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 58.92,
           "returnPct": -2.836,
           "phase": "afternoon_risk",
@@ -9381,7 +9375,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 22.64,
           "returnPct": -3.864,
           "phase": "afternoon_risk",
@@ -9841,7 +9835,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 50.33,
           "returnPct": -2.31,
           "phase": "afternoon_risk",
@@ -10309,7 +10303,7 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T16:46:06+08:00",
+          "at": "2026-09-28T17:44:28+08:00",
           "price": 29.42,
           "returnPct": 0.444,
           "phase": "afternoon_risk",
@@ -10550,8 +10544,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 531,
-    "plansCreated": 761,
+    "snapshotsProcessed": 532,
+    "plansCreated": 764,
     "buyChecks": 1460,
     "buysExecuted": 24,
     "sellsExecuted": 24,
@@ -10568,7 +10562,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 80
     },
-    "lastRunAt": "2026-09-28T16:46:06+08:00",
-    "lastRunSummary": "当前没有符合资金和风控约束的新计划"
+    "lastRunAt": "2026-09-28T17:44:28+08:00",
+    "lastRunSummary": "更新云端计划3只：中航西飞(watch)、天融信(watch)、伊利股份(watch)"
   }
 }
