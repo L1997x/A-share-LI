@@ -1114,8 +1114,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-28T22:16:31+08:00|2026-09-28|20点次日关注",
+  "lastAutoRunKey": "2026-09-28T23:17:30+08:00|2026-09-28|23:10隔夜外盘复核",
   "autoLog": [
+    {
+      "runKey": "2026-09-28T23:17:30+08:00|2026-09-28|23:10隔夜外盘复核",
+      "at": "2026-09-28T23:17:30+08:00",
+      "tradeDate": "2026-09-28",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划3只：中航西飞(watch)、天融信(watch)、伊利股份(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-28T22:16:31+08:00|2026-09-28|20点次日关注",
       "at": "2026-09-28T22:16:31+08:00",
@@ -1828,36 +1841,23 @@
           "summary": "更新云端计划3只：海油工程(executable)、中国船舶(trial)、保利发展(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-21T15:58:11+08:00|2026-09-21|14:30尾盘风控",
-      "at": "2026-09-21T15:58:11+08:00",
-      "tradeDate": "2026-09-21",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "当前没有符合资金和风控约束的新计划"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000768-2026-09-28T22:16:31+08:00|2026-09-28|20点次日关注",
+      "id": "000768-2026-09-28T23:17:30+08:00|2026-09-28|23:10隔夜外盘复核",
       "code": "000768",
       "name": "中航西飞",
       "status": "pending",
       "signalDate": "2026-09-28",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-09-28T22:16:31+08:00|2026-09-28|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-09-28T23:17:30+08:00|2026-09-28|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-29",
-      "plannedEntryPrice": 22.15,
-      "maxBuyPrice": 22.27,
+      "plannedEntryPrice": 22.07,
+      "maxBuyPrice": 22.19,
       "noChasePrice": 25.83,
-      "score": 8.8,
+      "score": 8.5,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
@@ -1877,13 +1877,13 @@
       "executionPrice": null
     },
     {
-      "id": "002212-2026-09-28T22:16:31+08:00|2026-09-28|20点次日关注",
+      "id": "002212-2026-09-28T23:17:30+08:00|2026-09-28|23:10隔夜外盘复核",
       "code": "002212",
       "name": "天融信",
       "status": "pending",
       "signalDate": "2026-09-28",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-09-28T22:16:31+08:00|2026-09-28|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-09-28T23:17:30+08:00|2026-09-28|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-29",
       "plannedEntryPrice": 6.78,
@@ -1909,13 +1909,13 @@
       "executionPrice": null
     },
     {
-      "id": "600887-2026-09-28T22:16:31+08:00|2026-09-28|20点次日关注",
+      "id": "600887-2026-09-28T23:17:30+08:00|2026-09-28|23:10隔夜外盘复核",
       "code": "600887",
       "name": "伊利股份",
       "status": "pending",
       "signalDate": "2026-09-28",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-09-28T22:16:31+08:00|2026-09-28|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-09-28T23:17:30+08:00|2026-09-28|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-29",
       "plannedEntryPrice": 26.17,
@@ -2903,6 +2903,60 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600887-2026-09-28T23:17:30+08:00",
+      "at": "2026-09-28T23:17:30+08:00",
+      "tradeDate": "2026-09-28",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600887",
+      "name": "伊利股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 26.17,
+      "maxBuyPrice": 26.38,
+      "noChasePrice": 28.78,
+      "validUntilDate": "2026-09-29",
+      "score": 7.6
+    },
+    {
+      "id": "buy_plan_created-002212-2026-09-28T23:17:30+08:00",
+      "at": "2026-09-28T23:17:30+08:00",
+      "tradeDate": "2026-09-28",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "002212",
+      "name": "天融信",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 6.78,
+      "maxBuyPrice": 6.88,
+      "noChasePrice": 8.63,
+      "validUntilDate": "2026-09-29",
+      "score": 7.7
+    },
+    {
+      "id": "buy_plan_created-000768-2026-09-28T23:17:30+08:00",
+      "at": "2026-09-28T23:17:30+08:00",
+      "tradeDate": "2026-09-28",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000768",
+      "name": "中航西飞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 22.07,
+      "maxBuyPrice": 22.19,
+      "noChasePrice": 25.83,
+      "validUntilDate": "2026-09-29",
+      "score": 8.5
+    },
     {
       "id": "buy_plan_created-600887-2026-09-28T22:16:31+08:00",
       "at": "2026-09-28T22:16:31+08:00",
@@ -4584,56 +4638,6 @@
       "plannedEntryPrice": 26.38,
       "maxBuyPrice": 26.62,
       "score": 8.3
-    },
-    {
-      "id": "buy_plan_created-600887-2026-09-22T14:32:53+08:00",
-      "at": "2026-09-22T14:32:53+08:00",
-      "tradeDate": "2026-09-22",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600887",
-      "name": "伊利股份",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 26.38,
-      "maxBuyPrice": 26.62,
-      "noChasePrice": 28.65,
-      "validUntilDate": "2026-09-23",
-      "score": 8.3
-    },
-    {
-      "id": "buy_cancelled-603082-2026-09-22T13:27:01+08:00",
-      "at": "2026-09-22T13:27:01+08:00",
-      "tradeDate": "2026-09-22",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "603082",
-      "name": "北自科技股份",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 45.2,
-      "maxBuyPrice": 52.07,
-      "score": 8.8
-    },
-    {
-      "id": "buy_deferred-002141-2026-09-22T13:27:01+08:00",
-      "at": "2026-09-22T13:27:01+08:00",
-      "tradeDate": "2026-09-22",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "002141",
-      "name": "贤丰控股",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 6.33,
-      "maxBuyPrice": 6.62,
-      "score": 8.2
     }
   ],
   "exitReviews": [
@@ -4657,11 +4661,11 @@
       "dailyPrices": {
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 6.37,
           "returnPct": -12.017,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4709,11 +4713,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 38.68,
           "returnPct": -2.471,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4761,11 +4765,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 46.5,
           "returnPct": -10.663,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4837,11 +4841,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 43.7,
           "returnPct": -16.555,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -4925,11 +4929,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 9.29,
           "returnPct": 6.293,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5069,11 +5073,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 29.42,
           "returnPct": -14.202,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5229,11 +5233,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 40.64,
           "returnPct": -1.023,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5389,11 +5393,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 52.4,
           "returnPct": -6.911,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5549,11 +5553,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 43.34,
           "returnPct": -7.728,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5733,11 +5737,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 29.42,
           "returnPct": -10.686,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5917,11 +5921,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 5.69,
           "returnPct": -11.92,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6109,11 +6113,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 22.92,
           "returnPct": 1.192,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6309,11 +6313,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 29.42,
           "returnPct": -12.571,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6517,11 +6521,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 43.34,
           "returnPct": -6.19,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6755,11 +6759,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 20.95,
           "returnPct": -19.268,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6993,11 +6997,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 29.42,
           "returnPct": -11.837,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7295,11 +7299,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 29.42,
           "returnPct": -8.775,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7683,11 +7687,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 38.08,
           "returnPct": 10.409,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8103,11 +8107,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 5.69,
           "returnPct": -5.482,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8523,11 +8527,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 11.48,
           "returnPct": -17.231,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8943,11 +8947,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 58.92,
           "returnPct": -2.836,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -9387,11 +9391,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 22.64,
           "returnPct": -3.864,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -9847,11 +9851,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 50.33,
           "returnPct": -2.31,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -10315,11 +10319,11 @@
         },
         "2026-09-28": {
           "date": "2026-09-28",
-          "at": "2026-09-28T22:16:31+08:00",
+          "at": "2026-09-28T23:17:30+08:00",
           "price": 29.42,
           "returnPct": 0.444,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -10556,8 +10560,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 534,
-    "plansCreated": 770,
+    "snapshotsProcessed": 535,
+    "plansCreated": 773,
     "buyChecks": 1460,
     "buysExecuted": 24,
     "sellsExecuted": 24,
@@ -10574,7 +10578,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 80
     },
-    "lastRunAt": "2026-09-28T22:16:31+08:00",
+    "lastRunAt": "2026-09-28T23:17:30+08:00",
     "lastRunSummary": "更新云端计划3只：中航西飞(watch)、天融信(watch)、伊利股份(watch)"
   }
 }
