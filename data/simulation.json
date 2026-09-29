@@ -1114,8 +1114,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-29T19:58:18+08:00|2026-09-29|20点次日关注",
+  "lastAutoRunKey": "2026-09-29T21:11:12+08:00|2026-09-29|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-09-29T21:11:12+08:00|2026-09-29|20点次日关注",
+      "at": "2026-09-29T21:11:12+08:00",
+      "tradeDate": "2026-09-29",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划4只：华远控股(watch)、城建发展(watch)、郑州煤电(watch)、深振业Ａ(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-29T19:58:18+08:00|2026-09-29|20点次日关注",
       "at": "2026-09-29T19:58:18+08:00",
@@ -1832,34 +1845,17 @@
           "summary": "更新云端计划1只：郑州煤电(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-22T14:32:53+08:00|2026-09-22|14:30尾盘风控",
-      "at": "2026-09-22T14:32:53+08:00",
-      "tradeDate": "2026-09-22",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划1只：伊利股份(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "600743-2026-09-29T19:58:18+08:00|2026-09-29|20点次日关注",
+      "id": "600743-2026-09-29T21:11:12+08:00|2026-09-29|20点次日关注",
       "code": "600743",
       "name": "华远控股",
       "status": "pending",
       "signalDate": "2026-09-29",
       "signalPhase": "evening_watch",
-      "createdRunKey": "2026-09-29T19:58:18+08:00|2026-09-29|20点次日关注",
+      "createdRunKey": "2026-09-29T21:11:12+08:00|2026-09-29|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-30",
       "plannedEntryPrice": 2.23,
@@ -1873,29 +1869,29 @@
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金平稳",
       "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 0.96,
+      "contextPositionMultiplier": 0.999,
       "feedbackPositionMultiplier": 1.0,
       "feedbackEvidenceLevel": "strong",
       "entryEvidenceLevel": "insufficient",
       "planType": "watch",
-      "targetPositionPct": 0.096,
+      "targetPositionPct": 0.0999,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
       "executionPrice": null
     },
     {
-      "id": "600266-2026-09-29T19:58:18+08:00|2026-09-29|20点次日关注",
+      "id": "600266-2026-09-29T21:11:12+08:00|2026-09-29|20点次日关注",
       "code": "600266",
       "name": "城建发展",
       "status": "pending",
       "signalDate": "2026-09-29",
       "signalPhase": "evening_watch",
-      "createdRunKey": "2026-09-29T19:58:18+08:00|2026-09-29|20点次日关注",
+      "createdRunKey": "2026-09-29T21:11:12+08:00|2026-09-29|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-30",
       "plannedEntryPrice": 4.2,
-      "maxBuyPrice": 4.26,
+      "maxBuyPrice": 4.27,
       "noChasePrice": 4.84,
       "score": 8.7,
       "buySignalKey": "wait",
@@ -1905,25 +1901,25 @@
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金平稳",
       "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 0.96,
+      "contextPositionMultiplier": 0.999,
       "feedbackPositionMultiplier": 1.0,
       "feedbackEvidenceLevel": "strong",
       "entryEvidenceLevel": "insufficient",
       "planType": "watch",
-      "targetPositionPct": 0.096,
+      "targetPositionPct": 0.0999,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
       "executionPrice": null
     },
     {
-      "id": "600121-2026-09-29T19:58:18+08:00|2026-09-29|20点次日关注",
+      "id": "600121-2026-09-29T21:11:12+08:00|2026-09-29|20点次日关注",
       "code": "600121",
       "name": "郑州煤电",
       "status": "pending",
       "signalDate": "2026-09-29",
       "signalPhase": "evening_watch",
-      "createdRunKey": "2026-09-29T19:58:18+08:00|2026-09-29|20点次日关注",
+      "createdRunKey": "2026-09-29T21:11:12+08:00|2026-09-29|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-30",
       "plannedEntryPrice": 5.01,
@@ -1937,25 +1933,25 @@
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金平稳",
       "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 0.96,
+      "contextPositionMultiplier": 0.999,
       "feedbackPositionMultiplier": 1.0,
       "feedbackEvidenceLevel": "strong",
       "entryEvidenceLevel": "insufficient",
       "planType": "watch",
-      "targetPositionPct": 0.096,
+      "targetPositionPct": 0.0999,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
       "executionPrice": null
     },
     {
-      "id": "000006-2026-09-29T19:58:18+08:00|2026-09-29|20点次日关注",
+      "id": "000006-2026-09-29T21:11:12+08:00|2026-09-29|20点次日关注",
       "code": "000006",
       "name": "深振业Ａ",
       "status": "pending",
       "signalDate": "2026-09-29",
       "signalPhase": "evening_watch",
-      "createdRunKey": "2026-09-29T19:58:18+08:00|2026-09-29|20点次日关注",
+      "createdRunKey": "2026-09-29T21:11:12+08:00|2026-09-29|20点次日关注",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-09-30",
       "plannedEntryPrice": 6.96,
@@ -1969,12 +1965,12 @@
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金平稳",
       "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 0.96,
+      "contextPositionMultiplier": 0.999,
       "feedbackPositionMultiplier": 1.0,
       "feedbackEvidenceLevel": "strong",
       "entryEvidenceLevel": "insufficient",
       "planType": "watch",
-      "targetPositionPct": 0.096,
+      "targetPositionPct": 0.0999,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
@@ -3039,6 +3035,78 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000006-2026-09-29T21:11:12+08:00",
+      "at": "2026-09-29T21:11:12+08:00",
+      "tradeDate": "2026-09-29",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000006",
+      "name": "深振业Ａ",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 6.96,
+      "maxBuyPrice": 7.1,
+      "noChasePrice": 8.27,
+      "validUntilDate": "2026-09-30",
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-600121-2026-09-29T21:11:12+08:00",
+      "at": "2026-09-29T21:11:12+08:00",
+      "tradeDate": "2026-09-29",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600121",
+      "name": "郑州煤电",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 5.01,
+      "maxBuyPrice": 5.02,
+      "noChasePrice": 6.63,
+      "validUntilDate": "2026-09-30",
+      "score": 8.2
+    },
+    {
+      "id": "buy_plan_created-600266-2026-09-29T21:11:12+08:00",
+      "at": "2026-09-29T21:11:12+08:00",
+      "tradeDate": "2026-09-29",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600266",
+      "name": "城建发展",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 4.2,
+      "maxBuyPrice": 4.27,
+      "noChasePrice": 4.84,
+      "validUntilDate": "2026-09-30",
+      "score": 8.7
+    },
+    {
+      "id": "buy_plan_created-600743-2026-09-29T21:11:12+08:00",
+      "at": "2026-09-29T21:11:12+08:00",
+      "tradeDate": "2026-09-29",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600743",
+      "name": "华远控股",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 2.23,
+      "maxBuyPrice": 2.23,
+      "noChasePrice": 3.08,
+      "validUntilDate": "2026-09-30",
+      "score": 8.7
+    },
     {
       "id": "buy_plan_created-000006-2026-09-29T19:58:18+08:00",
       "at": "2026-09-29T19:58:18+08:00",
@@ -4694,78 +4762,6 @@
       "noChasePrice": 6.19,
       "validUntilDate": "2026-09-25",
       "score": 7.8
-    },
-    {
-      "id": "buy_plan_created-600900-2026-09-24T23:17:43+08:00",
-      "at": "2026-09-24T23:17:43+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "23:10隔夜外盘复核",
-      "phaseKey": "overnight_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600900",
-      "name": "长江电力",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 26.95,
-      "maxBuyPrice": 27.95,
-      "noChasePrice": 30.6,
-      "validUntilDate": "2026-09-25",
-      "score": 7.8
-    },
-    {
-      "id": "buy_plan_created-600019-2026-09-24T20:00:25+08:00",
-      "at": "2026-09-24T20:00:25+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600019",
-      "name": "宝钢股份",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 5.67,
-      "maxBuyPrice": 5.69,
-      "noChasePrice": 6.19,
-      "validUntilDate": "2026-09-25",
-      "score": 7.8
-    },
-    {
-      "id": "buy_plan_created-600900-2026-09-24T20:00:25+08:00",
-      "at": "2026-09-24T20:00:25+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600900",
-      "name": "长江电力",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 26.93,
-      "maxBuyPrice": 27.94,
-      "noChasePrice": 30.6,
-      "validUntilDate": "2026-09-25",
-      "score": 7.8
-    },
-    {
-      "id": "buy_plan_created-600019-2026-09-24T18:15:08+08:00",
-      "at": "2026-09-24T18:15:08+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600019",
-      "name": "宝钢股份",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 5.67,
-      "maxBuyPrice": 5.69,
-      "noChasePrice": 6.19,
-      "validUntilDate": "2026-09-25",
-      "score": 7.8
     }
   ],
   "exitReviews": [
@@ -4797,7 +4793,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 6.65,
           "returnPct": -8.149,
           "phase": "evening_watch",
@@ -4857,7 +4853,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 38.41,
           "returnPct": -3.152,
           "phase": "evening_watch",
@@ -4868,7 +4864,7 @@
         "3": {
           "horizon": 3,
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 38.41,
           "returnPct": -3.152
         },
@@ -4923,7 +4919,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 46.52,
           "returnPct": -10.624,
           "phase": "evening_watch",
@@ -4934,7 +4930,7 @@
         "3": {
           "horizon": 3,
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 46.52,
           "returnPct": -10.624
         },
@@ -5013,7 +5009,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 44.55,
           "returnPct": -14.932,
           "phase": "evening_watch",
@@ -5109,7 +5105,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 8.74,
           "returnPct": 0.0,
           "phase": "evening_watch",
@@ -5261,7 +5257,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 29.46,
           "returnPct": -14.086,
           "phase": "evening_watch",
@@ -5429,7 +5425,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 40.51,
           "returnPct": -1.34,
           "phase": "evening_watch",
@@ -5597,7 +5593,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 52.5,
           "returnPct": -6.733,
           "phase": "evening_watch",
@@ -5765,7 +5761,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 42.65,
           "returnPct": -9.197,
           "phase": "evening_watch",
@@ -5957,7 +5953,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 29.46,
           "returnPct": -10.565,
           "phase": "evening_watch",
@@ -6149,7 +6145,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 5.79,
           "returnPct": -10.372,
           "phase": "evening_watch",
@@ -6349,7 +6345,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 22.5,
           "returnPct": -0.662,
           "phase": "evening_watch",
@@ -6557,7 +6553,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 29.46,
           "returnPct": -12.452,
           "phase": "evening_watch",
@@ -6582,7 +6578,7 @@
         "20": {
           "horizon": 20,
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 29.46,
           "returnPct": -12.452
         },
@@ -6779,7 +6775,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 42.65,
           "returnPct": -7.684,
           "phase": "evening_watch",
@@ -7025,7 +7021,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 21.59,
           "returnPct": -16.802,
           "phase": "evening_watch",
@@ -7271,7 +7267,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 29.46,
           "returnPct": -11.717,
           "phase": "evening_watch",
@@ -7581,7 +7577,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 29.46,
           "returnPct": -8.651,
           "phase": "evening_watch",
@@ -7977,7 +7973,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 38.95,
           "returnPct": 12.931,
           "phase": "evening_watch",
@@ -8405,7 +8401,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 5.79,
           "returnPct": -3.821,
           "phase": "evening_watch",
@@ -8833,7 +8829,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 11.41,
           "returnPct": -17.736,
           "phase": "evening_watch",
@@ -9261,7 +9257,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 58.42,
           "returnPct": -3.661,
           "phase": "evening_watch",
@@ -9713,7 +9709,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 22.21,
           "returnPct": -5.69,
           "phase": "evening_watch",
@@ -10181,7 +10177,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 50.24,
           "returnPct": -2.484,
           "phase": "evening_watch",
@@ -10657,7 +10653,7 @@
         },
         "2026-09-29": {
           "date": "2026-09-29",
-          "at": "2026-09-29T19:58:18+08:00",
+          "at": "2026-09-29T21:11:12+08:00",
           "price": 29.46,
           "returnPct": 0.58,
           "phase": "evening_watch",
@@ -10898,8 +10894,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 542,
-    "plansCreated": 797,
+    "snapshotsProcessed": 543,
+    "plansCreated": 801,
     "buyChecks": 1482,
     "buysExecuted": 24,
     "sellsExecuted": 24,
@@ -10916,7 +10912,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 89
     },
-    "lastRunAt": "2026-09-29T19:58:18+08:00",
+    "lastRunAt": "2026-09-29T21:11:12+08:00",
     "lastRunSummary": "更新云端计划4只：华远控股(watch)、城建发展(watch)、郑州煤电(watch)、深振业Ａ(watch)"
   }
 }
