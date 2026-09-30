@@ -1114,8 +1114,25 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-09-29T23:17:36+08:00|2026-09-29|23:10隔夜外盘复核",
+  "lastAutoRunKey": "2026-09-30T09:56:43+08:00|2026-09-30|10点早盘接入",
   "autoLog": [
+    {
+      "runKey": "2026-09-30T09:56:43+08:00|2026-09-30|10点早盘接入",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划3只：中国船舶(watch)、中航西飞(watch)、招商银行(watch)"
+        },
+        {
+          "type": "buy_wait",
+          "summary": "本次买入复检未成交，原因已写入决策复盘"
+        }
+      ]
+    },
     {
       "runKey": "2026-09-29T23:17:36+08:00|2026-09-29|23:10隔夜外盘复核",
       "at": "2026-09-29T23:17:36+08:00",
@@ -1832,27 +1849,110 @@
           "summary": "更新云端计划3只：北方铜业(watch)、郑州煤电(watch)、歌尔股份(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-09-22T16:48:02+08:00|2026-09-22|14:30尾盘风控",
-      "at": "2026-09-22T16:48:02+08:00",
-      "tradeDate": "2026-09-22",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划3只：北方铜业(watch)、郑州煤电(watch)、歌尔股份(watch)"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
+      "id": "600150-2026-09-30T09:56:43+08:00|2026-09-30|10点早盘接入",
+      "code": "600150",
+      "name": "中国船舶",
+      "status": "pending",
+      "signalDate": "2026-09-30",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-09-30T09:56:43+08:00|2026-09-30|10点早盘接入",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-10-01",
+      "plannedEntryPrice": 36.68,
+      "maxBuyPrice": 38.31,
+      "noChasePrice": 43.67,
+      "score": 8.8,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金平稳",
+      "globalMarketLabel": "外盘中性",
+      "contextPositionMultiplier": 1.0,
+      "feedbackPositionMultiplier": 1.0,
+      "feedbackEvidenceLevel": "strong",
+      "entryEvidenceLevel": "insufficient",
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "000768-2026-09-30T09:56:43+08:00|2026-09-30|10点早盘接入",
+      "code": "000768",
+      "name": "中航西飞",
+      "status": "pending",
+      "signalDate": "2026-09-30",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-09-30T09:56:43+08:00|2026-09-30|10点早盘接入",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-10-01",
+      "plannedEntryPrice": 22.47,
+      "maxBuyPrice": 22.48,
+      "noChasePrice": 25.83,
+      "score": 8.6,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金平稳",
+      "globalMarketLabel": "外盘中性",
+      "contextPositionMultiplier": 1.0,
+      "feedbackPositionMultiplier": 1.0,
+      "feedbackEvidenceLevel": "strong",
+      "entryEvidenceLevel": "insufficient",
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "600036-2026-09-30T09:56:43+08:00|2026-09-30|10点早盘接入",
+      "code": "600036",
+      "name": "招商银行",
+      "status": "pending",
+      "signalDate": "2026-09-30",
+      "signalPhase": "morning_entry",
+      "createdRunKey": "2026-09-30T09:56:43+08:00|2026-09-30|10点早盘接入",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-10-01",
+      "plannedEntryPrice": 40.53,
+      "maxBuyPrice": 40.69,
+      "noChasePrice": 44.36,
+      "score": 7.8,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金平稳",
+      "globalMarketLabel": "外盘中性",
+      "contextPositionMultiplier": 1.0,
+      "feedbackPositionMultiplier": 1.0,
+      "feedbackEvidenceLevel": "strong",
+      "entryEvidenceLevel": "insufficient",
+      "planType": "watch",
+      "targetPositionPct": 0.1,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
       "id": "600743-2026-09-29T23:17:36+08:00|2026-09-29|23:10隔夜外盘复核",
       "code": "600743",
       "name": "华远控股",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-29",
       "signalPhase": "overnight_watch",
       "createdRunKey": "2026-09-29T23:17:36+08:00|2026-09-29|23:10隔夜外盘复核",
@@ -1876,7 +1976,7 @@
       "planType": "watch",
       "targetPositionPct": 0.0983,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1884,7 +1984,7 @@
       "id": "600266-2026-09-29T23:17:36+08:00|2026-09-29|23:10隔夜外盘复核",
       "code": "600266",
       "name": "城建发展",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-29",
       "signalPhase": "overnight_watch",
       "createdRunKey": "2026-09-29T23:17:36+08:00|2026-09-29|23:10隔夜外盘复核",
@@ -1908,7 +2008,7 @@
       "planType": "watch",
       "targetPositionPct": 0.0983,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1948,7 +2048,7 @@
       "id": "600383-2026-09-29T23:17:36+08:00|2026-09-29|23:10隔夜外盘复核",
       "code": "600383",
       "name": "金地集团",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-29",
       "signalPhase": "overnight_watch",
       "createdRunKey": "2026-09-29T23:17:36+08:00|2026-09-29|23:10隔夜外盘复核",
@@ -1972,7 +2072,7 @@
       "planType": "watch",
       "targetPositionPct": 0.0983,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -1980,7 +2080,7 @@
       "id": "000006-2026-09-29T23:17:36+08:00|2026-09-29|23:10隔夜外盘复核",
       "code": "000006",
       "name": "深振业Ａ",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-29",
       "signalPhase": "overnight_watch",
       "createdRunKey": "2026-09-29T23:17:36+08:00|2026-09-29|23:10隔夜外盘复核",
@@ -2004,7 +2104,7 @@
       "planType": "watch",
       "targetPositionPct": 0.0983,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -2012,7 +2112,7 @@
       "id": "002298-2026-09-29T14:56:43+08:00|2026-09-29|13:30午后买入复检",
       "code": "002298",
       "name": "中电鑫龙",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-29",
       "signalPhase": "morning_entry",
       "createdRunKey": "2026-09-29T14:56:43+08:00|2026-09-29|13:30午后买入复检",
@@ -2036,7 +2136,7 @@
       "planType": "watch",
       "targetPositionPct": 0.09230000000000001,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -2044,7 +2144,7 @@
       "id": "600048-2026-09-29T14:30:28+08:00|2026-09-29|14:30尾盘风控",
       "code": "600048",
       "name": "保利发展",
-      "status": "pending",
+      "status": "cancelled",
       "signalDate": "2026-09-29",
       "signalPhase": "afternoon_risk",
       "createdRunKey": "2026-09-29T14:30:28+08:00|2026-09-29|14:30尾盘风控",
@@ -2068,7 +2168,7 @@
       "planType": "watch",
       "targetPositionPct": 0.1,
       "reason": "观察计划，尚未升级为可执行买入信号",
-      "cancelReason": "",
+      "cancelReason": "股票已调出最新池，取消旧买入计划",
       "executedAt": "",
       "executionPrice": null
     },
@@ -3035,6 +3135,220 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_cancelled-600048-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "600048",
+      "name": "保利发展",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 5.18,
+      "maxBuyPrice": 5.24,
+      "score": 7.8
+    },
+    {
+      "id": "buy_cancelled-002298-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "002298",
+      "name": "中电鑫龙",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 8.41,
+      "maxBuyPrice": 8.51,
+      "score": 8.4
+    },
+    {
+      "id": "buy_cancelled-000006-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "000006",
+      "name": "深振业Ａ",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 6.96,
+      "maxBuyPrice": 7.1,
+      "score": 7.5
+    },
+    {
+      "id": "buy_cancelled-600383-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "600383",
+      "name": "金地集团",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 2.29,
+      "maxBuyPrice": 2.33,
+      "score": 7.8
+    },
+    {
+      "id": "buy_deferred-600121-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600121",
+      "name": "郑州煤电",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 5.01,
+      "maxBuyPrice": 5.02,
+      "score": 8.2
+    },
+    {
+      "id": "buy_cancelled-600266-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "600266",
+      "name": "城建发展",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 4.2,
+      "maxBuyPrice": 4.27,
+      "score": 8.7
+    },
+    {
+      "id": "buy_cancelled-600743-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_cancelled",
+      "status": "cancelled",
+      "code": "600743",
+      "name": "华远控股",
+      "summary": "调出股票池后取消买入",
+      "reason": "股票已调出最新池，取消旧买入计划",
+      "plannedEntryPrice": 2.23,
+      "maxBuyPrice": 2.23,
+      "score": 8.7
+    },
+    {
+      "id": "buy_deferred-600036-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600036",
+      "name": "招商银行",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 40.53,
+      "maxBuyPrice": 40.69,
+      "score": 7.8
+    },
+    {
+      "id": "buy_deferred-000768-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "000768",
+      "name": "中航西飞",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 22.47,
+      "maxBuyPrice": 22.48,
+      "score": 8.6
+    },
+    {
+      "id": "buy_deferred-600150-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_deferred",
+      "status": "pending",
+      "code": "600150",
+      "name": "中国船舶",
+      "summary": "继续观察",
+      "reason": "观察计划尚未升级为可执行信号",
+      "plannedEntryPrice": 36.68,
+      "maxBuyPrice": 38.31,
+      "score": 8.8
+    },
+    {
+      "id": "buy_plan_created-600036-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600036",
+      "name": "招商银行",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 40.53,
+      "maxBuyPrice": 40.69,
+      "noChasePrice": 44.36,
+      "validUntilDate": "2026-10-01",
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-000768-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000768",
+      "name": "中航西飞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 22.47,
+      "maxBuyPrice": 22.48,
+      "noChasePrice": 25.83,
+      "validUntilDate": "2026-10-01",
+      "score": 8.6
+    },
+    {
+      "id": "buy_plan_created-600150-2026-09-30T09:56:43+08:00",
+      "at": "2026-09-30T09:56:43+08:00",
+      "tradeDate": "2026-09-30",
+      "phase": "10点早盘接入",
+      "phaseKey": "morning_entry",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600150",
+      "name": "中国船舶",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 36.68,
+      "maxBuyPrice": 38.31,
+      "noChasePrice": 43.67,
+      "validUntilDate": "2026-10-01",
+      "score": 8.8
+    },
     {
       "id": "buy_plan_created-000006-2026-09-29T23:17:36+08:00",
       "at": "2026-09-29T23:17:36+08:00",
@@ -4542,230 +4856,6 @@
       "noChasePrice": 17.87,
       "validUntilDate": "2026-09-25",
       "score": 7.5
-    },
-    {
-      "id": "buy_plan_created-600019-2026-09-25T18:21:31+08:00",
-      "at": "2026-09-25T18:21:31+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600019",
-      "name": "宝钢股份",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 5.68,
-      "maxBuyPrice": 5.7,
-      "noChasePrice": 6.19,
-      "validUntilDate": "2026-09-25",
-      "score": 7.9
-    },
-    {
-      "id": "buy_plan_created-600900-2026-09-25T18:21:31+08:00",
-      "at": "2026-09-25T18:21:31+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600900",
-      "name": "长江电力",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 26.98,
-      "maxBuyPrice": 27.99,
-      "noChasePrice": 30.6,
-      "validUntilDate": "2026-09-25",
-      "score": 7.9
-    },
-    {
-      "id": "buy_plan_created-600019-2026-09-25T15:44:25+08:00",
-      "at": "2026-09-25T15:44:25+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600019",
-      "name": "宝钢股份",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 5.68,
-      "maxBuyPrice": 5.7,
-      "noChasePrice": 6.19,
-      "validUntilDate": "2026-09-25",
-      "score": 7.9
-    },
-    {
-      "id": "buy_plan_created-600900-2026-09-25T15:44:25+08:00",
-      "at": "2026-09-25T15:44:25+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600900",
-      "name": "长江电力",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 26.98,
-      "maxBuyPrice": 27.99,
-      "noChasePrice": 30.6,
-      "validUntilDate": "2026-09-25",
-      "score": 7.9
-    },
-    {
-      "id": "buy_deferred-600019-2026-09-25T14:28:39+08:00",
-      "at": "2026-09-25T14:28:39+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600019",
-      "name": "宝钢股份",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 5.68,
-      "maxBuyPrice": 5.7,
-      "score": 7.9
-    },
-    {
-      "id": "buy_deferred-600900-2026-09-25T14:28:39+08:00",
-      "at": "2026-09-25T14:28:39+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600900",
-      "name": "长江电力",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 26.97,
-      "maxBuyPrice": 27.98,
-      "score": 7.9
-    },
-    {
-      "id": "buy_plan_created-600019-2026-09-25T14:28:39+08:00",
-      "at": "2026-09-25T14:28:39+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600019",
-      "name": "宝钢股份",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 5.68,
-      "maxBuyPrice": 5.7,
-      "noChasePrice": 6.19,
-      "validUntilDate": "2026-09-25",
-      "score": 7.9
-    },
-    {
-      "id": "buy_plan_created-600900-2026-09-25T14:28:39+08:00",
-      "at": "2026-09-25T14:28:39+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600900",
-      "name": "长江电力",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 26.97,
-      "maxBuyPrice": 27.98,
-      "noChasePrice": 30.6,
-      "validUntilDate": "2026-09-25",
-      "score": 7.9
-    },
-    {
-      "id": "buy_deferred-600019-2026-09-25T13:28:51+08:00",
-      "at": "2026-09-25T13:28:51+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600019",
-      "name": "宝钢股份",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 5.68,
-      "maxBuyPrice": 5.7,
-      "score": 7.9
-    },
-    {
-      "id": "buy_deferred-600900-2026-09-25T13:28:51+08:00",
-      "at": "2026-09-25T13:28:51+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_deferred",
-      "status": "pending",
-      "code": "600900",
-      "name": "长江电力",
-      "summary": "继续观察",
-      "reason": "观察计划尚未升级为可执行信号",
-      "plannedEntryPrice": 26.97,
-      "maxBuyPrice": 27.97,
-      "score": 7.9
-    },
-    {
-      "id": "buy_plan_created-600019-2026-09-25T13:28:51+08:00",
-      "at": "2026-09-25T13:28:51+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600019",
-      "name": "宝钢股份",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 5.68,
-      "maxBuyPrice": 5.7,
-      "noChasePrice": 6.19,
-      "validUntilDate": "2026-09-25",
-      "score": 7.9
-    },
-    {
-      "id": "buy_plan_created-600900-2026-09-25T13:28:51+08:00",
-      "at": "2026-09-25T13:28:51+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600900",
-      "name": "长江电力",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 26.97,
-      "maxBuyPrice": 27.97,
-      "noChasePrice": 30.6,
-      "validUntilDate": "2026-09-25",
-      "score": 7.9
-    },
-    {
-      "id": "buy_cancelled-601975-2026-09-25T09:57:56+08:00",
-      "at": "2026-09-25T09:57:56+08:00",
-      "tradeDate": "2026-09-24",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "601975",
-      "name": "招商南油",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 4.19,
-      "maxBuyPrice": 4.29,
-      "score": 7.7
     }
   ],
   "exitReviews": [
@@ -4801,6 +4891,14 @@
           "price": 6.65,
           "returnPct": -8.149,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 6.65,
+          "returnPct": -8.149,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -4810,8 +4908,8 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 2,
-      "currentDate": "2026-09-29",
+      "observedTradingDays": 3,
+      "currentDate": "2026-09-30",
       "currentPrice": 6.65,
       "currentReturnPct": -8.149,
       "maxPostExitReturnPct": -8.149,
@@ -4861,6 +4959,14 @@
           "price": 38.41,
           "returnPct": -3.152,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 38.91,
+          "returnPct": -1.891,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -4868,7 +4974,7 @@
         "3": {
           "horizon": 3,
           "date": "2026-09-29",
-          "at": "2026-09-29T21:11:12+08:00",
+          "at": "2026-09-29T23:17:36+08:00",
           "price": 38.41,
           "returnPct": -3.152
         },
@@ -4876,11 +4982,11 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 3,
-      "currentDate": "2026-09-29",
-      "currentPrice": 38.41,
-      "currentReturnPct": -3.152,
-      "maxPostExitReturnPct": -2.471,
+      "observedTradingDays": 4,
+      "currentDate": "2026-09-30",
+      "currentPrice": 38.91,
+      "currentReturnPct": -1.891,
+      "maxPostExitReturnPct": -1.891,
       "minPostExitReturnPct": -3.454,
       "latestMatureHorizon": 3,
       "qualityLabel": "卖出合理",
@@ -4927,6 +5033,14 @@
           "price": 46.52,
           "returnPct": -10.624,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 46.52,
+          "returnPct": -10.624,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -4934,7 +5048,7 @@
         "3": {
           "horizon": 3,
           "date": "2026-09-29",
-          "at": "2026-09-29T21:11:12+08:00",
+          "at": "2026-09-29T23:17:36+08:00",
           "price": 46.52,
           "returnPct": -10.624
         },
@@ -4942,8 +5056,8 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 3,
-      "currentDate": "2026-09-29",
+      "observedTradingDays": 4,
+      "currentDate": "2026-09-30",
       "currentPrice": 46.52,
       "currentReturnPct": -10.624,
       "maxPostExitReturnPct": -2.651,
@@ -5017,6 +5131,14 @@
           "price": 44.55,
           "returnPct": -14.932,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 44.55,
+          "returnPct": -14.932,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5038,8 +5160,8 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 6,
-      "currentDate": "2026-09-29",
+      "observedTradingDays": 7,
+      "currentDate": "2026-09-30",
       "currentPrice": 44.55,
       "currentReturnPct": -14.932,
       "maxPostExitReturnPct": -4.048,
@@ -5113,6 +5235,14 @@
           "price": 8.74,
           "returnPct": 0.0,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 8.74,
+          "returnPct": 0.0,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5134,8 +5264,8 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 6,
-      "currentDate": "2026-09-29",
+      "observedTradingDays": 7,
+      "currentDate": "2026-09-30",
       "currentPrice": 8.74,
       "currentReturnPct": 0.0,
       "maxPostExitReturnPct": 6.293,
@@ -5265,6 +5395,14 @@
           "price": 29.46,
           "returnPct": -14.086,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 29.46,
+          "returnPct": -14.086,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5286,8 +5424,8 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 13,
-      "currentDate": "2026-09-29",
+      "observedTradingDays": 14,
+      "currentDate": "2026-09-30",
       "currentPrice": 29.46,
       "currentReturnPct": -14.086,
       "maxPostExitReturnPct": -0.525,
@@ -5433,6 +5571,14 @@
           "price": 40.51,
           "returnPct": -1.34,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 41.09,
+          "returnPct": 0.073,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5454,10 +5600,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 15,
-      "currentDate": "2026-09-29",
-      "currentPrice": 40.51,
-      "currentReturnPct": -1.34,
+      "observedTradingDays": 16,
+      "currentDate": "2026-09-30",
+      "currentPrice": 41.09,
+      "currentReturnPct": 0.073,
       "maxPostExitReturnPct": 1.875,
       "minPostExitReturnPct": -1.34,
       "latestMatureHorizon": 5,
@@ -5601,6 +5747,14 @@
           "price": 52.5,
           "returnPct": -6.733,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 52.82,
+          "returnPct": -6.165,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5622,10 +5776,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 15,
-      "currentDate": "2026-09-29",
-      "currentPrice": 52.5,
-      "currentReturnPct": -6.733,
+      "observedTradingDays": 16,
+      "currentDate": "2026-09-30",
+      "currentPrice": 52.82,
+      "currentReturnPct": -6.165,
       "maxPostExitReturnPct": 0.497,
       "minPostExitReturnPct": -6.911,
       "latestMatureHorizon": 5,
@@ -5769,6 +5923,14 @@
           "price": 42.65,
           "returnPct": -9.197,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 43.29,
+          "returnPct": -7.835,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5790,10 +5952,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 15,
-      "currentDate": "2026-09-29",
-      "currentPrice": 42.65,
-      "currentReturnPct": -9.197,
+      "observedTradingDays": 16,
+      "currentDate": "2026-09-30",
+      "currentPrice": 43.29,
+      "currentReturnPct": -7.835,
       "maxPostExitReturnPct": 4.13,
       "minPostExitReturnPct": -9.197,
       "latestMatureHorizon": 5,
@@ -5961,6 +6123,14 @@
           "price": 29.46,
           "returnPct": -10.565,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 29.46,
+          "returnPct": -10.565,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -5982,8 +6152,8 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 18,
-      "currentDate": "2026-09-29",
+      "observedTradingDays": 19,
+      "currentDate": "2026-09-30",
       "currentPrice": 29.46,
       "currentReturnPct": -10.565,
       "maxPostExitReturnPct": 4.432,
@@ -6153,6 +6323,14 @@
           "price": 5.79,
           "returnPct": -10.372,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 5.8,
+          "returnPct": -10.217,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -6174,10 +6352,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 18,
-      "currentDate": "2026-09-29",
-      "currentPrice": 5.79,
-      "currentReturnPct": -10.372,
+      "observedTradingDays": 19,
+      "currentDate": "2026-09-30",
+      "currentPrice": 5.8,
+      "currentReturnPct": -10.217,
       "maxPostExitReturnPct": 1.703,
       "minPostExitReturnPct": -11.92,
       "latestMatureHorizon": 5,
@@ -6353,6 +6531,14 @@
           "price": 22.5,
           "returnPct": -0.662,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 22.94,
+          "returnPct": 1.28,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -6374,10 +6560,10 @@
         "20": null,
         "30": null
       },
-      "observedTradingDays": 19,
-      "currentDate": "2026-09-29",
-      "currentPrice": 22.5,
-      "currentReturnPct": -0.662,
+      "observedTradingDays": 20,
+      "currentDate": "2026-09-30",
+      "currentPrice": 22.94,
+      "currentReturnPct": 1.28,
       "maxPostExitReturnPct": 5.74,
       "minPostExitReturnPct": -2.428,
       "latestMatureHorizon": 5,
@@ -6561,6 +6747,14 @@
           "price": 29.46,
           "returnPct": -12.452,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 29.46,
+          "returnPct": -12.452,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -6582,14 +6776,14 @@
         "20": {
           "horizon": 20,
           "date": "2026-09-29",
-          "at": "2026-09-29T21:11:12+08:00",
+          "at": "2026-09-29T23:17:36+08:00",
           "price": 29.46,
           "returnPct": -12.452
         },
         "30": null
       },
-      "observedTradingDays": 20,
-      "currentDate": "2026-09-29",
+      "observedTradingDays": 21,
+      "currentDate": "2026-09-30",
       "currentPrice": 29.46,
       "currentReturnPct": -12.452,
       "maxPostExitReturnPct": 2.229,
@@ -6783,6 +6977,14 @@
           "price": 42.65,
           "returnPct": -7.684,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 43.29,
+          "returnPct": -6.299,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -6810,10 +7012,10 @@
         },
         "30": null
       },
-      "observedTradingDays": 21,
-      "currentDate": "2026-09-29",
-      "currentPrice": 42.65,
-      "currentReturnPct": -7.684,
+      "observedTradingDays": 22,
+      "currentDate": "2026-09-30",
+      "currentPrice": 43.29,
+      "currentReturnPct": -6.299,
       "maxPostExitReturnPct": 5.866,
       "minPostExitReturnPct": -7.684,
       "latestMatureHorizon": 20,
@@ -7029,6 +7231,14 @@
           "price": 21.59,
           "returnPct": -16.802,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 21.57,
+          "returnPct": -16.879,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -7056,10 +7266,10 @@
         },
         "30": null
       },
-      "observedTradingDays": 24,
-      "currentDate": "2026-09-29",
-      "currentPrice": 21.59,
-      "currentReturnPct": -16.802,
+      "observedTradingDays": 25,
+      "currentDate": "2026-09-30",
+      "currentPrice": 21.57,
+      "currentReturnPct": -16.879,
       "maxPostExitReturnPct": 2.852,
       "minPostExitReturnPct": -19.268,
       "latestMatureHorizon": 20,
@@ -7275,6 +7485,14 @@
           "price": 29.46,
           "returnPct": -11.717,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 29.46,
+          "returnPct": -11.717,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -7302,8 +7520,8 @@
         },
         "30": null
       },
-      "observedTradingDays": 24,
-      "currentDate": "2026-09-29",
+      "observedTradingDays": 25,
+      "currentDate": "2026-09-30",
       "currentPrice": 29.46,
       "currentReturnPct": -11.717,
       "maxPostExitReturnPct": 3.836,
@@ -7585,6 +7803,14 @@
           "price": 29.46,
           "returnPct": -8.651,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 29.46,
+          "returnPct": -8.651,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -7618,8 +7844,8 @@
           "returnPct": -6.946
         }
       },
-      "observedTradingDays": 32,
-      "currentDate": "2026-09-29",
+      "observedTradingDays": 33,
+      "currentDate": "2026-09-30",
       "currentPrice": 29.46,
       "currentReturnPct": -8.651,
       "maxPostExitReturnPct": 7.721,
@@ -7981,6 +8207,14 @@
           "price": 38.95,
           "returnPct": 12.931,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 39.64,
+          "returnPct": 14.932,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -8014,10 +8248,10 @@
           "returnPct": 18.353
         }
       },
-      "observedTradingDays": 42,
-      "currentDate": "2026-09-29",
-      "currentPrice": 38.95,
-      "currentReturnPct": 12.931,
+      "observedTradingDays": 43,
+      "currentDate": "2026-09-30",
+      "currentPrice": 39.64,
+      "currentReturnPct": 14.932,
       "maxPostExitReturnPct": 18.933,
       "minPostExitReturnPct": -4.349,
       "latestMatureHorizon": 30,
@@ -8409,6 +8643,14 @@
           "price": 5.79,
           "returnPct": -3.821,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 5.8,
+          "returnPct": -3.654,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -8442,10 +8684,10 @@
           "returnPct": 6.146
         }
       },
-      "observedTradingDays": 46,
-      "currentDate": "2026-09-29",
-      "currentPrice": 5.79,
-      "currentReturnPct": -3.821,
+      "observedTradingDays": 47,
+      "currentDate": "2026-09-30",
+      "currentPrice": 5.8,
+      "currentReturnPct": -3.654,
       "maxPostExitReturnPct": 15.615,
       "minPostExitReturnPct": -5.482,
       "latestMatureHorizon": 30,
@@ -8837,6 +9079,14 @@
           "price": 11.41,
           "returnPct": -17.736,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 11.65,
+          "returnPct": -16.006,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -8870,10 +9120,10 @@
           "returnPct": -9.156
         }
       },
-      "observedTradingDays": 46,
-      "currentDate": "2026-09-29",
-      "currentPrice": 11.41,
-      "currentReturnPct": -17.736,
+      "observedTradingDays": 47,
+      "currentDate": "2026-09-30",
+      "currentPrice": 11.65,
+      "currentReturnPct": -16.006,
       "maxPostExitReturnPct": 3.893,
       "minPostExitReturnPct": -17.736,
       "latestMatureHorizon": 30,
@@ -9265,6 +9515,14 @@
           "price": 58.42,
           "returnPct": -3.661,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 59.08,
+          "returnPct": -2.573,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -9298,10 +9556,10 @@
           "returnPct": 6.926
         }
       },
-      "observedTradingDays": 46,
-      "currentDate": "2026-09-29",
-      "currentPrice": 58.42,
-      "currentReturnPct": -3.661,
+      "observedTradingDays": 47,
+      "currentDate": "2026-09-30",
+      "currentPrice": 59.08,
+      "currentReturnPct": -2.573,
       "maxPostExitReturnPct": 14.083,
       "minPostExitReturnPct": -11.28,
       "latestMatureHorizon": 30,
@@ -9717,6 +9975,14 @@
           "price": 22.21,
           "returnPct": -5.69,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 22.59,
+          "returnPct": -4.076,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -9750,10 +10016,10 @@
           "returnPct": -2.675
         }
       },
-      "observedTradingDays": 49,
-      "currentDate": "2026-09-29",
-      "currentPrice": 22.21,
-      "currentReturnPct": -5.69,
+      "observedTradingDays": 50,
+      "currentDate": "2026-09-30",
+      "currentPrice": 22.59,
+      "currentReturnPct": -4.076,
       "maxPostExitReturnPct": 6.454,
       "minPostExitReturnPct": -6.794,
       "latestMatureHorizon": 30,
@@ -10185,6 +10451,14 @@
           "price": 50.24,
           "returnPct": -2.484,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 50.33,
+          "returnPct": -2.31,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -10218,10 +10492,10 @@
           "returnPct": -2.95
         }
       },
-      "observedTradingDays": 51,
-      "currentDate": "2026-09-29",
-      "currentPrice": 50.24,
-      "currentReturnPct": -2.484,
+      "observedTradingDays": 52,
+      "currentDate": "2026-09-30",
+      "currentPrice": 50.33,
+      "currentReturnPct": -2.31,
       "maxPostExitReturnPct": 2.601,
       "minPostExitReturnPct": -4.251,
       "latestMatureHorizon": 30,
@@ -10661,6 +10935,14 @@
           "price": 29.46,
           "returnPct": 0.58,
           "phase": "overnight_watch",
+          "finalized": true
+        },
+        "2026-09-30": {
+          "date": "2026-09-30",
+          "at": "2026-09-30T09:56:43+08:00",
+          "price": 29.46,
+          "returnPct": 0.58,
+          "phase": "morning_entry",
           "finalized": false
         }
       },
@@ -10694,8 +10976,8 @@
           "returnPct": 18.027
         }
       },
-      "observedTradingDays": 52,
-      "currentDate": "2026-09-29",
+      "observedTradingDays": 53,
+      "currentDate": "2026-09-30",
       "currentPrice": 29.46,
       "currentReturnPct": 0.58,
       "maxPostExitReturnPct": 21.031,
@@ -10898,13 +11180,13 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 544,
-    "plansCreated": 806,
-    "buyChecks": 1482,
+    "snapshotsProcessed": 545,
+    "plansCreated": 809,
+    "buyChecks": 1492,
     "buysExecuted": 24,
     "sellsExecuted": 24,
     "waitReasonCounts": {
-      "观察计划尚未升级为可执行信号": 585,
+      "观察计划尚未升级为可执行信号": 589,
       "股票不在最新池，云端继续观察但不执行": 684,
       "价格高于MA20超过5%，避免追涨后回撤": 53,
       "含滑点价格高于最高买入价": 5,
@@ -10914,9 +11196,9 @@
     "cancelReasonCounts": {
       "模型或接入安全层硬拦截": 24,
       "未满足上涨趋势门槛，取消旧买入计划": 7,
-      "股票已调出最新池，取消旧买入计划": 89
+      "股票已调出最新池，取消旧买入计划": 95
     },
-    "lastRunAt": "2026-09-29T23:17:36+08:00",
-    "lastRunSummary": "更新云端计划5只：华远控股(watch)、城建发展(watch)、郑州煤电(watch)、金地集团(watch)、深振业Ａ(watch)"
+    "lastRunAt": "2026-09-30T09:56:43+08:00",
+    "lastRunSummary": "更新云端计划3只：中国船舶(watch)、中航西飞(watch)、招商银行(watch)；本次买入复检未成交，原因已写入决策复盘"
   }
 }
