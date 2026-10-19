@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-19T13:24:07+08:00",
+  "generated_at": "2026-10-19T14:28:14+08:00",
   "source": "fallback + Sina live quotes",
   "scope": "战略主题库",
   "raw_count": 0,
@@ -20,18 +20,18 @@
     "note": "全市场扫描失败，市场环境层暂不参与信号调整。",
     "global_market": {
       "available": true,
-      "captured_at": "2026-10-19T13:24:56+08:00",
+      "captured_at": "2026-10-19T14:29:01+08:00",
       "source": "Sina global indices/futures/FX",
       "session": "亚洲交易或欧洲盘前",
       "label": "外盘中性",
       "regime": "neutral",
-      "impact_score": 0.62,
-      "weighted_return_pct": 0.035,
+      "impact_score": 2.05,
+      "weighted_return_pct": 0.114,
       "negative_ratio_pct": 50.0,
       "worst_return_pct": -2.14,
       "hard_risk": false,
-      "score_bonus": 0.01,
-      "price_adjustment_pct": 0.009,
+      "score_bonus": 0.031,
+      "price_adjustment_pct": 0.029,
       "position_multiplier": 1.0,
       "confidence": "高",
       "instruments": [
@@ -39,9 +39,9 @@
           "key": "a50_futures",
           "name": "富时中国A50期货",
           "kind": "future",
-          "price": 13392.6,
-          "pct_chg": 0.402,
-          "quote_time": "2026-10-19 13:24:56",
+          "price": 13415.3,
+          "pct_chg": 0.572,
+          "quote_time": "2026-10-19 14:29:00",
           "weight": 0.28
         },
         {
@@ -57,8 +57,8 @@
           "key": "nikkei_225",
           "name": "日经225",
           "kind": "regional",
-          "price": 64733.11,
-          "pct_chg": -0.9,
+          "price": 64947.67,
+          "pct_chg": -0.58,
           "quote_time": "2026-10-19 14:12:00",
           "weight": 0.06
         },
@@ -93,37 +93,37 @@
           "key": "nasdaq_futures",
           "name": "纳斯达克期货",
           "kind": "future",
-          "price": 29763.6,
-          "pct_chg": 1.836,
-          "quote_time": "2026-10-19 13:24:56",
+          "price": 29802.0,
+          "pct_chg": 1.967,
+          "quote_time": "2026-10-19 14:29:01",
           "weight": 0.12
         },
         {
           "key": "sp500_futures",
           "name": "标普500期货",
           "kind": "future",
-          "price": 7764.0,
-          "pct_chg": 1.1,
-          "quote_time": "2026-10-19 13:24:56",
+          "price": 7762.29,
+          "pct_chg": 1.078,
+          "quote_time": "2026-10-19 14:29:01",
           "weight": 0.08
         },
         {
           "key": "usd_cny",
           "name": "在岸人民币",
           "kind": "currency",
-          "price": 6.6819,
-          "pct_chg": -0.075,
-          "quote_time": "2026-10-19 13:23:01",
+          "price": 6.6815,
+          "pct_chg": -0.066,
+          "quote_time": "2026-10-19 14:28:00",
           "weight": 0.0
         }
       ],
       "warnings": [],
       "note": "隔夜影响优先参考A50、恒生和美股科技风险偏好；仅调节次日接入价与仓位，极端共振下跌才拦截新买入。",
-      "applies_to_entries": true
+      "applies_to_entries": false
     },
     "global_theme_context": {
       "available": true,
-      "captured_at": "2026-10-19T13:24:56+08:00",
+      "captured_at": "2026-10-19T14:29:01+08:00",
       "source": "Yahoo Finance chart API (1mo daily)",
       "benchmark": {
         "symbol": "QQQ",
@@ -276,21 +276,21 @@
   "top_mainboard": [],
   "matched_library": [],
   "market_date": "2026-10-19",
-  "quote_snapshot_at": "2026-10-19T13:24:07+08:00",
+  "quote_snapshot_at": "2026-10-19T14:28:14+08:00",
   "global_market": {
     "available": true,
-    "captured_at": "2026-10-19T13:24:56+08:00",
+    "captured_at": "2026-10-19T14:29:01+08:00",
     "source": "Sina global indices/futures/FX",
     "session": "亚洲交易或欧洲盘前",
     "label": "外盘中性",
     "regime": "neutral",
-    "impact_score": 0.62,
-    "weighted_return_pct": 0.035,
+    "impact_score": 2.05,
+    "weighted_return_pct": 0.114,
     "negative_ratio_pct": 50.0,
     "worst_return_pct": -2.14,
     "hard_risk": false,
-    "score_bonus": 0.01,
-    "price_adjustment_pct": 0.009,
+    "score_bonus": 0.031,
+    "price_adjustment_pct": 0.029,
     "position_multiplier": 1.0,
     "confidence": "高",
     "instruments": [
@@ -298,9 +298,9 @@
         "key": "a50_futures",
         "name": "富时中国A50期货",
         "kind": "future",
-        "price": 13392.6,
-        "pct_chg": 0.402,
-        "quote_time": "2026-10-19 13:24:56",
+        "price": 13415.3,
+        "pct_chg": 0.572,
+        "quote_time": "2026-10-19 14:29:00",
         "weight": 0.28
       },
       {
@@ -316,8 +316,8 @@
         "key": "nikkei_225",
         "name": "日经225",
         "kind": "regional",
-        "price": 64733.11,
-        "pct_chg": -0.9,
+        "price": 64947.67,
+        "pct_chg": -0.58,
         "quote_time": "2026-10-19 14:12:00",
         "weight": 0.06
       },
@@ -352,37 +352,37 @@
         "key": "nasdaq_futures",
         "name": "纳斯达克期货",
         "kind": "future",
-        "price": 29763.6,
-        "pct_chg": 1.836,
-        "quote_time": "2026-10-19 13:24:56",
+        "price": 29802.0,
+        "pct_chg": 1.967,
+        "quote_time": "2026-10-19 14:29:01",
         "weight": 0.12
       },
       {
         "key": "sp500_futures",
         "name": "标普500期货",
         "kind": "future",
-        "price": 7764.0,
-        "pct_chg": 1.1,
-        "quote_time": "2026-10-19 13:24:56",
+        "price": 7762.29,
+        "pct_chg": 1.078,
+        "quote_time": "2026-10-19 14:29:01",
         "weight": 0.08
       },
       {
         "key": "usd_cny",
         "name": "在岸人民币",
         "kind": "currency",
-        "price": 6.6819,
-        "pct_chg": -0.075,
-        "quote_time": "2026-10-19 13:23:01",
+        "price": 6.6815,
+        "pct_chg": -0.066,
+        "quote_time": "2026-10-19 14:28:00",
         "weight": 0.0
       }
     ],
     "warnings": [],
     "note": "隔夜影响优先参考A50、恒生和美股科技风险偏好；仅调节次日接入价与仓位，极端共振下跌才拦截新买入。",
-    "applies_to_entries": true
+    "applies_to_entries": false
   },
   "global_theme_context": {
     "available": true,
-    "captured_at": "2026-10-19T13:24:56+08:00",
+    "captured_at": "2026-10-19T14:29:01+08:00",
     "source": "Yahoo Finance chart API (1mo daily)",
     "benchmark": {
       "symbol": "QQQ",
@@ -524,6 +524,6 @@
     "note": "外围行业主题只在A股本地趋势、资金和接入风险均通过时，有限调节排序与接入纪律；不会单独产生买入信号。",
     "warnings": []
   },
-  "update_phase": "morning_entry",
-  "update_phase_label": "11:20午前买入复检"
+  "update_phase": "afternoon_risk",
+  "update_phase_label": "14:30尾盘风控"
 }
