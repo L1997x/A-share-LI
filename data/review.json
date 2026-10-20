@@ -1,22 +1,22 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-20T20:03:26+08:00",
+  "generated_at": "2026-10-20T20:15:43+08:00",
   "as_of_date": "2026-10-20",
   "summary": {
-    "tracked_count": 345,
+    "tracked_count": 348,
     "active_count": 10,
-    "exited_count": 335,
-    "average_return_pct": -9.43,
+    "exited_count": 338,
+    "average_return_pct": -9.35,
     "positive_count": 87,
     "negative_count": 254,
     "attribution_counts": {
       "negative_review": 207,
-      "neutral_tracking": 90,
+      "neutral_tracking": 93,
       "positive_validation": 48
     },
     "model_action_counts": {
       "收紧接入价并提高触达后回撤惩罚。": 126,
-      "继续观察，不作强反馈。": 90,
+      "继续观察，不作强反馈。": 93,
       "降低首推价偏离过高样本权重，强化等待纪律。": 67,
       "方向验证为正，同时保留接入价纪律，避免首推价过高。": 45,
       "降低同类主题/信号权重并继续积累样本。": 13,
@@ -351,7 +351,7 @@
       "latest_price": 23.67,
       "latest_source": "latest_quote",
       "tracking_days": 116,
-      "snapshot_count": 63,
+      "snapshot_count": 62,
       "return_since_first_pct": 18.88,
       "max_return_since_first_pct": 19.04,
       "drawdown_from_peak_pct": -0.13,
@@ -799,7 +799,7 @@
       "latest_price": 42.52,
       "latest_source": "latest_quote",
       "tracking_days": 119,
-      "snapshot_count": 80,
+      "snapshot_count": 79,
       "return_since_first_pct": 12.55,
       "max_return_since_first_pct": 13.18,
       "drawdown_from_peak_pct": -0.56,
@@ -1023,7 +1023,7 @@
       "latest_price": 8.23,
       "latest_source": "latest_quote",
       "tracking_days": 40,
-      "snapshot_count": 54,
+      "snapshot_count": 53,
       "return_since_first_pct": 10.62,
       "max_return_since_first_pct": 10.62,
       "drawdown_from_peak_pct": 0.0,
@@ -2283,9 +2283,9 @@
       "name": "世运电路",
       "theme": "动态强势候选",
       "board": "沪市主板",
-      "active_in_current_pool": true,
-      "current_rank": 10,
-      "current_status_key": "wait",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
       "first_recommend_date": "2026-09-10",
       "first_recommend_price": 40.23,
       "first_rank": null,
@@ -2320,7 +2320,7 @@
       "best_date": "2026-09-21",
       "worst_close": 40.23,
       "worst_date": "2026-09-10",
-      "review_status": "当前池中-正反馈",
+      "review_status": "已调出-正收益",
       "review_attribution": {
         "primary": "positive_validation",
         "theme_group": "动态强势候选",
@@ -2332,7 +2332,7 @@
       },
       "review_primary_attribution": "positive_validation",
       "review_model_action": "方向验证为正，同时保留接入价纪律，避免首推价过高。",
-      "comment": "仍在最新推荐池中，且推荐后已有正收益。",
+      "comment": "不在最新推荐池中，但历史推荐目前仍为正收益，继续保留回访记录。",
       "review_rank": 41
     },
     {
@@ -2902,7 +2902,7 @@
       "theme": "动态强势候选",
       "board": "沪市主板",
       "active_in_current_pool": true,
-      "current_rank": 2,
+      "current_rank": 3,
       "current_status_key": "wait",
       "first_recommend_date": "2026-10-13",
       "first_recommend_price": 13.57,
@@ -2930,7 +2930,7 @@
       "latest_price": 14.23,
       "latest_source": "history_snapshot",
       "tracking_days": 7,
-      "snapshot_count": 17,
+      "snapshot_count": 18,
       "return_since_first_pct": 4.86,
       "max_return_since_first_pct": 4.86,
       "drawdown_from_peak_pct": 0.0,
@@ -3519,9 +3519,9 @@
       "name": "昭衍新药",
       "theme": "动态强势候选",
       "board": "沪市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
+      "active_in_current_pool": true,
+      "current_rank": 1,
+      "current_status_key": "wait",
       "first_recommend_date": "2026-10-19",
       "first_recommend_price": 45.9,
       "first_rank": null,
@@ -3548,7 +3548,7 @@
       "latest_price": 47.34,
       "latest_source": "history_snapshot",
       "tracking_days": 1,
-      "snapshot_count": 4,
+      "snapshot_count": 5,
       "return_since_first_pct": 3.14,
       "max_return_since_first_pct": 8.06,
       "drawdown_from_peak_pct": -4.56,
@@ -3556,7 +3556,7 @@
       "best_date": "2026-10-20",
       "worst_close": 45.9,
       "worst_date": "2026-10-19",
-      "review_status": "已调出-正收益",
+      "review_status": "当前池中-继续观察",
       "review_attribution": {
         "primary": "neutral_tracking",
         "theme_group": "动态强势候选",
@@ -3568,7 +3568,7 @@
       },
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
-      "comment": "不在最新推荐池中，但历史推荐目前仍为正收益，继续保留回访记录。",
+      "comment": "仍在最新推荐池中，表现暂处于验证区间。",
       "review_rank": 63
     },
     {
@@ -3717,7 +3717,7 @@
       "latest_price": 9.76,
       "latest_source": "latest_quote",
       "tracking_days": 20,
-      "snapshot_count": 52,
+      "snapshot_count": 51,
       "return_since_first_pct": 2.95,
       "max_return_since_first_pct": 2.95,
       "drawdown_from_peak_pct": 0.0,
@@ -4194,7 +4194,7 @@
       "theme": "动态强势候选",
       "board": "沪市主板",
       "active_in_current_pool": true,
-      "current_rank": 3,
+      "current_rank": 4,
       "current_status_key": "wait",
       "first_recommend_date": "2026-10-20",
       "first_recommend_price": 13.45,
@@ -4222,7 +4222,7 @@
       "latest_price": 13.62,
       "latest_source": "history_snapshot",
       "tracking_days": 0,
-      "snapshot_count": 9,
+      "snapshot_count": 10,
       "return_since_first_pct": 1.26,
       "max_return_since_first_pct": 1.26,
       "drawdown_from_peak_pct": 0.0,
@@ -4251,7 +4251,7 @@
       "theme": "动态强势候选",
       "board": "深市主板",
       "active_in_current_pool": true,
-      "current_rank": 5,
+      "current_rank": 8,
       "current_status_key": "wait",
       "first_recommend_date": "2026-10-20",
       "first_recommend_price": 4.83,
@@ -4279,7 +4279,7 @@
       "latest_price": 4.89,
       "latest_source": "history_snapshot",
       "tracking_days": 0,
-      "snapshot_count": 9,
+      "snapshot_count": 10,
       "return_since_first_pct": 1.24,
       "max_return_since_first_pct": 1.24,
       "drawdown_from_peak_pct": 0.0,
@@ -4811,9 +4811,9 @@
       "name": "北特科技",
       "theme": "动态强势候选",
       "board": "沪市主板",
-      "active_in_current_pool": true,
-      "current_rank": 8,
-      "current_status_key": "wait",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
       "first_recommend_date": "2026-10-20",
       "first_recommend_price": 47.18,
       "first_rank": 10,
@@ -4848,7 +4848,7 @@
       "best_date": "2026-10-20",
       "worst_close": 47.09,
       "worst_date": "2026-10-20",
-      "review_status": "当前池中-继续观察",
+      "review_status": "已调出-正收益",
       "review_attribution": {
         "primary": "neutral_tracking",
         "theme_group": "动态强势候选",
@@ -4860,7 +4860,7 @@
       },
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
-      "comment": "仍在最新推荐池中，表现暂处于验证区间。",
+      "comment": "不在最新推荐池中，但历史推荐目前仍为正收益，继续保留回访记录。",
       "review_rank": 86
     },
     {
@@ -4920,6 +4920,62 @@
       "review_rank": 87
     },
     {
+      "code": "000530",
+      "name": "冰山冷热",
+      "theme": "动态强势候选",
+      "board": "深市主板",
+      "active_in_current_pool": true,
+      "current_rank": 5,
+      "current_status_key": "wait",
+      "first_recommend_date": "2026-10-20",
+      "first_recommend_price": 8.17,
+      "first_rank": 5,
+      "first_status_key": "wait",
+      "first_source": "current_pool",
+      "first_recommended_entry_price": 5.57,
+      "first_entry_price_lower": 5.43,
+      "first_entry_price_upper": 5.77,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 46.8,
+      "first_entry_safety_adjustment_pct": 0.0,
+      "first_entry_safety_label": "接入样本不足",
+      "first_entry_safety_risk_flag": false,
+      "first_entry_safety_block_buy": false,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": 46.68,
+      "entry_drawdown_from_first_entry_pct": 46.68,
+      "last_seen_in_pool_date": "2026-10-20",
+      "last_seen_rank": 5,
+      "latest_date": "2026-10-20",
+      "latest_price": 8.17,
+      "latest_source": "current_pool",
+      "tracking_days": 0,
+      "snapshot_count": 2,
+      "return_since_first_pct": 0.0,
+      "max_return_since_first_pct": 0.0,
+      "drawdown_from_peak_pct": 0.0,
+      "best_close": 8.17,
+      "best_date": "2026-10-20",
+      "worst_close": 8.17,
+      "worst_date": "2026-10-20",
+      "review_status": "当前池中-继续观察",
+      "review_attribution": {
+        "primary": "neutral_tracking",
+        "theme_group": "动态强势候选",
+        "factors": [
+          "inside_validation_band"
+        ],
+        "model_action": "继续观察，不作强反馈。"
+      },
+      "review_primary_attribution": "neutral_tracking",
+      "review_model_action": "继续观察，不作强反馈。",
+      "comment": "仍在最新推荐池中，表现暂处于验证区间。",
+      "review_rank": 88
+    },
+    {
       "code": "002258",
       "name": "利尔化学",
       "theme": "动态强势候选",
@@ -4974,7 +5030,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，但历史推荐目前仍为正收益，继续保留回访记录。",
-      "review_rank": 88
+      "review_rank": 89
     },
     {
       "code": "002421",
@@ -5031,16 +5087,72 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，但历史推荐目前仍为正收益，继续保留回访记录。",
-      "review_rank": 89
+      "review_rank": 90
+    },
+    {
+      "code": "002917",
+      "name": "金奥博",
+      "theme": "动态强势候选",
+      "board": "深市主板",
+      "active_in_current_pool": true,
+      "current_rank": 2,
+      "current_status_key": "wait",
+      "first_recommend_date": "2026-10-20",
+      "first_recommend_price": 12.47,
+      "first_rank": 2,
+      "first_status_key": "wait",
+      "first_source": "current_pool",
+      "first_recommended_entry_price": 10.23,
+      "first_entry_price_lower": 9.98,
+      "first_entry_price_upper": 10.62,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 21.9,
+      "first_entry_safety_adjustment_pct": 0.0,
+      "first_entry_safety_label": "接入样本不足",
+      "first_entry_safety_risk_flag": false,
+      "first_entry_safety_block_buy": false,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": 21.9,
+      "entry_drawdown_from_first_entry_pct": 21.9,
+      "last_seen_in_pool_date": "2026-10-20",
+      "last_seen_rank": 2,
+      "latest_date": "2026-10-20",
+      "latest_price": 12.47,
+      "latest_source": "current_pool",
+      "tracking_days": 0,
+      "snapshot_count": 2,
+      "return_since_first_pct": 0.0,
+      "max_return_since_first_pct": 0.0,
+      "drawdown_from_peak_pct": 0.0,
+      "best_close": 12.47,
+      "best_date": "2026-10-20",
+      "worst_close": 12.47,
+      "worst_date": "2026-10-20",
+      "review_status": "当前池中-继续观察",
+      "review_attribution": {
+        "primary": "neutral_tracking",
+        "theme_group": "动态强势候选",
+        "factors": [
+          "inside_validation_band"
+        ],
+        "model_action": "继续观察，不作强反馈。"
+      },
+      "review_primary_attribution": "neutral_tracking",
+      "review_model_action": "继续观察，不作强反馈。",
+      "comment": "仍在最新推荐池中，表现暂处于验证区间。",
+      "review_rank": 91
     },
     {
       "code": "603171",
       "name": "税友股份",
       "theme": "动态强势候选",
       "board": "沪市主板",
-      "active_in_current_pool": true,
-      "current_rank": 9,
-      "current_status_key": "wait",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
       "first_recommend_date": "2026-10-20",
       "first_recommend_price": 42.9,
       "first_rank": 9,
@@ -5075,7 +5187,7 @@
       "best_date": "2026-10-20",
       "worst_close": 42.9,
       "worst_date": "2026-10-20",
-      "review_status": "当前池中-继续观察",
+      "review_status": "已调出-正收益",
       "review_attribution": {
         "primary": "neutral_tracking",
         "theme_group": "动态强势候选",
@@ -5087,8 +5199,8 @@
       },
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
-      "comment": "仍在最新推荐池中，表现暂处于验证区间。",
-      "review_rank": 90
+      "comment": "不在最新推荐池中，但历史推荐目前仍为正收益，继续保留回访记录。",
+      "review_rank": 92
     },
     {
       "code": "603341",
@@ -5145,7 +5257,63 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，但历史推荐目前仍为正收益，继续保留回访记录。",
-      "review_rank": 91
+      "review_rank": 93
+    },
+    {
+      "code": "605258",
+      "name": "协和电子",
+      "theme": "动态强势候选",
+      "board": "沪市主板",
+      "active_in_current_pool": true,
+      "current_rank": 6,
+      "current_status_key": "wait",
+      "first_recommend_date": "2026-10-20",
+      "first_recommend_price": 46.06,
+      "first_rank": 6,
+      "first_status_key": "wait",
+      "first_source": "current_pool",
+      "first_recommended_entry_price": 38.76,
+      "first_entry_price_lower": 37.77,
+      "first_entry_price_upper": 40.26,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 18.84,
+      "first_entry_safety_adjustment_pct": 0.0,
+      "first_entry_safety_label": "接入样本不足",
+      "first_entry_safety_risk_flag": false,
+      "first_entry_safety_block_buy": false,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": 18.83,
+      "entry_drawdown_from_first_entry_pct": 18.83,
+      "last_seen_in_pool_date": "2026-10-20",
+      "last_seen_rank": 6,
+      "latest_date": "2026-10-20",
+      "latest_price": 46.06,
+      "latest_source": "current_pool",
+      "tracking_days": 0,
+      "snapshot_count": 2,
+      "return_since_first_pct": 0.0,
+      "max_return_since_first_pct": 0.0,
+      "drawdown_from_peak_pct": 0.0,
+      "best_close": 46.06,
+      "best_date": "2026-10-20",
+      "worst_close": 46.06,
+      "worst_date": "2026-10-20",
+      "review_status": "当前池中-继续观察",
+      "review_attribution": {
+        "primary": "neutral_tracking",
+        "theme_group": "动态强势候选",
+        "factors": [
+          "inside_validation_band"
+        ],
+        "model_action": "继续观察，不作强反馈。"
+      },
+      "review_primary_attribution": "neutral_tracking",
+      "review_model_action": "继续观察，不作强反馈。",
+      "comment": "仍在最新推荐池中，表现暂处于验证区间。",
+      "review_rank": 94
     },
     {
       "code": "600864",
@@ -5201,7 +5369,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 92
+      "review_rank": 95
     },
     {
       "code": "600406",
@@ -5257,7 +5425,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 93
+      "review_rank": 96
     },
     {
       "code": "600982",
@@ -5313,7 +5481,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 94
+      "review_rank": 97
     },
     {
       "code": "000858",
@@ -5369,7 +5537,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 95
+      "review_rank": 98
     },
     {
       "code": "600025",
@@ -5425,7 +5593,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 96
+      "review_rank": 99
     },
     {
       "code": "603956",
@@ -5481,7 +5649,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 97
+      "review_rank": 100
     },
     {
       "code": "601318",
@@ -5537,7 +5705,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 98
+      "review_rank": 101
     },
     {
       "code": "600489",
@@ -5593,7 +5761,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 99
+      "review_rank": 102
     },
     {
       "code": "603268",
@@ -5649,7 +5817,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 100
+      "review_rank": 103
     },
     {
       "code": "601519",
@@ -5705,7 +5873,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 101
+      "review_rank": 104
     },
     {
       "code": "600685",
@@ -5761,7 +5929,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 102
+      "review_rank": 105
     },
     {
       "code": "600104",
@@ -5817,7 +5985,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 103
+      "review_rank": 106
     },
     {
       "code": "601155",
@@ -5873,7 +6041,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 104
+      "review_rank": 107
     },
     {
       "code": "601009",
@@ -5929,7 +6097,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 105
+      "review_rank": 108
     },
     {
       "code": "002846",
@@ -5985,7 +6153,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 106
+      "review_rank": 109
     },
     {
       "code": "601808",
@@ -6041,7 +6209,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 107
+      "review_rank": 110
     },
     {
       "code": "600276",
@@ -6049,7 +6217,7 @@
       "theme": "创新药",
       "board": "沪市主板",
       "active_in_current_pool": true,
-      "current_rank": 4,
+      "current_rank": 7,
       "current_status_key": "wait",
       "first_recommend_date": "2026-06-18",
       "first_recommend_price": 48.42,
@@ -6077,7 +6245,7 @@
       "latest_price": 47.45,
       "latest_source": "history_snapshot",
       "tracking_days": 124,
-      "snapshot_count": 23,
+      "snapshot_count": 24,
       "return_since_first_pct": -2.0,
       "max_return_since_first_pct": 18.75,
       "drawdown_from_peak_pct": -17.48,
@@ -6098,7 +6266,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "仍在最新推荐池中，表现暂处于验证区间。",
-      "review_rank": 108
+      "review_rank": 111
     },
     {
       "code": "600795",
@@ -6154,7 +6322,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 109
+      "review_rank": 112
     },
     {
       "code": "601899",
@@ -6210,7 +6378,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 110
+      "review_rank": 113
     },
     {
       "code": "000625",
@@ -6266,7 +6434,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 111
+      "review_rank": 114
     },
     {
       "code": "600629",
@@ -6322,7 +6490,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 112
+      "review_rank": 115
     },
     {
       "code": "000423",
@@ -6378,7 +6546,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 113
+      "review_rank": 116
     },
     {
       "code": "002349",
@@ -6434,7 +6602,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 114
+      "review_rank": 117
     },
     {
       "code": "600926",
@@ -6490,7 +6658,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 115
+      "review_rank": 118
     },
     {
       "code": "600150",
@@ -6546,7 +6714,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 116
+      "review_rank": 119
     },
     {
       "code": "002268",
@@ -6602,7 +6770,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 117
+      "review_rank": 120
     },
     {
       "code": "600986",
@@ -6658,7 +6826,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 118
+      "review_rank": 121
     },
     {
       "code": "601919",
@@ -6714,7 +6882,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 119
+      "review_rank": 122
     },
     {
       "code": "600028",
@@ -6770,7 +6938,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 120
+      "review_rank": 123
     },
     {
       "code": "600853",
@@ -6826,7 +6994,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 121
+      "review_rank": 124
     },
     {
       "code": "002264",
@@ -6882,7 +7050,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 122
+      "review_rank": 125
     },
     {
       "code": "002639",
@@ -6938,7 +7106,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 123
+      "review_rank": 126
     },
     {
       "code": "600030",
@@ -6994,7 +7162,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 124
+      "review_rank": 127
     },
     {
       "code": "600196",
@@ -7050,7 +7218,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 125
+      "review_rank": 128
     },
     {
       "code": "600380",
@@ -7106,7 +7274,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 126
+      "review_rank": 129
     },
     {
       "code": "000676",
@@ -7162,7 +7330,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 127
+      "review_rank": 130
     },
     {
       "code": "600641",
@@ -7218,7 +7386,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 128
+      "review_rank": 131
     },
     {
       "code": "600893",
@@ -7274,7 +7442,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 129
+      "review_rank": 132
     },
     {
       "code": "600521",
@@ -7330,7 +7498,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 130
+      "review_rank": 133
     },
     {
       "code": "600391",
@@ -7386,7 +7554,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 131
+      "review_rank": 134
     },
     {
       "code": "001979",
@@ -7442,7 +7610,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 132
+      "review_rank": 135
     },
     {
       "code": "600016",
@@ -7498,7 +7666,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 133
+      "review_rank": 136
     },
     {
       "code": "603893",
@@ -7554,16 +7722,16 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 134
+      "review_rank": 137
     },
     {
       "code": "002246",
       "name": "北化股份",
       "theme": "动态强势候选",
       "board": "深市主板",
-      "active_in_current_pool": true,
-      "current_rank": 1,
-      "current_status_key": "wait",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
       "first_recommend_date": "2026-09-21",
       "first_recommend_price": 26.27,
       "first_rank": null,
@@ -7598,7 +7766,7 @@
       "best_date": "2026-09-21",
       "worst_close": 24.87,
       "worst_date": "2026-10-20",
-      "review_status": "当前池中-继续观察",
+      "review_status": "已调出-负收益",
       "review_attribution": {
         "primary": "neutral_tracking",
         "theme_group": "动态强势候选",
@@ -7610,8 +7778,8 @@
       },
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
-      "comment": "仍在最新推荐池中，表现暂处于验证区间。",
-      "review_rank": 135
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 138
     },
     {
       "code": "002467",
@@ -7667,7 +7835,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 136
+      "review_rank": 139
     },
     {
       "code": "002443",
@@ -7723,7 +7891,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 137
+      "review_rank": 140
     },
     {
       "code": "601918",
@@ -7779,7 +7947,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 138
+      "review_rank": 141
     },
     {
       "code": "600048",
@@ -7838,7 +8006,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 139
+      "review_rank": 142
     },
     {
       "code": "603087",
@@ -7895,7 +8063,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 140
+      "review_rank": 143
     },
     {
       "code": "000503",
@@ -7954,7 +8122,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 141
+      "review_rank": 144
     },
     {
       "code": "000980",
@@ -8013,7 +8181,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 142
+      "review_rank": 145
     },
     {
       "code": "603978",
@@ -8072,7 +8240,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 143
+      "review_rank": 146
     },
     {
       "code": "000823",
@@ -8131,7 +8299,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 144
+      "review_rank": 147
     },
     {
       "code": "002244",
@@ -8190,7 +8358,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 145
+      "review_rank": 148
     },
     {
       "code": "002594",
@@ -8251,7 +8419,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 146
+      "review_rank": 149
     },
     {
       "code": "002882",
@@ -8312,7 +8480,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 147
+      "review_rank": 150
     },
     {
       "code": "600325",
@@ -8371,7 +8539,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 148
+      "review_rank": 151
     },
     {
       "code": "000555",
@@ -8427,7 +8595,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 149
+      "review_rank": 152
     },
     {
       "code": "603112",
@@ -8483,7 +8651,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 150
+      "review_rank": 153
     },
     {
       "code": "603160",
@@ -8542,7 +8710,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 151
+      "review_rank": 154
     },
     {
       "code": "002757",
@@ -8599,7 +8767,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 152
+      "review_rank": 155
     },
     {
       "code": "600621",
@@ -8658,7 +8826,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 153
+      "review_rank": 156
     },
     {
       "code": "002636",
@@ -8714,7 +8882,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 154
+      "review_rank": 157
     },
     {
       "code": "601360",
@@ -8770,7 +8938,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 155
+      "review_rank": 158
     },
     {
       "code": "600408",
@@ -8829,7 +8997,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 156
+      "review_rank": 159
     },
     {
       "code": "600812",
@@ -8889,7 +9057,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 157
+      "review_rank": 160
     },
     {
       "code": "002617",
@@ -8946,7 +9114,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 158
+      "review_rank": 161
     },
     {
       "code": "600310",
@@ -9002,7 +9170,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 159
+      "review_rank": 162
     },
     {
       "code": "002252",
@@ -9038,7 +9206,7 @@
       "latest_price": 4.88,
       "latest_source": "latest_quote",
       "tracking_days": 20,
-      "snapshot_count": 44,
+      "snapshot_count": 43,
       "return_since_first_pct": -8.27,
       "max_return_since_first_pct": 0.0,
       "drawdown_from_peak_pct": -8.27,
@@ -9058,7 +9226,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 160
+      "review_rank": 163
     },
     {
       "code": "002031",
@@ -9117,7 +9285,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 161
+      "review_rank": 164
     },
     {
       "code": "600802",
@@ -9177,7 +9345,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 162
+      "review_rank": 165
     },
     {
       "code": "002886",
@@ -9236,7 +9404,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 163
+      "review_rank": 166
     },
     {
       "code": "002980",
@@ -9295,7 +9463,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 164
+      "review_rank": 167
     },
     {
       "code": "002613",
@@ -9352,7 +9520,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 165
+      "review_rank": 168
     },
     {
       "code": "000868",
@@ -9409,7 +9577,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 166
+      "review_rank": 169
     },
     {
       "code": "603997",
@@ -9468,7 +9636,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 167
+      "review_rank": 170
     },
     {
       "code": "002157",
@@ -9525,7 +9693,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 168
+      "review_rank": 171
     },
     {
       "code": "603259",
@@ -9561,7 +9729,7 @@
       "latest_price": 147.66,
       "latest_source": "latest_quote",
       "tracking_days": 22,
-      "snapshot_count": 45,
+      "snapshot_count": 44,
       "return_since_first_pct": -8.74,
       "max_return_since_first_pct": 3.42,
       "drawdown_from_peak_pct": -11.76,
@@ -9583,7 +9751,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 169
+      "review_rank": 172
     },
     {
       "code": "600088",
@@ -9642,7 +9810,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 170
+      "review_rank": 173
     },
     {
       "code": "002531",
@@ -9701,7 +9869,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 171
+      "review_rank": 174
     },
     {
       "code": "600482",
@@ -9761,7 +9929,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 172
+      "review_rank": 175
     },
     {
       "code": "002579",
@@ -9820,7 +9988,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 173
+      "review_rank": 176
     },
     {
       "code": "600989",
@@ -9876,7 +10044,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 174
+      "review_rank": 177
     },
     {
       "code": "600348",
@@ -9932,7 +10100,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 175
+      "review_rank": 178
     },
     {
       "code": "600026",
@@ -9994,7 +10162,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 176
+      "review_rank": 179
     },
     {
       "code": "600354",
@@ -10053,7 +10221,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 177
+      "review_rank": 180
     },
     {
       "code": "000002",
@@ -10089,7 +10257,7 @@
       "latest_price": 3.45,
       "latest_source": "latest_quote",
       "tracking_days": 28,
-      "snapshot_count": 45,
+      "snapshot_count": 44,
       "return_since_first_pct": -9.69,
       "max_return_since_first_pct": 11.52,
       "drawdown_from_peak_pct": -19.01,
@@ -10114,7 +10282,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 178
+      "review_rank": 181
     },
     {
       "code": "600640",
@@ -10173,7 +10341,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 179
+      "review_rank": 182
     },
     {
       "code": "002205",
@@ -10230,7 +10398,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 180
+      "review_rank": 183
     },
     {
       "code": "002553",
@@ -10287,7 +10455,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 181
+      "review_rank": 184
     },
     {
       "code": "600383",
@@ -10323,7 +10491,7 @@
       "latest_price": 2.24,
       "latest_source": "latest_quote",
       "tracking_days": 28,
-      "snapshot_count": 46,
+      "snapshot_count": 45,
       "return_since_first_pct": -10.4,
       "max_return_since_first_pct": 9.6,
       "drawdown_from_peak_pct": -18.25,
@@ -10347,7 +10515,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 182
+      "review_rank": 185
     },
     {
       "code": "002869",
@@ -10407,7 +10575,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 183
+      "review_rank": 186
     },
     {
       "code": "603073",
@@ -10468,7 +10636,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 184
+      "review_rank": 187
     },
     {
       "code": "601600",
@@ -10528,7 +10696,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 185
+      "review_rank": 188
     },
     {
       "code": "002498",
@@ -10587,7 +10755,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 186
+      "review_rank": 189
     },
     {
       "code": "001317",
@@ -10648,7 +10816,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 187
+      "review_rank": 190
     },
     {
       "code": "600266",
@@ -10705,7 +10873,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 188
+      "review_rank": 191
     },
     {
       "code": "002472",
@@ -10713,7 +10881,7 @@
       "theme": "机器人/精密传动",
       "board": "深市主板",
       "active_in_current_pool": true,
-      "current_rank": 6,
+      "current_rank": 9,
       "current_status_key": "wait",
       "first_recommend_date": "2026-06-18",
       "first_recommend_price": 43.78,
@@ -10741,7 +10909,7 @@
       "latest_price": 38.97,
       "latest_source": "history_snapshot",
       "tracking_days": 124,
-      "snapshot_count": 23,
+      "snapshot_count": 24,
       "return_since_first_pct": -10.99,
       "max_return_since_first_pct": 7.38,
       "drawdown_from_peak_pct": -17.1,
@@ -10769,7 +10937,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "仍在最新推荐池中，但推荐后回撤较明显，需要复核逻辑和风控。",
-      "review_rank": 189
+      "review_rank": 192
     },
     {
       "code": "002920",
@@ -10829,7 +10997,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "增加冲高回落后的止盈/调出反馈权重。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 190
+      "review_rank": 193
     },
     {
       "code": "603067",
@@ -10889,7 +11057,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 191
+      "review_rank": 194
     },
     {
       "code": "603099",
@@ -10949,7 +11117,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 192
+      "review_rank": 195
     },
     {
       "code": "000933",
@@ -11009,7 +11177,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 193
+      "review_rank": 196
     },
     {
       "code": "002803",
@@ -11067,7 +11235,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 194
+      "review_rank": 197
     },
     {
       "code": "002106",
@@ -11127,7 +11295,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 195
+      "review_rank": 198
     },
     {
       "code": "002436",
@@ -11187,7 +11355,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 196
+      "review_rank": 199
     },
     {
       "code": "002046",
@@ -11247,7 +11415,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 197
+      "review_rank": 200
     },
     {
       "code": "600699",
@@ -11307,7 +11475,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 198
+      "review_rank": 201
     },
     {
       "code": "603186",
@@ -11367,7 +11535,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 199
+      "review_rank": 202
     },
     {
       "code": "601628",
@@ -11425,7 +11593,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 200
+      "review_rank": 203
     },
     {
       "code": "002821",
@@ -11461,7 +11629,7 @@
       "latest_price": 153.46,
       "latest_source": "latest_quote",
       "tracking_days": 36,
-      "snapshot_count": 45,
+      "snapshot_count": 44,
       "return_since_first_pct": -11.97,
       "max_return_since_first_pct": 8.2,
       "drawdown_from_peak_pct": -18.64,
@@ -11485,7 +11653,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 201
+      "review_rank": 204
     },
     {
       "code": "000006",
@@ -11542,7 +11710,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 202
+      "review_rank": 205
     },
     {
       "code": "601872",
@@ -11601,7 +11769,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 203
+      "review_rank": 206
     },
     {
       "code": "001376",
@@ -11660,7 +11828,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 204
+      "review_rank": 207
     },
     {
       "code": "600252",
@@ -11720,7 +11888,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 205
+      "review_rank": 208
     },
     {
       "code": "603042",
@@ -11780,7 +11948,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 206
+      "review_rank": 209
     },
     {
       "code": "002241",
@@ -11838,7 +12006,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 207
+      "review_rank": 210
     },
     {
       "code": "002011",
@@ -11899,7 +12067,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 208
+      "review_rank": 211
     },
     {
       "code": "000807",
@@ -11960,7 +12128,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 209
+      "review_rank": 212
     },
     {
       "code": "600121",
@@ -12020,7 +12188,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 210
+      "review_rank": 213
     },
     {
       "code": "601208",
@@ -12079,7 +12247,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 211
+      "review_rank": 214
     },
     {
       "code": "601727",
@@ -12138,7 +12306,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 212
+      "review_rank": 215
     },
     {
       "code": "600743",
@@ -12197,7 +12365,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 213
+      "review_rank": 216
     },
     {
       "code": "600693",
@@ -12256,7 +12424,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 214
+      "review_rank": 217
     },
     {
       "code": "002130",
@@ -12315,7 +12483,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 215
+      "review_rank": 218
     },
     {
       "code": "002735",
@@ -12375,7 +12543,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 216
+      "review_rank": 219
     },
     {
       "code": "603686",
@@ -12434,7 +12602,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 217
+      "review_rank": 220
     },
     {
       "code": "002437",
@@ -12493,7 +12661,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 218
+      "review_rank": 221
     },
     {
       "code": "603068",
@@ -12553,7 +12721,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 219
+      "review_rank": 222
     },
     {
       "code": "600371",
@@ -12613,7 +12781,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 220
+      "review_rank": 223
     },
     {
       "code": "000739",
@@ -12673,7 +12841,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 221
+      "review_rank": 224
     },
     {
       "code": "002413",
@@ -12732,7 +12900,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 222
+      "review_rank": 225
     },
     {
       "code": "000753",
@@ -12791,7 +12959,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 223
+      "review_rank": 226
     },
     {
       "code": "002708",
@@ -12852,7 +13020,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 224
+      "review_rank": 227
     },
     {
       "code": "002638",
@@ -12912,7 +13080,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 225
+      "review_rank": 228
     },
     {
       "code": "603757",
@@ -12972,7 +13140,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 226
+      "review_rank": 229
     },
     {
       "code": "002300",
@@ -13031,7 +13199,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 227
+      "review_rank": 230
     },
     {
       "code": "002298",
@@ -13090,7 +13258,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 228
+      "review_rank": 231
     },
     {
       "code": "002041",
@@ -13149,7 +13317,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 229
+      "review_rank": 232
     },
     {
       "code": "002167",
@@ -13208,7 +13376,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 230
+      "review_rank": 233
     },
     {
       "code": "002487",
@@ -13268,7 +13436,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 231
+      "review_rank": 234
     },
     {
       "code": "600246",
@@ -13328,7 +13496,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 232
+      "review_rank": 235
     },
     {
       "code": "002745",
@@ -13388,7 +13556,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 233
+      "review_rank": 236
     },
     {
       "code": "002428",
@@ -13447,7 +13615,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 234
+      "review_rank": 237
     },
     {
       "code": "600108",
@@ -13506,7 +13674,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 235
+      "review_rank": 238
     },
     {
       "code": "002824",
@@ -13565,7 +13733,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 236
+      "review_rank": 239
     },
     {
       "code": "002084",
@@ -13625,7 +13793,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 237
+      "review_rank": 240
     },
     {
       "code": "002303",
@@ -13684,7 +13852,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 238
+      "review_rank": 241
     },
     {
       "code": "600403",
@@ -13743,7 +13911,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 239
+      "review_rank": 242
     },
     {
       "code": "600506",
@@ -13804,7 +13972,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 240
+      "review_rank": 243
     },
     {
       "code": "600186",
@@ -13864,7 +14032,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 241
+      "review_rank": 244
     },
     {
       "code": "600593",
@@ -13924,7 +14092,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 242
+      "review_rank": 245
     },
     {
       "code": "600875",
@@ -13983,7 +14151,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 243
+      "review_rank": 246
     },
     {
       "code": "002171",
@@ -14043,7 +14211,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 244
+      "review_rank": 247
     },
     {
       "code": "600589",
@@ -14102,7 +14270,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 245
+      "review_rank": 248
     },
     {
       "code": "000880",
@@ -14163,7 +14331,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 246
+      "review_rank": 249
     },
     {
       "code": "001280",
@@ -14222,7 +14390,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 247
+      "review_rank": 250
     },
     {
       "code": "600792",
@@ -14282,7 +14450,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 248
+      "review_rank": 251
     },
     {
       "code": "603270",
@@ -14342,7 +14510,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 249
+      "review_rank": 252
     },
     {
       "code": "002866",
@@ -14402,7 +14570,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 250
+      "review_rank": 253
     },
     {
       "code": "002141",
@@ -14462,7 +14630,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 251
+      "review_rank": 254
     },
     {
       "code": "600577",
@@ -14521,7 +14689,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 252
+      "review_rank": 255
     },
     {
       "code": "603002",
@@ -14581,7 +14749,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 253
+      "review_rank": 256
     },
     {
       "code": "002879",
@@ -14640,7 +14808,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 254
+      "review_rank": 257
     },
     {
       "code": "603663",
@@ -14700,7 +14868,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 255
+      "review_rank": 258
     },
     {
       "code": "001232",
@@ -14759,7 +14927,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 256
+      "review_rank": 259
     },
     {
       "code": "001216",
@@ -14819,7 +14987,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 257
+      "review_rank": 260
     },
     {
       "code": "603606",
@@ -14878,7 +15046,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 258
+      "review_rank": 261
     },
     {
       "code": "601975",
@@ -14939,7 +15107,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 259
+      "review_rank": 262
     },
     {
       "code": "001337",
@@ -14998,7 +15166,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 260
+      "review_rank": 263
     },
     {
       "code": "002440",
@@ -15057,7 +15225,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 261
+      "review_rank": 264
     },
     {
       "code": "000592",
@@ -15117,7 +15285,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 262
+      "review_rank": 265
     },
     {
       "code": "603082",
@@ -15177,7 +15345,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 263
+      "review_rank": 266
     },
     {
       "code": "002093",
@@ -15238,7 +15406,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 264
+      "review_rank": 267
     },
     {
       "code": "002491",
@@ -15297,7 +15465,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 265
+      "review_rank": 268
     },
     {
       "code": "600183",
@@ -15357,7 +15525,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 266
+      "review_rank": 269
     },
     {
       "code": "002909",
@@ -15418,7 +15586,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 267
+      "review_rank": 270
     },
     {
       "code": "605162",
@@ -15479,7 +15647,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 268
+      "review_rank": 271
     },
     {
       "code": "605168",
@@ -15539,7 +15707,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 269
+      "review_rank": 272
     },
     {
       "code": "000978",
@@ -15600,7 +15768,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 270
+      "review_rank": 273
     },
     {
       "code": "600330",
@@ -15659,7 +15827,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 271
+      "review_rank": 274
     },
     {
       "code": "000737",
@@ -15718,7 +15886,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 272
+      "review_rank": 275
     },
     {
       "code": "000510",
@@ -15778,7 +15946,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 273
+      "review_rank": 276
     },
     {
       "code": "000962",
@@ -15837,7 +16005,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 274
+      "review_rank": 277
     },
     {
       "code": "603936",
@@ -15897,7 +16065,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 275
+      "review_rank": 278
     },
     {
       "code": "002785",
@@ -15958,7 +16126,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 276
+      "review_rank": 279
     },
     {
       "code": "002285",
@@ -16018,7 +16186,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 277
+      "review_rank": 280
     },
     {
       "code": "603588",
@@ -16079,7 +16247,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 278
+      "review_rank": 281
     },
     {
       "code": "002080",
@@ -16139,7 +16307,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 279
+      "review_rank": 282
     },
     {
       "code": "601118",
@@ -16200,7 +16368,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 280
+      "review_rank": 283
     },
     {
       "code": "002827",
@@ -16262,7 +16430,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 281
+      "review_rank": 284
     },
     {
       "code": "002371",
@@ -16324,7 +16492,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 282
+      "review_rank": 285
     },
     {
       "code": "002518",
@@ -16383,7 +16551,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 283
+      "review_rank": 286
     },
     {
       "code": "600487",
@@ -16442,7 +16610,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 284
+      "review_rank": 287
     },
     {
       "code": "603728",
@@ -16450,7 +16618,7 @@
       "theme": "机器人/控制电机",
       "board": "沪市主板",
       "active_in_current_pool": true,
-      "current_rank": 7,
+      "current_rank": 10,
       "current_status_key": "wait",
       "first_recommend_date": "2026-06-18",
       "first_recommend_price": 63.86,
@@ -16478,7 +16646,7 @@
       "latest_price": 49.76,
       "latest_source": "history_snapshot",
       "tracking_days": 124,
-      "snapshot_count": 19,
+      "snapshot_count": 20,
       "return_since_first_pct": -22.08,
       "max_return_since_first_pct": 1.93,
       "drawdown_from_peak_pct": -23.55,
@@ -16504,7 +16672,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "仍在最新推荐池中，但推荐后回撤较明显，需要复核逻辑和风控。",
-      "review_rank": 285
+      "review_rank": 288
     },
     {
       "code": "600059",
@@ -16563,7 +16731,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 286
+      "review_rank": 289
     },
     {
       "code": "600815",
@@ -16624,7 +16792,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 287
+      "review_rank": 290
     },
     {
       "code": "002493",
@@ -16685,7 +16853,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 288
+      "review_rank": 291
     },
     {
       "code": "000628",
@@ -16745,7 +16913,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 289
+      "review_rank": 292
     },
     {
       "code": "002320",
@@ -16806,7 +16974,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 290
+      "review_rank": 293
     },
     {
       "code": "603396",
@@ -16867,7 +17035,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 291
+      "review_rank": 294
     },
     {
       "code": "000993",
@@ -16903,7 +17071,7 @@
       "latest_price": 14.74,
       "latest_source": "latest_quote",
       "tracking_days": 26,
-      "snapshot_count": 50,
+      "snapshot_count": 49,
       "return_since_first_pct": -23.71,
       "max_return_since_first_pct": 0.0,
       "drawdown_from_peak_pct": -23.71,
@@ -16927,7 +17095,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 292
+      "review_rank": 295
     },
     {
       "code": "002902",
@@ -16988,7 +17156,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 293
+      "review_rank": 296
     },
     {
       "code": "002734",
@@ -17050,7 +17218,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 294
+      "review_rank": 297
     },
     {
       "code": "600545",
@@ -17109,7 +17277,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 295
+      "review_rank": 298
     },
     {
       "code": "002138",
@@ -17170,7 +17338,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 296
+      "review_rank": 299
     },
     {
       "code": "605006",
@@ -17231,7 +17399,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 297
+      "review_rank": 300
     },
     {
       "code": "002463",
@@ -17291,7 +17459,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 298
+      "review_rank": 301
     },
     {
       "code": "600172",
@@ -17351,7 +17519,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 299
+      "review_rank": 302
     },
     {
       "code": "600313",
@@ -17410,7 +17578,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 300
+      "review_rank": 303
     },
     {
       "code": "600503",
@@ -17469,7 +17637,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 301
+      "review_rank": 304
     },
     {
       "code": "600722",
@@ -17530,7 +17698,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 302
+      "review_rank": 305
     },
     {
       "code": "002536",
@@ -17589,7 +17757,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 303
+      "review_rank": 306
     },
     {
       "code": "000831",
@@ -17650,7 +17818,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 304
+      "review_rank": 307
     },
     {
       "code": "600498",
@@ -17709,7 +17877,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 305
+      "review_rank": 308
     },
     {
       "code": "600089",
@@ -17769,7 +17937,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 306
+      "review_rank": 309
     },
     {
       "code": "002768",
@@ -17830,7 +17998,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 307
+      "review_rank": 310
     },
     {
       "code": "001389",
@@ -17891,7 +18059,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 308
+      "review_rank": 311
     },
     {
       "code": "600176",
@@ -17952,7 +18120,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 309
+      "review_rank": 312
     },
     {
       "code": "600353",
@@ -18011,7 +18179,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 310
+      "review_rank": 313
     },
     {
       "code": "601869",
@@ -18072,7 +18240,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 311
+      "review_rank": 314
     },
     {
       "code": "603230",
@@ -18132,7 +18300,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 312
+      "review_rank": 315
     },
     {
       "code": "002185",
@@ -18193,7 +18361,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 313
+      "review_rank": 316
     },
     {
       "code": "603306",
@@ -18253,7 +18421,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 314
+      "review_rank": 317
     },
     {
       "code": "002050",
@@ -18315,7 +18483,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 315
+      "review_rank": 318
     },
     {
       "code": "600601",
@@ -18376,7 +18544,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 316
+      "review_rank": 319
     },
     {
       "code": "002222",
@@ -18435,7 +18603,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 317
+      "review_rank": 320
     },
     {
       "code": "002741",
@@ -18496,7 +18664,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 318
+      "review_rank": 321
     },
     {
       "code": "601086",
@@ -18556,7 +18724,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 319
+      "review_rank": 322
     },
     {
       "code": "002156",
@@ -18616,7 +18784,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 320
+      "review_rank": 323
     },
     {
       "code": "603011",
@@ -18677,7 +18845,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 321
+      "review_rank": 324
     },
     {
       "code": "000504",
@@ -18737,7 +18905,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 322
+      "review_rank": 325
     },
     {
       "code": "601127",
@@ -18797,7 +18965,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 323
+      "review_rank": 326
     },
     {
       "code": "002849",
@@ -18857,7 +19025,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 324
+      "review_rank": 327
     },
     {
       "code": "603083",
@@ -18918,7 +19086,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 325
+      "review_rank": 328
     },
     {
       "code": "600111",
@@ -18979,7 +19147,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 326
+      "review_rank": 329
     },
     {
       "code": "600584",
@@ -19039,7 +19207,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 327
+      "review_rank": 330
     },
     {
       "code": "002008",
@@ -19099,7 +19267,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 328
+      "review_rank": 331
     },
     {
       "code": "002747",
@@ -19162,7 +19330,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 329
+      "review_rank": 332
     },
     {
       "code": "000630",
@@ -19224,7 +19392,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 330
+      "review_rank": 333
     },
     {
       "code": "601689",
@@ -19285,7 +19453,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 331
+      "review_rank": 334
     },
     {
       "code": "002897",
@@ -19347,7 +19515,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 332
+      "review_rank": 335
     },
     {
       "code": "000759",
@@ -19408,7 +19576,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 333
+      "review_rank": 336
     },
     {
       "code": "603989",
@@ -19469,7 +19637,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 334
+      "review_rank": 337
     },
     {
       "code": "002916",
@@ -19531,7 +19699,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 335
+      "review_rank": 338
     },
     {
       "code": "601179",
@@ -19591,7 +19759,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 336
+      "review_rank": 339
     },
     {
       "code": "002957",
@@ -19650,7 +19818,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 337
+      "review_rank": 340
     },
     {
       "code": "600105",
@@ -19711,7 +19879,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 338
+      "review_rank": 341
     },
     {
       "code": "603031",
@@ -19772,7 +19940,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 339
+      "review_rank": 342
     },
     {
       "code": "002409",
@@ -19834,7 +20002,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 340
+      "review_rank": 343
     },
     {
       "code": "601138",
@@ -19893,7 +20061,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 341
+      "review_rank": 344
     },
     {
       "code": "002028",
@@ -19953,7 +20121,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 342
+      "review_rank": 345
     },
     {
       "code": "000960",
@@ -20016,7 +20184,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 343
+      "review_rank": 346
     },
     {
       "code": "001309",
@@ -20075,7 +20243,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 344
+      "review_rank": 347
     },
     {
       "code": "000988",
@@ -20135,7 +20303,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 345
+      "review_rank": 348
     }
   ]
 }

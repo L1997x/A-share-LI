@@ -1339,8 +1339,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-10-20T19:53:58+08:00|2026-10-20|14:30尾盘风控",
+  "lastAutoRunKey": "2026-10-20T20:07:15+08:00|2026-10-20|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-10-20T20:07:15+08:00|2026-10-20|20点次日关注",
+      "at": "2026-10-20T20:07:15+08:00",
+      "tradeDate": "2026-10-20",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划2只：昭衍新药(watch)、金奥博(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-10-20T19:53:58+08:00|2026-10-20|14:30尾盘风控",
       "at": "2026-10-20T19:53:58+08:00",
@@ -2045,26 +2058,73 @@
           "summary": "更新云端计划3只：跨境通(trial)、雪人集团(trial)、中国石油(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-10-13T14:26:17+08:00|2026-10-13|14:30尾盘风控",
-      "at": "2026-10-13T14:26:17+08:00",
-      "tradeDate": "2026-10-13",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划5只：跨境通(trial)、太阳电缆(trial)、雪人集团(watch)、安泰集团(watch)、福建水泥(watch)"
-        },
-        {
-          "type": "buy",
-          "summary": "云端买入太阳电缆1100股，成交8.10"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
+    {
+      "id": "603127-2026-10-20T20:07:15+08:00|2026-10-20|20点次日关注",
+      "code": "603127",
+      "name": "昭衍新药",
+      "status": "pending",
+      "signalDate": "2026-10-20",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-10-20T20:07:15+08:00|2026-10-20|20点次日关注",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-10-21",
+      "plannedEntryPrice": 45.21,
+      "maxBuyPrice": 46.91,
+      "noChasePrice": 58.51,
+      "score": 8.1,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金平稳",
+      "globalMarketLabel": "外盘中性",
+      "contextPositionMultiplier": 0.955,
+      "feedbackPositionMultiplier": 1.0,
+      "feedbackEvidenceLevel": "strong",
+      "entryEvidenceLevel": "insufficient",
+      "planType": "watch",
+      "targetPositionPct": 0.0955,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "002917-2026-10-20T20:07:15+08:00|2026-10-20|20点次日关注",
+      "code": "002917",
+      "name": "金奥博",
+      "status": "pending",
+      "signalDate": "2026-10-20",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-10-20T20:07:15+08:00|2026-10-20|20点次日关注",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-10-21",
+      "plannedEntryPrice": 10.23,
+      "maxBuyPrice": 10.62,
+      "noChasePrice": 13.98,
+      "score": 7.8,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金平稳",
+      "globalMarketLabel": "外盘中性",
+      "contextPositionMultiplier": 0.955,
+      "feedbackPositionMultiplier": 1.0,
+      "feedbackEvidenceLevel": "strong",
+      "entryEvidenceLevel": "insufficient",
+      "planType": "watch",
+      "targetPositionPct": 0.0955,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
     {
       "id": "002246-2026-10-20T19:53:58+08:00|2026-10-20|14:30尾盘风控",
       "code": "002246",
@@ -3156,6 +3216,42 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-002917-2026-10-20T20:07:15+08:00",
+      "at": "2026-10-20T20:07:15+08:00",
+      "tradeDate": "2026-10-20",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "002917",
+      "name": "金奥博",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 10.23,
+      "maxBuyPrice": 10.62,
+      "noChasePrice": 13.98,
+      "validUntilDate": "2026-10-21",
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-603127-2026-10-20T20:07:15+08:00",
+      "at": "2026-10-20T20:07:15+08:00",
+      "tradeDate": "2026-10-20",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "603127",
+      "name": "昭衍新药",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 45.21,
+      "maxBuyPrice": 46.91,
+      "noChasePrice": 58.51,
+      "validUntilDate": "2026-10-21",
+      "score": 8.1
+    },
     {
       "id": "buy_plan_created-002246-2026-10-20T19:53:58+08:00",
       "at": "2026-10-20T19:53:58+08:00",
@@ -4846,42 +4942,6 @@
       "noChasePrice": 9.07,
       "validUntilDate": "2026-10-17",
       "score": 8.4
-    },
-    {
-      "id": "buy_plan_created-600310-2026-10-16T10:00:57+08:00",
-      "at": "2026-10-16T10:00:57+08:00",
-      "tradeDate": "2026-10-16",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600310",
-      "name": "广西能源",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 4.61,
-      "maxBuyPrice": 4.72,
-      "noChasePrice": 5.47,
-      "validUntilDate": "2026-10-17",
-      "score": 8.4
-    },
-    {
-      "id": "buy_plan_created-600036-2026-10-15T23:30:45+08:00",
-      "at": "2026-10-15T23:30:45+08:00",
-      "tradeDate": "2026-10-15",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600036",
-      "name": "招商银行",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 40.79,
-      "maxBuyPrice": 41.07,
-      "noChasePrice": 45.55,
-      "validUntilDate": "2026-10-16",
-      "score": 7.5
     }
   ],
   "exitReviews": [
@@ -4921,15 +4981,21 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 35.22,
           "returnPct": -0.198,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
-        "3": null,
+        "3": {
+          "horizon": 3,
+          "date": "2026-10-20",
+          "at": "2026-10-20T20:07:15+08:00",
+          "price": 35.22,
+          "returnPct": -0.198
+        },
         "5": null,
         "20": null,
         "30": null
@@ -4940,10 +5006,10 @@
       "currentReturnPct": -0.198,
       "maxPostExitReturnPct": 2.182,
       "minPostExitReturnPct": -0.198,
-      "latestMatureHorizon": null,
-      "qualityLabel": "等待3个交易日样本",
-      "modelAction": "样本尚未成熟，不调整卖出参数。",
-      "feedbackEligible": false
+      "latestMatureHorizon": 3,
+      "qualityLabel": "卖出合理",
+      "modelAction": "卖出后未出现明显机会损失，保持当前退出纪律。",
+      "feedbackEligible": true
     },
     {
       "id": "sell-002300-2026-10-15T09:59:39+08:00",
@@ -4981,15 +5047,21 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 6.86,
           "returnPct": -9.499,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
-        "3": null,
+        "3": {
+          "horizon": 3,
+          "date": "2026-10-20",
+          "at": "2026-10-20T20:07:15+08:00",
+          "price": 6.86,
+          "returnPct": -9.499
+        },
         "5": null,
         "20": null,
         "30": null
@@ -5000,10 +5072,10 @@
       "currentReturnPct": -9.499,
       "maxPostExitReturnPct": -4.617,
       "minPostExitReturnPct": -9.499,
-      "latestMatureHorizon": null,
-      "qualityLabel": "等待3个交易日样本",
-      "modelAction": "样本尚未成熟，不调整卖出参数。",
-      "feedbackEligible": false
+      "latestMatureHorizon": 3,
+      "qualityLabel": "及时避险",
+      "modelAction": "卖出后继续明显下跌，同类退出规则获得正反馈。",
+      "feedbackEligible": true
     },
     {
       "id": "sell-600482-2026-10-12T14:27:31+08:00",
@@ -5065,11 +5137,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 30.52,
           "returnPct": -8.595,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5169,11 +5241,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 4.88,
           "returnPct": -3.366,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5273,11 +5345,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 3.45,
           "returnPct": -14.815,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5417,11 +5489,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 6.5,
           "returnPct": -10.221,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5569,11 +5641,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 39.91,
           "returnPct": 0.63,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5721,11 +5793,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 39.85,
           "returnPct": -23.439,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -5897,11 +5969,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 42.6,
           "returnPct": -18.656,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -6073,11 +6145,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 6.69,
           "returnPct": -23.455,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -6305,11 +6377,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 29.06,
           "returnPct": -15.252,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -6559,11 +6631,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 42.52,
           "returnPct": 3.556,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -6813,11 +6885,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 51.2,
           "returnPct": -9.042,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -7067,11 +7139,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 47.26,
           "returnPct": 0.617,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -7345,11 +7417,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 29.06,
           "returnPct": -11.779,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -7623,11 +7695,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 5.18,
           "returnPct": -19.814,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -7909,11 +7981,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 23.67,
           "returnPct": 4.503,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -8203,11 +8275,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 29.06,
           "returnPct": -13.64,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -8232,7 +8304,13 @@
           "price": 29.46,
           "returnPct": -12.452
         },
-        "30": null
+        "30": {
+          "horizon": 30,
+          "date": "2026-10-20",
+          "at": "2026-10-20T20:07:15+08:00",
+          "price": 29.06,
+          "returnPct": -13.64
+        }
       },
       "observedTradingDays": 30,
       "currentDate": "2026-10-20",
@@ -8240,7 +8318,7 @@
       "currentReturnPct": -13.64,
       "maxPostExitReturnPct": 2.229,
       "minPostExitReturnPct": -13.64,
-      "latestMatureHorizon": 20,
+      "latestMatureHorizon": 30,
       "qualityLabel": "及时避险",
       "modelAction": "卖出后继续明显下跌，同类退出规则获得正反馈。",
       "feedbackEligible": true
@@ -8505,11 +8583,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 47.26,
           "returnPct": 2.294,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -8837,11 +8915,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 21.58,
           "returnPct": -16.84,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -9169,11 +9247,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 29.06,
           "returnPct": -12.916,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -9565,11 +9643,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 29.06,
           "returnPct": -9.891,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -10041,11 +10119,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 35.22,
           "returnPct": 2.117,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -10549,11 +10627,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 5.18,
           "returnPct": -13.953,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -11057,11 +11135,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 11.1,
           "returnPct": -19.971,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -11565,11 +11643,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 48.77,
           "returnPct": -19.575,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -12097,11 +12175,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 23.0,
           "returnPct": -2.335,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -12645,11 +12723,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 53.38,
           "returnPct": 3.61,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -13201,11 +13279,11 @@
         },
         "2026-10-20": {
           "date": "2026-10-20",
-          "at": "2026-10-20T19:53:58+08:00",
+          "at": "2026-10-20T20:07:15+08:00",
           "price": 29.06,
           "returnPct": -0.785,
-          "phase": "afternoon_risk",
-          "finalized": false
+          "phase": "evening_watch",
+          "finalized": true
         }
       },
       "milestones": {
@@ -13260,17 +13338,17 @@
       30
     ],
     "exitCount": 29,
-    "maturedExitCount": 27,
+    "maturedExitCount": 29,
     "minSamplesForAdjustment": 3,
     "confidence": "高",
     "horizonStats": [
       {
         "horizon": 3,
-        "sampleCount": 27,
-        "avgPostExitReturnPct": -1.549,
+        "sampleCount": 29,
+        "avgPostExitReturnPct": -1.777,
         "medianPostExitReturnPct": -0.505,
-        "prematureExitRatePct": 22.2,
-        "avoidedLossRatePct": 33.3
+        "prematureExitRatePct": 20.7,
+        "avoidedLossRatePct": 34.5
       },
       {
         "horizon": 5,
@@ -13290,11 +13368,11 @@
       },
       {
         "horizon": 30,
-        "sampleCount": 11,
-        "avgPostExitReturnPct": 0.342,
-        "medianPostExitReturnPct": -2.675,
-        "prematureExitRatePct": 36.4,
-        "avoidedLossRatePct": 36.4
+        "sampleCount": 12,
+        "avgPostExitReturnPct": -0.824,
+        "medianPostExitReturnPct": -2.812,
+        "prematureExitRatePct": 33.3,
+        "avoidedLossRatePct": 41.7
       }
     ],
     "reasonStats": [
@@ -13305,11 +13383,11 @@
         "horizons": [
           {
             "horizon": 3,
-            "sampleCount": 1,
-            "avgPostExitReturnPct": -10.624,
-            "medianPostExitReturnPct": -10.624,
+            "sampleCount": 3,
+            "avgPostExitReturnPct": -6.774,
+            "medianPostExitReturnPct": -9.499,
             "prematureExitRatePct": 0.0,
-            "avoidedLossRatePct": 100.0
+            "avoidedLossRatePct": 66.7
           },
           {
             "horizon": 5,
@@ -13407,43 +13485,45 @@
           },
           {
             "horizon": 30,
-            "sampleCount": 9,
-            "avgPostExitReturnPct": 0.493,
-            "medianPostExitReturnPct": -2.95,
-            "prematureExitRatePct": 44.4,
-            "avoidedLossRatePct": 44.4
+            "sampleCount": 10,
+            "avgPostExitReturnPct": -0.92,
+            "medianPostExitReturnPct": -4.948,
+            "prematureExitRatePct": 40.0,
+            "avoidedLossRatePct": 50.0
           }
         ]
       }
     ],
     "parameterAdjustments": {
-      "stopLossPctDelta": 0.0,
+      "stopLossPctDelta": -0.003,
       "takeProfitPctDelta": 0.0,
       "trailingStopPctDelta": 0.0,
       "exitScoreThresholdDelta": 0.0,
       "maxHoldDaysDelta": 0,
-      "applied": false,
-      "notes": []
+      "applied": true,
+      "notes": [
+        "硬止损后3日继续下跌，未来新仓止损收紧0.3个百分点。"
+      ]
     },
     "effectiveSettings": {
-      "stopLossPct": 0.06,
+      "stopLossPct": 0.057,
       "takeProfitPct": 0.12,
       "trailingStopPct": 0.06,
       "exitScoreThreshold": 6.2,
       "maxHoldDays": 10
     },
-    "modelAction": "已有成熟卖出样本，但同类样本未达到3笔或偏差未越过阈值，暂不调参。"
+    "modelAction": "硬止损后3日继续下跌，未来新仓止损收紧0.3个百分点。"
   },
   "effectiveExitSettings": {
-    "stopLossPct": 0.06,
+    "stopLossPct": 0.057,
     "takeProfitPct": 0.12,
     "trailingStopPct": 0.06,
     "exitScoreThreshold": 6.2,
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 677,
-    "plansCreated": 1183,
+    "snapshotsProcessed": 678,
+    "plansCreated": 1185,
     "buyChecks": 1679,
     "buysExecuted": 29,
     "sellsExecuted": 29,
@@ -13460,7 +13540,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 140
     },
-    "lastRunAt": "2026-10-20T19:53:58+08:00",
-    "lastRunSummary": "更新云端计划1只：北化股份(watch)"
+    "lastRunAt": "2026-10-20T20:07:15+08:00",
+    "lastRunSummary": "更新云端计划2只：昭衍新药(watch)、金奥博(watch)"
   }
 }
