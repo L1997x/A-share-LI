@@ -1384,8 +1384,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+  "lastAutoRunKey": "2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
   "autoLog": [
+    {
+      "runKey": "2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
+      "at": "2026-10-26T23:15:19+08:00",
+      "tradeDate": "2026-10-26",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划8只：中航沈飞(executable)、航发动力(watch)、中航西飞(watch)、招商银行(watch)、保利发展(watch)、电投能源(watch)、伊利股份(watch)、中国海油(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
       "at": "2026-10-26T20:54:59+08:00",
@@ -2086,79 +2099,62 @@
           "summary": "更新云端计划4只：新城控股(watch)、航发科技(watch)、龙建股份(watch)、深物业A(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-10-16T14:27:15+08:00|2026-10-16|14:30尾盘风控",
-      "at": "2026-10-16T14:27:15+08:00",
-      "tradeDate": "2026-10-16",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划4只：新城控股(watch)、航发科技(watch)、龙建股份(watch)、深物业A(watch)"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "600760-2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "id": "600760-2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "code": "600760",
       "name": "中航沈飞",
       "status": "pending",
       "signalDate": "2026-10-26",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-10-27",
-      "plannedEntryPrice": 49.06,
-      "maxBuyPrice": 49.06,
+      "plannedEntryPrice": 49.37,
+      "maxBuyPrice": 49.37,
       "noChasePrice": 50.8,
-      "score": 8.5,
+      "score": 8.8,
       "buySignalKey": "breakout_buy",
       "statusKey": "breakout",
       "entrySafetyBlockBuy": false,
       "trendTradeEligible": true,
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
-      "globalMarketLabel": "外盘中性",
+      "globalMarketLabel": "外盘偏暖",
       "contextPositionMultiplier": 0.894,
-      "feedbackPositionMultiplier": 0.75,
+      "feedbackPositionMultiplier": 1.0,
       "feedbackEvidenceLevel": "strong",
       "entryEvidenceLevel": "usable",
       "planType": "executable",
-      "targetPositionPct": 0.1341,
+      "targetPositionPct": 0.17880000000000001,
       "reason": "明确可买信号：可突破试探",
       "cancelReason": "",
       "executedAt": "",
       "executionPrice": null
     },
     {
-      "id": "600893-2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "id": "600893-2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "code": "600893",
       "name": "航发动力",
       "status": "pending",
       "signalDate": "2026-10-26",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-10-27",
-      "plannedEntryPrice": 38.46,
-      "maxBuyPrice": 39.11,
+      "plannedEntryPrice": 38.67,
+      "maxBuyPrice": 39.32,
       "noChasePrice": 43.99,
-      "score": 9.2,
+      "score": 9.6,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
       "trendTradeEligible": true,
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
-      "globalMarketLabel": "外盘中性",
+      "globalMarketLabel": "外盘偏暖",
       "contextPositionMultiplier": 0.894,
       "feedbackPositionMultiplier": 1.0,
       "feedbackEvidenceLevel": "strong",
@@ -2171,26 +2167,26 @@
       "executionPrice": null
     },
     {
-      "id": "000768-2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "id": "000768-2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "code": "000768",
       "name": "中航西飞",
       "status": "pending",
       "signalDate": "2026-10-26",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-10-27",
-      "plannedEntryPrice": 22.5,
-      "maxBuyPrice": 22.82,
+      "plannedEntryPrice": 22.64,
+      "maxBuyPrice": 22.96,
       "noChasePrice": 25.66,
-      "score": 8.9,
+      "score": 9.3,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
       "trendTradeEligible": true,
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
-      "globalMarketLabel": "外盘中性",
+      "globalMarketLabel": "外盘偏暖",
       "contextPositionMultiplier": 0.894,
       "feedbackPositionMultiplier": 0.75,
       "feedbackEvidenceLevel": "strong",
@@ -2203,17 +2199,17 @@
       "executionPrice": null
     },
     {
-      "id": "600036-2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "id": "600036-2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "code": "600036",
       "name": "招商银行",
       "status": "pending",
       "signalDate": "2026-10-26",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-10-27",
-      "plannedEntryPrice": 41.07,
-      "maxBuyPrice": 41.58,
+      "plannedEntryPrice": 41.14,
+      "maxBuyPrice": 41.65,
       "noChasePrice": 45.77,
       "score": 8.2,
       "buySignalKey": "wait",
@@ -2222,7 +2218,7 @@
       "trendTradeEligible": true,
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
-      "globalMarketLabel": "外盘中性",
+      "globalMarketLabel": "外盘偏暖",
       "contextPositionMultiplier": 0.894,
       "feedbackPositionMultiplier": 0.75,
       "feedbackEvidenceLevel": "strong",
@@ -2235,26 +2231,26 @@
       "executionPrice": null
     },
     {
-      "id": "600048-2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "id": "600048-2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "code": "600048",
       "name": "保利发展",
       "status": "pending",
       "signalDate": "2026-10-26",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-10-27",
-      "plannedEntryPrice": 5.39,
-      "maxBuyPrice": 5.44,
+      "plannedEntryPrice": 5.4,
+      "maxBuyPrice": 5.45,
       "noChasePrice": 6.26,
-      "score": 8.1,
+      "score": 8.2,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
       "trendTradeEligible": true,
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
-      "globalMarketLabel": "外盘中性",
+      "globalMarketLabel": "外盘偏暖",
       "contextPositionMultiplier": 0.894,
       "feedbackPositionMultiplier": 0.75,
       "feedbackEvidenceLevel": "strong",
@@ -2267,26 +2263,26 @@
       "executionPrice": null
     },
     {
-      "id": "002128-2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "id": "002128-2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "code": "002128",
       "name": "电投能源",
       "status": "pending",
       "signalDate": "2026-10-26",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-10-27",
-      "plannedEntryPrice": 27.63,
-      "maxBuyPrice": 27.74,
+      "plannedEntryPrice": 27.68,
+      "maxBuyPrice": 27.79,
       "noChasePrice": 30.73,
-      "score": 8.1,
+      "score": 8.2,
       "buySignalKey": "wait",
       "statusKey": "wait",
       "entrySafetyBlockBuy": false,
       "trendTradeEligible": true,
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
-      "globalMarketLabel": "外盘中性",
+      "globalMarketLabel": "外盘偏暖",
       "contextPositionMultiplier": 0.894,
       "feedbackPositionMultiplier": 0.75,
       "feedbackEvidenceLevel": "strong",
@@ -2299,17 +2295,17 @@
       "executionPrice": null
     },
     {
-      "id": "600887-2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "id": "600887-2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "code": "600887",
       "name": "伊利股份",
       "status": "pending",
       "signalDate": "2026-10-26",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-10-26T20:54:59+08:00|2026-10-26|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-10-27",
-      "plannedEntryPrice": 27.07,
-      "maxBuyPrice": 27.5,
+      "plannedEntryPrice": 27.11,
+      "maxBuyPrice": 27.54,
       "noChasePrice": 30.07,
       "score": 7.8,
       "buySignalKey": "wait",
@@ -2318,13 +2314,45 @@
       "trendTradeEligible": true,
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金偏冷",
-      "globalMarketLabel": "外盘中性",
+      "globalMarketLabel": "外盘偏暖",
       "contextPositionMultiplier": 0.894,
-      "feedbackPositionMultiplier": 1.0,
+      "feedbackPositionMultiplier": 0.75,
       "feedbackEvidenceLevel": "strong",
       "entryEvidenceLevel": "usable",
       "planType": "watch",
-      "targetPositionPct": 0.08940000000000001,
+      "targetPositionPct": 0.06705,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
+    {
+      "id": "600938-2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
+      "code": "600938",
+      "name": "中国海油",
+      "status": "pending",
+      "signalDate": "2026-10-26",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-10-26T23:15:19+08:00|2026-10-26|23:10隔夜外盘复核",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-10-27",
+      "plannedEntryPrice": 32.93,
+      "maxBuyPrice": 33.48,
+      "noChasePrice": 38.27,
+      "score": 7.8,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金偏冷",
+      "globalMarketLabel": "外盘偏暖",
+      "contextPositionMultiplier": 0.894,
+      "feedbackPositionMultiplier": 0.75,
+      "feedbackEvidenceLevel": "strong",
+      "entryEvidenceLevel": "usable",
+      "planType": "watch",
+      "targetPositionPct": 0.06705,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
@@ -3389,6 +3417,150 @@
   ],
   "sellPlans": {},
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600938-2026-10-26T23:15:19+08:00",
+      "at": "2026-10-26T23:15:19+08:00",
+      "tradeDate": "2026-10-26",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600938",
+      "name": "中国海油",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 32.93,
+      "maxBuyPrice": 33.48,
+      "noChasePrice": 38.27,
+      "validUntilDate": "2026-10-27",
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-600887-2026-10-26T23:15:19+08:00",
+      "at": "2026-10-26T23:15:19+08:00",
+      "tradeDate": "2026-10-26",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600887",
+      "name": "伊利股份",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 27.11,
+      "maxBuyPrice": 27.54,
+      "noChasePrice": 30.07,
+      "validUntilDate": "2026-10-27",
+      "score": 7.8
+    },
+    {
+      "id": "buy_plan_created-002128-2026-10-26T23:15:19+08:00",
+      "at": "2026-10-26T23:15:19+08:00",
+      "tradeDate": "2026-10-26",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "002128",
+      "name": "电投能源",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 27.68,
+      "maxBuyPrice": 27.79,
+      "noChasePrice": 30.73,
+      "validUntilDate": "2026-10-27",
+      "score": 8.2
+    },
+    {
+      "id": "buy_plan_created-600048-2026-10-26T23:15:19+08:00",
+      "at": "2026-10-26T23:15:19+08:00",
+      "tradeDate": "2026-10-26",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600048",
+      "name": "保利发展",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 5.4,
+      "maxBuyPrice": 5.45,
+      "noChasePrice": 6.26,
+      "validUntilDate": "2026-10-27",
+      "score": 8.2
+    },
+    {
+      "id": "buy_plan_created-600036-2026-10-26T23:15:19+08:00",
+      "at": "2026-10-26T23:15:19+08:00",
+      "tradeDate": "2026-10-26",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600036",
+      "name": "招商银行",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 41.14,
+      "maxBuyPrice": 41.65,
+      "noChasePrice": 45.77,
+      "validUntilDate": "2026-10-27",
+      "score": 8.2
+    },
+    {
+      "id": "buy_plan_created-000768-2026-10-26T23:15:19+08:00",
+      "at": "2026-10-26T23:15:19+08:00",
+      "tradeDate": "2026-10-26",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000768",
+      "name": "中航西飞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 22.64,
+      "maxBuyPrice": 22.96,
+      "noChasePrice": 25.66,
+      "validUntilDate": "2026-10-27",
+      "score": 9.3
+    },
+    {
+      "id": "buy_plan_created-600893-2026-10-26T23:15:19+08:00",
+      "at": "2026-10-26T23:15:19+08:00",
+      "tradeDate": "2026-10-26",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600893",
+      "name": "航发动力",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 38.67,
+      "maxBuyPrice": 39.32,
+      "noChasePrice": 43.99,
+      "validUntilDate": "2026-10-27",
+      "score": 9.6
+    },
+    {
+      "id": "buy_plan_created-600760-2026-10-26T23:15:19+08:00",
+      "at": "2026-10-26T23:15:19+08:00",
+      "tradeDate": "2026-10-26",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600760",
+      "name": "中航沈飞",
+      "summary": "生成可执行计划",
+      "reason": "明确可买信号：可突破试探",
+      "plannedEntryPrice": 49.37,
+      "maxBuyPrice": 49.37,
+      "noChasePrice": 50.8,
+      "validUntilDate": "2026-10-27",
+      "score": 8.8
+    },
     {
       "id": "buy_plan_created-601939-2026-10-26T20:54:59+08:00",
       "at": "2026-10-26T20:54:59+08:00",
@@ -4988,136 +5160,6 @@
       "noChasePrice": 20.29,
       "validUntilDate": "2026-10-22",
       "score": 8.3
-    },
-    {
-      "id": "buy_plan_created-603888-2026-10-21T18:22:18+08:00",
-      "at": "2026-10-21T18:22:18+08:00",
-      "tradeDate": "2026-10-21",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "603888",
-      "name": "新华网",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 16.66,
-      "maxBuyPrice": 17.28,
-      "noChasePrice": 20.29,
-      "validUntilDate": "2026-10-22",
-      "score": 8.3
-    },
-    {
-      "id": "buy_cancelled-002181-2026-10-21T14:26:15+08:00",
-      "at": "2026-10-21T14:26:15+08:00",
-      "tradeDate": "2026-10-21",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "002181",
-      "name": "粤 传 媒",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 9.23,
-      "maxBuyPrice": 9.46,
-      "score": 8.1
-    },
-    {
-      "id": "buy_cancelled-603466-2026-10-21T09:56:07+08:00",
-      "at": "2026-10-21T09:56:07+08:00",
-      "tradeDate": "2026-10-21",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "603466",
-      "name": "风语筑",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 12.15,
-      "maxBuyPrice": 12.59,
-      "score": 8.0
-    },
-    {
-      "id": "buy_cancelled-002292-2026-10-21T09:56:07+08:00",
-      "at": "2026-10-21T09:56:07+08:00",
-      "tradeDate": "2026-10-21",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "002292",
-      "name": "奥飞娱乐",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 8.6,
-      "maxBuyPrice": 8.79,
-      "score": 8.3
-    },
-    {
-      "id": "buy_cancelled-600241-2026-10-21T09:56:07+08:00",
-      "at": "2026-10-21T09:56:07+08:00",
-      "tradeDate": "2026-10-21",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "600241",
-      "name": "时代万恒",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 9.24,
-      "maxBuyPrice": 9.73,
-      "score": 7.5
-    },
-    {
-      "id": "buy_cancelled-002917-2026-10-21T09:56:07+08:00",
-      "at": "2026-10-21T09:56:07+08:00",
-      "tradeDate": "2026-10-21",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "002917",
-      "name": "金奥博",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 10.23,
-      "maxBuyPrice": 10.62,
-      "score": 7.8
-    },
-    {
-      "id": "buy_cancelled-603127-2026-10-21T09:56:07+08:00",
-      "at": "2026-10-21T09:56:07+08:00",
-      "tradeDate": "2026-10-21",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "603127",
-      "name": "昭衍新药",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 45.21,
-      "maxBuyPrice": 46.91,
-      "score": 8.1
-    },
-    {
-      "id": "buy_cancelled-002246-2026-10-21T09:56:07+08:00",
-      "at": "2026-10-21T09:56:07+08:00",
-      "tradeDate": "2026-10-21",
-      "phase": "10点早盘接入",
-      "phaseKey": "morning_entry",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "002246",
-      "name": "北化股份",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 22.92,
-      "maxBuyPrice": 23.77,
-      "score": 8.8
     }
   ],
   "exitReviews": [
@@ -5224,11 +5266,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 35.17,
           "returnPct": -0.34,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5328,11 +5370,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 7.01,
           "returnPct": -7.52,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5456,11 +5498,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 31.23,
           "returnPct": -6.469,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5592,11 +5634,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 4.87,
           "returnPct": -3.564,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5728,11 +5770,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 3.43,
           "returnPct": -15.309,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5904,11 +5946,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 6.47,
           "returnPct": -10.635,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6088,11 +6130,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 41.2,
           "returnPct": 3.883,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6272,11 +6314,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 37.95,
           "returnPct": -27.089,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6480,11 +6522,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 37.82,
           "returnPct": -27.783,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6694,11 +6736,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 6.71,
           "returnPct": -23.227,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6964,11 +7006,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 27.47,
           "returnPct": -19.889,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7250,11 +7292,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 42.5,
           "returnPct": 3.507,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7536,11 +7578,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 52.62,
           "returnPct": -6.52,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7822,11 +7864,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 48.72,
           "returnPct": 3.726,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8132,11 +8174,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 27.47,
           "returnPct": -16.606,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8448,11 +8490,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 4.99,
           "returnPct": -22.755,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8772,11 +8814,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 23.77,
           "returnPct": 4.945,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -9104,11 +9146,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 27.47,
           "returnPct": -18.366,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -9444,11 +9486,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 48.72,
           "returnPct": 5.455,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -9808,11 +9850,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 20.5,
           "returnPct": -21.002,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -10172,11 +10214,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 27.47,
           "returnPct": -17.681,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -10600,11 +10642,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 27.47,
           "returnPct": -14.822,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -11108,11 +11150,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 35.17,
           "returnPct": 1.972,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -11648,11 +11690,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 4.99,
           "returnPct": -17.11,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -12188,11 +12230,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 11.08,
           "returnPct": -20.115,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -12728,11 +12770,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 46.73,
           "returnPct": -22.939,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -13292,11 +13334,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 23.84,
           "returnPct": 1.231,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -13872,11 +13914,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 53.63,
           "returnPct": 4.095,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -14460,11 +14502,11 @@
         },
         "2026-10-26": {
           "date": "2026-10-26",
-          "at": "2026-10-26T20:54:59+08:00",
+          "at": "2026-10-26T23:15:19+08:00",
           "price": 27.47,
           "returnPct": -6.214,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -14703,8 +14745,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 705,
-    "plansCreated": 1252,
+    "snapshotsProcessed": 706,
+    "plansCreated": 1260,
     "buyChecks": 1716,
     "buysExecuted": 30,
     "sellsExecuted": 30,
@@ -14721,7 +14763,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 158
     },
-    "lastRunAt": "2026-10-26T20:54:59+08:00",
-    "lastRunSummary": "更新云端计划8只：中航沈飞(executable)、航发动力(watch)、中航西飞(watch)、招商银行(watch)、保利发展(watch)、电投能源(watch)、伊利股份(watch)、建设银行(watch)"
+    "lastRunAt": "2026-10-26T23:15:19+08:00",
+    "lastRunSummary": "更新云端计划8只：中航沈飞(executable)、航发动力(watch)、中航西飞(watch)、招商银行(watch)、保利发展(watch)、电投能源(watch)、伊利股份(watch)、中国海油(watch)"
   }
 }
