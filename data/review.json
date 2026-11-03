@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-03T10:10:23+08:00",
+  "generated_at": "2026-11-03T13:40:15+08:00",
   "as_of_date": "2026-11-03",
   "summary": {
     "tracked_count": 424,
     "active_count": 10,
     "exited_count": 414,
-    "average_return_pct": -12.72,
+    "average_return_pct": -12.79,
     "positive_count": 111,
     "negative_count": 306,
     "attribution_counts": {
@@ -31,7 +31,7 @@
     "worst": {
       "code": "000988",
       "name": "华工科技",
-      "return_since_first_pct": -64.7
+      "return_since_first_pct": -65.94
     }
   },
   "records": [
@@ -463,7 +463,7 @@
       "latest_price": 14.02,
       "latest_source": "latest_quote",
       "tracking_days": 26,
-      "snapshot_count": 29,
+      "snapshot_count": 28,
       "return_since_first_pct": 20.97,
       "max_return_since_first_pct": 20.97,
       "drawdown_from_peak_pct": 0.0,
@@ -799,9 +799,9 @@
       "last_seen_rank": 2,
       "latest_date": "2026-11-03",
       "latest_price": 21.74,
-      "latest_source": "current_pool",
+      "latest_source": "history_snapshot",
       "tracking_days": 138,
-      "snapshot_count": 47,
+      "snapshot_count": 48,
       "return_since_first_pct": 16.32,
       "max_return_since_first_pct": 16.32,
       "drawdown_from_peak_pct": 0.0,
@@ -814,7 +814,8 @@
         "primary": "positive_validation",
         "theme_group": "电力设备",
         "factors": [
-          "entry_price_better_than_first_recommend"
+          "entry_price_better_than_first_recommend",
+          "latest_quote_from_history_snapshot"
         ],
         "model_action": "方向验证为正，同时保留接入价纪律，避免首推价过高。"
       },
@@ -2154,10 +2155,10 @@
       "tracking_days": 6,
       "snapshot_count": 4,
       "return_since_first_pct": 8.01,
-      "max_return_since_first_pct": 8.14,
-      "drawdown_from_peak_pct": -0.13,
-      "best_close": 23.37,
-      "best_date": "2026-11-02",
+      "max_return_since_first_pct": 8.05,
+      "drawdown_from_peak_pct": -0.04,
+      "best_close": 23.35,
+      "best_date": "2026-10-29",
       "worst_close": 21.61,
       "worst_date": "2026-10-28",
       "review_status": "已调出-正收益",
@@ -3838,7 +3839,7 @@
       "latest_price": 17.97,
       "latest_source": "latest_quote",
       "tracking_days": 21,
-      "snapshot_count": 20,
+      "snapshot_count": 19,
       "return_since_first_pct": 4.84,
       "max_return_since_first_pct": 4.84,
       "drawdown_from_peak_pct": 0.0,
@@ -5406,9 +5407,9 @@
       "last_seen_rank": 1,
       "latest_date": "2026-11-03",
       "latest_price": 23.49,
-      "latest_source": "current_pool",
+      "latest_source": "history_snapshot",
       "tracking_days": 138,
-      "snapshot_count": 41,
+      "snapshot_count": 42,
       "return_since_first_pct": 1.86,
       "max_return_since_first_pct": 8.72,
       "drawdown_from_peak_pct": -6.3,
@@ -5421,7 +5422,8 @@
         "primary": "neutral_tracking",
         "theme_group": "电力设备",
         "factors": [
-          "inside_validation_band"
+          "inside_validation_band",
+          "latest_quote_from_history_snapshot"
         ],
         "model_action": "继续观察，不作强反馈。"
       },
@@ -7346,62 +7348,6 @@
       "review_rank": 130
     },
     {
-      "code": "600547",
-      "name": "山东黄金",
-      "theme": "黄金",
-      "board": "沪市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-07-02",
-      "first_recommend_price": 24.31,
-      "first_rank": 3,
-      "first_status_key": "wait",
-      "first_source": "review_first",
-      "first_recommended_entry_price": 21.99,
-      "first_entry_price_lower": 21.43,
-      "first_entry_price_upper": 22.81,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 10.57,
-      "first_entry_safety_adjustment_pct": -2.4,
-      "first_entry_safety_label": "接入风险高",
-      "first_entry_safety_risk_flag": true,
-      "first_entry_safety_block_buy": false,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": 7.91,
-      "entry_drawdown_from_first_entry_pct": 3.73,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 8,
-      "latest_date": "2026-11-03",
-      "latest_price": 23.73,
-      "latest_source": "latest_quote",
-      "tracking_days": 124,
-      "snapshot_count": 30,
-      "return_since_first_pct": -2.39,
-      "max_return_since_first_pct": 55.9,
-      "drawdown_from_peak_pct": -37.39,
-      "best_close": 37.9,
-      "best_date": "2026-09-04",
-      "worst_close": 22.81,
-      "worst_date": "2026-11-02",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "neutral_tracking",
-        "theme_group": "资源周期",
-        "factors": [
-          "inside_validation_band"
-        ],
-        "model_action": "继续观察，不作强反馈。"
-      },
-      "review_primary_attribution": "neutral_tracking",
-      "review_model_action": "继续观察，不作强反馈。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 131
-    },
-    {
       "code": "600031",
       "name": "三一重工",
       "theme": "动态强势候选",
@@ -7455,7 +7401,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 132
+      "review_rank": 131
     },
     {
       "code": "002258",
@@ -7511,7 +7457,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 133
+      "review_rank": 132
     },
     {
       "code": "003816",
@@ -7567,7 +7513,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 134
+      "review_rank": 133
     },
     {
       "code": "002881",
@@ -7623,7 +7569,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 135
+      "review_rank": 134
     },
     {
       "code": "603466",
@@ -7659,7 +7605,7 @@
       "latest_price": 13.22,
       "latest_source": "latest_quote",
       "tracking_days": 21,
-      "snapshot_count": 19,
+      "snapshot_count": 18,
       "return_since_first_pct": -2.58,
       "max_return_since_first_pct": 8.25,
       "drawdown_from_peak_pct": -10.01,
@@ -7679,7 +7625,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 136
+      "review_rank": 135
     },
     {
       "code": "600853",
@@ -7735,7 +7681,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 137
+      "review_rank": 136
     },
     {
       "code": "002929",
@@ -7792,7 +7738,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 138
+      "review_rank": 137
     },
     {
       "code": "600926",
@@ -7848,7 +7794,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 139
+      "review_rank": 138
     },
     {
       "code": "002472",
@@ -7882,9 +7828,9 @@
       "last_seen_rank": 3,
       "latest_date": "2026-11-03",
       "latest_price": 42.42,
-      "latest_source": "current_pool",
+      "latest_source": "history_snapshot",
       "tracking_days": 138,
-      "snapshot_count": 49,
+      "snapshot_count": 50,
       "return_since_first_pct": -3.11,
       "max_return_since_first_pct": 7.38,
       "drawdown_from_peak_pct": -9.76,
@@ -7897,14 +7843,15 @@
         "primary": "neutral_tracking",
         "theme_group": "高端制造",
         "factors": [
-          "inside_validation_band"
+          "inside_validation_band",
+          "latest_quote_from_history_snapshot"
         ],
         "model_action": "继续观察，不作强反馈。"
       },
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "仍在最新推荐池中，表现暂处于验证区间。",
-      "review_rank": 140
+      "review_rank": 139
     },
     {
       "code": "603127",
@@ -7960,7 +7907,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 141
+      "review_rank": 140
     },
     {
       "code": "001330",
@@ -8016,7 +7963,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 142
+      "review_rank": 141
     },
     {
       "code": "002639",
@@ -8052,7 +7999,7 @@
       "latest_price": 13.83,
       "latest_source": "latest_quote",
       "tracking_days": 40,
-      "snapshot_count": 13,
+      "snapshot_count": 12,
       "return_since_first_pct": -3.15,
       "max_return_since_first_pct": 10.43,
       "drawdown_from_peak_pct": -12.3,
@@ -8072,7 +8019,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 143
+      "review_rank": 142
     },
     {
       "code": "600104",
@@ -8128,7 +8075,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 144
+      "review_rank": 143
     },
     {
       "code": "000892",
@@ -8184,7 +8131,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 145
+      "review_rank": 144
     },
     {
       "code": "000625",
@@ -8240,7 +8187,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 146
+      "review_rank": 145
     },
     {
       "code": "600986",
@@ -8296,7 +8243,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 147
+      "review_rank": 146
     },
     {
       "code": "600030",
@@ -8353,7 +8300,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 148
+      "review_rank": 147
     },
     {
       "code": "000011",
@@ -8409,7 +8356,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 149
+      "review_rank": 148
     },
     {
       "code": "603859",
@@ -8465,7 +8412,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 150
+      "review_rank": 149
     },
     {
       "code": "002594",
@@ -8521,7 +8468,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 151
+      "review_rank": 150
     },
     {
       "code": "603980",
@@ -8557,7 +8504,7 @@
       "latest_price": 7.86,
       "latest_source": "latest_quote",
       "tracking_days": 47,
-      "snapshot_count": 9,
+      "snapshot_count": 8,
       "return_since_first_pct": -4.61,
       "max_return_since_first_pct": 29.49,
       "drawdown_from_peak_pct": -26.34,
@@ -8577,7 +8524,7 @@
       "review_primary_attribution": "neutral_tracking",
       "review_model_action": "继续观察，不作强反馈。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 152
+      "review_rank": 151
     },
     {
       "code": "600048",
@@ -8625,6 +8572,62 @@
       "review_attribution": {
         "primary": "neutral_tracking",
         "theme_group": "动态强势候选",
+        "factors": [
+          "inside_validation_band"
+        ],
+        "model_action": "继续观察，不作强反馈。"
+      },
+      "review_primary_attribution": "neutral_tracking",
+      "review_model_action": "继续观察，不作强反馈。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 152
+    },
+    {
+      "code": "600547",
+      "name": "山东黄金",
+      "theme": "黄金",
+      "board": "沪市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-07-02",
+      "first_recommend_price": 24.31,
+      "first_rank": 3,
+      "first_status_key": "wait",
+      "first_source": "review_first",
+      "first_recommended_entry_price": 21.99,
+      "first_entry_price_lower": 21.43,
+      "first_entry_price_upper": 22.81,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 10.57,
+      "first_entry_safety_adjustment_pct": -2.4,
+      "first_entry_safety_label": "接入风险高",
+      "first_entry_safety_risk_flag": true,
+      "first_entry_safety_block_buy": false,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": 5.18,
+      "entry_drawdown_from_first_entry_pct": 5.18,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 8,
+      "latest_date": "2026-11-03",
+      "latest_price": 23.13,
+      "latest_source": "latest_quote",
+      "tracking_days": 124,
+      "snapshot_count": 30,
+      "return_since_first_pct": -4.85,
+      "max_return_since_first_pct": 55.9,
+      "drawdown_from_peak_pct": -38.97,
+      "best_close": 37.9,
+      "best_date": "2026-09-04",
+      "worst_close": 23.13,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "neutral_tracking",
+        "theme_group": "资源周期",
         "factors": [
           "inside_validation_band"
         ],
@@ -9071,7 +9074,7 @@
       "latest_price": 34.11,
       "latest_source": "latest_quote",
       "tracking_days": 138,
-      "snapshot_count": 26,
+      "snapshot_count": 25,
       "return_since_first_pct": -5.62,
       "max_return_since_first_pct": 13.5,
       "drawdown_from_peak_pct": -16.85,
@@ -9858,66 +9861,6 @@
       "review_rank": 174
     },
     {
-      "code": "601899",
-      "name": "紫金矿业",
-      "theme": "铜/黄金资源",
-      "board": "沪市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 29.69,
-      "first_rank": 3,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 27.71,
-      "first_entry_price_lower": 27.02,
-      "first_entry_price_upper": 28.74,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 7.15,
-      "first_entry_safety_adjustment_pct": null,
-      "first_entry_safety_label": null,
-      "first_entry_safety_risk_flag": null,
-      "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -1.44,
-      "entry_drawdown_from_first_entry_pct": -9.42,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 10,
-      "latest_date": "2026-11-03",
-      "latest_price": 27.31,
-      "latest_source": "latest_quote",
-      "tracking_days": 138,
-      "snapshot_count": 46,
-      "return_since_first_pct": -8.02,
-      "max_return_since_first_pct": 19.4,
-      "drawdown_from_peak_pct": -22.96,
-      "best_close": 35.45,
-      "best_date": "2026-08-10",
-      "worst_close": 25.1,
-      "worst_date": "2026-06-26",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "资源周期",
-        "factors": [
-          "entry_price_adverse_drawdown",
-          "exited_negative_feedback",
-          "post_recommend_drawdown_too_deep",
-          "profit_not_protected",
-          "theme_volatility_or_rotation"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 175
-    },
-    {
       "code": "002241",
       "name": "歌尔股份",
       "theme": "动态强势候选",
@@ -9971,7 +9914,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 176
+      "review_rank": 175
     },
     {
       "code": "002467",
@@ -10029,7 +9972,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "增加冲高回落后的止盈/调出反馈权重。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 177
+      "review_rank": 176
     },
     {
       "code": "600482",
@@ -10087,7 +10030,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 178
+      "review_rank": 177
     },
     {
       "code": "002636",
@@ -10143,7 +10086,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 179
+      "review_rank": 178
     },
     {
       "code": "603893",
@@ -10201,6 +10144,66 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 179
+    },
+    {
+      "code": "601899",
+      "name": "紫金矿业",
+      "theme": "铜/黄金资源",
+      "board": "沪市主板",
+      "active_in_current_pool": true,
+      "current_rank": 10,
+      "current_status_key": "wait",
+      "first_recommend_date": "2026-06-18",
+      "first_recommend_price": 29.69,
+      "first_rank": 3,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 27.71,
+      "first_entry_price_lower": 27.02,
+      "first_entry_price_upper": 28.74,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 7.15,
+      "first_entry_safety_adjustment_pct": null,
+      "first_entry_safety_label": null,
+      "first_entry_safety_risk_flag": null,
+      "first_entry_safety_block_buy": null,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -1.95,
+      "entry_drawdown_from_first_entry_pct": -9.42,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 10,
+      "latest_date": "2026-11-03",
+      "latest_price": 27.17,
+      "latest_source": "current_pool",
+      "tracking_days": 138,
+      "snapshot_count": 47,
+      "return_since_first_pct": -8.49,
+      "max_return_since_first_pct": 19.4,
+      "drawdown_from_peak_pct": -23.36,
+      "best_close": 35.45,
+      "best_date": "2026-08-10",
+      "worst_close": 25.1,
+      "worst_date": "2026-06-26",
+      "review_status": "当前池中-负反馈",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "资源周期",
+        "factors": [
+          "entry_price_adverse_drawdown",
+          "post_recommend_drawdown_too_deep",
+          "profit_not_protected",
+          "still_active_negative_feedback",
+          "theme_volatility_or_rotation"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "仍在最新推荐池中，但推荐后回撤较明显，需要复核逻辑和风控。",
       "review_rank": 180
     },
     {
@@ -10436,9 +10439,9 @@
       "name": "东方电缆",
       "theme": "海缆/海风",
       "board": "沪市主板",
-      "active_in_current_pool": true,
-      "current_rank": 5,
-      "current_status_key": "breakout",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
       "first_recommend_date": "2026-06-29",
       "first_recommend_price": 41.82,
       "first_rank": 9,
@@ -10463,7 +10466,7 @@
       "last_seen_rank": 5,
       "latest_date": "2026-11-03",
       "latest_price": 38.18,
-      "latest_source": "current_pool",
+      "latest_source": "history_snapshot",
       "tracking_days": 127,
       "snapshot_count": 24,
       "return_since_first_pct": -8.7,
@@ -10473,20 +10476,21 @@
       "best_date": "2026-07-01",
       "worst_close": 33.51,
       "worst_date": "2026-10-19",
-      "review_status": "当前池中-负反馈",
+      "review_status": "已调出-负收益",
       "review_attribution": {
         "primary": "negative_review",
         "theme_group": "电力设备",
         "factors": [
           "entry_price_adverse_drawdown",
-          "post_recommend_drawdown_too_deep",
-          "still_active_negative_feedback"
+          "exited_negative_feedback",
+          "latest_quote_from_history_snapshot",
+          "post_recommend_drawdown_too_deep"
         ],
         "model_action": "收紧接入价并提高触达后回撤惩罚。"
       },
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "仍在最新推荐池中，但推荐后回撤较明显，需要复核逻辑和风控。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
       "review_rank": 185
     },
     {
@@ -10521,9 +10525,9 @@
       "last_seen_rank": 4,
       "latest_date": "2026-11-03",
       "latest_price": 58.25,
-      "latest_source": "current_pool",
+      "latest_source": "history_snapshot",
       "tracking_days": 138,
-      "snapshot_count": 39,
+      "snapshot_count": 40,
       "return_since_first_pct": -8.78,
       "max_return_since_first_pct": 1.93,
       "drawdown_from_peak_pct": -10.51,
@@ -10539,6 +10543,7 @@
           "entry_price_adverse_drawdown",
           "entry_price_better_than_first_recommend",
           "first_recommend_price_far_above_entry",
+          "latest_quote_from_history_snapshot",
           "post_recommend_drawdown_too_deep",
           "still_active_negative_feedback",
           "theme_volatility_or_rotation"
@@ -11912,7 +11917,7 @@
       "theme": "铝/资源",
       "board": "沪市主板",
       "active_in_current_pool": true,
-      "current_rank": 6,
+      "current_rank": 5,
       "current_status_key": "wait",
       "first_recommend_date": "2026-06-22",
       "first_recommend_price": 9.86,
@@ -11933,21 +11938,21 @@
       "first_entry_safety_block_buy": false,
       "first_entry_reference_type": "recommended_entry_price",
       "entry_return_from_first_entry_pct": 9.17,
-      "entry_drawdown_from_first_entry_pct": 7.29,
+      "entry_drawdown_from_first_entry_pct": 9.17,
       "last_seen_in_pool_date": "2026-11-03",
       "last_seen_rank": 6,
       "latest_date": "2026-11-03",
       "latest_price": 8.69,
-      "latest_source": "current_pool",
+      "latest_source": "history_snapshot",
       "tracking_days": 134,
-      "snapshot_count": 17,
+      "snapshot_count": 18,
       "return_since_first_pct": -11.87,
       "max_return_since_first_pct": 0.0,
       "drawdown_from_peak_pct": -11.87,
       "best_close": 9.86,
       "best_date": "2026-06-22",
-      "worst_close": 8.54,
-      "worst_date": "2026-11-02",
+      "worst_close": 8.69,
+      "worst_date": "2026-11-03",
       "review_status": "当前池中-负反馈",
       "review_attribution": {
         "primary": "negative_review",
@@ -11955,6 +11960,7 @@
         "factors": [
           "entry_price_better_than_first_recommend",
           "first_recommend_price_far_above_entry",
+          "latest_quote_from_history_snapshot",
           "post_recommend_drawdown_too_deep",
           "still_active_negative_feedback",
           "theme_volatility_or_rotation"
@@ -12028,67 +12034,6 @@
       "review_rank": 211
     },
     {
-      "code": "600489",
-      "name": "中金黄金",
-      "theme": "黄金/央企资源",
-      "board": "沪市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 21.92,
-      "first_rank": 7,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 20.47,
-      "first_entry_price_lower": 19.96,
-      "first_entry_price_upper": 21.24,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 7.08,
-      "first_entry_safety_adjustment_pct": null,
-      "first_entry_safety_label": null,
-      "first_entry_safety_risk_flag": null,
-      "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -5.72,
-      "entry_drawdown_from_first_entry_pct": -9.53,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 9,
-      "latest_date": "2026-11-03",
-      "latest_price": 19.3,
-      "latest_source": "latest_quote",
-      "tracking_days": 138,
-      "snapshot_count": 27,
-      "return_since_first_pct": -11.95,
-      "max_return_since_first_pct": 24.36,
-      "drawdown_from_peak_pct": -29.2,
-      "best_close": 27.26,
-      "best_date": "2026-08-24",
-      "worst_close": 18.52,
-      "worst_date": "2026-11-02",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "资源周期",
-        "factors": [
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "exited_negative_feedback",
-          "post_recommend_drawdown_too_deep",
-          "profit_not_protected",
-          "theme_volatility_or_rotation"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 212
-    },
-    {
       "code": "600693",
       "name": "东百集团",
       "theme": "动态强势候选",
@@ -12145,7 +12090,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 213
+      "review_rank": 212
     },
     {
       "code": "002421",
@@ -12202,7 +12147,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 214
+      "review_rank": 213
     },
     {
       "code": "600391",
@@ -12262,7 +12207,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 215
+      "review_rank": 214
     },
     {
       "code": "002205",
@@ -12321,66 +12266,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 216
-    },
-    {
-      "code": "601727",
-      "name": "上海电气",
-      "theme": "能源装备/工业设备",
-      "board": "沪市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-29",
-      "first_recommend_price": 7.08,
-      "first_rank": 10,
-      "first_status_key": "wait",
-      "first_source": "review_first",
-      "first_recommended_entry_price": 6.5,
-      "first_entry_price_lower": 6.38,
-      "first_entry_price_upper": 6.75,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 8.98,
-      "first_entry_safety_adjustment_pct": -2.4,
-      "first_entry_safety_label": "接入风险高",
-      "first_entry_safety_risk_flag": true,
-      "first_entry_safety_block_buy": false,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -5.38,
-      "entry_drawdown_from_first_entry_pct": -6.31,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 9,
-      "latest_date": "2026-11-03",
-      "latest_price": 6.15,
-      "latest_source": "latest_quote",
-      "tracking_days": 127,
-      "snapshot_count": 5,
-      "return_since_first_pct": -13.14,
-      "max_return_since_first_pct": 0.0,
-      "drawdown_from_peak_pct": -13.14,
-      "best_close": 7.08,
-      "best_date": "2026-06-29",
-      "worst_close": 6.09,
-      "worst_date": "2026-11-02",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "电力设备",
-        "factors": [
-          "entry_price_failed",
-          "entry_safety_warning_was_present",
-          "exited_negative_feedback",
-          "post_recommend_drawdown_too_deep"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 217
+      "review_rank": 215
     },
     {
       "code": "002355",
@@ -12437,7 +12323,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低同类主题/信号权重并继续积累样本。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 218
+      "review_rank": 216
     },
     {
       "code": "600864",
@@ -12496,7 +12382,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 219
+      "review_rank": 217
     },
     {
       "code": "601778",
@@ -12554,7 +12440,66 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 220
+      "review_rank": 218
+    },
+    {
+      "code": "601727",
+      "name": "上海电气",
+      "theme": "能源装备/工业设备",
+      "board": "沪市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-29",
+      "first_recommend_price": 7.08,
+      "first_rank": 10,
+      "first_status_key": "wait",
+      "first_source": "review_first",
+      "first_recommended_entry_price": 6.5,
+      "first_entry_price_lower": 6.38,
+      "first_entry_price_upper": 6.75,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 8.98,
+      "first_entry_safety_adjustment_pct": -2.4,
+      "first_entry_safety_label": "接入风险高",
+      "first_entry_safety_risk_flag": true,
+      "first_entry_safety_block_buy": false,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -6.15,
+      "entry_drawdown_from_first_entry_pct": -6.15,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 9,
+      "latest_date": "2026-11-03",
+      "latest_price": 6.1,
+      "latest_source": "latest_quote",
+      "tracking_days": 127,
+      "snapshot_count": 5,
+      "return_since_first_pct": -13.84,
+      "max_return_since_first_pct": 0.0,
+      "drawdown_from_peak_pct": -13.84,
+      "best_close": 7.08,
+      "best_date": "2026-06-29",
+      "worst_close": 6.1,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "电力设备",
+        "factors": [
+          "entry_price_failed",
+          "entry_safety_warning_was_present",
+          "exited_negative_feedback",
+          "post_recommend_drawdown_too_deep"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 219
     },
     {
       "code": "600967",
@@ -12613,7 +12558,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 221
+      "review_rank": 220
     },
     {
       "code": "000807",
@@ -12674,7 +12619,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 222
+      "review_rank": 221
     },
     {
       "code": "600266",
@@ -12733,7 +12678,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 223
+      "review_rank": 222
     },
     {
       "code": "601811",
@@ -12794,7 +12739,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 224
+      "review_rank": 223
     },
     {
       "code": "002757",
@@ -12854,7 +12799,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 225
+      "review_rank": 224
     },
     {
       "code": "002264",
@@ -12915,7 +12860,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 226
+      "review_rank": 225
     },
     {
       "code": "600825",
@@ -12975,7 +12920,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 227
+      "review_rank": 226
     },
     {
       "code": "603259",
@@ -13034,7 +12979,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 228
+      "review_rank": 227
     },
     {
       "code": "000815",
@@ -13093,7 +13038,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 229
+      "review_rank": 228
     },
     {
       "code": "002846",
@@ -13152,7 +13097,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 230
+      "review_rank": 229
     },
     {
       "code": "600383",
@@ -13213,7 +13158,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 231
+      "review_rank": 230
     },
     {
       "code": "002815",
@@ -13273,16 +13218,16 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 232
+      "review_rank": 231
     },
     {
       "code": "600875",
       "name": "东方电气",
       "theme": "能源装备/燃机",
       "board": "沪市主板",
-      "active_in_current_pool": true,
-      "current_rank": 10,
-      "current_status_key": "wait",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
       "first_recommend_date": "2026-08-03",
       "first_recommend_price": 26.78,
       "first_rank": 10,
@@ -13302,12 +13247,12 @@
       "first_entry_safety_block_buy": false,
       "first_entry_reference_type": "recommended_entry_price",
       "entry_return_from_first_entry_pct": -10.19,
-      "entry_drawdown_from_first_entry_pct": -12.87,
+      "entry_drawdown_from_first_entry_pct": -11.57,
       "last_seen_in_pool_date": "2026-11-03",
       "last_seen_rank": 10,
       "latest_date": "2026-11-03",
       "latest_price": 22.75,
-      "latest_source": "current_pool",
+      "latest_source": "history_snapshot",
       "tracking_days": 92,
       "snapshot_count": 6,
       "return_since_first_pct": -15.05,
@@ -13315,24 +13260,25 @@
       "drawdown_from_peak_pct": -18.69,
       "best_close": 27.98,
       "best_date": "2026-08-17",
-      "worst_close": 22.07,
-      "worst_date": "2026-11-02",
-      "review_status": "当前池中-负反馈",
+      "worst_close": 22.4,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
       "review_attribution": {
         "primary": "negative_review",
         "theme_group": "电力设备",
         "factors": [
           "entry_price_adverse_drawdown",
           "entry_price_failed",
-          "post_recommend_drawdown_too_deep",
-          "still_active_negative_feedback"
+          "exited_negative_feedback",
+          "latest_quote_from_history_snapshot",
+          "post_recommend_drawdown_too_deep"
         ],
         "model_action": "收紧接入价并提高触达后回撤惩罚。"
       },
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "仍在最新推荐池中，但推荐后回撤较明显，需要复核逻辑和风控。",
-      "review_rank": 233
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 232
     },
     {
       "code": "002617",
@@ -13390,7 +13336,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 234
+      "review_rank": 233
     },
     {
       "code": "603686",
@@ -13450,7 +13396,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 235
+      "review_rank": 234
     },
     {
       "code": "603099",
@@ -13486,7 +13432,7 @@
       "latest_price": 35.68,
       "latest_source": "latest_quote",
       "tracking_days": 40,
-      "snapshot_count": 10,
+      "snapshot_count": 9,
       "return_since_first_pct": -15.21,
       "max_return_since_first_pct": 8.96,
       "drawdown_from_peak_pct": -22.18,
@@ -13505,6 +13451,67 @@
           "first_recommend_price_far_above_entry",
           "post_recommend_drawdown_too_deep",
           "profit_not_protected"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 235
+    },
+    {
+      "code": "600489",
+      "name": "中金黄金",
+      "theme": "黄金/央企资源",
+      "board": "沪市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-18",
+      "first_recommend_price": 21.92,
+      "first_rank": 7,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 20.47,
+      "first_entry_price_lower": 19.96,
+      "first_entry_price_upper": 21.24,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 7.08,
+      "first_entry_safety_adjustment_pct": null,
+      "first_entry_safety_label": null,
+      "first_entry_safety_risk_flag": null,
+      "first_entry_safety_block_buy": null,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -9.38,
+      "entry_drawdown_from_first_entry_pct": -9.38,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 9,
+      "latest_date": "2026-11-03",
+      "latest_price": 18.55,
+      "latest_source": "latest_quote",
+      "tracking_days": 138,
+      "snapshot_count": 27,
+      "return_since_first_pct": -15.37,
+      "max_return_since_first_pct": 24.36,
+      "drawdown_from_peak_pct": -31.95,
+      "best_close": 27.26,
+      "best_date": "2026-08-24",
+      "worst_close": 18.55,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "资源周期",
+        "factors": [
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "exited_negative_feedback",
+          "post_recommend_drawdown_too_deep",
+          "profit_not_protected",
+          "theme_volatility_or_rotation"
         ],
         "model_action": "收紧接入价并提高触达后回撤惩罚。"
       },
@@ -15105,7 +15112,7 @@
       "latest_price": 3.17,
       "latest_source": "latest_quote",
       "tracking_days": 21,
-      "snapshot_count": 10,
+      "snapshot_count": 9,
       "return_since_first_pct": -18.51,
       "max_return_since_first_pct": 0.0,
       "drawdown_from_peak_pct": -18.51,
@@ -16546,7 +16553,7 @@
       "latest_price": 7.02,
       "latest_source": "latest_quote",
       "tracking_days": 21,
-      "snapshot_count": 12,
+      "snapshot_count": 11,
       "return_since_first_pct": -21.3,
       "max_return_since_first_pct": 1.79,
       "drawdown_from_peak_pct": -22.69,
@@ -17659,7 +17666,7 @@
       "theme": "变压器/硅料/电力设备",
       "board": "沪市主板",
       "active_in_current_pool": true,
-      "current_rank": 9,
+      "current_rank": 7,
       "current_status_key": "wait",
       "first_recommend_date": "2026-06-18",
       "first_recommend_price": 23.32,
@@ -17680,21 +17687,21 @@
       "first_entry_safety_block_buy": null,
       "first_entry_reference_type": "recommended_entry_price",
       "entry_return_from_first_entry_pct": -18.58,
-      "entry_drawdown_from_first_entry_pct": -19.95,
+      "entry_drawdown_from_first_entry_pct": -18.58,
       "last_seen_in_pool_date": "2026-11-03",
       "last_seen_rank": 9,
       "latest_date": "2026-11-03",
       "latest_price": 17.79,
-      "latest_source": "current_pool",
+      "latest_source": "history_snapshot",
       "tracking_days": 138,
-      "snapshot_count": 12,
+      "snapshot_count": 13,
       "return_since_first_pct": -23.71,
       "max_return_since_first_pct": 7.55,
       "drawdown_from_peak_pct": -29.07,
       "best_close": 25.08,
       "best_date": "2026-06-22",
-      "worst_close": 17.49,
-      "worst_date": "2026-11-02",
+      "worst_close": 17.79,
+      "worst_date": "2026-11-03",
       "review_status": "当前池中-负反馈",
       "review_attribution": {
         "primary": "negative_review",
@@ -17702,6 +17709,7 @@
         "factors": [
           "entry_price_adverse_drawdown",
           "entry_price_failed",
+          "latest_quote_from_history_snapshot",
           "post_recommend_drawdown_too_deep",
           "profit_not_protected",
           "still_active_negative_feedback"
@@ -18201,67 +18209,6 @@
       "review_rank": 314
     },
     {
-      "code": "603228",
-      "name": "景旺电子",
-      "theme": "PCB",
-      "board": "沪市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 81.06,
-      "first_rank": null,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 72.4,
-      "first_entry_price_lower": 71.34,
-      "first_entry_price_upper": 73.99,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 7.22,
-      "first_entry_safety_adjustment_pct": null,
-      "first_entry_safety_label": null,
-      "first_entry_safety_risk_flag": null,
-      "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -16.63,
-      "entry_drawdown_from_first_entry_pct": -16.63,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 5,
-      "latest_date": "2026-11-03",
-      "latest_price": 60.36,
-      "latest_source": "latest_quote",
-      "tracking_days": 138,
-      "snapshot_count": 32,
-      "return_since_first_pct": -25.54,
-      "max_return_since_first_pct": 37.86,
-      "drawdown_from_peak_pct": -45.99,
-      "best_close": 111.75,
-      "best_date": "2026-09-11",
-      "worst_close": 60.36,
-      "worst_date": "2026-11-03",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "AI半导体",
-        "factors": [
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "exited_negative_feedback",
-          "first_recommend_price_far_above_entry",
-          "post_recommend_drawdown_too_deep",
-          "profit_not_protected"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 315
-    },
-    {
       "code": "600108",
       "name": "亚盛集团",
       "theme": "动态强势候选",
@@ -18318,7 +18265,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 316
+      "review_rank": 315
     },
     {
       "code": "002747",
@@ -18326,7 +18273,7 @@
       "theme": "工业机器人",
       "board": "深市主板",
       "active_in_current_pool": true,
-      "current_rank": 7,
+      "current_rank": 6,
       "current_status_key": "wait",
       "first_recommend_date": "2026-06-23",
       "first_recommend_price": 38.44,
@@ -18347,20 +18294,20 @@
       "first_entry_safety_block_buy": null,
       "first_entry_reference_type": "recommended_entry_price",
       "entry_return_from_first_entry_pct": -7.24,
-      "entry_drawdown_from_first_entry_pct": -7.24,
+      "entry_drawdown_from_first_entry_pct": -10.19,
       "last_seen_in_pool_date": "2026-11-03",
       "last_seen_rank": 7,
       "latest_date": "2026-11-03",
       "latest_price": 28.57,
-      "latest_source": "current_pool",
+      "latest_source": "history_snapshot",
       "tracking_days": 133,
-      "snapshot_count": 24,
+      "snapshot_count": 25,
       "return_since_first_pct": -25.68,
       "max_return_since_first_pct": 11.29,
       "drawdown_from_peak_pct": -33.22,
       "best_close": 42.78,
       "best_date": "2026-07-10",
-      "worst_close": 28.57,
+      "worst_close": 27.66,
       "worst_date": "2026-11-03",
       "review_status": "当前池中-负反馈",
       "review_attribution": {
@@ -18371,6 +18318,7 @@
           "entry_price_adverse_drawdown",
           "entry_price_failed",
           "first_recommend_price_far_above_entry",
+          "latest_quote_from_history_snapshot",
           "post_recommend_drawdown_too_deep",
           "profit_not_protected",
           "still_active_negative_feedback",
@@ -18381,7 +18329,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "仍在最新推荐池中，但推荐后回撤较明显，需要复核逻辑和风控。",
-      "review_rank": 317
+      "review_rank": 316
     },
     {
       "code": "603978",
@@ -18442,68 +18390,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 318
-    },
-    {
-      "code": "002185",
-      "name": "华天科技",
-      "theme": "封测",
-      "board": "深市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 19.61,
-      "first_rank": null,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 17.96,
-      "first_entry_price_lower": 17.5,
-      "first_entry_price_upper": 18.66,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 16.83,
-      "first_entry_safety_adjustment_pct": null,
-      "first_entry_safety_label": null,
-      "first_entry_safety_risk_flag": null,
-      "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -19.1,
-      "entry_drawdown_from_first_entry_pct": -19.1,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 6,
-      "latest_date": "2026-11-03",
-      "latest_price": 14.53,
-      "latest_source": "latest_quote",
-      "tracking_days": 138,
-      "snapshot_count": 16,
-      "return_since_first_pct": -25.91,
-      "max_return_since_first_pct": 14.23,
-      "drawdown_from_peak_pct": -35.13,
-      "best_close": 22.4,
-      "best_date": "2026-06-25",
-      "worst_close": 14.53,
-      "worst_date": "2026-11-03",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "AI半导体",
-        "factors": [
-          "entry_gap_too_high",
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "exited_negative_feedback",
-          "post_recommend_drawdown_too_deep",
-          "profit_not_protected"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 319
+      "review_rank": 317
     },
     {
       "code": "002487",
@@ -18564,7 +18451,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 320
+      "review_rank": 318
     },
     {
       "code": "002320",
@@ -18625,16 +18512,16 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 321
+      "review_rank": 319
     },
     {
       "code": "002050",
       "name": "三花智控",
       "theme": "机器人/热管理",
       "board": "深市主板",
-      "active_in_current_pool": true,
-      "current_rank": 8,
-      "current_status_key": "wait",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
       "first_recommend_date": "2026-06-18",
       "first_recommend_price": 45.74,
       "first_rank": null,
@@ -18659,7 +18546,7 @@
       "last_seen_rank": 8,
       "latest_date": "2026-11-03",
       "latest_price": 33.63,
-      "latest_source": "current_pool",
+      "latest_source": "history_snapshot",
       "tracking_days": 138,
       "snapshot_count": 33,
       "return_since_first_pct": -26.48,
@@ -18669,25 +18556,26 @@
       "best_date": "2026-07-03",
       "worst_close": 30.95,
       "worst_date": "2026-10-19",
-      "review_status": "当前池中-负反馈",
+      "review_status": "已调出-负收益",
       "review_attribution": {
         "primary": "negative_review",
         "theme_group": "高端制造",
         "factors": [
           "entry_price_adverse_drawdown",
           "entry_price_failed",
+          "exited_negative_feedback",
           "first_recommend_price_far_above_entry",
+          "latest_quote_from_history_snapshot",
           "post_recommend_drawdown_too_deep",
           "profit_not_protected",
-          "still_active_negative_feedback",
           "theme_volatility_or_rotation"
         ],
         "model_action": "收紧接入价并提高触达后回撤惩罚。"
       },
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "仍在最新推荐池中，但推荐后回撤较明显，需要复核逻辑和风控。",
-      "review_rank": 322
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 320
     },
     {
       "code": "002886",
@@ -18748,7 +18636,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 323
+      "review_rank": 321
     },
     {
       "code": "600403",
@@ -18807,7 +18695,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 324
+      "review_rank": 322
     },
     {
       "code": "600589",
@@ -18866,7 +18754,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 325
+      "review_rank": 323
     },
     {
       "code": "002913",
@@ -18927,7 +18815,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 326
+      "review_rank": 324
     },
     {
       "code": "002134",
@@ -18986,7 +18874,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 327
+      "review_rank": 325
     },
     {
       "code": "600792",
@@ -19047,7 +18935,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 328
+      "review_rank": 326
     },
     {
       "code": "002141",
@@ -19107,7 +18995,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 329
+      "review_rank": 327
     },
     {
       "code": "600059",
@@ -19168,7 +19056,68 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 330
+      "review_rank": 328
+    },
+    {
+      "code": "002185",
+      "name": "华天科技",
+      "theme": "封测",
+      "board": "深市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-18",
+      "first_recommend_price": 19.61,
+      "first_rank": null,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 17.96,
+      "first_entry_price_lower": 17.5,
+      "first_entry_price_upper": 18.66,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 16.83,
+      "first_entry_safety_adjustment_pct": null,
+      "first_entry_safety_label": null,
+      "first_entry_safety_risk_flag": null,
+      "first_entry_safety_block_buy": null,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -21.05,
+      "entry_drawdown_from_first_entry_pct": -21.05,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 6,
+      "latest_date": "2026-11-03",
+      "latest_price": 14.18,
+      "latest_source": "latest_quote",
+      "tracking_days": 138,
+      "snapshot_count": 16,
+      "return_since_first_pct": -27.69,
+      "max_return_since_first_pct": 14.23,
+      "drawdown_from_peak_pct": -36.7,
+      "best_close": 22.4,
+      "best_date": "2026-06-25",
+      "worst_close": 14.18,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "AI半导体",
+        "factors": [
+          "entry_gap_too_high",
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "exited_negative_feedback",
+          "post_recommend_drawdown_too_deep",
+          "profit_not_protected"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 329
     },
     {
       "code": "002909",
@@ -19229,7 +19178,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 331
+      "review_rank": 330
     },
     {
       "code": "605162",
@@ -19290,7 +19239,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 332
+      "review_rank": 331
     },
     {
       "code": "600325",
@@ -19351,7 +19300,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 333
+      "review_rank": 332
     },
     {
       "code": "000831",
@@ -19412,7 +19361,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 334
+      "review_rank": 333
     },
     {
       "code": "002518",
@@ -19471,7 +19420,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 335
+      "review_rank": 334
     },
     {
       "code": "600641",
@@ -19532,7 +19481,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 336
+      "review_rank": 335
     },
     {
       "code": "600503",
@@ -19592,7 +19541,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 337
+      "review_rank": 336
     },
     {
       "code": "002084",
@@ -19652,7 +19601,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 338
+      "review_rank": 337
     },
     {
       "code": "600186",
@@ -19706,6 +19655,67 @@
           "entry_price_failed",
           "exited_negative_feedback",
           "post_recommend_drawdown_too_deep"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 338
+    },
+    {
+      "code": "603228",
+      "name": "景旺电子",
+      "theme": "PCB",
+      "board": "沪市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-18",
+      "first_recommend_price": 81.06,
+      "first_rank": null,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 72.4,
+      "first_entry_price_lower": 71.34,
+      "first_entry_price_upper": 73.99,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 7.22,
+      "first_entry_safety_adjustment_pct": null,
+      "first_entry_safety_label": null,
+      "first_entry_safety_risk_flag": null,
+      "first_entry_safety_block_buy": null,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -20.43,
+      "entry_drawdown_from_first_entry_pct": -20.43,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 5,
+      "latest_date": "2026-11-03",
+      "latest_price": 57.61,
+      "latest_source": "latest_quote",
+      "tracking_days": 138,
+      "snapshot_count": 32,
+      "return_since_first_pct": -28.93,
+      "max_return_since_first_pct": 37.86,
+      "drawdown_from_peak_pct": -48.45,
+      "best_close": 111.75,
+      "best_date": "2026-09-11",
+      "worst_close": 57.61,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "AI半导体",
+        "factors": [
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "exited_negative_feedback",
+          "first_recommend_price_far_above_entry",
+          "post_recommend_drawdown_too_deep",
+          "profit_not_protected"
         ],
         "model_action": "收紧接入价并提高触达后回撤惩罚。"
       },
@@ -20294,7 +20304,7 @@
       "latest_price": 15.13,
       "latest_source": "latest_quote",
       "tracking_days": 21,
-      "snapshot_count": 9,
+      "snapshot_count": 8,
       "return_since_first_pct": -29.6,
       "max_return_since_first_pct": 2.14,
       "drawdown_from_peak_pct": -31.07,
@@ -20320,68 +20330,6 @@
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
       "review_rank": 349
-    },
-    {
-      "code": "002371",
-      "name": "北方华创",
-      "theme": "半导体设备",
-      "board": "深市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 721.04,
-      "first_rank": null,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 630.94,
-      "first_entry_price_lower": 616.59,
-      "first_entry_price_upper": 652.46,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 18.47,
-      "first_entry_safety_adjustment_pct": null,
-      "first_entry_safety_label": null,
-      "first_entry_safety_risk_flag": null,
-      "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -19.68,
-      "entry_drawdown_from_first_entry_pct": -20.12,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 6,
-      "latest_date": "2026-11-03",
-      "latest_price": 506.8,
-      "latest_source": "latest_quote",
-      "tracking_days": 138,
-      "snapshot_count": 29,
-      "return_since_first_pct": -29.71,
-      "max_return_since_first_pct": 29.72,
-      "drawdown_from_peak_pct": -45.82,
-      "best_close": 935.36,
-      "best_date": "2026-07-01",
-      "worst_close": 504.0,
-      "worst_date": "2026-11-02",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "AI半导体",
-        "factors": [
-          "entry_gap_too_high",
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "exited_negative_feedback",
-          "first_recommend_price_far_above_entry",
-          "post_recommend_drawdown_too_deep",
-          "profit_not_protected"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 350
     },
     {
       "code": "600629",
@@ -20442,7 +20390,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 351
+      "review_rank": 350
     },
     {
       "code": "603396",
@@ -20503,7 +20451,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 352
+      "review_rank": 351
     },
     {
       "code": "605168",
@@ -20564,7 +20512,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 353
+      "review_rank": 352
     },
     {
       "code": "600371",
@@ -20623,7 +20571,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "降低首推价偏离过高样本权重，强化等待纪律。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 354
+      "review_rank": 353
     },
     {
       "code": "002741",
@@ -20684,7 +20632,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 355
+      "review_rank": 354
     },
     {
       "code": "002866",
@@ -20745,7 +20693,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 356
+      "review_rank": 355
     },
     {
       "code": "002824",
@@ -20804,7 +20752,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 357
+      "review_rank": 356
     },
     {
       "code": "600111",
@@ -20865,7 +20813,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 358
+      "review_rank": 357
     },
     {
       "code": "000962",
@@ -20924,7 +20872,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 359
+      "review_rank": 358
     },
     {
       "code": "000628",
@@ -20986,7 +20934,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 360
+      "review_rank": 359
     },
     {
       "code": "603068",
@@ -21047,7 +20995,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 361
+      "review_rank": 360
     },
     {
       "code": "601127",
@@ -21107,7 +21055,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 362
+      "review_rank": 361
     },
     {
       "code": "600545",
@@ -21166,6 +21114,68 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 362
+    },
+    {
+      "code": "002371",
+      "name": "北方华创",
+      "theme": "半导体设备",
+      "board": "深市主板",
+      "active_in_current_pool": true,
+      "current_rank": 8,
+      "current_status_key": "wait",
+      "first_recommend_date": "2026-06-18",
+      "first_recommend_price": 721.04,
+      "first_rank": null,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 630.94,
+      "first_entry_price_lower": 616.59,
+      "first_entry_price_upper": 652.46,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 18.47,
+      "first_entry_safety_adjustment_pct": null,
+      "first_entry_safety_label": null,
+      "first_entry_safety_risk_flag": null,
+      "first_entry_safety_block_buy": null,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -22.6,
+      "entry_drawdown_from_first_entry_pct": -22.6,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 8,
+      "latest_date": "2026-11-03",
+      "latest_price": 488.37,
+      "latest_source": "current_pool",
+      "tracking_days": 138,
+      "snapshot_count": 30,
+      "return_since_first_pct": -32.27,
+      "max_return_since_first_pct": 29.72,
+      "drawdown_from_peak_pct": -47.79,
+      "best_close": 935.36,
+      "best_date": "2026-07-01",
+      "worst_close": 488.37,
+      "worst_date": "2026-11-03",
+      "review_status": "当前池中-负反馈",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "AI半导体",
+        "factors": [
+          "entry_gap_too_high",
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "first_recommend_price_far_above_entry",
+          "post_recommend_drawdown_too_deep",
+          "profit_not_protected",
+          "still_active_negative_feedback"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "仍在最新推荐池中，但推荐后回撤较明显，需要复核逻辑和风控。",
       "review_rank": 363
     },
     {
@@ -22131,66 +22141,6 @@
       "review_rank": 379
     },
     {
-      "code": "601179",
-      "name": "中国西电",
-      "theme": "特高压/电力设备",
-      "board": "沪市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-22",
-      "first_recommend_price": 16.79,
-      "first_rank": null,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 14.97,
-      "first_entry_price_lower": 14.59,
-      "first_entry_price_upper": 15.53,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 8.14,
-      "first_entry_safety_adjustment_pct": null,
-      "first_entry_safety_label": null,
-      "first_entry_safety_risk_flag": null,
-      "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -27.99,
-      "entry_drawdown_from_first_entry_pct": -28.99,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 7,
-      "latest_date": "2026-11-03",
-      "latest_price": 10.78,
-      "latest_source": "latest_quote",
-      "tracking_days": 134,
-      "snapshot_count": 9,
-      "return_since_first_pct": -35.8,
-      "max_return_since_first_pct": 0.0,
-      "drawdown_from_peak_pct": -35.8,
-      "best_close": 16.79,
-      "best_date": "2026-06-22",
-      "worst_close": 10.63,
-      "worst_date": "2026-11-02",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "电力设备",
-        "factors": [
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "exited_negative_feedback",
-          "first_recommend_price_far_above_entry",
-          "post_recommend_drawdown_too_deep"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 380
-    },
-    {
       "code": "002303",
       "name": "美盈森",
       "theme": "动态强势候选",
@@ -22249,7 +22199,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 381
+      "review_rank": 380
     },
     {
       "code": "002080",
@@ -22309,7 +22259,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 382
+      "review_rank": 381
     },
     {
       "code": "600330",
@@ -22361,6 +22311,66 @@
           "entry_price_adverse_drawdown",
           "entry_price_failed",
           "exited_negative_feedback",
+          "post_recommend_drawdown_too_deep"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 382
+    },
+    {
+      "code": "601179",
+      "name": "中国西电",
+      "theme": "特高压/电力设备",
+      "board": "沪市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-22",
+      "first_recommend_price": 16.79,
+      "first_rank": null,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 14.97,
+      "first_entry_price_lower": 14.59,
+      "first_entry_price_upper": 15.53,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 8.14,
+      "first_entry_safety_adjustment_pct": null,
+      "first_entry_safety_label": null,
+      "first_entry_safety_risk_flag": null,
+      "first_entry_safety_block_buy": null,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -28.66,
+      "entry_drawdown_from_first_entry_pct": -28.66,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 7,
+      "latest_date": "2026-11-03",
+      "latest_price": 10.68,
+      "latest_source": "latest_quote",
+      "tracking_days": 134,
+      "snapshot_count": 9,
+      "return_since_first_pct": -36.39,
+      "max_return_since_first_pct": 0.0,
+      "drawdown_from_peak_pct": -36.39,
+      "best_close": 16.79,
+      "best_date": "2026-06-22",
+      "worst_close": 10.68,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "电力设备",
+        "factors": [
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "exited_negative_feedback",
+          "first_recommend_price_far_above_entry",
           "post_recommend_drawdown_too_deep"
         ],
         "model_action": "收紧接入价并提高触达后回撤惩罚。"
@@ -22675,68 +22685,6 @@
       "review_rank": 388
     },
     {
-      "code": "000630",
-      "name": "铜陵有色",
-      "theme": "铜/有色金属",
-      "board": "深市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 7.65,
-      "first_rank": 10,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 6.55,
-      "first_entry_price_lower": 6.38,
-      "first_entry_price_upper": 6.81,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 16.82,
-      "first_entry_safety_adjustment_pct": null,
-      "first_entry_safety_label": null,
-      "first_entry_safety_risk_flag": null,
-      "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -26.26,
-      "entry_drawdown_from_first_entry_pct": -27.02,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 7,
-      "latest_date": "2026-11-03",
-      "latest_price": 4.83,
-      "latest_source": "latest_quote",
-      "tracking_days": 138,
-      "snapshot_count": 21,
-      "return_since_first_pct": -36.86,
-      "max_return_since_first_pct": 3.66,
-      "drawdown_from_peak_pct": -39.09,
-      "best_close": 7.93,
-      "best_date": "2026-06-22",
-      "worst_close": 4.78,
-      "worst_date": "2026-11-02",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "资源周期",
-        "factors": [
-          "entry_gap_too_high",
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "exited_negative_feedback",
-          "first_recommend_price_far_above_entry",
-          "post_recommend_drawdown_too_deep",
-          "theme_volatility_or_rotation"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 389
-    },
-    {
       "code": "600178",
       "name": "东安动力",
       "theme": "动态强势候选",
@@ -22795,7 +22743,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 390
+      "review_rank": 389
     },
     {
       "code": "002491",
@@ -22854,7 +22802,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 391
+      "review_rank": 390
     },
     {
       "code": "603067",
@@ -22908,6 +22856,68 @@
           "entry_price_failed",
           "exited_negative_feedback",
           "post_recommend_drawdown_too_deep"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 391
+    },
+    {
+      "code": "000630",
+      "name": "铜陵有色",
+      "theme": "铜/有色金属",
+      "board": "深市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-18",
+      "first_recommend_price": 7.65,
+      "first_rank": 10,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 6.55,
+      "first_entry_price_lower": 6.38,
+      "first_entry_price_upper": 6.81,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 16.82,
+      "first_entry_safety_adjustment_pct": null,
+      "first_entry_safety_label": null,
+      "first_entry_safety_risk_flag": null,
+      "first_entry_safety_block_buy": null,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -27.02,
+      "entry_drawdown_from_first_entry_pct": -27.02,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 7,
+      "latest_date": "2026-11-03",
+      "latest_price": 4.78,
+      "latest_source": "latest_quote",
+      "tracking_days": 138,
+      "snapshot_count": 21,
+      "return_since_first_pct": -37.52,
+      "max_return_since_first_pct": 3.66,
+      "drawdown_from_peak_pct": -39.72,
+      "best_close": 7.93,
+      "best_date": "2026-06-22",
+      "worst_close": 4.78,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "资源周期",
+        "factors": [
+          "entry_gap_too_high",
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "exited_negative_feedback",
+          "first_recommend_price_far_above_entry",
+          "post_recommend_drawdown_too_deep",
+          "theme_volatility_or_rotation"
         ],
         "model_action": "收紧接入价并提高触达后回撤惩罚。"
       },
@@ -23222,66 +23232,6 @@
       "review_rank": 397
     },
     {
-      "code": "600584",
-      "name": "长电科技",
-      "theme": "先进封装",
-      "board": "沪市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 83.03,
-      "first_rank": null,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 64.73,
-      "first_entry_price_lower": 63.11,
-      "first_entry_price_upper": 67.14,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "trend_wait",
-      "first_buy_signal_label": "上涨趋势等待",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 6.6,
-      "first_entry_safety_adjustment_pct": 0.6,
-      "first_entry_safety_label": "接入验证较好",
-      "first_entry_safety_risk_flag": false,
-      "first_entry_safety_block_buy": false,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -23.88,
-      "entry_drawdown_from_first_entry_pct": -23.88,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 9,
-      "latest_date": "2026-11-03",
-      "latest_price": 49.27,
-      "latest_source": "latest_quote",
-      "tracking_days": 138,
-      "snapshot_count": 4,
-      "return_since_first_pct": -40.66,
-      "max_return_since_first_pct": 0.0,
-      "drawdown_from_peak_pct": -40.66,
-      "best_close": 83.03,
-      "best_date": "2026-06-18",
-      "worst_close": 49.27,
-      "worst_date": "2026-11-03",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "AI半导体",
-        "factors": [
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "exited_negative_feedback",
-          "first_recommend_price_far_above_entry",
-          "post_recommend_drawdown_too_deep"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 398
-    },
-    {
       "code": "601869",
       "name": "长飞光纤",
       "theme": "动态强势候选",
@@ -23340,7 +23290,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 399
+      "review_rank": 398
     },
     {
       "code": "000993",
@@ -23401,127 +23351,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 400
-    },
-    {
-      "code": "002156",
-      "name": "通富微电",
-      "theme": "先进封装",
-      "board": "深市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 68.27,
-      "first_rank": null,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 63.42,
-      "first_entry_price_lower": 62.13,
-      "first_entry_price_upper": 65.37,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 7.88,
-      "first_entry_safety_adjustment_pct": null,
-      "first_entry_safety_label": null,
-      "first_entry_safety_risk_flag": null,
-      "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -36.74,
-      "entry_drawdown_from_first_entry_pct": -36.74,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 10,
-      "latest_date": "2026-11-03",
-      "latest_price": 40.12,
-      "latest_source": "latest_quote",
-      "tracking_days": 138,
-      "snapshot_count": 8,
-      "return_since_first_pct": -41.23,
-      "max_return_since_first_pct": 7.76,
-      "drawdown_from_peak_pct": -45.47,
-      "best_close": 73.57,
-      "best_date": "2026-07-13",
-      "worst_close": 40.12,
-      "worst_date": "2026-11-03",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "AI半导体",
-        "factors": [
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "exited_negative_feedback",
-          "post_recommend_drawdown_too_deep",
-          "profit_not_protected"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 401
-    },
-    {
-      "code": "002028",
-      "name": "思源电气",
-      "theme": "输变电设备",
-      "board": "深市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 190.2,
-      "first_rank": 1,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 176.0,
-      "first_entry_price_lower": 171.62,
-      "first_entry_price_upper": 182.58,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 8.07,
-      "first_entry_safety_adjustment_pct": null,
-      "first_entry_safety_label": null,
-      "first_entry_safety_risk_flag": null,
-      "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -36.72,
-      "entry_drawdown_from_first_entry_pct": -39.96,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 8,
-      "latest_date": "2026-11-03",
-      "latest_price": 111.38,
-      "latest_source": "latest_quote",
-      "tracking_days": 138,
-      "snapshot_count": 24,
-      "return_since_first_pct": -41.44,
-      "max_return_since_first_pct": 5.78,
-      "drawdown_from_peak_pct": -44.64,
-      "best_close": 201.2,
-      "best_date": "2026-06-22",
-      "worst_close": 105.67,
-      "worst_date": "2026-11-02",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "电力设备",
-        "factors": [
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "exited_negative_feedback",
-          "post_recommend_drawdown_too_deep",
-          "profit_not_protected"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 402
+      "review_rank": 399
     },
     {
       "code": "603306",
@@ -23581,7 +23411,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 403
+      "review_rank": 400
     },
     {
       "code": "600353",
@@ -23640,7 +23470,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 404
+      "review_rank": 401
     },
     {
       "code": "000504",
@@ -23701,7 +23531,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 405
+      "review_rank": 402
     },
     {
       "code": "002897",
@@ -23763,7 +23593,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 406
+      "review_rank": 403
     },
     {
       "code": "002849",
@@ -23824,7 +23654,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 407
+      "review_rank": 404
     },
     {
       "code": "603936",
@@ -23885,7 +23715,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 408
+      "review_rank": 405
     },
     {
       "code": "603031",
@@ -23946,7 +23776,127 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 409
+      "review_rank": 406
+    },
+    {
+      "code": "600584",
+      "name": "长电科技",
+      "theme": "先进封装",
+      "board": "沪市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-18",
+      "first_recommend_price": 83.03,
+      "first_rank": null,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 64.73,
+      "first_entry_price_lower": 63.11,
+      "first_entry_price_upper": 67.14,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "trend_wait",
+      "first_buy_signal_label": "上涨趋势等待",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 6.6,
+      "first_entry_safety_adjustment_pct": 0.6,
+      "first_entry_safety_label": "接入验证较好",
+      "first_entry_safety_risk_flag": false,
+      "first_entry_safety_block_buy": false,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -26.74,
+      "entry_drawdown_from_first_entry_pct": -26.74,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 9,
+      "latest_date": "2026-11-03",
+      "latest_price": 47.42,
+      "latest_source": "latest_quote",
+      "tracking_days": 138,
+      "snapshot_count": 4,
+      "return_since_first_pct": -42.89,
+      "max_return_since_first_pct": 0.0,
+      "drawdown_from_peak_pct": -42.89,
+      "best_close": 83.03,
+      "best_date": "2026-06-18",
+      "worst_close": 47.42,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "AI半导体",
+        "factors": [
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "exited_negative_feedback",
+          "first_recommend_price_far_above_entry",
+          "post_recommend_drawdown_too_deep"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 407
+    },
+    {
+      "code": "002028",
+      "name": "思源电气",
+      "theme": "输变电设备",
+      "board": "深市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-18",
+      "first_recommend_price": 190.2,
+      "first_rank": 1,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 176.0,
+      "first_entry_price_lower": 171.62,
+      "first_entry_price_upper": 182.58,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 8.07,
+      "first_entry_safety_adjustment_pct": null,
+      "first_entry_safety_label": null,
+      "first_entry_safety_risk_flag": null,
+      "first_entry_safety_block_buy": null,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -38.41,
+      "entry_drawdown_from_first_entry_pct": -38.41,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 8,
+      "latest_date": "2026-11-03",
+      "latest_price": 108.4,
+      "latest_source": "latest_quote",
+      "tracking_days": 138,
+      "snapshot_count": 24,
+      "return_since_first_pct": -43.01,
+      "max_return_since_first_pct": 5.78,
+      "drawdown_from_peak_pct": -46.12,
+      "best_close": 201.2,
+      "best_date": "2026-06-22",
+      "worst_close": 108.4,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "电力设备",
+        "factors": [
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "exited_negative_feedback",
+          "post_recommend_drawdown_too_deep",
+          "profit_not_protected"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 408
     },
     {
       "code": "002957",
@@ -24005,7 +23955,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 410
+      "review_rank": 409
     },
     {
       "code": "002536",
@@ -24058,6 +24008,66 @@
           "entry_price_failed",
           "exited_negative_feedback",
           "post_recommend_drawdown_too_deep"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 410
+    },
+    {
+      "code": "002156",
+      "name": "通富微电",
+      "theme": "先进封装",
+      "board": "深市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-18",
+      "first_recommend_price": 68.27,
+      "first_rank": null,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 63.42,
+      "first_entry_price_lower": 62.13,
+      "first_entry_price_upper": 65.37,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 7.88,
+      "first_entry_safety_adjustment_pct": null,
+      "first_entry_safety_label": null,
+      "first_entry_safety_risk_flag": null,
+      "first_entry_safety_block_buy": null,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -39.2,
+      "entry_drawdown_from_first_entry_pct": -39.2,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 10,
+      "latest_date": "2026-11-03",
+      "latest_price": 38.56,
+      "latest_source": "latest_quote",
+      "tracking_days": 138,
+      "snapshot_count": 8,
+      "return_since_first_pct": -43.52,
+      "max_return_since_first_pct": 7.76,
+      "drawdown_from_peak_pct": -47.59,
+      "best_close": 73.57,
+      "best_date": "2026-07-13",
+      "worst_close": 38.56,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "AI半导体",
+        "factors": [
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "exited_negative_feedback",
+          "post_recommend_drawdown_too_deep",
+          "profit_not_protected"
         ],
         "model_action": "收紧接入价并提高触达后回撤惩罚。"
       },
@@ -24127,125 +24137,6 @@
       "review_rank": 412
     },
     {
-      "code": "002463",
-      "name": "沪电股份",
-      "theme": "AI PCB",
-      "board": "深市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 147.9,
-      "first_rank": null,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 130.61,
-      "first_entry_price_lower": 127.42,
-      "first_entry_price_upper": 135.41,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 9.76,
-      "first_entry_safety_adjustment_pct": null,
-      "first_entry_safety_label": null,
-      "first_entry_safety_risk_flag": null,
-      "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -36.56,
-      "entry_drawdown_from_first_entry_pct": -36.56,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 8,
-      "latest_date": "2026-11-03",
-      "latest_price": 82.86,
-      "latest_source": "latest_quote",
-      "tracking_days": 138,
-      "snapshot_count": 31,
-      "return_since_first_pct": -43.98,
-      "max_return_since_first_pct": 4.79,
-      "drawdown_from_peak_pct": -46.54,
-      "best_close": 154.99,
-      "best_date": "2026-06-25",
-      "worst_close": 82.86,
-      "worst_date": "2026-11-03",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "AI半导体",
-        "factors": [
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "exited_negative_feedback",
-          "first_recommend_price_far_above_entry",
-          "post_recommend_drawdown_too_deep"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 413
-    },
-    {
-      "code": "601138",
-      "name": "工业富联",
-      "theme": "AI服务器/算力基础设施",
-      "board": "沪市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 78.08,
-      "first_rank": null,
-      "first_status_key": null,
-      "first_source": "review_first",
-      "first_recommended_entry_price": 73.02,
-      "first_entry_price_lower": 72.41,
-      "first_entry_price_upper": 73.94,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 5.15,
-      "first_entry_safety_adjustment_pct": null,
-      "first_entry_safety_label": null,
-      "first_entry_safety_risk_flag": null,
-      "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -40.37,
-      "entry_drawdown_from_first_entry_pct": -40.37,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 9,
-      "latest_date": "2026-11-03",
-      "latest_price": 43.54,
-      "latest_source": "latest_quote",
-      "tracking_days": 138,
-      "snapshot_count": 42,
-      "return_since_first_pct": -44.24,
-      "max_return_since_first_pct": 0.0,
-      "drawdown_from_peak_pct": -44.24,
-      "best_close": 78.08,
-      "best_date": "2026-06-18",
-      "worst_close": 43.54,
-      "worst_date": "2026-11-03",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "AI半导体",
-        "factors": [
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "exited_negative_feedback",
-          "post_recommend_drawdown_too_deep"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 414
-    },
-    {
       "code": "002008",
       "name": "大族激光",
       "theme": "动态强势候选",
@@ -24303,7 +24194,7 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 415
+      "review_rank": 413
     },
     {
       "code": "000510",
@@ -24363,7 +24254,66 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 416
+      "review_rank": 414
+    },
+    {
+      "code": "601138",
+      "name": "工业富联",
+      "theme": "AI服务器/算力基础设施",
+      "board": "沪市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-18",
+      "first_recommend_price": 78.08,
+      "first_rank": null,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 73.02,
+      "first_entry_price_lower": 72.41,
+      "first_entry_price_upper": 73.94,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 5.15,
+      "first_entry_safety_adjustment_pct": null,
+      "first_entry_safety_label": null,
+      "first_entry_safety_risk_flag": null,
+      "first_entry_safety_block_buy": null,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -41.71,
+      "entry_drawdown_from_first_entry_pct": -41.71,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 9,
+      "latest_date": "2026-11-03",
+      "latest_price": 42.56,
+      "latest_source": "latest_quote",
+      "tracking_days": 138,
+      "snapshot_count": 42,
+      "return_since_first_pct": -45.49,
+      "max_return_since_first_pct": 0.0,
+      "drawdown_from_peak_pct": -45.49,
+      "best_close": 78.08,
+      "best_date": "2026-06-18",
+      "worst_close": 42.56,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "AI半导体",
+        "factors": [
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "exited_negative_feedback",
+          "post_recommend_drawdown_too_deep"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 415
     },
     {
       "code": "603083",
@@ -24424,132 +24374,67 @@
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 417
+      "review_rank": 416
     },
     {
-      "code": "002409",
-      "name": "雅克科技",
-      "theme": "电子材料",
+      "code": "002463",
+      "name": "沪电股份",
+      "theme": "AI PCB",
       "board": "深市主板",
       "active_in_current_pool": false,
       "current_rank": null,
       "current_status_key": null,
       "first_recommend_date": "2026-06-18",
-      "first_recommend_price": 150.16,
+      "first_recommend_price": 147.9,
       "first_rank": null,
       "first_status_key": null,
       "first_source": "review_first",
-      "first_recommended_entry_price": 124.07,
-      "first_entry_price_lower": 120.81,
-      "first_entry_price_upper": 128.96,
-      "first_buyable_price": 173.71,
-      "first_buy_signal_key": "breakout_buy",
-      "first_buy_signal_label": "可突破试探",
-      "first_is_buyable_now": true,
-      "first_entry_gap_pct": 39.47,
+      "first_recommended_entry_price": 130.61,
+      "first_entry_price_lower": 127.42,
+      "first_entry_price_upper": 135.41,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 9.76,
       "first_entry_safety_adjustment_pct": null,
       "first_entry_safety_label": null,
       "first_entry_safety_risk_flag": null,
       "first_entry_safety_block_buy": null,
-      "first_entry_reference_type": "buyable_price",
-      "entry_return_from_first_entry_pct": -54.23,
-      "entry_drawdown_from_first_entry_pct": -54.23,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 9,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -39.65,
+      "entry_drawdown_from_first_entry_pct": -39.65,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 8,
       "latest_date": "2026-11-03",
-      "latest_price": 79.51,
+      "latest_price": 78.82,
       "latest_source": "latest_quote",
       "tracking_days": 138,
-      "snapshot_count": 14,
-      "return_since_first_pct": -47.05,
-      "max_return_since_first_pct": 57.23,
-      "drawdown_from_peak_pct": -66.32,
-      "best_close": 236.09,
-      "best_date": "2026-07-01",
-      "worst_close": 79.51,
+      "snapshot_count": 31,
+      "return_since_first_pct": -46.71,
+      "max_return_since_first_pct": 4.79,
+      "drawdown_from_peak_pct": -49.15,
+      "best_close": 154.99,
+      "best_date": "2026-06-25",
+      "worst_close": 78.82,
       "worst_date": "2026-11-03",
       "review_status": "已调出-负收益",
       "review_attribution": {
         "primary": "negative_review",
         "theme_group": "AI半导体",
         "factors": [
-          "breakout_signal_failed",
-          "entry_gap_too_high",
           "entry_price_adverse_drawdown",
           "entry_price_failed",
-          "exited_negative_feedback",
-          "post_recommend_drawdown_too_deep",
-          "profit_not_protected"
-        ],
-        "model_action": "收紧接入价并提高触达后回撤惩罚。"
-      },
-      "review_primary_attribution": "negative_review",
-      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 418
-    },
-    {
-      "code": "000960",
-      "name": "锡业股份",
-      "theme": "锡/小金属",
-      "board": "深市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
-      "first_recommend_date": "2026-06-24",
-      "first_recommend_price": 44.67,
-      "first_rank": 9,
-      "first_status_key": "wait",
-      "first_source": "review_first",
-      "first_recommended_entry_price": 35.67,
-      "first_entry_price_lower": 34.78,
-      "first_entry_price_upper": 36.99,
-      "first_buyable_price": null,
-      "first_buy_signal_key": "wait",
-      "first_buy_signal_label": "等待触发",
-      "first_is_buyable_now": false,
-      "first_entry_gap_pct": 13.3,
-      "first_entry_safety_adjustment_pct": -2.4,
-      "first_entry_safety_label": "接入风险高",
-      "first_entry_safety_risk_flag": true,
-      "first_entry_safety_block_buy": false,
-      "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -33.89,
-      "entry_drawdown_from_first_entry_pct": -34.54,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 10,
-      "latest_date": "2026-11-03",
-      "latest_price": 23.58,
-      "latest_source": "latest_quote",
-      "tracking_days": 132,
-      "snapshot_count": 8,
-      "return_since_first_pct": -47.21,
-      "max_return_since_first_pct": 0.0,
-      "drawdown_from_peak_pct": -47.21,
-      "best_close": 44.67,
-      "best_date": "2026-06-24",
-      "worst_close": 23.35,
-      "worst_date": "2026-11-02",
-      "review_status": "已调出-负收益",
-      "review_attribution": {
-        "primary": "negative_review",
-        "theme_group": "资源周期",
-        "factors": [
-          "entry_gap_too_high",
-          "entry_price_adverse_drawdown",
-          "entry_price_failed",
-          "entry_safety_warning_was_present",
           "exited_negative_feedback",
           "first_recommend_price_far_above_entry",
-          "post_recommend_drawdown_too_deep",
-          "theme_volatility_or_rotation"
+          "post_recommend_drawdown_too_deep"
         ],
         "model_action": "收紧接入价并提高触达后回撤惩罚。"
       },
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
       "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
-      "review_rank": 419
+      "review_rank": 417
     },
     {
       "code": "001389",
@@ -24604,6 +24489,131 @@
           "exited_negative_feedback",
           "first_recommend_price_far_above_entry",
           "post_recommend_drawdown_too_deep"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 418
+    },
+    {
+      "code": "002409",
+      "name": "雅克科技",
+      "theme": "电子材料",
+      "board": "深市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-18",
+      "first_recommend_price": 150.16,
+      "first_rank": null,
+      "first_status_key": null,
+      "first_source": "review_first",
+      "first_recommended_entry_price": 124.07,
+      "first_entry_price_lower": 120.81,
+      "first_entry_price_upper": 128.96,
+      "first_buyable_price": 173.71,
+      "first_buy_signal_key": "breakout_buy",
+      "first_buy_signal_label": "可突破试探",
+      "first_is_buyable_now": true,
+      "first_entry_gap_pct": 39.47,
+      "first_entry_safety_adjustment_pct": null,
+      "first_entry_safety_label": null,
+      "first_entry_safety_risk_flag": null,
+      "first_entry_safety_block_buy": null,
+      "first_entry_reference_type": "buyable_price",
+      "entry_return_from_first_entry_pct": -56.05,
+      "entry_drawdown_from_first_entry_pct": -56.05,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 9,
+      "latest_date": "2026-11-03",
+      "latest_price": 76.35,
+      "latest_source": "latest_quote",
+      "tracking_days": 138,
+      "snapshot_count": 14,
+      "return_since_first_pct": -49.15,
+      "max_return_since_first_pct": 57.23,
+      "drawdown_from_peak_pct": -67.66,
+      "best_close": 236.09,
+      "best_date": "2026-07-01",
+      "worst_close": 76.35,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "AI半导体",
+        "factors": [
+          "breakout_signal_failed",
+          "entry_gap_too_high",
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "exited_negative_feedback",
+          "post_recommend_drawdown_too_deep",
+          "profit_not_protected"
+        ],
+        "model_action": "收紧接入价并提高触达后回撤惩罚。"
+      },
+      "review_primary_attribution": "negative_review",
+      "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
+      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "review_rank": 419
+    },
+    {
+      "code": "000960",
+      "name": "锡业股份",
+      "theme": "锡/小金属",
+      "board": "深市主板",
+      "active_in_current_pool": false,
+      "current_rank": null,
+      "current_status_key": null,
+      "first_recommend_date": "2026-06-24",
+      "first_recommend_price": 44.67,
+      "first_rank": 9,
+      "first_status_key": "wait",
+      "first_source": "review_first",
+      "first_recommended_entry_price": 35.67,
+      "first_entry_price_lower": 34.78,
+      "first_entry_price_upper": 36.99,
+      "first_buyable_price": null,
+      "first_buy_signal_key": "wait",
+      "first_buy_signal_label": "等待触发",
+      "first_is_buyable_now": false,
+      "first_entry_gap_pct": 13.3,
+      "first_entry_safety_adjustment_pct": -2.4,
+      "first_entry_safety_label": "接入风险高",
+      "first_entry_safety_risk_flag": true,
+      "first_entry_safety_block_buy": false,
+      "first_entry_reference_type": "recommended_entry_price",
+      "entry_return_from_first_entry_pct": -36.36,
+      "entry_drawdown_from_first_entry_pct": -36.36,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 10,
+      "latest_date": "2026-11-03",
+      "latest_price": 22.7,
+      "latest_source": "latest_quote",
+      "tracking_days": 132,
+      "snapshot_count": 8,
+      "return_since_first_pct": -49.18,
+      "max_return_since_first_pct": 0.0,
+      "drawdown_from_peak_pct": -49.18,
+      "best_close": 44.67,
+      "best_date": "2026-06-24",
+      "worst_close": 22.7,
+      "worst_date": "2026-11-03",
+      "review_status": "已调出-负收益",
+      "review_attribution": {
+        "primary": "negative_review",
+        "theme_group": "资源周期",
+        "factors": [
+          "entry_gap_too_high",
+          "entry_price_adverse_drawdown",
+          "entry_price_failed",
+          "entry_safety_warning_was_present",
+          "exited_negative_feedback",
+          "first_recommend_price_far_above_entry",
+          "post_recommend_drawdown_too_deep",
+          "theme_volatility_or_rotation"
         ],
         "model_action": "收紧接入价并提高触达后回撤惩罚。"
       },
@@ -24758,21 +24768,21 @@
       "first_entry_safety_risk_flag": true,
       "first_entry_safety_block_buy": false,
       "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -44.32,
-      "entry_drawdown_from_first_entry_pct": -44.32,
-      "last_seen_in_pool_date": "2026-11-02",
+      "entry_return_from_first_entry_pct": -46.69,
+      "entry_drawdown_from_first_entry_pct": -46.69,
+      "last_seen_in_pool_date": "2026-11-03",
       "last_seen_rank": 6,
       "latest_date": "2026-11-03",
-      "latest_price": 215.33,
+      "latest_price": 206.16,
       "latest_source": "latest_quote",
       "tracking_days": 138,
       "snapshot_count": 15,
-      "return_since_first_pct": -52.55,
+      "return_since_first_pct": -54.57,
       "max_return_since_first_pct": 0.9,
-      "drawdown_from_peak_pct": -52.97,
+      "drawdown_from_peak_pct": -54.98,
       "best_close": 457.9,
       "best_date": "2026-06-30",
-      "worst_close": 215.33,
+      "worst_close": 206.16,
       "worst_date": "2026-11-03",
       "review_status": "已调出-负收益",
       "review_attribution": {
@@ -24799,9 +24809,9 @@
       "name": "华工科技",
       "theme": "光模块/激光设备",
       "board": "深市主板",
-      "active_in_current_pool": false,
-      "current_rank": null,
-      "current_status_key": null,
+      "active_in_current_pool": true,
+      "current_rank": 9,
+      "current_status_key": "wait",
       "first_recommend_date": "2026-06-18",
       "first_recommend_price": 177.55,
       "first_rank": null,
@@ -24820,38 +24830,38 @@
       "first_entry_safety_risk_flag": null,
       "first_entry_safety_block_buy": null,
       "first_entry_reference_type": "recommended_entry_price",
-      "entry_return_from_first_entry_pct": -59.13,
-      "entry_drawdown_from_first_entry_pct": -59.13,
-      "last_seen_in_pool_date": "2026-11-02",
-      "last_seen_rank": 7,
+      "entry_return_from_first_entry_pct": -60.56,
+      "entry_drawdown_from_first_entry_pct": -60.56,
+      "last_seen_in_pool_date": "2026-11-03",
+      "last_seen_rank": 9,
       "latest_date": "2026-11-03",
-      "latest_price": 62.67,
-      "latest_source": "latest_quote",
+      "latest_price": 60.48,
+      "latest_source": "current_pool",
       "tracking_days": 138,
-      "snapshot_count": 27,
-      "return_since_first_pct": -64.7,
+      "snapshot_count": 28,
+      "return_since_first_pct": -65.94,
       "max_return_since_first_pct": 3.98,
-      "drawdown_from_peak_pct": -66.05,
+      "drawdown_from_peak_pct": -67.24,
       "best_close": 184.61,
       "best_date": "2026-06-30",
-      "worst_close": 62.67,
+      "worst_close": 60.48,
       "worst_date": "2026-11-03",
-      "review_status": "已调出-负收益",
+      "review_status": "当前池中-负反馈",
       "review_attribution": {
         "primary": "negative_review",
         "theme_group": "AI半导体",
         "factors": [
           "entry_price_adverse_drawdown",
           "entry_price_failed",
-          "exited_negative_feedback",
           "first_recommend_price_far_above_entry",
-          "post_recommend_drawdown_too_deep"
+          "post_recommend_drawdown_too_deep",
+          "still_active_negative_feedback"
         ],
         "model_action": "收紧接入价并提高触达后回撤惩罚。"
       },
       "review_primary_attribution": "negative_review",
       "review_model_action": "收紧接入价并提高触达后回撤惩罚。",
-      "comment": "不在最新推荐池中，历史推荐目前为负收益，后续用于模型复盘。",
+      "comment": "仍在最新推荐池中，但推荐后回撤较明显，需要复核逻辑和风控。",
       "review_rank": 424
     }
   ]
