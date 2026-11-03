@@ -1624,8 +1624,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-11-03T19:56:09+08:00|2026-11-03|20点次日关注",
+  "lastAutoRunKey": "2026-11-03T20:55:58+08:00|2026-11-03|20点次日关注",
   "autoLog": [
+    {
+      "runKey": "2026-11-03T20:55:58+08:00|2026-11-03|20点次日关注",
+      "at": "2026-11-03T20:55:58+08:00",
+      "tradeDate": "2026-11-03",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划1只：国电南瑞(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-11-03T19:56:09+08:00|2026-11-03|20点次日关注",
       "at": "2026-11-03T19:56:09+08:00",
@@ -2338,26 +2351,41 @@
           "summary": "更新云端计划2只：招商银行(watch)、双环传动(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-10-27T14:35:33+08:00|2026-10-27|13:30午后买入复检",
-      "at": "2026-10-27T14:35:33+08:00",
-      "tradeDate": "2026-10-27",
-      "phase": "13:30午后买入复检",
-      "phaseKey": "morning_entry",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "当前没有符合资金和风控约束的新计划"
-        },
-        {
-          "type": "buy_wait",
-          "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
+    {
+      "id": "600406-2026-11-03T20:55:58+08:00|2026-11-03|20点次日关注",
+      "code": "600406",
+      "name": "国电南瑞",
+      "status": "pending",
+      "signalDate": "2026-11-03",
+      "signalPhase": "evening_watch",
+      "createdRunKey": "2026-11-03T20:55:58+08:00|2026-11-03|20点次日关注",
+      "plannedExecutionPhase": "morning_entry",
+      "validUntilDate": "2026-11-04",
+      "plannedEntryPrice": 23.15,
+      "maxBuyPrice": 23.23,
+      "noChasePrice": 25.45,
+      "score": 7.6,
+      "buySignalKey": "wait",
+      "statusKey": "wait",
+      "entrySafetyBlockBuy": false,
+      "trendTradeEligible": true,
+      "trendLabel": "上涨趋势",
+      "marketFundHeatLabel": "资金热度未知",
+      "globalMarketLabel": "外盘中性",
+      "contextPositionMultiplier": 0.986,
+      "feedbackPositionMultiplier": 1.0,
+      "feedbackEvidenceLevel": "strong",
+      "entryEvidenceLevel": "insufficient",
+      "planType": "watch",
+      "targetPositionPct": 0.09860000000000001,
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "cancelReason": "",
+      "executedAt": "",
+      "executionPrice": null
+    },
     {
       "id": "600760-2026-11-03T19:56:09+08:00|2026-11-03|20点次日关注",
       "code": "600760",
@@ -2418,38 +2446,6 @@
       "planType": "executable",
       "targetPositionPct": 0.1946,
       "reason": "明确可买信号：可突破试探",
-      "cancelReason": "",
-      "executedAt": "",
-      "executionPrice": null
-    },
-    {
-      "id": "600406-2026-11-03T19:56:09+08:00|2026-11-03|20点次日关注",
-      "code": "600406",
-      "name": "国电南瑞",
-      "status": "pending",
-      "signalDate": "2026-11-03",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-11-03T19:56:09+08:00|2026-11-03|20点次日关注",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-11-04",
-      "plannedEntryPrice": 22.86,
-      "maxBuyPrice": 22.94,
-      "noChasePrice": 25.45,
-      "score": 8.7,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "trendTradeEligible": true,
-      "trendLabel": "上涨趋势",
-      "marketFundHeatLabel": "资金平稳",
-      "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 0.973,
-      "feedbackPositionMultiplier": 0.6,
-      "feedbackEvidenceLevel": "strong",
-      "entryEvidenceLevel": "insufficient",
-      "planType": "watch",
-      "targetPositionPct": 0.058379999999999994,
-      "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
       "executionPrice": null
@@ -3576,6 +3572,24 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-600406-2026-11-03T20:55:58+08:00",
+      "at": "2026-11-03T20:55:58+08:00",
+      "tradeDate": "2026-11-03",
+      "phase": "20点次日关注",
+      "phaseKey": "evening_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "600406",
+      "name": "国电南瑞",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 23.15,
+      "maxBuyPrice": 23.23,
+      "noChasePrice": 25.45,
+      "validUntilDate": "2026-11-04",
+      "score": 7.6
+    },
     {
       "id": "buy_plan_created-600085-2026-11-03T19:56:09+08:00",
       "at": "2026-11-03T19:56:09+08:00",
@@ -5300,24 +5314,6 @@
       "plannedEntryPrice": 36.54,
       "maxBuyPrice": 37.91,
       "score": 8.1
-    },
-    {
-      "id": "buy_plan_created-600893-2026-10-29T14:26:12+08:00",
-      "at": "2026-10-29T14:26:12+08:00",
-      "tradeDate": "2026-10-29",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600893",
-      "name": "航发动力",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 36.54,
-      "maxBuyPrice": 37.91,
-      "noChasePrice": 43.88,
-      "validUntilDate": "2026-10-30",
-      "score": 8.1
     }
   ],
   "exitReviews": [
@@ -5384,7 +5380,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 9.38,
           "returnPct": -0.106,
           "phase": "evening_watch",
@@ -5436,7 +5432,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 58.81,
           "returnPct": -1.01,
           "phase": "evening_watch",
@@ -5520,7 +5516,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 14.18,
           "returnPct": -4.189,
           "phase": "evening_watch",
@@ -5672,7 +5668,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 35.3,
           "returnPct": 0.028,
           "phase": "evening_watch",
@@ -5824,7 +5820,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 8.72,
           "returnPct": 15.04,
           "phase": "evening_watch",
@@ -6000,7 +5996,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 31.57,
           "returnPct": -5.451,
           "phase": "evening_watch",
@@ -6184,7 +6180,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 4.9,
           "returnPct": -2.97,
           "phase": "evening_watch",
@@ -6368,7 +6364,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 3.21,
           "returnPct": -20.741,
           "phase": "evening_watch",
@@ -6592,7 +6588,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 6.65,
           "returnPct": -8.149,
           "phase": "evening_watch",
@@ -6830,7 +6826,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 38.7,
           "returnPct": -2.421,
           "phase": "evening_watch",
@@ -7068,7 +7064,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 27.32,
           "returnPct": -47.512,
           "phase": "evening_watch",
@@ -7330,7 +7326,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 33.8,
           "returnPct": -35.459,
           "phase": "evening_watch",
@@ -7592,7 +7588,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 6.61,
           "returnPct": -24.371,
           "phase": "evening_watch",
@@ -7910,7 +7906,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 27.17,
           "returnPct": -20.764,
           "phase": "evening_watch",
@@ -8250,7 +8246,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 42.69,
           "returnPct": 3.97,
           "phase": "evening_watch",
@@ -8590,7 +8586,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 54.59,
           "returnPct": -3.02,
           "phase": "evening_watch",
@@ -8930,7 +8926,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 49.49,
           "returnPct": 5.365,
           "phase": "evening_watch",
@@ -9294,7 +9290,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 27.17,
           "returnPct": -17.517,
           "phase": "evening_watch",
@@ -9658,7 +9654,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 4.79,
           "returnPct": -25.851,
           "phase": "evening_watch",
@@ -10030,7 +10026,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 23.38,
           "returnPct": 3.223,
           "phase": "evening_watch",
@@ -10410,7 +10406,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 27.17,
           "returnPct": -19.257,
           "phase": "evening_watch",
@@ -10798,7 +10794,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 49.49,
           "returnPct": 7.121,
           "phase": "evening_watch",
@@ -11210,7 +11206,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 18.63,
           "returnPct": -28.208,
           "phase": "evening_watch",
@@ -11622,7 +11618,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 27.17,
           "returnPct": -18.58,
           "phase": "evening_watch",
@@ -12098,7 +12094,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 27.17,
           "returnPct": -15.752,
           "phase": "evening_watch",
@@ -12654,7 +12650,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 35.3,
           "returnPct": 2.349,
           "phase": "evening_watch",
@@ -13242,7 +13238,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 4.79,
           "returnPct": -20.432,
           "phase": "evening_watch",
@@ -13830,7 +13826,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 10.67,
           "returnPct": -23.071,
           "phase": "evening_watch",
@@ -14418,7 +14414,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 41.95,
           "returnPct": -30.821,
           "phase": "evening_watch",
@@ -15030,7 +15026,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 23.87,
           "returnPct": 1.359,
           "phase": "evening_watch",
@@ -15658,7 +15654,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 55.6,
           "returnPct": 7.919,
           "phase": "evening_watch",
@@ -16294,7 +16290,7 @@
         },
         "2026-11-03": {
           "date": "2026-11-03",
-          "at": "2026-11-03T19:56:09+08:00",
+          "at": "2026-11-03T20:55:58+08:00",
           "price": 27.17,
           "returnPct": -7.238,
           "phase": "evening_watch",
@@ -16576,8 +16572,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 757,
-    "plansCreated": 1353,
+    "snapshotsProcessed": 758,
+    "plansCreated": 1354,
     "buyChecks": 1793,
     "buysExecuted": 35,
     "sellsExecuted": 33,
@@ -16594,7 +16590,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 191
     },
-    "lastRunAt": "2026-11-03T19:56:09+08:00",
-    "lastRunSummary": "更新云端计划4只：中航沈飞(executable)、云南白药(executable)、国电南瑞(watch)、同仁堂(watch)"
+    "lastRunAt": "2026-11-03T20:55:58+08:00",
+    "lastRunSummary": "更新云端计划1只：国电南瑞(watch)"
   }
 }
