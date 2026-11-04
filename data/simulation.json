@@ -2,68 +2,53 @@
   "schemaVersion": 7,
   "cloudManaged": true,
   "initialCash": 100000.0,
-  "cash": 70117.7787,
-  "positions": {
-    "600312": {
-      "code": "600312",
-      "name": "平高电气",
-      "quantity": 200,
-      "costBasis": 4319.66,
-      "lots": [
-        {
-          "quantity": 200,
-          "price": 21.57,
-          "grossAmount": 4314.61,
-          "fees": 5.0431,
-          "costBasis": 4319.66,
-          "tradeDate": "2026-11-02",
-          "at": "2026-11-02T13:25:40+08:00",
-          "stopLossPrice": 20.34,
-          "takeProfitPrice": 22.08,
-          "highestPrice": 21.74,
-          "entryReason": "偏暖市场高分标的进入1.5个ATR缓冲区并通过止跌过滤，小仓试买",
-          "source": "cloud_auto"
-        }
-      ],
-      "stopLossPrice": 20.34,
-      "takeProfitPrice": 22.08,
-      "highestPrice": 21.74,
-      "entryReason": "偏暖市场高分标的进入1.5个ATR缓冲区并通过止跌过滤，小仓试买",
-      "themeGroup": "电力设备",
-      "updatedAt": "2026-11-02T13:25:40+08:00",
-      "scoreExitStreak": 1
-    },
-    "603345": {
+  "cash": 91868.8039,
+  "positions": {},
+  "trades": [
+    {
+      "id": "sell-603345-2026-11-04T14:26:37+08:00",
+      "at": "2026-11-04T14:26:37+08:00",
+      "tradeDate": "2026-11-04",
+      "type": "sell",
+      "source": "cloud_auto",
+      "reason": "评分连续两次跌破退出阈值",
       "code": "603345",
       "name": "安井食品",
+      "price": 87.32,
       "quantity": 200,
-      "costBasis": 17315.92,
-      "lots": [
-        {
-          "quantity": 200,
-          "price": 86.55,
-          "grossAmount": 17310.55,
-          "fees": 5.3663,
-          "costBasis": 17315.92,
-          "tradeDate": "2026-11-02",
-          "at": "2026-11-02T14:26:28+08:00",
-          "stopLossPrice": 81.62,
-          "takeProfitPrice": 96.94,
-          "highestPrice": 87.49,
-          "entryReason": "明确可买信号验证通过",
-          "source": "cloud_auto"
-        }
-      ],
-      "stopLossPrice": 81.62,
-      "takeProfitPrice": 96.94,
-      "highestPrice": 87.49,
-      "entryReason": "明确可买信号验证通过",
-      "themeGroup": "动态强势候选",
-      "updatedAt": "2026-11-02T14:26:28+08:00",
-      "scoreExitStreak": 1
-    }
-  },
-  "trades": [
+      "amount": 17463.0,
+      "grossAmount": 17463.0,
+      "netAmount": 17448.86,
+      "fees": {
+        "commission": 5.2389,
+        "stampDuty": 8.7315,
+        "transferFee": 0.1746,
+        "total": 14.145
+      },
+      "realizedPnl": 132.94
+    },
+    {
+      "id": "sell-600312-2026-11-04T14:26:37+08:00",
+      "at": "2026-11-04T14:26:37+08:00",
+      "tradeDate": "2026-11-04",
+      "type": "sell",
+      "source": "cloud_auto",
+      "reason": "评分连续两次跌破退出阈值",
+      "code": "600312",
+      "name": "平高电气",
+      "price": 21.55,
+      "quantity": 200,
+      "amount": 4309.36,
+      "grossAmount": 4309.36,
+      "netAmount": 4302.17,
+      "fees": {
+        "commission": 5.0,
+        "stampDuty": 2.1547,
+        "transferFee": 0.0431,
+        "total": 7.1978
+      },
+      "realizedPnl": -17.49
+    },
     {
       "id": "sell-000400-2026-11-03T14:27:27+08:00",
       "at": "2026-11-03T14:27:27+08:00",
@@ -1624,8 +1609,33 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-11-04T13:26:55+08:00|2026-11-04|13:30午后买入复检",
+  "lastAutoRunKey": "2026-11-04T14:26:37+08:00|2026-11-04|14:30尾盘风控",
   "autoLog": [
+    {
+      "runKey": "2026-11-04T14:26:37+08:00|2026-11-04|14:30尾盘风控",
+      "at": "2026-11-04T14:26:37+08:00",
+      "tradeDate": "2026-11-04",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "events": [
+        {
+          "type": "sell",
+          "summary": "云端卖出平高电气200股，原因：评分连续两次跌破退出阈值"
+        },
+        {
+          "type": "sell",
+          "summary": "云端卖出安井食品200股，原因：评分连续两次跌破退出阈值"
+        },
+        {
+          "type": "buy_plan",
+          "summary": "当前没有符合资金和风控约束的新计划"
+        },
+        {
+          "type": "buy_wait",
+          "summary": "本次买入复检未成交，原因已写入决策复盘"
+        }
+      ]
+    },
     {
       "runKey": "2026-11-04T13:26:55+08:00|2026-11-04|13:30午后买入复检",
       "at": "2026-11-04T13:26:55+08:00",
@@ -2344,19 +2354,6 @@
         {
           "type": "buy_wait",
           "summary": "本次买入复检未成交，原因已写入决策复盘"
-        }
-      ]
-    },
-    {
-      "runKey": "2026-10-27T23:12:38+08:00|2026-10-27|23:10隔夜外盘复核",
-      "at": "2026-10-27T23:12:38+08:00",
-      "tradeDate": "2026-10-27",
-      "phase": "23:10隔夜外盘复核",
-      "phaseKey": "overnight_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "更新云端计划1只：双环传动(watch)"
         }
       ]
     }
@@ -3321,73 +3318,46 @@
       "cancelReason": "模型或接入安全层硬拦截",
       "executedAt": "",
       "executionPrice": null
-    },
-    {
-      "id": "002129-2026-10-28T14:43:18+08:00|2026-10-28|14:30尾盘风控",
-      "code": "002129",
-      "name": "TCL中环",
-      "status": "executed",
-      "signalDate": "2026-10-28",
-      "signalPhase": "afternoon_risk",
-      "createdRunKey": "2026-10-28T14:43:18+08:00|2026-10-28|14:30尾盘风控",
-      "plannedExecutionPhase": "morning_entry",
-      "validUntilDate": "2026-10-29",
-      "plannedEntryPrice": 9.23,
-      "maxBuyPrice": 9.82,
-      "noChasePrice": 10.33,
-      "score": 8.9,
-      "buySignalKey": "wait",
-      "statusKey": "wait",
-      "entrySafetyBlockBuy": false,
-      "trendTradeEligible": true,
-      "trendLabel": "上涨趋势",
-      "marketFundHeatLabel": "资金平稳",
-      "globalMarketLabel": "外盘偏暖",
-      "contextPositionMultiplier": 1.0,
-      "feedbackPositionMultiplier": 1.0,
-      "feedbackEvidenceLevel": "strong",
-      "entryEvidenceLevel": "usable",
-      "planType": "trial",
-      "targetPositionPct": 0.1,
-      "reason": "偏暖市场高分候选，等待进入1.5个ATR波动缓冲区且通过止跌过滤后小仓试买",
-      "cancelReason": "",
-      "executedAt": "2026-10-28T14:43:18+08:00|2026-10-28|14:30尾盘风控",
-      "executionPrice": 9.63
     }
   ],
-  "sellPlans": {
-    "600312": {
-      "code": "600312",
-      "name": "平高电气",
-      "status": "pending",
-      "createdRunKey": "2026-11-03T09:56:57+08:00|2026-11-03|10点早盘接入",
-      "updatedRunKey": "2026-11-04T13:26:55+08:00|2026-11-04|13:30午后买入复检",
-      "plannedCheckPhase": "afternoon_risk",
-      "hardStopPrice": 20.34,
-      "takeProfitPrice": 22.08,
-      "trailingStopPct": 0.06,
-      "maxHoldDays": 10,
-      "sellPriority": "normal",
-      "warning": "",
-      "lastDecision": "继续持有"
-    },
-    "603345": {
+  "sellPlans": {},
+  "decisionJournal": [
+    {
+      "id": "sell_executed-603345-2026-11-04T14:26:37+08:00",
+      "at": "2026-11-04T14:26:37+08:00",
+      "tradeDate": "2026-11-04",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "sell_executed",
+      "status": "executed",
       "code": "603345",
       "name": "安井食品",
-      "status": "pending",
-      "createdRunKey": "2026-11-03T09:56:57+08:00|2026-11-03|10点早盘接入",
-      "updatedRunKey": "2026-11-04T13:26:55+08:00|2026-11-04|13:30午后买入复检",
-      "plannedCheckPhase": "afternoon_risk",
-      "hardStopPrice": 81.62,
-      "takeProfitPrice": 96.94,
-      "trailingStopPct": 0.06,
-      "maxHoldDays": 10,
-      "sellPriority": "normal",
-      "warning": "",
-      "lastDecision": "继续持有"
-    }
-  },
-  "decisionJournal": [
+      "summary": "云端自动卖出200股",
+      "reason": "评分连续两次跌破退出阈值",
+      "snapshotPrice": 87.49,
+      "executionPrice": 87.32,
+      "quantity": 200,
+      "feeTotal": 14.145,
+      "realizedPnl": 132.94
+    },
+    {
+      "id": "sell_executed-600312-2026-11-04T14:26:37+08:00",
+      "at": "2026-11-04T14:26:37+08:00",
+      "tradeDate": "2026-11-04",
+      "phase": "14:30尾盘风控",
+      "phaseKey": "afternoon_risk",
+      "type": "sell_executed",
+      "status": "executed",
+      "code": "600312",
+      "name": "平高电气",
+      "summary": "云端自动卖出200股",
+      "reason": "评分连续两次跌破退出阈值",
+      "snapshotPrice": 21.59,
+      "executionPrice": 21.55,
+      "quantity": 200,
+      "feeTotal": 7.1978,
+      "realizedPnl": -17.49
+    },
     {
       "id": "buy_cancelled-002275-2026-11-04T13:26:55+08:00",
       "at": "2026-11-04T13:26:55+08:00",
@@ -5102,43 +5072,79 @@
       "noChasePrice": 57.67,
       "validUntilDate": "2026-10-31",
       "score": 7.6
-    },
-    {
-      "id": "buy_plan_created-600085-2026-10-30T15:47:24+08:00",
-      "at": "2026-10-30T15:47:24+08:00",
-      "tradeDate": "2026-10-30",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "600085",
-      "name": "同仁堂",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 24.26,
-      "maxBuyPrice": 24.29,
-      "noChasePrice": 27.25,
-      "validUntilDate": "2026-10-31",
-      "score": 8.1
-    },
-    {
-      "id": "buy_cancelled-003006-2026-10-30T14:27:50+08:00",
-      "at": "2026-10-30T14:27:50+08:00",
-      "tradeDate": "2026-10-30",
-      "phase": "14:30尾盘风控",
-      "phaseKey": "afternoon_risk",
-      "type": "buy_cancelled",
-      "status": "cancelled",
-      "code": "003006",
-      "name": "百亚股份",
-      "summary": "调出股票池后取消买入",
-      "reason": "股票已调出最新池，取消旧买入计划",
-      "plannedEntryPrice": 22.08,
-      "maxBuyPrice": 22.27,
-      "score": 7.9
     }
   ],
   "exitReviews": [
+    {
+      "id": "sell-603345-2026-11-04T14:26:37+08:00",
+      "tradeId": "sell-603345-2026-11-04T14:26:37+08:00",
+      "code": "603345",
+      "name": "安井食品",
+      "exitAt": "2026-11-04T14:26:37+08:00",
+      "exitDate": "2026-11-04",
+      "exitPrice": 87.32,
+      "quantity": 200,
+      "reason": "评分连续两次跌破退出阈值",
+      "reasonKey": "score_exit",
+      "reasonLabel": "评分退出",
+      "realizedPnl": 132.94,
+      "realizedReturnPct": 0.768,
+      "entryAt": "2026-11-02T14:26:28+08:00",
+      "entryPrice": 86.55,
+      "entryReason": "明确可买信号验证通过",
+      "dailyPrices": {},
+      "milestones": {
+        "3": null,
+        "5": null,
+        "20": null,
+        "30": null
+      },
+      "observedTradingDays": 0,
+      "currentDate": null,
+      "currentPrice": null,
+      "currentReturnPct": null,
+      "maxPostExitReturnPct": null,
+      "minPostExitReturnPct": null,
+      "latestMatureHorizon": null,
+      "qualityLabel": "等待3个交易日样本",
+      "modelAction": "样本尚未成熟，不调整卖出参数。",
+      "feedbackEligible": false
+    },
+    {
+      "id": "sell-600312-2026-11-04T14:26:37+08:00",
+      "tradeId": "sell-600312-2026-11-04T14:26:37+08:00",
+      "code": "600312",
+      "name": "平高电气",
+      "exitAt": "2026-11-04T14:26:37+08:00",
+      "exitDate": "2026-11-04",
+      "exitPrice": 21.55,
+      "quantity": 200,
+      "reason": "评分连续两次跌破退出阈值",
+      "reasonKey": "score_exit",
+      "reasonLabel": "评分退出",
+      "realizedPnl": -17.49,
+      "realizedReturnPct": -0.405,
+      "entryAt": "2026-11-02T13:25:40+08:00",
+      "entryPrice": 21.57,
+      "entryReason": "偏暖市场高分标的进入1.5个ATR缓冲区并通过止跌过滤，小仓试买",
+      "dailyPrices": {},
+      "milestones": {
+        "3": null,
+        "5": null,
+        "20": null,
+        "30": null
+      },
+      "observedTradingDays": 0,
+      "currentDate": null,
+      "currentPrice": null,
+      "currentReturnPct": null,
+      "maxPostExitReturnPct": null,
+      "minPostExitReturnPct": null,
+      "latestMatureHorizon": null,
+      "qualityLabel": "等待3个交易日样本",
+      "modelAction": "样本尚未成熟，不调整卖出参数。",
+      "feedbackEligible": false
+    },
     {
       "id": "sell-000400-2026-11-03T14:27:27+08:00",
       "tradeId": "sell-000400-2026-11-03T14:27:27+08:00",
@@ -5159,10 +5165,10 @@
       "dailyPrices": {
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 24.84,
           "returnPct": 0.202,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5219,10 +5225,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 9.38,
           "returnPct": -0.106,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5279,10 +5285,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 58.81,
           "returnPct": -1.01,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5371,10 +5377,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 14.47,
           "returnPct": -2.23,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5531,10 +5537,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 35.12,
-          "returnPct": -0.482,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 35.4,
+          "returnPct": 0.312,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5558,8 +5564,8 @@
       },
       "observedTradingDays": 14,
       "currentDate": "2026-11-04",
-      "currentPrice": 35.12,
-      "currentReturnPct": -0.482,
+      "currentPrice": 35.4,
+      "currentReturnPct": 0.312,
       "maxPostExitReturnPct": 2.182,
       "minPostExitReturnPct": -5.384,
       "latestMatureHorizon": 5,
@@ -5691,10 +5697,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 8.72,
           "returnPct": 15.04,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -5875,10 +5881,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 31.57,
           "returnPct": -5.451,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -6067,10 +6073,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 4.9,
           "returnPct": -2.97,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -6259,10 +6265,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 3.21,
           "returnPct": -20.741,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -6491,10 +6497,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 6.65,
           "returnPct": -8.149,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -6737,10 +6743,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 38.43,
-          "returnPct": -3.101,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 39.36,
+          "returnPct": -0.756,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -6770,8 +6776,8 @@
       },
       "observedTradingDays": 24,
       "currentDate": "2026-11-04",
-      "currentPrice": 38.43,
-      "currentReturnPct": -3.101,
+      "currentPrice": 39.36,
+      "currentReturnPct": -0.756,
       "maxPostExitReturnPct": 3.883,
       "minPostExitReturnPct": -6.581,
       "latestMatureHorizon": 20,
@@ -6983,10 +6989,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 27.32,
           "returnPct": -47.512,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -7253,10 +7259,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 33.8,
           "returnPct": -35.459,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -7523,10 +7529,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 6.61,
           "returnPct": -24.371,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -7849,10 +7855,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 28.27,
-          "returnPct": -17.556,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 29.38,
+          "returnPct": -14.319,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -7888,8 +7894,8 @@
       },
       "observedTradingDays": 34,
       "currentDate": "2026-11-04",
-      "currentPrice": 28.27,
-      "currentReturnPct": -17.556,
+      "currentPrice": 29.38,
+      "currentReturnPct": -14.319,
       "maxPostExitReturnPct": -0.525,
       "minPostExitReturnPct": -21.726,
       "latestMatureHorizon": 30,
@@ -8197,10 +8203,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 42.53,
-          "returnPct": 3.58,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 42.33,
+          "returnPct": 3.093,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -8236,8 +8242,8 @@
       },
       "observedTradingDays": 36,
       "currentDate": "2026-11-04",
-      "currentPrice": 42.53,
-      "currentReturnPct": 3.58,
+      "currentPrice": 42.33,
+      "currentReturnPct": 3.093,
       "maxPostExitReturnPct": 6.064,
       "minPostExitReturnPct": -1.34,
       "latestMatureHorizon": 30,
@@ -8545,10 +8551,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 54.34,
-          "returnPct": -3.464,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 54.07,
+          "returnPct": -3.944,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -8584,8 +8590,8 @@
       },
       "observedTradingDays": 36,
       "currentDate": "2026-11-04",
-      "currentPrice": 54.34,
-      "currentReturnPct": -3.464,
+      "currentPrice": 54.07,
+      "currentReturnPct": -3.944,
       "maxPostExitReturnPct": 0.497,
       "minPostExitReturnPct": -9.504,
       "latestMatureHorizon": 30,
@@ -8893,10 +8899,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 48.88,
-          "returnPct": 4.066,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 48.48,
+          "returnPct": 3.215,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -8932,8 +8938,8 @@
       },
       "observedTradingDays": 36,
       "currentDate": "2026-11-04",
-      "currentPrice": 48.88,
-      "currentReturnPct": 4.066,
+      "currentPrice": 48.48,
+      "currentReturnPct": 3.215,
       "maxPostExitReturnPct": 5.365,
       "minPostExitReturnPct": -9.197,
       "latestMatureHorizon": 30,
@@ -9265,10 +9271,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 28.27,
-          "returnPct": -14.177,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 29.38,
+          "returnPct": -10.808,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -9304,8 +9310,8 @@
       },
       "observedTradingDays": 39,
       "currentDate": "2026-11-04",
-      "currentPrice": 28.27,
-      "currentReturnPct": -14.177,
+      "currentPrice": 29.38,
+      "currentReturnPct": -10.808,
       "maxPostExitReturnPct": 4.432,
       "minPostExitReturnPct": -18.519,
       "latestMatureHorizon": 30,
@@ -9637,10 +9643,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 4.82,
-          "returnPct": -25.387,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 4.94,
+          "returnPct": -23.529,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -9676,8 +9682,8 @@
       },
       "observedTradingDays": 39,
       "currentDate": "2026-11-04",
-      "currentPrice": 4.82,
-      "currentReturnPct": -25.387,
+      "currentPrice": 4.94,
+      "currentReturnPct": -23.529,
       "maxPostExitReturnPct": 1.703,
       "minPostExitReturnPct": -26.006,
       "latestMatureHorizon": 30,
@@ -10017,10 +10023,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 23.45,
           "returnPct": 3.532,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -10405,10 +10411,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 28.27,
-          "returnPct": -15.988,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 29.38,
+          "returnPct": -12.689,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -10444,8 +10450,8 @@
       },
       "observedTradingDays": 41,
       "currentDate": "2026-11-04",
-      "currentPrice": 28.27,
-      "currentReturnPct": -15.988,
+      "currentPrice": 29.38,
+      "currentReturnPct": -12.689,
       "maxPostExitReturnPct": 2.229,
       "minPostExitReturnPct": -20.238,
       "latestMatureHorizon": 30,
@@ -10801,10 +10807,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 48.88,
-          "returnPct": 5.801,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 48.48,
+          "returnPct": 4.935,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -10840,8 +10846,8 @@
       },
       "observedTradingDays": 42,
       "currentDate": "2026-11-04",
-      "currentPrice": 48.88,
-      "currentReturnPct": 5.801,
+      "currentPrice": 48.48,
+      "currentReturnPct": 4.935,
       "maxPostExitReturnPct": 7.121,
       "minPostExitReturnPct": -7.684,
       "latestMatureHorizon": 30,
@@ -11221,10 +11227,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 19.8,
-          "returnPct": -23.699,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 20.37,
+          "returnPct": -21.503,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -11260,8 +11266,8 @@
       },
       "observedTradingDays": 45,
       "currentDate": "2026-11-04",
-      "currentPrice": 19.8,
-      "currentReturnPct": -23.699,
+      "currentPrice": 20.37,
+      "currentReturnPct": -21.503,
       "maxPostExitReturnPct": 2.852,
       "minPostExitReturnPct": -28.632,
       "latestMatureHorizon": 30,
@@ -11641,10 +11647,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 28.27,
-          "returnPct": -15.283,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 29.38,
+          "returnPct": -11.957,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -11680,8 +11686,8 @@
       },
       "observedTradingDays": 45,
       "currentDate": "2026-11-04",
-      "currentPrice": 28.27,
-      "currentReturnPct": -15.283,
+      "currentPrice": 29.38,
+      "currentReturnPct": -11.957,
       "maxPostExitReturnPct": 3.836,
       "minPostExitReturnPct": -19.568,
       "latestMatureHorizon": 30,
@@ -12125,10 +12131,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 28.27,
-          "returnPct": -12.341,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 29.38,
+          "returnPct": -8.899,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -12164,8 +12170,8 @@
       },
       "observedTradingDays": 53,
       "currentDate": "2026-11-04",
-      "currentPrice": 28.27,
-      "currentReturnPct": -12.341,
+      "currentPrice": 29.38,
+      "currentReturnPct": -8.899,
       "maxPostExitReturnPct": 7.721,
       "minPostExitReturnPct": -16.775,
       "latestMatureHorizon": 30,
@@ -12689,10 +12695,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 35.12,
-          "returnPct": 1.827,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 35.4,
+          "returnPct": 2.638,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -12728,8 +12734,8 @@
       },
       "observedTradingDays": 63,
       "currentDate": "2026-11-04",
-      "currentPrice": 35.12,
-      "currentReturnPct": 1.827,
+      "currentPrice": 35.4,
+      "currentReturnPct": 2.638,
       "maxPostExitReturnPct": 18.933,
       "minPostExitReturnPct": -4.349,
       "latestMatureHorizon": 30,
@@ -13285,10 +13291,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 4.82,
-          "returnPct": -19.934,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 4.94,
+          "returnPct": -17.94,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -13324,8 +13330,8 @@
       },
       "observedTradingDays": 67,
       "currentDate": "2026-11-04",
-      "currentPrice": 4.82,
-      "currentReturnPct": -19.934,
+      "currentPrice": 4.94,
+      "currentReturnPct": -17.94,
       "maxPostExitReturnPct": 15.615,
       "minPostExitReturnPct": -20.598,
       "latestMatureHorizon": 30,
@@ -13881,10 +13887,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 10.81,
-          "returnPct": -22.062,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 10.97,
+          "returnPct": -20.908,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -13920,8 +13926,8 @@
       },
       "observedTradingDays": 67,
       "currentDate": "2026-11-04",
-      "currentPrice": 10.81,
-      "currentReturnPct": -22.062,
+      "currentPrice": 10.97,
+      "currentReturnPct": -20.908,
       "maxPostExitReturnPct": 3.893,
       "minPostExitReturnPct": -25.523,
       "latestMatureHorizon": 30,
@@ -14477,10 +14483,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 41.96,
-          "returnPct": -30.805,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 45.04,
+          "returnPct": -25.726,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -14516,8 +14522,8 @@
       },
       "observedTradingDays": 67,
       "currentDate": "2026-11-04",
-      "currentPrice": 41.96,
-      "currentReturnPct": -30.805,
+      "currentPrice": 45.04,
+      "currentReturnPct": -25.726,
       "maxPostExitReturnPct": 14.083,
       "minPostExitReturnPct": -30.821,
       "latestMatureHorizon": 30,
@@ -15097,10 +15103,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
+          "at": "2026-11-04T14:26:37+08:00",
           "price": 23.83,
           "returnPct": 1.189,
-          "phase": "morning_entry",
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -15733,10 +15739,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 55.33,
-          "returnPct": 7.395,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 54.91,
+          "returnPct": 6.58,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -15772,8 +15778,8 @@
       },
       "observedTradingDays": 72,
       "currentDate": "2026-11-04",
-      "currentPrice": 55.33,
-      "currentReturnPct": 7.395,
+      "currentPrice": 54.91,
+      "currentReturnPct": 6.58,
       "maxPostExitReturnPct": 7.919,
       "minPostExitReturnPct": -4.251,
       "latestMatureHorizon": 30,
@@ -16377,10 +16383,10 @@
         },
         "2026-11-04": {
           "date": "2026-11-04",
-          "at": "2026-11-04T13:26:55+08:00",
-          "price": 28.27,
-          "returnPct": -3.482,
-          "phase": "morning_entry",
+          "at": "2026-11-04T14:26:37+08:00",
+          "price": 29.38,
+          "returnPct": 0.307,
+          "phase": "afternoon_risk",
           "finalized": false
         }
       },
@@ -16416,8 +16422,8 @@
       },
       "observedTradingDays": 73,
       "currentDate": "2026-11-04",
-      "currentPrice": 28.27,
-      "currentReturnPct": -3.482,
+      "currentPrice": 29.38,
+      "currentReturnPct": 0.307,
       "maxPostExitReturnPct": 21.031,
       "minPostExitReturnPct": -8.365,
       "latestMatureHorizon": 30,
@@ -16435,7 +16441,7 @@
       20,
       30
     ],
-    "exitCount": 33,
+    "exitCount": 35,
     "maturedExitCount": 30,
     "minSamplesForAdjustment": 3,
     "confidence": "高",
@@ -16555,7 +16561,7 @@
       {
         "reasonKey": "score_exit",
         "reasonLabel": "评分退出",
-        "exitCount": 26,
+        "exitCount": 28,
         "horizons": [
           {
             "horizon": 3,
@@ -16659,11 +16665,11 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 762,
+    "snapshotsProcessed": 763,
     "plansCreated": 1365,
     "buyChecks": 1802,
     "buysExecuted": 35,
-    "sellsExecuted": 33,
+    "sellsExecuted": 35,
     "waitReasonCounts": {
       "观察计划尚未升级为可执行信号": 766,
       "股票不在最新池，云端继续观察但不执行": 684,
@@ -16677,7 +16683,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 199
     },
-    "lastRunAt": "2026-11-04T13:26:55+08:00",
-    "lastRunSummary": "当前没有符合资金和风控约束的新计划；本次买入复检未成交，原因已写入决策复盘"
+    "lastRunAt": "2026-11-04T14:26:37+08:00",
+    "lastRunSummary": "云端卖出平高电气200股，原因：评分连续两次跌破退出阈值；云端卖出安井食品200股，原因：评分连续两次跌破退出阈值；当前没有符合资金和风控约束的新计划；本次买入复检未成交，原因已写入决策复盘"
   }
 }
