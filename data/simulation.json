@@ -1797,8 +1797,21 @@
     "stampDutyRate": 0.0005,
     "transferFeeRate": 1e-05
   },
-  "lastAutoRunKey": "2026-11-13T22:45:26+08:00|2026-11-13|20点次日关注",
+  "lastAutoRunKey": "2026-11-13T23:12:56+08:00|2026-11-13|23:10隔夜外盘复核",
   "autoLog": [
+    {
+      "runKey": "2026-11-13T23:12:56+08:00|2026-11-13|23:10隔夜外盘复核",
+      "at": "2026-11-13T23:12:56+08:00",
+      "tradeDate": "2026-11-13",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "events": [
+        {
+          "type": "buy_plan",
+          "summary": "更新云端计划1只：云南白药(watch)"
+        }
+      ]
+    },
     {
       "runKey": "2026-11-13T22:45:26+08:00|2026-11-13|20点次日关注",
       "at": "2026-11-13T22:45:26+08:00",
@@ -2507,34 +2520,21 @@
           "summary": "更新云端计划2只：国电南瑞(watch)、中国联通(watch)"
         }
       ]
-    },
-    {
-      "runKey": "2026-11-06T21:04:02+08:00|2026-11-06|20点次日关注",
-      "at": "2026-11-06T21:04:02+08:00",
-      "tradeDate": "2026-11-06",
-      "phase": "20点次日关注",
-      "phaseKey": "evening_watch",
-      "events": [
-        {
-          "type": "buy_plan",
-          "summary": "当前没有符合资金和风控约束的新计划"
-        }
-      ]
     }
   ],
   "pendingBuyOrders": [
     {
-      "id": "000538-2026-11-13T21:38:08+08:00|2026-11-13|20点次日关注",
+      "id": "000538-2026-11-13T23:12:56+08:00|2026-11-13|23:10隔夜外盘复核",
       "code": "000538",
       "name": "云南白药",
       "status": "pending",
       "signalDate": "2026-11-13",
-      "signalPhase": "evening_watch",
-      "createdRunKey": "2026-11-13T21:38:08+08:00|2026-11-13|20点次日关注",
+      "signalPhase": "overnight_watch",
+      "createdRunKey": "2026-11-13T23:12:56+08:00|2026-11-13|23:10隔夜外盘复核",
       "plannedExecutionPhase": "morning_entry",
       "validUntilDate": "2026-11-14",
-      "plannedEntryPrice": 53.3,
-      "maxBuyPrice": 53.88,
+      "plannedEntryPrice": 53.25,
+      "maxBuyPrice": 53.82,
       "noChasePrice": 59.24,
       "score": 7.7,
       "buySignalKey": "wait",
@@ -2543,13 +2543,13 @@
       "trendTradeEligible": true,
       "trendLabel": "上涨趋势",
       "marketFundHeatLabel": "资金平稳",
-      "globalMarketLabel": "外盘中性",
-      "contextPositionMultiplier": 0.976,
+      "globalMarketLabel": "外盘偏弱",
+      "contextPositionMultiplier": 0.852,
       "feedbackPositionMultiplier": 1.0,
       "feedbackEvidenceLevel": "strong",
       "entryEvidenceLevel": "insufficient",
       "planType": "watch",
-      "targetPositionPct": 0.0976,
+      "targetPositionPct": 0.0852,
       "reason": "观察计划，尚未升级为可执行买入信号",
       "cancelReason": "",
       "executedAt": "",
@@ -3566,6 +3566,24 @@
     }
   },
   "decisionJournal": [
+    {
+      "id": "buy_plan_created-000538-2026-11-13T23:12:56+08:00",
+      "at": "2026-11-13T23:12:56+08:00",
+      "tradeDate": "2026-11-13",
+      "phase": "23:10隔夜外盘复核",
+      "phaseKey": "overnight_watch",
+      "type": "buy_plan_created",
+      "status": "pending",
+      "code": "000538",
+      "name": "云南白药",
+      "summary": "生成观察计划",
+      "reason": "观察计划，尚未升级为可执行买入信号",
+      "plannedEntryPrice": 53.25,
+      "maxBuyPrice": 53.82,
+      "noChasePrice": 59.24,
+      "validUntilDate": "2026-11-14",
+      "score": 7.7
+    },
     {
       "id": "buy_plan_created-000333-2026-11-13T21:38:08+08:00",
       "at": "2026-11-13T21:38:08+08:00",
@@ -5293,24 +5311,6 @@
       "noChasePrice": 17.32,
       "validUntilDate": "2026-11-10",
       "score": 8.4
-    },
-    {
-      "id": "buy_plan_created-603131-2026-11-09T23:13:23+08:00",
-      "at": "2026-11-09T23:13:23+08:00",
-      "tradeDate": "2026-11-09",
-      "phase": "23:10隔夜外盘复核",
-      "phaseKey": "overnight_watch",
-      "type": "buy_plan_created",
-      "status": "pending",
-      "code": "603131",
-      "name": "上海沪工",
-      "summary": "生成观察计划",
-      "reason": "观察计划，尚未升级为可执行买入信号",
-      "plannedEntryPrice": 14.56,
-      "maxBuyPrice": 14.66,
-      "noChasePrice": 20.48,
-      "validUntilDate": "2026-11-10",
-      "score": 8.5
     }
   ],
   "exitReviews": [
@@ -5334,11 +5334,11 @@
       "dailyPrices": {
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 60.22,
           "returnPct": -6.809,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5378,11 +5378,11 @@
       "dailyPrices": {
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 64.91,
           "returnPct": 4.056,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5446,11 +5446,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 16.8,
           "returnPct": -4.382,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5544,11 +5544,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 86.59,
           "returnPct": -0.836,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5648,11 +5648,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 20.75,
           "returnPct": -3.712,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5760,11 +5760,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 24.49,
           "returnPct": -1.21,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -5888,11 +5888,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 9.38,
           "returnPct": -0.106,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6016,11 +6016,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 58.95,
           "returnPct": -0.774,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6176,11 +6176,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 14.42,
           "returnPct": -2.568,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6392,11 +6392,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 34.11,
           "returnPct": -3.344,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6614,11 +6614,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 7.81,
           "returnPct": 3.034,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -6860,11 +6860,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 28.47,
           "returnPct": -14.735,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7114,11 +7114,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 4.66,
           "returnPct": -7.723,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7368,11 +7368,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 3.06,
           "returnPct": -24.444,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7662,11 +7662,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 6.76,
           "returnPct": -6.63,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -7970,11 +7970,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 37.5,
           "returnPct": -5.446,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8278,11 +8278,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 29.25,
           "returnPct": -43.804,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8610,11 +8610,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 37.64,
           "returnPct": -28.127,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -8942,11 +8942,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 6.73,
           "returnPct": -22.998,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -9330,11 +9330,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 26.38,
           "returnPct": -23.068,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -9734,11 +9734,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 42.93,
           "returnPct": 4.554,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -10138,11 +10138,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 53.8,
           "returnPct": -4.424,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -10542,11 +10542,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 47.42,
           "returnPct": 0.958,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -10970,11 +10970,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 26.38,
           "returnPct": -19.915,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -11398,11 +11398,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 4.69,
           "returnPct": -27.399,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -11834,11 +11834,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 22.93,
           "returnPct": 1.236,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -12278,11 +12278,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 26.38,
           "returnPct": -21.605,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -12730,11 +12730,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 47.42,
           "returnPct": 2.641,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -13206,11 +13206,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 19.23,
           "returnPct": -25.896,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -13682,11 +13682,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 26.38,
           "returnPct": -20.947,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -14222,11 +14222,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 26.38,
           "returnPct": -18.202,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -14842,11 +14842,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 34.11,
           "returnPct": -1.102,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -15494,11 +15494,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 4.69,
           "returnPct": -22.093,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -16146,11 +16146,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 10.5,
           "returnPct": -24.297,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -16798,11 +16798,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 40.1,
           "returnPct": -33.872,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -17474,11 +17474,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 23.26,
           "returnPct": -1.231,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -18166,11 +18166,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 55.22,
           "returnPct": 7.182,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -18866,11 +18866,11 @@
         },
         "2026-11-13": {
           "date": "2026-11-13",
-          "at": "2026-11-13T22:45:26+08:00",
+          "at": "2026-11-13T23:12:56+08:00",
           "price": 26.38,
           "returnPct": -9.935,
-          "phase": "evening_watch",
-          "finalized": true
+          "phase": "overnight_watch",
+          "finalized": false
         }
       },
       "milestones": {
@@ -19148,8 +19148,8 @@
     "maxHoldDays": 10
   },
   "diagnostics": {
-    "snapshotsProcessed": 836,
-    "plansCreated": 1481,
+    "snapshotsProcessed": 837,
+    "plansCreated": 1482,
     "buyChecks": 1873,
     "buysExecuted": 39,
     "sellsExecuted": 38,
@@ -19166,7 +19166,7 @@
       "未满足上涨趋势门槛，取消旧买入计划": 7,
       "股票已调出最新池，取消旧买入计划": 232
     },
-    "lastRunAt": "2026-11-13T22:45:26+08:00",
-    "lastRunSummary": "当前没有符合资金和风控约束的新计划"
+    "lastRunAt": "2026-11-13T23:12:56+08:00",
+    "lastRunSummary": "更新云端计划1只：云南白药(watch)"
   }
 }
